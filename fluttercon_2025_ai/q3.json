@@ -1,0 +1,90 @@
+{
+  "source_file": "FlutterCon_2025_Roundtable_AI_Q3.pdf",
+  "extracted_at": "2025-09-14T06:45:35.363547",
+  "question": "Q3: AI Beyond Coding",
+  "sections": [
+    {
+      "model": "Architecture & System Design",
+      "prompt": "Raise your hand if you’ve used AI for architecture or project planning.",
+      "hint": "Examples: choosing state management, API design, splitting modules, drafting diagrams.",
+      "no_hands": [
+        "What planning tasks do you feel AI cannot do well today?",
+        "If you tested AI here, what would you want it to deliver—outline, diagram, or options to compare?",
+        "Do you think architecture is too context-heavy for AI right now?"
+      ],
+      "hands_up": [
+        "What kinds of architecture help has AI given you—designing flows, state management, backend choices?",
+        "Did it save time in early planning?",
+        "How much did you trust AI’s suggestions before checking them?",
+        "Has AI ever surprised you with a useful alternative design?"
+      ],
+      "follow_ups": [
+        "Does AI help more with big-picture work or small refactors?",
+        "Who has combined AI planning with peer reviews to validate ideas?"
+      ]
+    },
+    {
+      "model": "UI/UX & Design Thinking",
+      "prompt": "Raise your hand if you’ve used AI for UI or design work.",
+      "hint": "Examples: Figma AI, design-to-code tools, UI mockups, theme generators.",
+      "no_hands": [
+        "What stops you from trying AI for design—lack of trust, weak results, or cost?",
+        "If you gave it one job, what would you want first—color palette, wireframes, or accessibility checks?"
+      ],
+      "hands_up": [
+        "Which AI design tools did you try—Figma AI, code-to-design, or something else?",
+        "How well did AI output translate into Flutter widgets?",
+        "Did AI help speed up iterations with designers or product managers?",
+        "Was there a moment where AI design suggestions felt more like noise than help?"
+      ],
+      "follow_ups": [
+        "Who has used AI mockups directly in Flutter code?",
+        "Anyone discover an AI trick that made handoff with designers smoother?"
+      ]
+    },
+    {
+      "model": "Documentation & Knowledge Sharing",
+      "prompt": "Raise your hand if you’ve used AI to create or improve docs.",
+      "hint": "Examples: READMEs, inline comments, tutorials, auto-generated API docs.",
+      "no_hands": [
+        "What holds you back—fear of mistakes, style issues, or lack of time?",
+        "Which doc tasks do you think AI might actually do well?",
+        "If you tried it, what would success look like—clearer READMEs, or faster onboarding?"
+      ],
+      "hands_up": [
+        "What kind of docs did AI help you with—tutorials, API guides, inline comments?",
+        "Did AI make your docs clearer for beginners?",
+        "Any moments where AI created misleading or bloated explanations?",
+        "Did AI save time on routine updates (e.g., parameter lists)?"
+      ],
+      "follow_ups": [
+        "Who double-checks AI-generated docs before publishing?",
+        "Has AI helped translate or localize docs for wider reach?"
+      ]
+    },
+    {
+      "model": "Experimentation & Prototyping",
+      "prompt": "Raise your hand if you’ve used AI for fast prototypes or hackathons.",
+      "hint": "Examples: throwaway code, proof-of-concept apps, early demos.",
+      "no_hands": [
+        "What would keep you from using AI here—quality, speed, or setup time?",
+        "If you did use it, would you throw it away after demo, or refine it into real code?"
+      ],
+      "hands_up": [
+        "What’s the fastest prototype AI helped you create—minutes, hours?",
+        "Did AI make hackathons easier or just noisier?",
+        "Have you reused AI-generated code beyond the prototype stage?",
+        "What’s the biggest lesson learned about using AI for quick builds?"
+      ],
+      "follow_ups": [
+        "Did anyone build a prototype with AI that later grew into a real feature?",
+        "Has AI helped you test an idea faster than usual tools?"
+      ]
+    }
+  ],
+  "wrap_up": [
+    "Which non-coding use case gave you the biggest benefit?",
+    "Which one disappointed you most?",
+    "If you could improve one area—planning, design, docs, or prototyping—where would AI make the biggest difference?"
+  ]
+}

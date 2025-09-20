@@ -1,0 +1,98 @@
+{
+  "source_file": "FlutterCon_2025_Roundable_Monetization_Q1.pdf",
+  "extracted_at": "2025-09-14T06:27:57.444754",
+  "question": "Q1: Monetization Models",
+  "sections": [
+    {
+      "model": "Subscriptions",
+      "prompt": "Raise your hand if you’ve tried subscriptions.",
+      "hint": "Recurring revenue like Netflix or Spotify",
+      "no_hands": [
+        "What makes subscriptions feel like a poor fit for your apps?",
+        "What challenges do you imagine if you wanted to add them?",
+        "Which other model feels more natural for your users?"
+      ],
+      "hands_up": [
+        "Why do subscriptions fit your app category well?",
+        "How did you design your tiers or paywall?",
+        "What patterns did you notice in who subscribes and who doesn’t?",
+        "How do you handle cancellations or churn?",
+        "Looking back, what would you have done differently?"
+      ],
+      "follow_ups": [
+        "Did anyone expect subscriptions to perform better than they did?",
+        "Who has tested free trials or intro offers — how did that go?",
+        "What’s one trick about subscriptions that others here might not know?"
+      ]
+    },
+    {
+      "model": "One-time Purchases",
+      "prompt": "Raise your hand if you’ve used one-time purchases.",
+      "hint": "Pay once for lifetime access or to unlock a feature",
+      "no_hands": [
+        "Why do you think one-time purchases aren’t common in your apps?",
+        "What kind of app do you think they work best for?",
+        "If you tried one, what feature would you sell?"
+      ],
+      "hands_up": [
+        "Why did you choose this model?",
+        "How did users respond to it?",
+        "What was the biggest upside?",
+        "What was the hardest trade-off?"
+      ],
+      "follow_ups": [
+        "Has anyone moved away from one-time purchases? Why?",
+        "Did anyone find them more effective than subscriptions?",
+        "Who has a creative way of packaging them that worked well?"
+      ]
+    },
+    {
+      "model": "Ads",
+      "prompt": "Raise your hand if you’ve integrated ads.",
+      "hint": "Banners, interstitials, rewarded ads",
+      "no_hands": [
+        "Why do ads not feel like the right fit?",
+        "What would make you consider adding them?",
+        "Which categories do you think ads work best in?"
+      ],
+      "hands_up": [
+        "Which ad formats worked best?",
+        "How did your users react?",
+        "Did ads change your retention or engagement?",
+        "What’s one lesson you learned about balancing ads with UX?"
+      ],
+      "follow_ups": [
+        "Has anyone removed ads after trying them?",
+        "Did anyone see ads outperform other models?",
+        "Who has a tip for balancing ads with good UX?"
+      ]
+    },
+    {
+      "model": "Hybrid Models",
+      "prompt": "Raise your hand if you’ve tried hybrid models.",
+      "hint": "Free users see ads, premium users subscribe",
+      "no_hands": [
+        "Why do you think hybrids aren’t common in your apps?",
+        "If you were to design one, which combination would you try?",
+        "Where do you think hybrids could add value?"
+      ],
+      "hands_up": [
+        "What mix did you use, and why?",
+        "How did mixing models affect UX and retention?",
+        "Did hybrids boost revenue or just add complexity?",
+        "What advice would you give for trying a hybrid?"
+      ],
+      "follow_ups": [
+        "Has anyone gone back to a single model?",
+        "Did hybrids work better or worse for retention?",
+        "Who has a unique combo others might not have considered?"
+      ]
+    }
+  ],
+  "wrap_up": [
+    "If you had to pick one model for your next app, which would you choose and why?",
+    "Who has changed models after launch? Why?",
+    "What’s the biggest trade-off you’ve seen between monetization and UX?",
+    "What do you wish you’d known before trying your first monetization experiment?"
+  ]
+}

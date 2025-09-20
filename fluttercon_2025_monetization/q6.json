@@ -1,0 +1,86 @@
+{
+  "source_file": "FlutterCon_2025_Roundable_Monetization_Q6.pdf",
+  "extracted_at": "2025-09-14T06:35:25.346529",
+  "question": "Q6: Bonus Questions",
+  "sections": [
+    {
+      "model": "Failed Experiments",
+      "prompt": "Raise your hand if you’ve ever stopped a monetization experiment because it didn’t work.",
+      "hint": "A model, tool, or test you tried and later removed",
+      "no_hands": [
+        "Why do you think many of us avoid experiments?",
+        "If you had to try something bold, what would you test first?",
+        "What would make it easier for you to experiment?"
+      ],
+      "hands_up": [
+        "What did you test and stop, and why?",
+        "What did you learn from ending it?",
+        "Did you replace it with something that worked better?"
+      ],
+      "follow_ups": [
+        "Who had the reverse experience — an experiment that succeeded unexpectedly?",
+        "Who tried a very small change that made a big difference?"
+      ]
+    },
+    {
+      "model": "Biggest Lessons",
+      "prompt": "Raise your hand if you’ve learned a big lesson about monetization the hard way.",
+      "hint": "Something you would warn others about — technical, business, or user-related",
+      "no_hands": [
+        "What do you expect will be the hardest part of monetization for you?",
+        "What advice would you want to hear from someone experienced?"
+      ],
+      "hands_up": [
+        "What lesson did you learn the hard way?",
+        "How did it change how you design apps?",
+        "What would you warn newcomers about?"
+      ],
+      "follow_ups": [
+        "Who else faced the same thing?",
+        "Who has a very different lesson worth sharing?"
+      ]
+    },
+    {
+      "model": "Future of Monetization",
+      "prompt": "Raise your hand if you believe app monetization will look very different in the next 5 years.",
+      "hint": "For example AI-driven, new store rules, or new payment methods",
+      "no_hands": [
+        "Why do you think monetization will stay mostly the same?",
+        "What makes current models strong?"
+      ],
+      "hands_up": [
+        "What changes do you expect in the next few years?",
+        "How are you preparing for those changes?",
+        "What new tools or models interest you most?"
+      ],
+      "follow_ups": [
+        "Who disagrees and thinks nothing much will change?",
+        "Who has a bold prediction to share?"
+      ]
+    },
+    {
+      "model": "Monetization in the Age of AI",
+      "prompt": "Raise your hand if you use AI tools — for example, coding assistants like Copilot, or AI features in your app.",
+      "hint": "Tools that help write code, or personalize the user experience",
+      "no_hands": [
+        "Why haven’t you used AI yet — too early, too costly, or not useful?",
+        "If you could, what part of monetization would you want AI to improve?"
+      ],
+      "hands_up": [
+        "How has AI changed how you build or monetize apps?",
+        "Did it help you move faster or add new models?",
+        "What challenges came with AI tools?"
+      ],
+      "follow_ups": [
+        "Has anyone seen AI create new costs that hurt monetization?",
+        "Who believes AI will open up completely new revenue models?",
+        "What’s one AI idea you’d love to test?"
+      ]
+    }
+  ],
+  "wrap_up": [
+    "What’s the single best monetization tip you’ve ever heard?",
+    "If you had to give one piece of advice to a new Flutter dev, what would it be?",
+    "What matters more: the model you choose, or how you execute it?"
+  ]
+}

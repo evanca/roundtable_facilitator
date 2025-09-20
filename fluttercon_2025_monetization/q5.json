@@ -1,0 +1,74 @@
+{
+  "source_file": "FlutterCon_2025_Roundable_Monetization_Q5.pdf",
+  "extracted_at": "2025-09-14T06:35:25.346428",
+  "question": "Q5: User Experience vs Monetization",
+  "sections": [
+    {
+      "model": "Free Trials",
+      "prompt": "Raise your hand if you’ve tested free trials.",
+      "hint": "Giving premium features for a few days before asking the user to pay",
+      "no_hands": [
+        "What keeps you from trying free trials?",
+        "Do you think they wouldn’t fit your app, or just too complex to set up?",
+        "If you added one tomorrow, how long would you make it?"
+      ],
+      "hands_up": [
+        "How did users respond to the trial?",
+        "What patterns did you see in conversions or cancellations?",
+        "What length worked best?",
+        "What problems came up (abuse, tech issues)?"
+      ],
+      "follow_ups": [
+        "Did anyone see trials harm the app instead of help?",
+        "Who tested different lengths, and what did you learn?",
+        "What’s one tip to improve trial conversions?"
+      ]
+    },
+    {
+      "model": "Paywalls & A/B Testing",
+      "prompt": "Raise your hand if you’ve done A/B testing on paywalls.",
+      "hint": "Comparing two versions of your pricing or upgrade screen",
+      "no_hands": [
+        "Why haven’t you tested paywalls — too few users, or tools too complex?",
+        "If you could test one change tomorrow, what would it be?"
+      ],
+      "hands_up": [
+        "What did you test, and what happened?",
+        "What surprised you about user reactions?",
+        "What was your most effective change?",
+        "What changes didn’t matter at all?"
+      ],
+      "follow_ups": [
+        "Who got unexpected results from a very small tweak?",
+        "Who thinks testing paywalls isn’t worth the effort?",
+        "What’s one paywall design trick that works for you?"
+      ]
+    },
+    {
+      "model": "Upgrade Reminders & Discounts",
+      "prompt": "Raise your hand if you’ve tried upgrade reminders or discounts.",
+      "hint": "Popups, banners, or limited-time offers that encourage users to upgrade or buy",
+      "no_hands": [
+        "Why don’t reminders or discounts make sense for your apps?",
+        "Do you worry they harm user experience?"
+      ],
+      "hands_up": [
+        "What kind of reminder or discount did you test?",
+        "How did users react?",
+        "Did it boost conversions or only short-term results?",
+        "What was hardest about timing or design?"
+      ],
+      "follow_ups": [
+        "Did anyone remove reminders because users disliked them?",
+        "Who saw strong results in one region but not another?",
+        "What balance works between offers and UX?"
+      ]
+    }
+  ],
+  "wrap_up": [
+    "Where do you draw the line between good UX and monetization?",
+    "What monetization design improved UX instead of hurting it?",
+    "What design hurt retention even if it looked good?",
+    "What’s one rule you’d give new Flutter devs about UX + monetization?"
+  ]
+}

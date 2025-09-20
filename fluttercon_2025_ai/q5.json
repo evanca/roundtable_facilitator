@@ -1,0 +1,92 @@
+{
+  "source_file": "FlutterCon_2025_Roundtable_AI_Q5.pdf",
+  "extracted_at": "2025-09-14T06:47:15.197247",
+  "question": "Q5: Staying Current Without Tool Fatigue",
+  "sections": [
+    {
+      "model": "Managing Tool Overload",
+      "prompt": "Raise your hand if you already feel there are too many AI tools to follow.",
+      "hint": "Examples: IDE assistants, chatbots, design helpers, CLI agents, plugins.",
+      "no_hands": [
+        "Do you think 'too many tools' is a myth—more choice is better?",
+        "If you had to pick one, what would you look for—accuracy, speed, or integration?",
+        "Where do you draw the line between exploring and ignoring?"
+      ],
+      "hands_up": [
+        "How many tools do you actively use today?",
+        "Which ones became daily habits, and which ones faded fast?",
+        "How do you decide when to uninstall or drop a tool?",
+        "Any strategies that kept your workflow clean and not bloated?"
+      ],
+      "follow_ups": [
+        "Anyone run into conflicts from juggling multiple assistants?",
+        "Who has a trick to test new tools quickly without wasting weeks?"
+      ]
+    },
+    {
+      "model": "Evaluating Hype vs. Real Value",
+      "prompt": "Raise your hand if you’ve ever tried a tool that sounded amazing but didn’t deliver.",
+      "hint": "Examples: flashy launches, big claims, weak results.",
+      "no_hands": [
+        "How do you spot hype before spending time on a tool?",
+        "What would convince you a tool is worth your attention?",
+        "Is it safer to wait for peers to test first?"
+      ],
+      "hands_up": [
+        "Which tools looked great on paper but failed in real Flutter work?",
+        "What early warning signs helped you realize it wasn’t worth it?",
+        "Has any hyped tool actually lived up to the promise?",
+        "What’s your checklist before keeping a tool long-term?"
+      ],
+      "follow_ups": [
+        "Does anyone rely on benchmarks, blogs, or peer reviews before adopting?",
+        "Who has a story of hype turning into a keeper after updates?"
+      ]
+    },
+    {
+      "model": "Stability vs. Exploration",
+      "prompt": "Raise your hand if your team has a rule about how many tools to explore at once.",
+      "hint": "Examples: balance between stable workflow and trying new assistants.",
+      "no_hands": [
+        "What risks do you see if you never explore new tools?",
+        "What risks if you explore too much?",
+        "How could you keep curiosity without chaos?"
+      ],
+      "hands_up": [
+        "How does your team decide when to freeze on a set of tools?",
+        "What’s the balance—e.g., stable base tools + one experimental slot?",
+        "Has this balance changed over the past year?",
+        "Any examples where too much experimentation slowed your velocity?"
+      ],
+      "follow_ups": [
+        "Who uses trial periods for new tools before wider adoption?",
+        "Anyone rotate 'tool scouts' in the team to test on behalf of others?"
+      ]
+    },
+    {
+      "model": "Signals & Community Wisdom",
+      "prompt": "Raise your hand if you rely on community signals before picking a tool.",
+      "hint": "Examples: blogs, podcasts, conference talks, GitHub stars, peer chats.",
+      "no_hands": [
+        "Do you trust community hype cycles, or prefer to evaluate yourself?",
+        "Which sources would you trust most for Flutter + AI news?",
+        "What signal tells you to ignore a tool completely?"
+      ],
+      "hands_up": [
+        "Which communities or voices helped you choose well?",
+        "What’s the most reliable signal that a tool is real value, not just hype?",
+        "Any peers or networks that became your 'filters'?",
+        "Has a conference or meetup ever changed your tool choices?"
+      ],
+      "follow_ups": [
+        "Who has a Slack/Discord/Reddit thread that’s their go-to radar?",
+        "Anyone here tried tools only because of Flutter community buzz?"
+      ]
+    }
+  ],
+  "wrap_up": [
+    "If you had to bet on one AI tool or approach that will last 5 years, what would it be?",
+    "What’s one sign you now watch for to avoid tool fatigue?",
+    "If you could give one practical tip to peers on keeping sane while exploring AI tools, what would it be?"
+  ]
+}

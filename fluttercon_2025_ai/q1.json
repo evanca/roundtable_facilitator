@@ -1,0 +1,96 @@
+{
+  "source_file": "FlutterCon_2025_Roundtable_AI_Q1.pdf",
+  "extracted_at": "2025-09-14T06:45:35.363339",
+  "question": "Q1: AI Tools in Use",
+  "sections": [
+    {
+      "model": "Gemini",
+      "prompt": "Raise your hand if you’ve tried Gemini (Code Assist, Studio, or CLI).",
+      "hint": "Google’s AI assistant, integrated into Android Studio, Firebase, and Flutter AI Toolkit",
+      "no_hands": [
+        "What has held you back from trying Gemini?",
+        "Do you feel other tools already cover your needs?",
+        "If you were to try it, what task would you start with?"
+      ],
+      "hands_up": [
+        "What do you mainly use Gemini for — code, debugging, planning, or something else?",
+        "How smooth has the IDE or CLI experience been for you?",
+        "What’s one feature that stood out, positively or negatively?",
+        "Have you run into limits with context size, speed, or accuracy?"
+      ],
+      "follow_ups": [
+        "Did Gemini noticeably speed up your Flutter work?",
+        "Has anyone used Gemini together with Firebase or Flutter AI Toolkit?",
+        "What’s one tip that helps you get better results with Gemini?"
+      ]
+    },
+    {
+      "model": "Cursor",
+      "prompt": "Raise your hand if you’ve used Cursor.",
+      "hint": "AI-first IDE with Bugbot, agent mode, and repo-wide context",
+      "no_hands": [
+        "What has held you back from giving Cursor a try?",
+        "Do you feel comfortable with your current IDE setup?",
+        "What would make you consider testing it?"
+      ],
+      "hands_up": [
+        "How does Cursor feel compared to Copilot, Gemini, or other assistants?",
+        "Have you tried Bugbot or agent mode — how did that go?",
+        "How well does Cursor handle Flutter projects in your experience?",
+        "What’s the biggest benefit — and biggest challenge — of using it?"
+      ],
+      "follow_ups": [
+        "Did anyone try Cursor and then return to another IDE — why?",
+        "Has anyone used Cursor alongside other AI tools?",
+        "Who has a trick that makes Cursor work especially well for Flutter?"
+      ]
+    },
+    {
+      "model": "Claude Code",
+      "prompt": "Raise your hand if you’ve used Claude Code.",
+      "hint": "Terminal-based tool for repo-wide edits, code exploration, docs, and external data via MCP servers",
+      "no_hands": [
+        "What made you hesitate to try Claude Code?",
+        "Do you prefer graphical tools over terminal-based ones?",
+        "If you were to try it, would you start with code editing, docs, or connecting external data (via MCP)?"
+      ],
+      "hands_up": [
+        "How do you mainly use Claude Code — CLI, IDE integration, or with MCP for external contexts?",
+        "What does Claude do better than other assistants you’ve tried?",
+        "Has anyone used it on a whole Flutter repo — how did that go?",
+        "What issues have you run into (accuracy, speed, setup)?"
+      ],
+      "follow_ups": [
+        "Has anyone used Claude for docs, design, or planning instead of just code?",
+        "Did Claude ever influence how you structure your project?",
+        "Who has a “hidden gem” feature or workflow in Claude to share?"
+      ]
+    },
+    {
+      "model": "Copilot & Other Tools",
+      "prompt": "Raise your hand if you’ve tried Copilot or other tools (e.g., Firebase Studio AI, Amazon Q).",
+      "hint": "GitHub Copilot and alternative assistants",
+      "no_hands": [
+        "What factors led you to not try Copilot or similar tools yet?",
+        "Do you feel they’re too basic, too costly, or simply not needed?",
+        "If you were to try one, which task would you want it to handle first?"
+      ],
+      "hands_up": [
+        "How does Copilot compare to newer tools like Gemini or Cursor in your work?",
+        "Did you use it daily, or more occasionally?",
+        "What was the biggest productivity boost you noticed?",
+        "Any concerns with quality, trust, or integration in Flutter projects?"
+      ],
+      "follow_ups": [
+        "Has anyone replaced Copilot with another tool?",
+        "Did Copilot integrate well into your Flutter workflow?",
+        "Who here is still using multiple AI tools side by side?"
+      ]
+    }
+  ],
+  "wrap_up": [
+    "If you had to recommend one AI tool for Flutter devs here, which would it be and why?",
+    "If you had to warn against one, which would it be and why?",
+    "What’s the biggest surprise you’ve had when experimenting with AI assistants?"
+  ]
+}

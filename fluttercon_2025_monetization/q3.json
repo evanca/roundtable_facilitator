@@ -1,0 +1,75 @@
+{
+  "source_file": "FlutterCon_2025_Roundable_Monetization_Q3.pdf",
+  "extracted_at": "2025-09-14T06:34:13.567067",
+  "question": "Q3: Pricing Strategy",
+  "sections": [
+    {
+      "model": "Localized Pricing",
+      "prompt": "Raise your hand if you use localized pricing in your app.",
+      "hint": "Different prices by country, for example cheaper in India, higher in the US",
+      "no_hands": [
+        "What held you back from adjusting prices across countries?",
+        "Do you see it as too complex, or not valuable for your users?",
+        "If you had to try, which region would you focus on first?"
+      ],
+      "hands_up": [
+        "Did you stick with the App Store/Play Store defaults, or customize them?",
+        "How do you decide what’s fair in each market?",
+        "What feedback have you received from lower-price regions?",
+        "What’s the hardest part about keeping prices updated?"
+      ],
+      "follow_ups": [
+        "Who saw localization clearly improve or hurt revenue?",
+        "Who gave up on localization — why?",
+        "What’s one simple way you manage localization without too much hassle?"
+      ]
+    },
+    {
+      "model": "Flat Global Pricing",
+      "prompt": "Raise your hand if you use a flat global price.",
+      "hint": "Same price everywhere",
+      "no_hands": [
+        "Why do you think nobody here set one global price?",
+        "Do you see it as unfair in some markets?",
+        "If you had to set a single global price, what number would you choose and why?"
+      ],
+      "hands_up": [
+        "What made you go with one price for everyone?",
+        "How did users from different regions respond?",
+        "What benefits came from the simplicity?",
+        "What problems came from ignoring regional differences?"
+      ],
+      "follow_ups": [
+        "Who switched away from flat pricing, and what pushed you to?",
+        "Who believes flat pricing is still the best option?",
+        "What is the strongest case against keeping prices flat?"
+      ]
+    },
+    {
+      "model": "Other Pricing Models",
+      "prompt": "Raise your hand if you’ve tried other pricing models, like freemium tiers, discounts, or flexible pricing.",
+      "hint": "Free basic app, but you pay for extra features or upgrades",
+      "no_hands": [
+        "Why don’t models like freemium or discounts feel useful for your app?",
+        "If you had to test one tomorrow, which would you choose and why?"
+      ],
+      "hands_up": [
+        "What kind of model did you try — freemium, discount, something else?",
+        "How did users react?",
+        "What worked surprisingly well?",
+        "What was time-consuming or frustrating?"
+      ],
+      "follow_ups": [
+        "Who found freemium more effective than subscriptions or one-time?",
+        "Did anyone test discounts that worked short-term but not long-term?",
+        "Who has tried an unusual pricing experiment?"
+      ]
+    }
+  ],
+  "wrap_up": [
+    "If you were launching tomorrow, how would you set your first price?",
+    "What pricing mistake would you not repeat?",
+    "What tip worked well across countries?",
+    "Is pricing more about psychology (how it feels) or economics (what people can pay)?"
+  ]
+}

@@ -1,0 +1,1145 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FlutterCon 2025 Roundtable Facilitator</title>
+    <style>
+        :root{ --bg:#0b1220; --card:#121a2b; --ink:#e6edf6; --line:#7087b7; --node:#0f1a33; --border:#22304a; --yes:#3bc07b; --no:#ff8a8a; --accent:#a8c1ff; }
+        body { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; margin: 0; background: var(--bg); color: var(--ink); }
+        .wrap { max-width: 1200px; margin: 24px auto; padding: 16px; }
+        h1 { font-size: 20px; margin: 0 0 12px; font-weight: 700; }
+        .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 12px; box-shadow: 0 8px 24px rgba(0,0,0,.25); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+        .nodeBox { cursor: pointer; border:1px solid #2a3a5f; border-radius: 12px; background: #0f1a33; padding: 10px 12px; position: relative; }
+        .nodeBox:hover { outline: 2px solid #2a437a; }
+        .nodeTitle { font-size: 13px; color: var(--accent); margin-bottom: 6px; font-weight: 700; }
+        .chip { display:inline-block; padding:2px 8px; border-radius: 999px; font-size: 12px; border:1px solid var(--border); background:#0f1a33; color:#cfe1ff; margin-left: 6px; }
+        .hint { font-size: 12.5px; color: #d7e3ff; opacity:.9 }
+        .pill { padding: 2px 8px; border-radius: 999px; border:1px solid var(--border); font-size: 12px; }
+        .pill.yes { color:#bdf6d2; border-color:#255b40; background:#0e2a1d; }
+        .pill.no { color:#ffd6d6; border-color:#5b2525; background:#2a0e0e; }
+
+        .details { display: none; background: #0f1a33; border: 1px solid #3a5599; border-radius: 10px; padding: 10px 12px; margin: 8px 0 4px; font-size: 13px; }
+        .details.visible { display: block; }
+        .details h3 { margin:0 0 4px; font-size:14px; color:#dbe7ff; }
+        .details small { color:#9fb6d9; }
+        .details ul { margin:6px 0 0 18px; }
+        .details.hands-up { background: #0e2a1d; border-color: #255b40; }
+        .details.no-hands { background: #2a0e0e; border-color: #5b2525; }
+        .sectionTitle{ margin-top: 10px; font-size:14px; color:#bcd0ff; font-weight:700 }
+
+        /* New prompt and response structure */
+        .prompt-section { margin-bottom: 12px; }
+        .prompt-text { 
+            font-size: 16px; 
+            color: var(--ink); 
+            margin-bottom: 12px; 
+            font-weight: 500;
+            line-height: 1.4;
+        }
+        .response-options { 
+            display: flex; 
+            gap: 12px; 
+            justify-content: center;
+        }
+        .response-btn { 
+            background: var(--card); 
+            border: 2px solid var(--border); 
+            border-radius: 8px; 
+            padding: 12px 20px; 
+            cursor: pointer; 
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 120px;
+        }
+        .response-btn:hover { 
+            border-color: var(--accent); 
+            background: var(--node); 
+            transform: translateY(-1px);
+        }
+        .response-btn:active { 
+            transform: translateY(0);
+        }
+        .tab-bar { display: flex; margin-bottom: 20px; gap: 5px; }
+        .tab-button { background: var(--card); color: var(--ink); border: 1px solid var(--border); padding: 10px 20px; cursor: pointer; border-radius: 5px 5px 0 0; }
+        .tab-button.active { background: var(--node); border-bottom-color: var(--node); }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+        /* Question Navigation Styles */
+        .question-nav { margin-bottom: 20px; }
+        .question-list { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+        .question-item { 
+            background: var(--card); 
+            border: 1px solid var(--border); 
+            padding: 8px 12px; 
+            border-radius: 6px; 
+            cursor: pointer; 
+            font-size: 14px;
+            transition: all 0.2s ease;
+            color: var(--ink);
+        }
+        .question-item:hover { 
+            border-color: var(--accent); 
+            background: var(--node); 
+        }
+        .question-item.active { 
+            background: var(--accent); 
+            color: #0b1220; 
+            border-color: var(--accent); 
+            font-weight: 600; 
+        }
+
+        /* Topic Selection Styles */
+        .topic-selection { text-align: center; padding: 40px 0; }
+        .topic-buttons { display: flex; gap: 20px; justify-content: center; margin-top: 30px; flex-wrap: wrap; }
+        .topic-button { 
+            background: var(--card); 
+            border: 2px solid var(--border); 
+            color: var(--ink); 
+            padding: 20px 40px; 
+            border-radius: 12px; 
+            cursor: pointer; 
+            font-size: 18px; 
+            font-weight: 600;
+            transition: all 0.3s ease;
+            min-width: 200px;
+        }
+        .topic-button:hover { 
+            border-color: var(--accent); 
+            background: var(--node); 
+        }
+
+        .hidden { display: none !important; }
+        
+        .loading { text-align: center; padding: 40px; color: var(--accent); }
+    </style>
+    <script>
+        let currentTopic = null;
+        let questionsData = {};
+
+        const embeddedData = {
+          "ai": {
+                    "q1": {
+                              "sections": [
+                                        {
+                                                  "title": "Gemini",
+                                                  "prompt": "Raise your hand if you’ve tried Gemini (Code Assist, Studio, or CLI).",
+                                                  "hints": "Google’s AI assistant, integrated into Android Studio, Firebase, and Flutter AI Toolkit",
+                                                  "no_hands": [
+                                                            "What has held you back from trying Gemini?",
+                                                            "Do you feel other tools already cover your needs?",
+                                                            "If you were to try it, what task would you start with?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "What do you mainly use Gemini for — code, debugging, planning, or something else?",
+                                                            "How smooth has the IDE or CLI experience been for you?",
+                                                            "What’s one feature that stood out, positively or negatively?",
+                                                            "Have you run into limits with context size, speed, or accuracy?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Cursor",
+                                                  "prompt": "Raise your hand if you’ve used Cursor.",
+                                                  "hints": "AI-first IDE with Bugbot, agent mode, and repo-wide context",
+                                                  "no_hands": [
+                                                            "What has held you back from giving Cursor a try?",
+                                                            "Do you feel comfortable with your current IDE setup?",
+                                                            "What would make you consider testing it?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "How does Cursor feel compared to Copilot, Gemini, or other assistants?",
+                                                            "Have you tried Bugbot or agent mode — how did that go?",
+                                                            "How well does Cursor handle Flutter projects in your experience?",
+                                                            "What’s the biggest benefit — and biggest challenge — of using it?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Claude Code",
+                                                  "prompt": "Raise your hand if you’ve used Claude Code.",
+                                                  "hints": "Terminal-based tool for repo-wide edits, code exploration, docs, and external data via MCP servers",
+                                                  "no_hands": [
+                                                            "What made you hesitate to try Claude Code?",
+                                                            "Do you prefer graphical tools over terminal-based ones?",
+                                                            "If you were to try it, would you start with code editing, docs, or connecting external data (via MCP)?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "How do you mainly use Claude Code — CLI, IDE integration, or with MCP for external contexts?",
+                                                            "What does Claude do better than other assistants you’ve tried?",
+                                                            "Has anyone used it on a whole Flutter repo — how did that go?",
+                                                            "What issues have you run into (accuracy, speed, setup)?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Copilot & Other Tools",
+                                                  "prompt": "Raise your hand if you’ve tried Copilot or other tools (e.g., Firebase Studio AI, Amazon Q).",
+                                                  "hints": "GitHub Copilot and alternative assistants",
+                                                  "no_hands": [
+                                                            "What factors led you to not try Copilot or similar tools yet?",
+                                                            "Do you feel they’re too basic, too costly, or simply not needed?",
+                                                            "If you were to try one, which task would you want it to handle first?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "How does Copilot compare to newer tools like Gemini or Cursor in your work?",
+                                                            "Did you use it daily, or more occasionally?",
+                                                            "What was the biggest productivity boost you noticed?",
+                                                            "Any concerns with quality, trust, or integration in Flutter projects?"
+                                                  ]
+                                        }
+                              ],
+                              "wrap_up": [
+                                        "If you had to recommend one AI tool for Flutter devs here, which would it be and why?",
+                                        "If you had to warn against one, which would it be and why?",
+                                        "What’s the biggest surprise you’ve had when experimenting with AI assistants?"
+                              ]
+                    },
+                    "q2": {
+                              "sections": [
+                                        {
+                                                  "title": "Where AI Fits in Your Dev Loop",
+                                                  "prompt": "Raise your hand if your team has mapped where AI does and doesn’t fit (plan → code → review → test → release).",
+                                                  "hints": "Examples: drafting code/tests, refactors, docs, exploratory design; places to avoid: security-critical code, payment flows.",
+                                                  "no_hands": [
+                                                            "If you started small, what’s the safest first step (e.g., tests, docs, boilerplate)?",
+                                                            "Which parts of Flutter work feel too risky or fiddly for AI right now?",
+                                                            "What signal would tell you it’s time to expand AI’s role?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "Walk us through your loop—where AI sits, and where it’s off-limits.",
+                                                            "How do you keep flow without letting AI over-edit?",
+                                                            "Any roles AI performs better than humans (and vice versa)?",
+                                                            "What changed in your PR size/shape when AI joined the loop?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Safeguards & Validation",
+                                                  "prompt": "Raise your hand if you use explicit safeguards for AI-suggested code.",
+                                                  "hints": "Examples: tests before merges, static analysis, duplication checks, mandatory reviews.",
+                                                  "no_hands": [
+                                                            "Which one or two guardrails would give you 80% of the safety with minimal overhead?",
+                                                            "How could you start measuring the rework/debug time from AI output?",
+                                                            "Who needs to sign off before shipping AI-touched code?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "What guardrails actually catch the most issues (tests, SAST, type checks, canary releases)?",
+                                                            "Do you require a human reviewer for all AI-touched files?",
+                                                            "How do you document AI involvement (PR labels, commit trailers)?",
+                                                            "Have you tuned prompts/checklists to reduce false positives?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Skills, Learning, and Avoiding Over-Reliance",
+                                                  "prompt": "Raise your hand if you have guidance for juniors and seniors on when to lean on AI.",
+                                                  "hints": "Examples: learning goals, task selection, pairing patterns, code reading first, prompt hygiene.",
+                                                  "no_hands": [
+                                                            "What would a simple growth-first policy look like for juniors using AI?",
+                                                            "How do you keep architectural thinking sharp when AI drafts code?",
+                                                            "What practice helps you verify AI output quickly (reading diffs, micro-benchmarks)?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "How do seniors use AI without hollowing out review quality?",
+                                                            "What tasks do juniors do without AI to build fundamentals?",
+                                                            "Favorite prompt patterns that teach—not just paste code?",
+                                                            "Any evidence your team’s quality improved, not just speed?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Team Norms, Clients, and Production Expectations",
+                                                  "prompt": "Raise your hand if you have a written policy for AI in client or production work.",
+                                                  "hints": "Examples: privacy, data handling, attribution, model choice, incident response.",
+                                                  "no_hands": [
+                                                            "What minimum policy would make clients comfortable (two or three clear rules)?",
+                                                            "Where would you state it—SOW, README, CONTRIBUTING, or CI checks?",
+                                                            "How do you handle third-party code or license questions from AI output?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "What’s in your policy—where AI is allowed, reviewer requirements, secrets handling?",
+                                                            "Any client conversations that changed your boundaries?",
+                                                            "How do you log/trace AI involvement for accountability?",
+                                                            "Did your policy reduce regressions or review time?"
+                                                  ]
+                                        }
+                              ],
+                              "wrap_up": [
+                                        "Share one golden rule you use to keep quality high with AI in the loop.",
+                                        "One scenario where you deliberately turn AI off—what’s the tell?",
+                                        "A change you’ll try next sprint (guardrail, checklist, or workflow tweak)."
+                              ]
+                    },
+                    "q3": {
+                              "sections": [
+                                        {
+                                                  "title": "Architecture & System Design",
+                                                  "prompt": "Raise your hand if you’ve used AI for architecture or project planning.",
+                                                  "hints": "Examples: choosing state management, API design, splitting modules, drafting diagrams.",
+                                                  "no_hands": [
+                                                            "What planning tasks do you feel AI cannot do well today?",
+                                                            "If you tested AI here, what would you want it to deliver—outline, diagram, or options to compare?",
+                                                            "Do you think architecture is too context-heavy for AI right now?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "What kinds of architecture help has AI given you—designing flows, state management, backend choices?",
+                                                            "Did it save time in early planning?",
+                                                            "How much did you trust AI’s suggestions before checking them?",
+                                                            "Has AI ever surprised you with a useful alternative design?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "UI/UX & Design Thinking",
+                                                  "prompt": "Raise your hand if you’ve used AI for UI or design work.",
+                                                  "hints": "Examples: Figma AI, design-to-code tools, UI mockups, theme generators.",
+                                                  "no_hands": [
+                                                            "What stops you from trying AI for design—lack of trust, weak results, or cost?",
+                                                            "If you gave it one job, what would you want first—color palette, wireframes, or accessibility checks?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "Which AI design tools did you try—Figma AI, code-to-design, or something else?",
+                                                            "How well did AI output translate into Flutter widgets?",
+                                                            "Did AI help speed up iterations with designers or product managers?",
+                                                            "Was there a moment where AI design suggestions felt more like noise than help?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Documentation & Knowledge Sharing",
+                                                  "prompt": "Raise your hand if you’ve used AI to create or improve docs.",
+                                                  "hints": "Examples: READMEs, inline comments, tutorials, auto-generated API docs.",
+                                                  "no_hands": [
+                                                            "What holds you back—fear of mistakes, style issues, or lack of time?",
+                                                            "Which doc tasks do you think AI might actually do well?",
+                                                            "If you tried it, what would success look like—clearer READMEs, or faster onboarding?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "What kind of docs did AI help you with—tutorials, API guides, inline comments?",
+                                                            "Did AI make your docs clearer for beginners?",
+                                                            "Any moments where AI created misleading or bloated explanations?",
+                                                            "Did AI save time on routine updates (e.g., parameter lists)?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Experimentation & Prototyping",
+                                                  "prompt": "Raise your hand if you’ve used AI for fast prototypes or hackathons.",
+                                                  "hints": "Examples: throwaway code, proof-of-concept apps, early demos.",
+                                                  "no_hands": [
+                                                            "What would keep you from using AI here—quality, speed, or setup time?",
+                                                            "If you did use it, would you throw it away after demo, or refine it into real code?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "What’s the fastest prototype AI helped you create—minutes, hours?",
+                                                            "Did AI make hackathons easier or just noisier?",
+                                                            "Have you reused AI-generated code beyond the prototype stage?",
+                                                            "What’s the biggest lesson learned about using AI for quick builds?"
+                                                  ]
+                                        }
+                              ],
+                              "wrap_up": [
+                                        "Which non-coding use case gave you the biggest benefit?",
+                                        "Which one disappointed you most?",
+                                        "If you could improve one area—planning, design, docs, or prototyping—where would AI make the biggest difference?"
+                              ]
+                    },
+                    "q4": {
+                              "sections": [
+                                        {
+                                                  "title": "Client Projects & Permissions",
+                                                  "prompt": "Raise your hand if you’ve had to explain AI use to a client or stakeholder.",
+                                                  "hints": "Examples: contracts, transparency, explicit approval, expectations of originality.",
+                                                  "no_hands": [
+                                                            "Do you think clients care if AI is used behind the scenes?",
+                                                            "What concerns would you expect them to raise?",
+                                                            "If you were a client yourself, what disclosure would you want?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "What client reactions have you seen when AI came up?",
+                                                            "Did you add AI clauses in contracts or SOWs?",
+                                                            "How do you balance efficiency with transparency?",
+                                                            "Any cases where clients encouraged or banned AI outright?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Security & Privacy",
+                                                  "prompt": "Raise your hand if you have security or privacy rules about AI.",
+                                                  "hints": "Examples: avoiding code with secrets, not pasting private data into prompts, careful with regulated domains.",
+                                                  "no_hands": [
+                                                            "What security issue would worry you most if AI touched your code?",
+                                                            "Do you think these risks are overblown, or not?",
+                                                            "What’s the safest first step you’d allow?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "What rules do you use—e.g., never paste secrets, sanitize inputs, review all API calls?",
+                                                            "Has AI ever suggested insecure patterns in Flutter projects?",
+                                                            "Do you keep logs or checks for sensitive data exposure?",
+                                                            "Any horror stories where AI created a privacy risk?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Reliability & Accountability",
+                                                  "prompt": "Raise your hand if you’ve had AI code ship to production.",
+                                                  "hints": "Examples: even small fixes, bug patches, or generated tests count.",
+                                                  "no_hands": [
+                                                            "What would need to be in place before you let AI output go live?",
+                                                            "Who should own errors from AI—developer, reviewer, or the team?",
+                                                            "Do you think AI should be treated like a junior dev or a tool?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "Which types of AI code have safely made it to production?",
+                                                            "What extra reviews or tests did you run?",
+                                                            "Did AI ever cause an outage or regression?",
+                                                            "How do you assign responsibility when AI code breaks?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Ethics & Red Lines",
+                                                  "prompt": "Raise your hand if you’ve personally drawn a hard line for AI use.",
+                                                  "hints": "Examples: plagiarism, bias, originality, accessibility, open-source compliance.",
+                                                  "no_hands": [
+                                                            "Which ethical issues feel most serious to you?",
+                                                            "Would you ever refuse AI use for reasons beyond quality—like fairness or originality?",
+                                                            "What red line would make you switch off AI completely?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "What ethical rules do you follow—e.g., no AI for licensing-heavy code, or for creative assets?",
+                                                            "Have you seen bias or plagiarism slip into AI output?",
+                                                            "What practices help you keep AI-generated work clean?",
+                                                            "Has your company/team published any AI ethics statement?"
+                                                  ]
+                                        }
+                              ],
+                              "wrap_up": [
+                                        "Share your personal red line—a case where you’ll always say no to AI.",
+                                        "What’s one policy or safeguard that made you more confident about AI in production?",
+                                        "If you had to advise a junior dev, what’s the simplest rule for safe AI use in real apps?"
+                              ]
+                    },
+                    "q5": {
+                              "sections": [
+                                        {
+                                                  "title": "Managing Tool Overload",
+                                                  "prompt": "Raise your hand if you already feel there are too many AI tools to follow.",
+                                                  "hints": "Examples: IDE assistants, chatbots, design helpers, CLI agents, plugins.",
+                                                  "no_hands": [
+                                                            "Do you think 'too many tools' is a myth—more choice is better?",
+                                                            "If you had to pick one, what would you look for—accuracy, speed, or integration?",
+                                                            "Where do you draw the line between exploring and ignoring?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "How many tools do you actively use today?",
+                                                            "Which ones became daily habits, and which ones faded fast?",
+                                                            "How do you decide when to uninstall or drop a tool?",
+                                                            "Any strategies that kept your workflow clean and not bloated?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Evaluating Hype vs. Real Value",
+                                                  "prompt": "Raise your hand if you’ve ever tried a tool that sounded amazing but didn’t deliver.",
+                                                  "hints": "Examples: flashy launches, big claims, weak results.",
+                                                  "no_hands": [
+                                                            "How do you spot hype before spending time on a tool?",
+                                                            "What would convince you a tool is worth your attention?",
+                                                            "Is it safer to wait for peers to test first?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "Which tools looked great on paper but failed in real Flutter work?",
+                                                            "What early warning signs helped you realize it wasn’t worth it?",
+                                                            "Has any hyped tool actually lived up to the promise?",
+                                                            "What’s your checklist before keeping a tool long-term?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Stability vs. Exploration",
+                                                  "prompt": "Raise your hand if your team has a rule about how many tools to explore at once.",
+                                                  "hints": "Examples: balance between stable workflow and trying new assistants.",
+                                                  "no_hands": [
+                                                            "What risks do you see if you never explore new tools?",
+                                                            "What risks if you explore too much?",
+                                                            "How could you keep curiosity without chaos?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "How does your team decide when to freeze on a set of tools?",
+                                                            "What’s the balance—e.g., stable base tools + one experimental slot?",
+                                                            "Has this balance changed over the past year?",
+                                                            "Any examples where too much experimentation slowed your velocity?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Signals & Community Wisdom",
+                                                  "prompt": "Raise your hand if you rely on community signals before picking a tool.",
+                                                  "hints": "Examples: blogs, podcasts, conference talks, GitHub stars, peer chats.",
+                                                  "no_hands": [
+                                                            "Do you trust community hype cycles, or prefer to evaluate yourself?",
+                                                            "Which sources would you trust most for Flutter + AI news?",
+                                                            "What signal tells you to ignore a tool completely?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "Which communities or voices helped you choose well?",
+                                                            "What’s the most reliable signal that a tool is real value, not just hype?",
+                                                            "Any peers or networks that became your 'filters'?",
+                                                            "Has a conference or meetup ever changed your tool choices?"
+                                                  ]
+                                        }
+                              ],
+                              "wrap_up": [
+                                        "If you had to bet on one AI tool or approach that will last 5 years, what would it be?",
+                                        "What’s one sign you now watch for to avoid tool fatigue?",
+                                        "If you could give one practical tip to peers on keeping sane while exploring AI tools, what would it be?"
+                              ]
+                    },
+                    "q6": {
+                              "sections": [
+                                        {
+                                                  "title": "AI and Monetization in Developer Tools",
+                                                  "prompt": "Raise your hand if you’ve paid for an AI tool out of your own pocket.",
+                                                  "hints": "Examples: Copilot, Cursor, Claude Pro, Gemini paid tiers.",
+                                                  "no_hands": [
+                                                            "What would convince you to pay—better accuracy, faster responses, or integrations?",
+                                                            "Do you think free tiers are enough for most Flutter work?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "Which paid tool gave you the most value?",
+                                                            "Did it save enough time to justify the cost?",
+                                                            "How do you explain tool costs to your team or clients?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "AI and Team Collaboration",
+                                                  "prompt": "Raise your hand if AI has changed how your team collaborates.",
+                                                  "hints": "Examples: pair programming, code reviews, task handoffs, design discussions.",
+                                                  "no_hands": [
+                                                            "Why do you think AI hasn’t impacted your teamwork yet?",
+                                                            "Which part of teamwork would you like AI to help with?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "How has AI changed code reviews or PRs?",
+                                                            "Has AI reduced (or increased) back-and-forth in team discussions?",
+                                                            "Any fun examples where AI helped unblock collaboration?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "AI and Learning New Skills",
+                                                  "prompt": "Raise your hand if you’ve used AI as a teacher or learning buddy.",
+                                                  "hints": "Examples: learning Flutter APIs, Dart 3 features, or new libraries.",
+                                                  "no_hands": [
+                                                            "What learning tasks do you still prefer books, docs, or human mentors for?",
+                                                            "What would make AI a more trustworthy teacher?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "What’s the best example of AI teaching you a Flutter/Dart trick?",
+                                                            "Did AI ever explain something better than official docs?",
+                                                            "Any cases where AI misled you and wasted time?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "AI and the Future of Work",
+                                                  "prompt": "Raise your hand if you think AI will change what it means to be a Flutter developer in 5 years.",
+                                                  "hints": "",
+                                                  "no_hands": [
+                                                            "Why do you think AI won’t change the role much?",
+                                                            "What skills will always stay human-driven?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "How do you imagine your role evolving with AI assistants?",
+                                                            "What new skills might become essential?",
+                                                            "Do you think AI will open more opportunities, or reduce them?"
+                                                  ]
+                                        }
+                              ],
+                              "wrap_up": []
+                    }
+          },
+          "monetization": {
+                    "q1": {
+                              "sections": [
+                                        {
+                                                  "title": "Subscriptions",
+                                                  "prompt": "Raise your hand if you’ve tried subscriptions.",
+                                                  "hints": "Recurring revenue like Netflix or Spotify",
+                                                  "no_hands": [
+                                                            "What makes subscriptions feel like a poor fit for your apps?",
+                                                            "What challenges do you imagine if you wanted to add them?",
+                                                            "Which other model feels more natural for your users?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "Why do subscriptions fit your app category well?",
+                                                            "How did you design your tiers or paywall?",
+                                                            "What patterns did you notice in who subscribes and who doesn’t?",
+                                                            "How do you handle cancellations or churn?",
+                                                            "Looking back, what would you have done differently?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "One-time Purchases",
+                                                  "prompt": "Raise your hand if you’ve used one-time purchases.",
+                                                  "hints": "Pay once for lifetime access or to unlock a feature",
+                                                  "no_hands": [
+                                                            "Why do you think one-time purchases aren’t common in your apps?",
+                                                            "What kind of app do you think they work best for?",
+                                                            "If you tried one, what feature would you sell?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "Why did you choose this model?",
+                                                            "How did users respond to it?",
+                                                            "What was the biggest upside?",
+                                                            "What was the hardest trade-off?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Ads",
+                                                  "prompt": "Raise your hand if you’ve integrated ads.",
+                                                  "hints": "Banners, interstitials, rewarded ads",
+                                                  "no_hands": [
+                                                            "Why do ads not feel like the right fit?",
+                                                            "What would make you consider adding them?",
+                                                            "Which categories do you think ads work best in?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "Which ad formats worked best?",
+                                                            "How did your users react?",
+                                                            "Did ads change your retention or engagement?",
+                                                            "What’s one lesson you learned about balancing ads with UX?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Hybrid Models",
+                                                  "prompt": "Raise your hand if you’ve tried hybrid models.",
+                                                  "hints": "Free users see ads, premium users subscribe",
+                                                  "no_hands": [
+                                                            "Why do you think hybrids aren’t common in your apps?",
+                                                            "If you were to design one, which combination would you try?",
+                                                            "Where do you think hybrids could add value?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "What mix did you use, and why?",
+                                                            "How did mixing models affect UX and retention?",
+                                                            "Did hybrids boost revenue or just add complexity?",
+                                                            "What advice would you give for trying a hybrid?"
+                                                  ]
+                                        }
+                              ],
+                              "wrap_up": [
+                                        "If you had to pick one model for your next app, which would you choose and why?",
+                                        "Who has changed models after launch? Why?",
+                                        "What’s the biggest trade-off you’ve seen between monetization and UX?",
+                                        "What do you wish you’d known before trying your first monetization experiment?"
+                              ]
+                    },
+                    "q2": {
+                              "sections": [
+                                        {
+                                                  "title": "Referral Programs",
+                                                  "prompt": "Raise your hand if you’ve implemented a referral program.",
+                                                  "hints": "Giving users a reward when they invite a friend — credits, discounts, or free features",
+                                                  "no_hands": [
+                                                            "What stopped you from trying referrals so far?",
+                                                            "Do they feel too complex, risky, or unnecessary?",
+                                                            "If you added one tomorrow, what kind of reward would you start with?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "What pushed you to introduce referrals?",
+                                                            "Which reward type worked best for you?",
+                                                            "What user behavior surprised you most?",
+                                                            "What was the toughest issue — fraud, tracking, or low interest?",
+                                                            "If you had to design it again, what would you approach differently?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Viral Loops",
+                                                  "prompt": "Raise your hand if you’ve built a viral loop into your app.",
+                                                  "hints": "Features that naturally encourage sharing — Duolingo streaks, game invites, or working together",
+                                                  "no_hands": [
+                                                            "Why do viral features feel like a bad fit for your app?",
+                                                            "Where could sharing feel natural, not forced?",
+                                                            "What’s the simplest viral element you could imagine testing?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "What viral feature did you build, and what happened?",
+                                                            "Did it bring in new users, or mostly engage existing ones?",
+                                                            "How did you make sharing feel useful instead of spammy?",
+                                                            "What technical setup helped or caused problems?"
+                                                  ]
+                                        }
+                              ],
+                              "wrap_up": [
+                                        "What’s one thing you’d include in a referral program today?",
+                                        "What’s one thing you’d avoid?",
+                                        "Do you think referrals/loops work for all apps, or only some?",
+                                        "What other growth tactic worked better for you?"
+                              ]
+                    },
+                    "q3": {
+                              "sections": [
+                                        {
+                                                  "title": "Localized Pricing",
+                                                  "prompt": "Raise your hand if you use localized pricing in your app.",
+                                                  "hints": "Different prices by country, for example cheaper in India, higher in the US",
+                                                  "no_hands": [
+                                                            "What held you back from adjusting prices across countries?",
+                                                            "Do you see it as too complex, or not valuable for your users?",
+                                                            "If you had to try, which region would you focus on first?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "Did you stick with the App Store/Play Store defaults, or customize them?",
+                                                            "How do you decide what’s fair in each market?",
+                                                            "What feedback have you received from lower-price regions?",
+                                                            "What’s the hardest part about keeping prices updated?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Flat Global Pricing",
+                                                  "prompt": "Raise your hand if you use a flat global price.",
+                                                  "hints": "Same price everywhere",
+                                                  "no_hands": [
+                                                            "Why do you think nobody here set one global price?",
+                                                            "Do you see it as unfair in some markets?",
+                                                            "If you had to set a single global price, what number would you choose and why?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "What made you go with one price for everyone?",
+                                                            "How did users from different regions respond?",
+                                                            "What benefits came from the simplicity?",
+                                                            "What problems came from ignoring regional differences?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Other Pricing Models",
+                                                  "prompt": "Raise your hand if you’ve tried other pricing models, like freemium tiers, discounts, or flexible pricing.",
+                                                  "hints": "Free basic app, but you pay for extra features or upgrades",
+                                                  "no_hands": [
+                                                            "Why don’t models like freemium or discounts feel useful for your app?",
+                                                            "If you had to test one tomorrow, which would you choose and why?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "What kind of model did you try — freemium, discount, something else?",
+                                                            "How did users react?",
+                                                            "What worked surprisingly well?",
+                                                            "What was time-consuming or frustrating?"
+                                                  ]
+                                        }
+                              ],
+                              "wrap_up": [
+                                        "If you were launching tomorrow, how would you set your first price?",
+                                        "What pricing mistake would you not repeat?",
+                                        "What tip worked well across countries?",
+                                        "Is pricing more about psychology (how it feels) or economics (what people can pay)?"
+                              ]
+                    },
+                    "q4": {
+                              "sections": [
+                                        {
+                                                  "title": "RevenueCat",
+                                                  "prompt": "Raise your hand if you’ve used RevenueCat.",
+                                                  "hints": "A service that manages subscriptions, receipts, and cross-platform billing",
+                                                  "no_hands": [
+                                                            "Why haven’t you tried it yet — too costly, too complex, or not needed?",
+                                                            "If you were to use it tomorrow, which part of your app would you connect first?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "What problem did RevenueCat solve for you?",
+                                                            "What turned out easier than expected?",
+                                                            "What was harder than expected?",
+                                                            "Did you hit any missing features or limits?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "in_app_purchase",
+                                                  "prompt": "Raise your hand if you’ve used the in_app_purchase package.",
+                                                  "hints": "Flutter’s official package for App Store and Play Store billing",
+                                                  "no_hands": [
+                                                            "Why not use it — do you prefer third-party tools, or is monetization not relevant for your app?",
+                                                            "What would make you try it in the future?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "What went smoothly when you used it?",
+                                                            "What was the most difficult part?",
+                                                            "How did you test billing across iOS and Android?",
+                                                            "What did you learn about handling failed payments or refunds?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "AdMob / Ads SDKs",
+                                                  "prompt": "Raise your hand if you’ve integrated AdMob or another ads SDK.",
+                                                  "hints": "Google’s SDK for showing ads inside apps",
+                                                  "no_hands": [
+                                                            "Why don’t ad SDKs feel like a good fit for your apps?",
+                                                            "What concerns do you have — user experience, revenue, or complexity?",
+                                                            "If you had to test ads, which format would you start with?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "Which ad formats worked best for you?",
+                                                            "How did you balance ads with user experience?",
+                                                            "What setup step was the most painful?",
+                                                            "What’s one thing you wish you knew before adding ads?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Custom Backend",
+                                                  "prompt": "Raise your hand if you’ve built your own custom backend for monetization.",
+                                                  "hints": "A server that manages receipts, fraud checks, or subscription status",
+                                                  "no_hands": [
+                                                            "Why haven’t you built one — too much work, or not needed?",
+                                                            "If you had to build one, what would be the first feature you’d include?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "Why did you decide to build your own backend?",
+                                                            "What was the biggest advantage?",
+                                                            "What was the hardest technical part?",
+                                                            "How do you handle fraud, cancellations, and renewals?"
+                                                  ]
+                                        }
+                              ],
+                              "wrap_up": [
+                                        "Which tool or package would you recommend to someone new to Flutter monetization?",
+                                        "Which one caused you the most pain — and why?",
+                                        "Do you prefer 'use one package and ship fast' or 'build your own backend for full control'?",
+                                        "What’s one improvement you’d like to see in Flutter’s monetization tools?"
+                              ]
+                    },
+                    "q5": {
+                              "sections": [
+                                        {
+                                                  "title": "Free Trials",
+                                                  "prompt": "Raise your hand if you’ve tested free trials.",
+                                                  "hints": "Giving premium features for a few days before asking the user to pay",
+                                                  "no_hands": [
+                                                            "What keeps you from trying free trials?",
+                                                            "Do you think they wouldn’t fit your app, or just too complex to set up?",
+                                                            "If you added one tomorrow, how long would you make it?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "How did users respond to the trial?",
+                                                            "What patterns did you see in conversions or cancellations?",
+                                                            "What length worked best?",
+                                                            "What problems came up (abuse, tech issues)?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Paywalls & A/B Testing",
+                                                  "prompt": "Raise your hand if you’ve done A/B testing on paywalls.",
+                                                  "hints": "Comparing two versions of your pricing or upgrade screen",
+                                                  "no_hands": [
+                                                            "Why haven’t you tested paywalls — too few users, or tools too complex?",
+                                                            "If you could test one change tomorrow, what would it be?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "What did you test, and what happened?",
+                                                            "What surprised you about user reactions?",
+                                                            "What was your most effective change?",
+                                                            "What changes didn’t matter at all?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Upgrade Reminders & Discounts",
+                                                  "prompt": "Raise your hand if you’ve tried upgrade reminders or discounts.",
+                                                  "hints": "Popups, banners, or limited-time offers that encourage users to upgrade or buy",
+                                                  "no_hands": [
+                                                            "Why don’t reminders or discounts make sense for your apps?",
+                                                            "Do you worry they harm user experience?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "What kind of reminder or discount did you test?",
+                                                            "How did users react?",
+                                                            "Did it boost conversions or only short-term results?",
+                                                            "What was hardest about timing or design?"
+                                                  ]
+                                        }
+                              ],
+                              "wrap_up": [
+                                        "Where do you draw the line between good UX and monetization?",
+                                        "What monetization design improved UX instead of hurting it?",
+                                        "What design hurt retention even if it looked good?",
+                                        "What’s one rule you’d give new Flutter devs about UX + monetization?"
+                              ]
+                    },
+                    "q6": {
+                              "sections": [
+                                        {
+                                                  "title": "Failed Experiments",
+                                                  "prompt": "Raise your hand if you’ve ever stopped a monetization experiment because it didn’t work.",
+                                                  "hints": "A model, tool, or test you tried and later removed",
+                                                  "no_hands": [
+                                                            "Why do you think many of us avoid experiments?",
+                                                            "If you had to try something bold, what would you test first?",
+                                                            "What would make it easier for you to experiment?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "What did you test and stop, and why?",
+                                                            "What did you learn from ending it?",
+                                                            "Did you replace it with something that worked better?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Biggest Lessons",
+                                                  "prompt": "Raise your hand if you’ve learned a big lesson about monetization the hard way.",
+                                                  "hints": "Something you would warn others about — technical, business, or user-related",
+                                                  "no_hands": [
+                                                            "What do you expect will be the hardest part of monetization for you?",
+                                                            "What advice would you want to hear from someone experienced?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "What lesson did you learn the hard way?",
+                                                            "How did it change how you design apps?",
+                                                            "What would you warn newcomers about?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Future of Monetization",
+                                                  "prompt": "Raise your hand if you believe app monetization will look very different in the next 5 years.",
+                                                  "hints": "For example AI-driven, new store rules, or new payment methods",
+                                                  "no_hands": [
+                                                            "Why do you think monetization will stay mostly the same?",
+                                                            "What makes current models strong?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "What changes do you expect in the next few years?",
+                                                            "How are you preparing for those changes?",
+                                                            "What new tools or models interest you most?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Monetization in the Age of AI",
+                                                  "prompt": "Raise your hand if you use AI tools — for example, coding assistants like Copilot, or AI features in your app.",
+                                                  "hints": "Tools that help write code, or personalize the user experience",
+                                                  "no_hands": [
+                                                            "Why haven’t you used AI yet — too early, too costly, or not useful?",
+                                                            "If you could, what part of monetization would you want AI to improve?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "How has AI changed how you build or monetize apps?",
+                                                            "Did it help you move faster or add new models?",
+                                                            "What challenges came with AI tools?"
+                                                  ]
+                                        }
+                              ],
+                              "wrap_up": [
+                                        "What’s the single best monetization tip you’ve ever heard?",
+                                        "If you had to give one piece of advice to a new Flutter dev, what would it be?",
+                                        "What matters more: the model you choose, or how you execute it?"
+                              ]
+                    }
+          }
+};
+
+        function toggle(id){
+          const el = document.getElementById(id);
+          if(!el) return;
+          el.classList.toggle('visible');
+        }
+
+        function showTab(tabId) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => button.classList.remove('active'));
+            const questionItems = document.querySelectorAll('.question-item');
+            questionItems.forEach(item => item.classList.remove('active'));
+            
+            document.getElementById(tabId + '-content').classList.add('active');
+            
+            // Find and activate the corresponding question item
+            const questionNum = tabId.replace('q', '');
+            const questionItemsArray = document.querySelectorAll('.question-item');
+            if (questionItemsArray[questionNum - 1]) {
+                questionItemsArray[questionNum - 1].classList.add('active');
+            }
+        }
+
+        function loadTopic(topic) {
+            currentTopic = topic;
+            document.getElementById('topic-selection').classList.add('hidden');
+            document.getElementById('loading').classList.remove('hidden');
+
+            try {
+                // Use embedded data instead of fetching JSON files
+                questionsData = embeddedData[topic];
+
+                generateContent();
+                document.getElementById('loading').classList.add('hidden');
+                document.getElementById('main-content').classList.remove('hidden');
+            } catch (error) {
+                console.error('Error loading data:', error);
+                document.getElementById('loading').innerHTML = `<h2>Error loading ${topic} data</h2><p>Please check that the embedded data is available.</p>`;
+            }
+        }
+
+        function goBackToSelection() {
+            document.getElementById('main-content').classList.add('hidden');
+            document.getElementById('topic-selection').classList.remove('hidden');
+        }
+
+        function generateContent() {
+            const contentArea = document.getElementById('content-area');
+            const mainTitle = document.getElementById('main-title');
+            const questionList = document.getElementById('question-list');
+            
+            // Update title
+            const topicDisplayName = currentTopic === 'ai' ? 'AI in Flutter Development' : 'App Monetization';
+            mainTitle.innerHTML = `FlutterCon 2025 ${topicDisplayName} Roundtable Facilitator <span class="chip">Click any box to expand</span>`;
+            
+            // Generate question navigation
+            questionList.innerHTML = '';
+            for (let qNum = 1; qNum <= 6; qNum++) {
+                const questionTitle = getQuestionTitle(currentTopic, qNum);
+                const questionItem = document.createElement('div');
+                questionItem.className = qNum === 1 ? 'question-item active' : 'question-item';
+                questionItem.textContent = questionTitle;
+                questionItem.onclick = () => showTab(`q${qNum}`);
+                questionList.appendChild(questionItem);
+            }
+            
+            // Clear previous content
+            contentArea.innerHTML = '';
+            
+            // Generate content for each question
+            for (let qNum = 1; qNum <= 6; qNum++) {
+                const questionKey = `q${qNum}`;
+                const questionData = questionsData[questionKey];
+                
+                if (!questionData) continue;
+                
+                const questionDiv = document.createElement('div');
+                questionDiv.id = `${questionKey}-content`;
+                questionDiv.className = qNum === 1 ? 'tab-content active' : 'tab-content';
+                
+                // Question title
+                const questionTitle = getQuestionTitle(currentTopic, qNum);
+                questionDiv.innerHTML = `<h1>${questionTitle}</h1>`;
+                
+                // Generate sections
+                questionData.sections.forEach((section, sectionIndex) => {
+                    const sectionId = getSectionId(section.title);
+                    
+                    const cardDiv = document.createElement('div');
+                    cardDiv.className = 'card';
+                    
+                    cardDiv.innerHTML = `
+                        <div class="sectionTitle">${section.title}</div>
+                        <div class="prompt-section">
+                            <div class="prompt-text">${section.prompt}</div>
+                            <div class="response-options">
+                                <button class="response-btn no-btn" onclick="toggle('${sectionId}No')">
+                                    <span class="pill no">No Hands</span>
+                                </button>
+                                <button class="response-btn yes-btn" onclick="toggle('${sectionId}Yes')">
+                                    <span class="pill yes">Hands Up</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div id="${sectionId}No" class="details no-hands">
+                            <h3>${section.title.replace(/^[A-Z]\)\s*/, '')} – No Hands</h3>
+                            <small>${section.hints}</small>
+                            <ul>
+                                ${section.no_hands.map(q => `<li>${q}</li>`).join('')}
+                            </ul>
+                        </div>
+                        <div id="${sectionId}Yes" class="details hands-up">
+                            <h3>${section.title.replace(/^[A-Z]\)\s*/, '')} – Hands Up</h3>
+                            <small>${section.hints}</small>
+                            <ul>
+                                ${section.hands_up.map(q => `<li>${q}</li>`).join('')}
+                            </ul>
+                        </div>
+                    `;
+                    
+                    questionDiv.appendChild(cardDiv);
+                });
+                
+                // Add wrap-up section
+                if (questionData.wrap_up && questionData.wrap_up.length > 0) {
+                    const wrapUpDiv = document.createElement('div');
+                    wrapUpDiv.className = 'card';
+                    wrapUpDiv.innerHTML = `
+                        <div class="sectionTitle">Wrap-up Question</div>
+                        <div class="prompt-section">
+                            <div class="prompt-text">Final thoughts on ${questionTitle.toLowerCase()}</div>
+                            <div class="response-options">
+                                <button class="response-btn wrap-btn" onclick="toggle('${questionKey}Wrap')" style="width: 100%;">
+                                    <span class="pill" style="background: var(--accent); color: #0b1220;">Discuss Wrap-up</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div id="${questionKey}Wrap" class="details">
+                            <h3>${questionTitle} Wrap-up</h3>
+                            <ul>
+                                ${questionData.wrap_up.map(q => `<li>${q}</li>`).join('')}
+                            </ul>
+                        </div>
+                    `;
+                    questionDiv.appendChild(wrapUpDiv);
+                }
+                
+                contentArea.appendChild(questionDiv);
+            }
+        }
+
+        function getQuestionTitle(topic, qNum) {
+            const titles = {
+                ai: [
+                    'Q1: AI Tools in Use',
+                    'Q2: Integrating AI Without Losing Quality',
+                    'Q3: AI Beyond Coding',
+                    'Q4: Boundaries for AI in Production',
+                    'Q5: Staying Current Without Tool Fatigue',
+                    'Q6: Bonus Topics (If Time Allows)'
+                ],
+                monetization: [
+                    'Q1: Monetization Models',
+                    'Q2: Referrals & Viral Loops',
+                    'Q3: Pricing Strategy',
+                    'Q4: Tools & Packages',
+                    'Q5: User Experience vs Monetization',
+                    'Q6: Bonus Questions'
+                ]
+            };
+            return titles[topic][qNum - 1] || `Q${qNum}`;
+        }
+
+        function getSectionId(title) {
+            return title.replace(/[^a-zA-Z]/g, '').toLowerCase();
+        }
+    </script>
+</head>
+<body>
+    <!-- Topic Selection Screen -->
+    <div id="topic-selection" class="topic-selection">
+        <div class="wrap">
+            <h1>FlutterCon 2025 Roundtable Facilitator</h1>
+            <p>Select your roundtable topic:</p>
+            <div class="topic-buttons">
+                <button class="topic-button" onclick="loadTopic('ai')">
+                    🤖 AI in Flutter Development
+                </button>
+                <button class="topic-button" onclick="loadTopic('monetization')">
+                    💰 App Monetization
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Screen -->
+    <div id="loading" class="loading hidden">
+        <h2>Loading content...</h2>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content" class="hidden">
+        <div class="wrap">
+            <h1 id="main-title">FlutterCon 2025 Roundtable Facilitator <span class="chip">Click any box to expand</span></h1>
+            
+            <div style="margin-bottom: 20px;">
+                <button onclick="goBackToSelection()" style="background: var(--card); border: 1px solid var(--border); color: var(--ink); padding: 8px 16px; border-radius: 5px; cursor: pointer;">
+                    ← Back to Topic Selection
+                </button>
+            </div>
+
+            <div class="question-nav">
+                <div id="question-list" class="question-list">
+                    <!-- Questions will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <div id="content-area"></div>
+        </div>
+    </div>
+</body>
+</html>

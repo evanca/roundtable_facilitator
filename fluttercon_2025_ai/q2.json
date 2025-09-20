@@ -1,0 +1,92 @@
+{
+  "source_file": "FlutterCon_2025_Roundtable_AI_Q2.pdf",
+  "extracted_at": "2025-09-14T06:45:35.363449",
+  "question": "Q2: Integrating AI Without Losing Quality",
+  "sections": [
+    {
+      "model": "Where AI Fits in Your Dev Loop",
+      "prompt": "Raise your hand if your team has mapped where AI does and doesn’t fit (plan → code → review → test → release).",
+      "hint": "Examples: drafting code/tests, refactors, docs, exploratory design; places to avoid: security-critical code, payment flows.",
+      "no_hands": [
+        "If you started small, what’s the safest first step (e.g., tests, docs, boilerplate)?",
+        "Which parts of Flutter work feel too risky or fiddly for AI right now?",
+        "What signal would tell you it’s time to expand AI’s role?"
+      ],
+      "hands_up": [
+        "Walk us through your loop—where AI sits, and where it’s off-limits.",
+        "How do you keep flow without letting AI over-edit?",
+        "Any roles AI performs better than humans (and vice versa)?",
+        "What changed in your PR size/shape when AI joined the loop?"
+      ],
+      "follow_ups": [
+        "Do you switch AI off for certain modules (auth, billing, unsafe APIs)?",
+        "Anyone use AI-free spikes to reason about hard problems first?"
+      ]
+    },
+    {
+      "model": "Safeguards & Validation",
+      "prompt": "Raise your hand if you use explicit safeguards for AI-suggested code.",
+      "hint": "Examples: tests before merges, static analysis, duplication checks, mandatory reviews.",
+      "no_hands": [
+        "Which one or two guardrails would give you 80% of the safety with minimal overhead?",
+        "How could you start measuring the rework/debug time from AI output?",
+        "Who needs to sign off before shipping AI-touched code?"
+      ],
+      "hands_up": [
+        "What guardrails actually catch the most issues (tests, SAST, type checks, canary releases)?",
+        "Do you require a human reviewer for all AI-touched files?",
+        "How do you document AI involvement (PR labels, commit trailers)?",
+        "Have you tuned prompts/checklists to reduce false positives?"
+      ],
+      "follow_ups": [
+        "A small test suite or a strict code review—what saves more time in practice?",
+        "Anyone tried gating merges on coverage or security scans for AI-changed files?"
+      ]
+    },
+    {
+      "model": "Skills, Learning, and Avoiding Over-Reliance",
+      "prompt": "Raise your hand if you have guidance for juniors and seniors on when to lean on AI.",
+      "hint": "Examples: learning goals, task selection, pairing patterns, code reading first, prompt hygiene.",
+      "no_hands": [
+        "What would a simple growth-first policy look like for juniors using AI?",
+        "How do you keep architectural thinking sharp when AI drafts code?",
+        "What practice helps you verify AI output quickly (reading diffs, micro-benchmarks)?"
+      ],
+      "hands_up": [
+        "How do seniors use AI without hollowing out review quality?",
+        "What tasks do juniors do without AI to build fundamentals?",
+        "Favorite prompt patterns that teach—not just paste code?",
+        "Any evidence your team’s quality improved, not just speed?"
+      ],
+      "follow_ups": [
+        "When do you ask teammates instead of the model?",
+        "One habit that made you less dependent on AI over time?"
+      ]
+    },
+    {
+      "model": "Team Norms, Clients, and Production Expectations",
+      "prompt": "Raise your hand if you have a written policy for AI in client or production work.",
+      "hint": "Examples: privacy, data handling, attribution, model choice, incident response.",
+      "no_hands": [
+        "What minimum policy would make clients comfortable (two or three clear rules)?",
+        "Where would you state it—SOW, README, CONTRIBUTING, or CI checks?",
+        "How do you handle third-party code or license questions from AI output?"
+      ],
+      "hands_up": [
+        "What’s in your policy—where AI is allowed, reviewer requirements, secrets handling?",
+        "Any client conversations that changed your boundaries?",
+        "How do you log/trace AI involvement for accountability?",
+        "Did your policy reduce regressions or review time?"
+      ],
+      "follow_ups": [
+        "Do you keep an AI exceptions list (cases where AI is off-limits)?",
+        "Anyone set per-repo model/assistant defaults to avoid tool sprawl?"
+      ]
+    }
+  ],
+  "wrap_up": [
+    "Share one golden rule you use to keep quality high with AI in the loop.",
+    "One scenario where you deliberately turn AI off—what’s the tell?",
+    "A change you’ll try next sprint (guardrail, checklist, or workflow tweak)."
+  ]
+}

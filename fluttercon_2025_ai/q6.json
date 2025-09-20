@@ -1,0 +1,80 @@
+{
+  "source_file": "FlutterCon_2025_Roundtable_AI_Q6.pdf",
+  "extracted_at": "2025-09-14T06:47:15.197356",
+  "question": "Q6: Bonus Topics (If Time Allows)",
+  "sections": [
+    {
+      "model": "AI and Monetization in Developer Tools",
+      "prompt": "Raise your hand if you’ve paid for an AI tool out of your own pocket.",
+      "hint": "Examples: Copilot, Cursor, Claude Pro, Gemini paid tiers.",
+      "no_hands": [
+        "What would convince you to pay—better accuracy, faster responses, or integrations?",
+        "Do you think free tiers are enough for most Flutter work?"
+      ],
+      "hands_up": [
+        "Which paid tool gave you the most value?",
+        "Did it save enough time to justify the cost?",
+        "How do you explain tool costs to your team or clients?"
+      ],
+      "follow_ups": [
+        "Who has switched back from paid to free—why?",
+        "Do you see tool pricing shaping adoption?"
+      ]
+    },
+    {
+      "model": "AI and Team Collaboration",
+      "prompt": "Raise your hand if AI has changed how your team collaborates.",
+      "hint": "Examples: pair programming, code reviews, task handoffs, design discussions.",
+      "no_hands": [
+        "Why do you think AI hasn’t impacted your teamwork yet?",
+        "Which part of teamwork would you like AI to help with?"
+      ],
+      "hands_up": [
+        "How has AI changed code reviews or PRs?",
+        "Has AI reduced (or increased) back-and-forth in team discussions?",
+        "Any fun examples where AI helped unblock collaboration?"
+      ],
+      "follow_ups": [
+        "Has AI shifted who takes the lead on certain tasks?",
+        "Do you see AI more as an individual tool or a team tool?"
+      ]
+    },
+    {
+      "model": "AI and Learning New Skills",
+      "prompt": "Raise your hand if you’ve used AI as a teacher or learning buddy.",
+      "hint": "Examples: learning Flutter APIs, Dart 3 features, or new libraries.",
+      "no_hands": [
+        "What learning tasks do you still prefer books, docs, or human mentors for?",
+        "What would make AI a more trustworthy teacher?"
+      ],
+      "hands_up": [
+        "What’s the best example of AI teaching you a Flutter/Dart trick?",
+        "Did AI ever explain something better than official docs?",
+        "Any cases where AI misled you and wasted time?"
+      ],
+      "follow_ups": [
+        "Do you see AI more useful for juniors or seniors when learning?",
+        "Who has a favorite learning with AI workflow to share?"
+      ]
+    },
+    {
+      "model": "AI and the Future of Work",
+      "prompt": "Raise your hand if you think AI will change what it means to be a Flutter developer in 5 years.",
+      "hint": "",
+      "no_hands": [
+        "Why do you think AI won’t change the role much?",
+        "What skills will always stay human-driven?"
+      ],
+      "hands_up": [
+        "How do you imagine your role evolving with AI assistants?",
+        "What new skills might become essential?",
+        "Do you think AI will open more opportunities, or reduce them?"
+      ],
+      "follow_ups": [
+        "Who sees AI creating new kinds of developer jobs?",
+        "What would you tell a new developer starting today?"
+      ]
+    }
+  ],
+  "wrap_up": []
+}

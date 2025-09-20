@@ -1,0 +1,92 @@
+{
+  "source_file": "FlutterCon_2025_Roundtable_AI_Q4.pdf",
+  "extracted_at": "2025-09-14T06:47:15.197126",
+  "question": "Q4: Boundaries for AI in Production",
+  "sections": [
+    {
+      "model": "Client Projects & Permissions",
+      "prompt": "Raise your hand if you’ve had to explain AI use to a client or stakeholder.",
+      "hint": "Examples: contracts, transparency, explicit approval, expectations of originality.",
+      "no_hands": [
+        "Do you think clients care if AI is used behind the scenes?",
+        "What concerns would you expect them to raise?",
+        "If you were a client yourself, what disclosure would you want?"
+      ],
+      "hands_up": [
+        "What client reactions have you seen when AI came up?",
+        "Did you add AI clauses in contracts or SOWs?",
+        "How do you balance efficiency with transparency?",
+        "Any cases where clients encouraged or banned AI outright?"
+      ],
+      "follow_ups": [
+        "Who here has had to reassure a client about quality or IP?",
+        "What’s the minimum disclosure that feels fair?"
+      ]
+    },
+    {
+      "model": "Security & Privacy",
+      "prompt": "Raise your hand if you have security or privacy rules about AI.",
+      "hint": "Examples: avoiding code with secrets, not pasting private data into prompts, careful with regulated domains.",
+      "no_hands": [
+        "What security issue would worry you most if AI touched your code?",
+        "Do you think these risks are overblown, or not?",
+        "What’s the safest first step you’d allow?"
+      ],
+      "hands_up": [
+        "What rules do you use—e.g., never paste secrets, sanitize inputs, review all API calls?",
+        "Has AI ever suggested insecure patterns in Flutter projects?",
+        "Do you keep logs or checks for sensitive data exposure?",
+        "Any horror stories where AI created a privacy risk?"
+      ],
+      "follow_ups": [
+        "Who has tried static analysis or security scanning specifically for AI-generated code?",
+        "Anyone mark files as AI-restricted in their repos?"
+      ]
+    },
+    {
+      "model": "Reliability & Accountability",
+      "prompt": "Raise your hand if you’ve had AI code ship to production.",
+      "hint": "Examples: even small fixes, bug patches, or generated tests count.",
+      "no_hands": [
+        "What would need to be in place before you let AI output go live?",
+        "Who should own errors from AI—developer, reviewer, or the team?",
+        "Do you think AI should be treated like a junior dev or a tool?"
+      ],
+      "hands_up": [
+        "Which types of AI code have safely made it to production?",
+        "What extra reviews or tests did you run?",
+        "Did AI ever cause an outage or regression?",
+        "How do you assign responsibility when AI code breaks?"
+      ],
+      "follow_ups": [
+        "Who has a good process for postmortems involving AI code?",
+        "Has anyone seen AI code reduce—not increase—production bugs?"
+      ]
+    },
+    {
+      "model": "Ethics & Red Lines",
+      "prompt": "Raise your hand if you’ve personally drawn a hard line for AI use.",
+      "hint": "Examples: plagiarism, bias, originality, accessibility, open-source compliance.",
+      "no_hands": [
+        "Which ethical issues feel most serious to you?",
+        "Would you ever refuse AI use for reasons beyond quality—like fairness or originality?",
+        "What red line would make you switch off AI completely?"
+      ],
+      "hands_up": [
+        "What ethical rules do you follow—e.g., no AI for licensing-heavy code, or for creative assets?",
+        "Have you seen bias or plagiarism slip into AI output?",
+        "What practices help you keep AI-generated work clean?",
+        "Has your company/team published any AI ethics statement?"
+      ],
+      "follow_ups": [
+        "Do you think ethical boundaries differ by culture or client base?",
+        "Who here has had to reject AI code on ethical grounds?"
+      ]
+    }
+  ],
+  "wrap_up": [
+    "Share your personal red line—a case where you’ll always say no to AI.",
+    "What’s one policy or safeguard that made you more confident about AI in production?",
+    "If you had to advise a junior dev, what’s the simplest rule for safe AI use in real apps?"
+  ]
+}

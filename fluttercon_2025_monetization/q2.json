@@ -1,0 +1,56 @@
+{
+  "source_file": "FlutterCon_2025_Roundable_Monetization_Q2.pdf",
+  "extracted_at": "2025-09-14T06:29:19.287293",
+  "question": "Q2: Referrals & Viral Loops",
+  "sections": [
+    {
+      "model": "Referral Programs",
+      "prompt": "Raise your hand if you’ve implemented a referral program.",
+      "hint": "Giving users a reward when they invite a friend — credits, discounts, or free features",
+      "no_hands": [
+        "What stopped you from trying referrals so far?",
+        "Do they feel too complex, risky, or unnecessary?",
+        "If you added one tomorrow, what kind of reward would you start with?"
+      ],
+      "hands_up": [
+        "What pushed you to introduce referrals?",
+        "Which reward type worked best for you?",
+        "What user behavior surprised you most?",
+        "What was the toughest issue — fraud, tracking, or low interest?",
+        "If you had to design it again, what would you approach differently?"
+      ],
+      "follow_ups": [
+        "Who tried a reward that users ignored or disliked?",
+        "Did referrals create only a short-term spike, or did it last?",
+        "Who has used a very different type of incentive?"
+      ]
+    },
+    {
+      "model": "Viral Loops",
+      "prompt": "Raise your hand if you’ve built a viral loop into your app.",
+      "hint": "Features that naturally encourage sharing — Duolingo streaks, game invites, or working together",
+      "no_hands": [
+        "Why do viral features feel like a bad fit for your app?",
+        "Where could sharing feel natural, not forced?",
+        "What’s the simplest viral element you could imagine testing?"
+      ],
+      "hands_up": [
+        "What viral feature did you build, and what happened?",
+        "Did it bring in new users, or mostly engage existing ones?",
+        "How did you make sharing feel useful instead of spammy?",
+        "What technical setup helped or caused problems?"
+      ],
+      "follow_ups": [
+        "Who added a viral element that failed — why?",
+        "Who found another growth method that outperformed viral loops?",
+        "Who has an example where viral sharing had a surprising impact?"
+      ]
+    }
+  ],
+  "wrap_up": [
+    "What’s one thing you’d include in a referral program today?",
+    "What’s one thing you’d avoid?",
+    "Do you think referrals/loops work for all apps, or only some?",
+    "What other growth tactic worked better for you?"
+  ]
+}

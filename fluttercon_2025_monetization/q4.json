@@ -1,0 +1,94 @@
+{
+  "source_file": "FlutterCon_2025_Roundable_Monetization_Q4.pdf",
+  "extracted_at": "2025-09-14T06:35:25.346298",
+  "question": "Q4: Tools & Packages",
+  "sections": [
+    {
+      "model": "RevenueCat",
+      "prompt": "Raise your hand if you’ve used RevenueCat.",
+      "hint": "A service that manages subscriptions, receipts, and cross-platform billing",
+      "no_hands": [
+        "Why haven’t you tried it yet — too costly, too complex, or not needed?",
+        "If you were to use it tomorrow, which part of your app would you connect first?"
+      ],
+      "hands_up": [
+        "What problem did RevenueCat solve for you?",
+        "What turned out easier than expected?",
+        "What was harder than expected?",
+        "Did you hit any missing features or limits?"
+      ],
+      "follow_ups": [
+        "Did anyone here stop using RevenueCat? Why?",
+        "Who has switched to something else?",
+        "What’s one feature you wish RevenueCat offered?"
+      ]
+    },
+    {
+      "model": "in_app_purchase",
+      "prompt": "Raise your hand if you’ve used the in_app_purchase package.",
+      "hint": "Flutter’s official package for App Store and Play Store billing",
+      "no_hands": [
+        "Why not use it — do you prefer third-party tools, or is monetization not relevant for your app?",
+        "What would make you try it in the future?"
+      ],
+      "hands_up": [
+        "What went smoothly when you used it?",
+        "What was the most difficult part?",
+        "How did you test billing across iOS and Android?",
+        "What did you learn about handling failed payments or refunds?"
+      ],
+      "follow_ups": [
+        "Who switched away from in_app_purchase? Why?",
+        "Who prefers it to third-party services?",
+        "What’s the strongest reason to stick with it?"
+      ]
+    },
+    {
+      "model": "AdMob / Ads SDKs",
+      "prompt": "Raise your hand if you’ve integrated AdMob or another ads SDK.",
+      "hint": "Google’s SDK for showing ads inside apps",
+      "no_hands": [
+        "Why don’t ad SDKs feel like a good fit for your apps?",
+        "What concerns do you have — user experience, revenue, or complexity?",
+        "If you had to test ads, which format would you start with?"
+      ],
+      "hands_up": [
+        "Which ad formats worked best for you?",
+        "How did you balance ads with user experience?",
+        "What setup step was the most painful?",
+        "What’s one thing you wish you knew before adding ads?"
+      ],
+      "follow_ups": [
+        "Who swapped AdMob for another network?",
+        "Who found ad revenue stronger than expected?",
+        "Who has a tip for making ads less annoying?"
+      ]
+    },
+    {
+      "model": "Custom Backend",
+      "prompt": "Raise your hand if you’ve built your own custom backend for monetization.",
+      "hint": "A server that manages receipts, fraud checks, or subscription status",
+      "no_hands": [
+        "Why haven’t you built one — too much work, or not needed?",
+        "If you had to build one, what would be the first feature you’d include?"
+      ],
+      "hands_up": [
+        "Why did you decide to build your own backend?",
+        "What was the biggest advantage?",
+        "What was the hardest technical part?",
+        "How do you handle fraud, cancellations, and renewals?"
+      ],
+      "follow_ups": [
+        "Who switched from a custom backend to a service like RevenueCat?",
+        "Who thinks building your own backend is the only way to stay in control?",
+        "What’s one mistake to avoid when building your own?"
+      ]
+    }
+  ],
+  "wrap_up": [
+    "Which tool or package would you recommend to someone new to Flutter monetization?",
+    "Which one caused you the most pain — and why?",
+    "Do you prefer 'use one package and ship fast' or 'build your own backend for full control'?",
+    "What’s one improvement you’d like to see in Flutter’s monetization tools?"
+  ]
+}
