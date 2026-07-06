@@ -1,0 +1,1496 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FlutterCon USA 2026 Roundtable Facilitator</title>
+    <style>
+        :root{ --bg:#0b1220; --card:#121a2b; --ink:#e6edf6; --line:#7087b7; --node:#0f1a33; --border:#22304a; --yes:#3bc07b; --no:#ff8a8a; --accent:#a8c1ff; }
+        body { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; margin: 0; background: var(--bg); color: var(--ink); }
+        .wrap { max-width: 1200px; margin: 24px auto; padding: 16px; }
+        h1 { font-size: 20px; margin: 0 0 12px; font-weight: 700; }
+        .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 12px; box-shadow: 0 8px 24px rgba(0,0,0,.25); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+        .nodeBox { cursor: pointer; border:1px solid #2a3a5f; border-radius: 12px; background: #0f1a33; padding: 10px 12px; position: relative; }
+        .nodeBox:hover { outline: 2px solid #2a437a; }
+        .nodeTitle { font-size: 13px; color: var(--accent); margin-bottom: 6px; font-weight: 700; }
+        .chip { display:inline-block; padding:2px 8px; border-radius: 999px; font-size: 12px; border:1px solid var(--border); background:#0f1a33; color:#cfe1ff; margin-left: 6px; }
+        .hint { font-size: 12.5px; color: #d7e3ff; opacity:.9 }
+        .pill { padding: 2px 8px; border-radius: 999px; border:1px solid var(--border); font-size: 12px; }
+        .pill.yes { color:#bdf6d2; border-color:#255b40; background:#0e2a1d; }
+        .pill.no { color:#ffd6d6; border-color:#5b2525; background:#2a0e0e; }
+
+        .details { display: none; background: #0f1a33; border: 1px solid #3a5599; border-radius: 10px; padding: 10px 12px; margin: 8px 0 4px; font-size: 13px; }
+        .details.visible { display: block; }
+        .details h3 { margin:0 0 4px; font-size:14px; color:#dbe7ff; }
+        .details small { color:#9fb6d9; }
+        .details ul { margin:6px 0 0 18px; }
+        .details.hands-up { background: #0e2a1d; border-color: #255b40; }
+        .details.no-hands { background: #2a0e0e; border-color: #5b2525; }
+        .sectionTitle{ margin-top: 10px; font-size:14px; color:#bcd0ff; font-weight:700 }
+
+        /* New prompt and response structure */
+        .prompt-section { margin-bottom: 12px; }
+        .prompt-text { 
+            font-size: 16px; 
+            color: var(--ink); 
+            margin-bottom: 12px; 
+            font-weight: 500;
+            line-height: 1.4;
+        }
+        .response-options { 
+            display: flex; 
+            gap: 12px; 
+            justify-content: center;
+        }
+        .response-btn { 
+            background: var(--card); 
+            border: 2px solid var(--border); 
+            border-radius: 8px; 
+            padding: 12px 20px; 
+            cursor: pointer; 
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 120px;
+        }
+        .response-btn:hover { 
+            border-color: var(--accent); 
+            background: var(--node); 
+            transform: translateY(-1px);
+        }
+        .response-btn:active { 
+            transform: translateY(0);
+        }
+        .tab-bar { display: flex; margin-bottom: 20px; gap: 5px; }
+        .tab-button { background: var(--card); color: var(--ink); border: 1px solid var(--border); padding: 10px 20px; cursor: pointer; border-radius: 5px 5px 0 0; }
+        .tab-button.active { background: var(--node); border-bottom-color: var(--node); }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+        /* Question Navigation Styles */
+        .question-nav { margin-bottom: 20px; }
+        .question-list { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+        .question-item { 
+            background: var(--card); 
+            border: 1px solid var(--border); 
+            padding: 8px 12px; 
+            border-radius: 6px; 
+            cursor: pointer; 
+            font-size: 14px;
+            transition: all 0.2s ease;
+            color: var(--ink);
+        }
+        .question-item:hover { 
+            border-color: var(--accent); 
+            background: var(--node); 
+        }
+        .question-item.active { 
+            background: var(--accent); 
+            color: #0b1220; 
+            border-color: var(--accent); 
+            font-weight: 600; 
+        }
+
+        /* Topic Selection Styles */
+        .topic-selection { text-align: center; padding: 40px 0; }
+        .topic-buttons { display: flex; gap: 20px; justify-content: center; margin-top: 30px; flex-wrap: wrap; }
+        .topic-button { 
+            background: var(--card); 
+            border: 2px solid var(--border); 
+            color: var(--ink); 
+            padding: 20px 40px; 
+            border-radius: 12px; 
+            cursor: pointer; 
+            font-size: 18px; 
+            font-weight: 600;
+            transition: all 0.3s ease;
+            min-width: 200px;
+        }
+        .topic-button:hover { 
+            border-color: var(--accent); 
+            background: var(--node); 
+        }
+
+        .hidden { display: none !important; }
+        
+        .loading { text-align: center; padding: 40px; color: var(--accent); }
+
+        /* Roulette Modal */
+        .roulette-modal { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            background: rgba(11, 18, 32, 0.95); 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            z-index: 1000; 
+        }
+        .roulette-container { 
+            background: var(--card); 
+            border: 2px solid var(--border); 
+            border-radius: 20px; 
+            padding: 30px; 
+            text-align: center; 
+            max-width: 95vw; 
+            max-height: 95vh; 
+            width: 800px;
+            position: relative;
+            overflow-y: auto;
+        }
+        .roulette-close { 
+            position: absolute; 
+            top: 15px; 
+            right: 20px; 
+            background: none; 
+            border: none; 
+            color: var(--ink); 
+            font-size: 24px; 
+            cursor: pointer; 
+            padding: 5px;
+        }
+        .roulette-close:hover { color: var(--accent); }
+
+        /* Wheel Container */
+        .wheel-container { 
+            position: relative; 
+            width: 400px; 
+            height: 400px; 
+            margin: 20px auto; 
+        }
+        @media (max-width: 480px) {
+            .wheel-container { 
+                width: 300px; 
+                height: 300px; 
+            }
+        }
+
+        /* The Wheel */
+        .roulette-wheel { 
+            width: 100%; 
+            height: 100%; 
+            border-radius: 50%; 
+            position: relative; 
+            overflow: hidden; 
+            border: 4px solid var(--accent); 
+            box-shadow: 0 0 20px rgba(168, 193, 255, 0.3);
+        }
+
+        /* SVG-based wheel segments */
+        .wheel-svg {
+            width: 100%;
+            height: 100%;
+            transform-origin: center;
+        }
+        
+        .segment-text {
+            font-size: 10px;
+            font-weight: 700;
+            fill: #0b1220;
+            text-anchor: middle;
+            dominant-baseline: middle;
+            paint-order: stroke fill;
+            stroke: rgba(255,255,255,0.8);
+            stroke-width: 0.5px;
+        }
+
+        /* Roulette Result Grid */
+        .roulette-questions-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        @media (max-width: 600px) {
+            .roulette-questions-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Wheel Pointer */
+        .wheel-pointer { 
+            position: absolute; 
+            top: -15px; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            width: 0; 
+            height: 0; 
+            border-left: 15px solid transparent; 
+            border-right: 15px solid transparent; 
+            border-top: 30px solid var(--accent); 
+            z-index: 10;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+        }
+
+        /* Spinning Animation */
+        .wheel-spinning { 
+            animation: roulette-spin 4s cubic-bezier(0.25, 0.1, 0.25, 1) forwards; 
+        }
+        @keyframes roulette-spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(var(--spin-rotation)); }
+        }
+
+        /* Roulette Controls */
+        .roulette-controls { 
+            margin-top: 20px; 
+        }
+        .roulette-btn { 
+            background: var(--accent); 
+            border: 2px solid var(--accent); 
+            color: #0b1220; 
+            padding: 12px 24px; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            font-weight: 600; 
+            font-size: 16px; 
+            margin: 0 10px;
+            transition: all 0.2s ease;
+        }
+        .roulette-btn:hover { 
+            background: var(--ink); 
+            border-color: var(--ink); 
+        }
+        .roulette-btn:disabled { 
+            background: var(--border); 
+            border-color: var(--border); 
+            color: #7087b7; 
+            cursor: not-allowed; 
+        }
+
+        /* Result Display */
+        .roulette-result { 
+            margin-top: 20px; 
+            padding: 15px; 
+            background: var(--node); 
+            border: 1px solid var(--border); 
+            border-radius: 8px; 
+            font-size: 18px; 
+            font-weight: 600; 
+            color: var(--accent); 
+        }
+
+        /* Section Highlighting */
+        .roulette-selected { 
+            background: linear-gradient(135deg, rgba(168, 193, 255, 0.2), rgba(168, 193, 255, 0.1)) !important; 
+            border: 2px solid var(--accent) !important; 
+            box-shadow: 0 0 15px rgba(168, 193, 255, 0.4) !important;
+            position: relative;
+        }
+        .roulette-selected::before { 
+            content: "🎰 Roulette Selected"; 
+            position: absolute; 
+            top: -10px; 
+            right: 10px; 
+            background: var(--accent); 
+            color: #0b1220; 
+            padding: 4px 8px; 
+            border-radius: 4px; 
+            font-size: 12px; 
+            font-weight: 600; 
+        }
+    </style>
+    <script>
+        let currentTopic = null;
+        let questionsData = {};
+
+        const embeddedData = {
+          "flutter_ai_job_market": {
+                    "q1": {
+                              "sections": [
+                                        {
+                                                  "title": "Hiring Right Now",
+                                                  "prompt": "Who here is hiring developers, screening candidates, or involved in hiring decisions right now?",
+                                                  "hints": "Start with people who can describe actual demand: what roles are open, what has changed, and what they now expect from Flutter or mobile candidates.",
+                                                  "no_hands": [
+                                                            "If you are not hiring, is that because your team is stable, budgets are frozen, or you are avoiding growth?",
+                                                            "Have hiring plans changed because of AI, market uncertainty, or product priorities?",
+                                                            "What would need to happen before your team hired another developer?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "What kind of developer are you actually looking for?",
+                                                            "Are you hiring Flutter-specific roles, mobile generalists, full-stack builders, or product-minded engineers?",
+                                                            "What matters more in screening now: framework skill, shipped apps, native experience, AI fluency, or fundamentals?",
+                                                            "Are junior candidates getting a fair look, or do you mostly need people who can be productive immediately?",
+                                                            "Has AI changed your interview process or your expectations for take-home work and portfolios?"
+                                                  ],
+                                                  "follow_ups": [
+                                                            "What is the fastest way for a candidate to stand out positively?",
+                                                            "What is the most common weak signal you see in Flutter candidates?",
+                                                            "If someone here wanted to be hireable by your team in six months, what would you tell them to build or learn?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Looking for Work",
+                                                  "prompt": "Raise your hand if you are currently looking for a job, internship, freelance work, or your next client.",
+                                                  "hints": "Let job seekers describe what the market feels like before turning it into a strategy discussion.",
+                                                  "no_hands": [
+                                                            "If you are not looking, do you still keep an eye on the market?",
+                                                            "What would make you consider switching roles right now?",
+                                                            "Do you feel more secure because of your current skills, company, or network?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "How is the search going: lots of responses, silence, interviews, or confusing signals?",
+                                                            "Are you applying for Flutter roles specifically, or broader mobile/software roles?",
+                                                            "What seems to get attention from employers: shipped apps, GitHub, referrals, AI projects, native experience, or something else?",
+                                                            "Where do you feel blocked: too few Flutter openings, too much competition, lack of experience, interviews, or confidence?",
+                                                            "Has AI made the job search feel easier, harder, or just noisier?"
+                                                  ],
+                                                  "follow_ups": [
+                                                            "What advice from the internet has been useful, and what has been demoralizing?",
+                                                            "What would help most: better portfolio feedback, referrals, interview practice, or clearer market signals?",
+                                                            "If you changed your strategy after today, what would you change first?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Mentoring Juniors",
+                                                  "prompt": "By a show of hands, who mentors juniors, students, interns, bootcamp grads, or early-career developers?",
+                                                  "hints": "This bridges employers and job seekers: what beginners need now, what teams still teach, and what AI changes about apprenticeship.",
+                                                  "no_hands": [
+                                                            "If you do not mentor juniors, is that because of time, team structure, remote work, or lack of junior hiring?",
+                                                            "What would make mentoring easier for you?",
+                                                            "Do you think AI can replace some mentoring, or does it make human mentoring more important?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "What do juniors struggle with most now: fundamentals, debugging, architecture, product thinking, or confidence?",
+                                                            "Has AI helped juniors learn faster, or made it easier to skip understanding?",
+                                                            "What beginner tasks are still worth doing manually?",
+                                                            "How do you teach someone to review AI-generated Flutter code?",
+                                                            "What would make a junior Flutter developer easier to trust on real work?"
+                                                  ],
+                                                  "follow_ups": [
+                                                            "What should schools, bootcamps, and communities stop teaching?",
+                                                            "What should they teach more of?",
+                                                            "How can the Flutter community create more apprenticeship paths?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "AI at Work",
+                                                  "prompt": "Has anyone already seen AI change how they or their team writes, reviews, or ships code?",
+                                                  "hints": "End the opener by connecting the room’s hiring/search reality to the practical question: what work is actually changing?",
+                                                  "no_hands": [
+                                                            "What has stopped you from using AI in real development work?",
+                                                            "Is the blocker trust, company policy, privacy, tool quality, or habit?",
+                                                            "What task would you be most willing to try AI on first?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "Which tasks changed first: boilerplate, tests, UI, refactoring, debugging, docs, or planning?",
+                                                            "Did AI make your team faster, or did review and correction eat the gains?",
+                                                            "What skills became more important once AI entered the workflow?",
+                                                            "Has AI changed who gets hired, who gets promoted, or what counts as senior?",
+                                                            "Where does Flutter feel easier or harder to use with AI tools?"
+                                                  ],
+                                                  "follow_ups": [
+                                                            "What AI workflow would you actually recommend to a Flutter developer?",
+                                                            "What is one AI habit that makes developers weaker?",
+                                                            "What is one AI habit that makes developers stronger?"
+                                                  ]
+                                        }
+                              ],
+                              "wrap_up": [
+                                        "Based on the people in this room, does the market feel open, tight, confusing, or split by experience level?",
+                                        "What is one concrete signal job seekers should pay attention to?",
+                                        "What is one concrete signal hiring teams should send more clearly?"
+                              ]
+                    },
+                    "q2": {
+                              "sections": [
+                                        {
+                                                  "title": "Cross-Platform Leverage",
+                                                  "prompt": "By a show of hands, does Flutter’s cross-platform reach matter more when teams want fewer people to ship more surfaces?",
+                                                  "hints": "Examples: one codebase across mobile, web, desktop, prototypes, internal tools, and product experiments, especially for small teams and founders.",
+                                                  "no_hands": [
+                                                            "Where do you think cross-platform reach is overrated?",
+                                                            "When is native specialization a better career bet?",
+                                                            "What would Flutter need to prove before you saw it as a strategic choice?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "Which platforms or project types make Flutter especially valuable?",
+                                                            "Has Flutter helped you move between domains or roles?",
+                                                            "How much does one-codebase leverage matter when teams are smaller, AI-assisted, or expected to validate ideas quickly?",
+                                                            "What tradeoffs come with betting on cross-platform development?"
+                                                  ],
+                                                  "follow_ups": [
+                                                            "Does Flutter’s value increase when teams are expected to ship more with fewer people?",
+                                                            "What kind of product is Flutter best positioned for?",
+                                                            "Where does Flutter still struggle to make the strategic case?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Beyond Mobile",
+                                                  "prompt": "Anyone think Flutter’s best career value is building complete products, not just filling Flutter job postings?",
+                                                  "hints": "A recurring Reddit tension: Flutter may have fewer 9-to-5 openings than JavaScript or Java, but it can be powerful for building your own apps, prototypes, and multi-platform products.",
+                                                  "no_hands": [
+                                                            "Would you still learn Flutter if it did not maximize the number of job postings you can apply to?",
+                                                            "What makes 'build your own apps' feel like a weaker or stronger career strategy than targeting job listings?",
+                                                            "Which non-mobile Flutter targets feel least convincing today?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "Where has Flutter helped you build something end-to-end faster than another stack?",
+                                                            "Have you shipped or seen credible Flutter web, desktop, or embedded work?",
+                                                            "How does multi-surface thinking change the career value of Flutter?",
+                                                            "What would make employers care more about Flutter beyond mobile?"
+                                                  ],
+                                                  "follow_ups": [
+                                                            "Does AI make rapid multi-platform prototyping more valuable?",
+                                                            "What non-mobile Flutter demo would impress a hiring manager?",
+                                                            "Where should the Flutter ecosystem invest next?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Flutter vs. Native Specialization",
+                                                  "prompt": "Raise your hand if you think the safest Flutter bet is actually Flutter plus native mobile experience.",
+                                                  "hints": "Reddit comments repeatedly distinguish 'knows Flutter' from 'knows Flutter and understands Android/iOS constraints, releases, performance, and native interop.'",
+                                                  "no_hands": [
+                                                            "Why might pure Flutter still be enough for some roles or products?",
+                                                            "Do you think AI reduces the advantage of knowing one platform deeply?",
+                                                            "What kinds of roles reward broad cross-platform skill without deep native experience?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "What native skills make a Flutter developer much more employable?",
+                                                            "Where do Flutter projects still need Android or iOS judgment?",
+                                                            "Does AI make it easier for Flutter developers to bridge native gaps, or does it hide gaps until production?",
+                                                            "How would you advise someone choosing between Flutter-only and Flutter-plus-native today?"
+                                                  ],
+                                                  "follow_ups": [
+                                                            "Is the best answer Flutter plus platform literacy?",
+                                                            "How deep is deep enough in native APIs?",
+                                                            "Where do teams get hurt by shallow cross-platform knowledge?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Ecosystem Trust",
+                                                  "prompt": "How many of you like Flutter, but still worry about the smaller Flutter job market?",
+                                                  "hints": "Reddit discussions often split the issue: fewer Flutter openings than mainstream stacks, but also fewer experienced Flutter specialists and sometimes more committed teams.",
+                                                  "no_hands": [
+                                                            "Do you choose technologies based more on personal fit than ecosystem signals?",
+                                                            "What ecosystem concerns would not bother you?",
+                                                            "How much does corporate backing matter to your decision?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "What makes you trust or question Flutter’s future?",
+                                                            "Which matters more to you: number of openings, quality of teams, salary, or competition level?",
+                                                            "How do you evaluate the risk of relying on a Google-backed framework?",
+                                                            "What would make Flutter feel like a stronger bet for 2026 and beyond?"
+                                                  ],
+                                                  "follow_ups": [
+                                                            "What adoption story would change skeptical minds?",
+                                                            "How much should developers diversify beyond any one framework?",
+                                                            "What is Flutter’s strongest ecosystem advantage today?"
+                                                  ]
+                                        }
+                              ],
+                              "wrap_up": [
+                                        "If someone asked whether Flutter is still worth learning, what is your honest answer?",
+                                        "Where is Flutter a smart bet: employment, freelancing, startups, indie apps, or internal tools?",
+                                        "What would you watch over the next year to judge Flutter’s future?"
+                              ]
+                    },
+                    "q3": {
+                              "sections": [
+                                        {
+                                                  "title": "Depth vs. Breadth",
+                                                  "prompt": "Who here feels AI is pushing them to become a more adaptable builder rather than a single-framework specialist?",
+                                                  "hints": "Examples: moving across platforms, using AI to bridge gaps, learning product domains, and being able to build something useful even when the job market shifts.",
+                                                  "no_hands": [
+                                                            "Why do you think deep specialization becomes more valuable with AI?",
+                                                            "Which specialties are hardest for AI to flatten?",
+                                                            "What risks come from being too broad?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "What kinds of adaptability matter most: technical, product, communication, or domain learning?",
+                                                            "How does Flutter support an adaptable career path?",
+                                                            "Where can broad developers still get exposed by lack of depth?",
+                                                            "How do you decide when to go deeper versus wider?"
+                                                  ],
+                                                  "follow_ups": [
+                                                            "What is one deep skill every adaptable Flutter developer still needs?",
+                                                            "Can AI make a generalist more effective, or just more shallow faster?",
+                                                            "How do teams evaluate breadth during hiring?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "T-Shaped Learning",
+                                                  "prompt": "Anyone think Flutter should be one vertical in a T-shaped profile, not someone’s whole identity?",
+                                                  "hints": "Examples: Flutter as a deep skill, with breadth across native mobile, backend, AI tooling, design, product, deployment, and analytics.",
+                                                  "no_hands": [
+                                                            "Does the T-shaped idea feel too vague to guide learning?",
+                                                            "Would you rather become excellent at one narrow thing?",
+                                                            "What would you choose as your vertical skill instead of Flutter?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "What should be the deep vertical for a Flutter developer?",
+                                                            "Which horizontal skills pair best with Flutter in an AI-driven market: native, backend, design, AI tooling, or product?",
+                                                            "How do you avoid spreading yourself too thin?",
+                                                            "What is a realistic T-shaped learning plan for six months?"
+                                                  ],
+                                                  "follow_ups": [
+                                                            "Should AI tooling be part of the horizontal bar or the deep vertical?",
+                                                            "How do you show T-shaped ability in a portfolio?",
+                                                            "What is one skill pairing with Flutter that looks underrated?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Portfolio Strategy",
+                                                  "prompt": "By a show of hands, is a basic CRUD app still enough for a Flutter portfolio?",
+                                                  "hints": "Examples: showing product reasoning, polish, distribution, metrics, maintainability, native integration, and real users instead of only generated screens.",
+                                                  "no_hands": [
+                                                            "Do traditional portfolios still work if the projects are thoughtful?",
+                                                            "What makes a simple Flutter app still impressive?",
+                                                            "How should beginners prove skill without overbuilding?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "What makes a Flutter portfolio stand out when everyone can generate a decent-looking app shell?",
+                                                            "Should developers show prompts, process, tradeoffs, or only the final app?",
+                                                            "How important is shipping to stores or real users?",
+                                                            "What project would prove both Flutter skill and career resilience?"
+                                                  ],
+                                                  "follow_ups": [
+                                                            "What portfolio artifact shows judgment, not just code generation?",
+                                                            "How should students talk about AI use in projects?",
+                                                            "Would you rather see one polished app or five experiments?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Learning Time Allocation",
+                                                  "prompt": "Raise your hand if you are spending less time memorizing syntax and more time learning how systems fit together.",
+                                                  "hints": "Examples: less syntax memorization, more architecture, product, debugging, review, testing, release, and AI-assisted workflows.",
+                                                  "no_hands": [
+                                                            "Why has your learning plan stayed the same?",
+                                                            "Which old-school learning habits are still worth protecting?",
+                                                            "What should learners avoid outsourcing to AI too early?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "What do you spend less time learning now?",
+                                                            "What do you spend more time practicing now?",
+                                                            "How do you learn a framework when AI can answer questions instantly?",
+                                                            "What would you put in a weekly learning routine for Flutter plus AI?"
+                                                  ],
+                                                  "follow_ups": [
+                                                            "How much time should go to building versus reading versus debugging?",
+                                                            "What is the right role for official docs now?",
+                                                            "How do you keep from becoming dependent on AI explanations?"
+                                                  ]
+                                        }
+                              ],
+                              "wrap_up": [
+                                        "Would you advise people to specialize, generalize, or build a T-shaped profile?",
+                                        "What is the most valuable skill to pair with Flutter?",
+                                        "What learning habit should developers protect as AI tools get better?"
+                              ]
+                    },
+                    "q4": {
+                              "sections": [
+                                        {
+                                                  "title": "Coding After Coders",
+                                                  "prompt": "How many of you feel AI coding agents are changing your work from writing every line to directing, reviewing, and integrating?",
+                                                  "hints": "Recent mainstream coverage of AI coding describes developers spending less time typing code and more time supervising agents, shaping intent, and inspecting strange-but-useful outputs.",
+                                                  "no_hands": [
+                                                            "Why will traditional programming skill still matter?",
+                                                            "Which parts of Flutter are hard for agents to abstract away?",
+                                                            "What framework qualities become more important when AI writes more code?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "What parts of framework knowledge feel easier to delegate to AI?",
+                                                            "Does AI make it less risky to choose a framework with a learning curve?",
+                                                            "Will hiring shift from framework experts to product/system problem-solvers?",
+                                                            "How should Flutter developers describe their value if syntax matters less?"
+                                                  ],
+                                                  "follow_ups": [
+                                                            "Does framework maturity matter more when agents generate large diffs?",
+                                                            "Will teams standardize more or experiment more with frameworks?",
+                                                            "What remains uniquely human in framework selection?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "What Agents Can Replace",
+                                                  "prompt": "Has anyone found AI agents useful in their Flutter work so far?",
+                                                  "hints": "Examples: widgets, tests, refactors, navigation, state management wiring, docs, bug investigation, and the review skill needed to catch confident mistakes.",
+                                                  "no_hands": [
+                                                            "Which Flutter tasks remain too context-heavy for agents?",
+                                                            "What failure modes make you cautious?",
+                                                            "What would you need before trusting an agent with larger changes?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "Which Flutter tasks do agents handle well today?",
+                                                            "Where do they still make subtle mistakes?",
+                                                            "How do you review AI-generated Flutter code efficiently?",
+                                                            "What guardrails make agentic coding safer?"
+                                                  ],
+                                                  "follow_ups": [
+                                                            "Are agents better at greenfield work or maintaining existing apps?",
+                                                            "What tests catch the most AI-generated Flutter issues?",
+                                                            "How do agents change the role of code review?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Verification as Core Skill",
+                                                  "prompt": "Who here thinks that in agentic workflows, verification is becoming the core developer skill?",
+                                                  "hints": "Recent software-engineering research and media coverage point in the same direction: as agents handle more implementation, humans spend more effort validating correctness, maintainability, security, and product fit.",
+                                                  "no_hands": [
+                                                            "Do you think writing from scratch is still the core skill?",
+                                                            "Which writing skills should developers keep practicing?",
+                                                            "What risks come from treating verification as a separate skill from implementation?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "What makes someone good at reviewing AI-generated Flutter code?",
+                                                            "Which debugging skills are hardest for AI to replace?",
+                                                            "How do you teach code reading to beginners if agents write much of the first draft?",
+                                                            "What Flutter-specific bugs require real framework understanding?"
+                                                  ],
+                                                  "follow_ups": [
+                                                            "Should interviews test debugging more than implementation?",
+                                                            "How do you practice code review without a team?",
+                                                            "What is one debugging habit AI users need?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Architecture and Product Judgment",
+                                                  "prompt": "Anyone think judgment is becoming the real career bet: knowing what to build, not just how to ask AI to build it?",
+                                                  "hints": "Examples: choosing problems, shaping user flows, deciding boundaries, managing complexity, and knowing when not to automate.",
+                                                  "no_hands": [
+                                                            "Where does syntax or framework detail still decide project success?",
+                                                            "Can architecture judgment be learned through AI-assisted building?",
+                                                            "What should juniors do before they can make good architecture decisions?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "What product or architecture decisions does AI still struggle with?",
+                                                            "How does Flutter help or hurt product experimentation?",
+                                                            "What should developers learn to guide agents instead of only prompting them?",
+                                                            "How do you know when AI is solving the wrong problem?"
+                                                  ],
+                                                  "follow_ups": [
+                                                            "What question should developers ask before asking AI to code?",
+                                                            "How can Flutter developers show product judgment in real work?",
+                                                            "What architecture mistake can AI make faster than a human?"
+                                                  ]
+                                        }
+                              ],
+                              "wrap_up": [
+                                        "In an agentic coding world, what should Flutter developers become excellent at?",
+                                        "Does AI make Flutter more valuable, less valuable, or simply different?",
+                                        "What is one agentic workflow you would teach every Flutter developer?"
+                              ]
+                    },
+                    "q5": {
+                              "sections": [
+                                        {
+                                                  "title": "Product Thinking",
+                                                  "prompt": "Raise your hand if you think Flutter is most valuable when it is paired with product thinking, not just widget knowledge.",
+                                                  "hints": "Examples: understanding users, prioritizing outcomes, validating ideas, measuring success, and using Flutter to ship something real across surfaces.",
+                                                  "no_hands": [
+                                                            "Should developers focus on implementation and leave product thinking to others?",
+                                                            "Where can product thinking distract from technical excellence?",
+                                                            "What product skill is useful without becoming a product manager?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "How has product thinking helped your technical work?",
+                                                            "Why might Flutter be useful for validating product ideas quickly?",
+                                                            "What product questions should a developer ask before building?",
+                                                            "How can students practice product thinking in portfolio projects?"
+                                                  ],
+                                                  "follow_ups": [
+                                                            "What makes a Flutter app feel like a product instead of a demo?",
+                                                            "How should developers measure whether their work matters?",
+                                                            "Can product thinking protect developers from automation pressure?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Systems Thinking",
+                                                  "prompt": "By a show of hands, is systems thinking what keeps AI-generated code from becoming future technical debt?",
+                                                  "hints": "Examples: data flow, state, APIs, reliability, observability, performance, security, platform integration, and maintenance.",
+                                                  "no_hands": [
+                                                            "Which framework-specific skills are still durable?",
+                                                            "Can systems thinking be too abstract for early-career developers?",
+                                                            "What concrete Flutter tasks teach systems thinking best?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "Which systems concepts show up most often in Flutter apps?",
+                                                            "How do AI tools change the need to understand the whole system?",
+                                                            "What systems skill helped you debug something AI could not?",
+                                                            "How can Flutter developers become stronger end-to-end builders?"
+                                                  ],
+                                                  "follow_ups": [
+                                                            "What system boundary do Flutter developers often misunderstand?",
+                                                            "How do backend and deployment skills change Flutter career options?",
+                                                            "What should every Flutter developer know about reliability?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Shipping Real Apps",
+                                                  "prompt": "Who here thinks shipping real Flutter apps is a stronger signal than saying you know Flutter?",
+                                                  "hints": "Examples: app stores, real users, analytics, payments, support, crash reports, platform review, and iteration after launch.",
+                                                  "no_hands": [
+                                                            "Can learning projects still be enough if they are well designed?",
+                                                            "What blocks people from shipping real apps?",
+                                                            "How can students ship responsibly without huge scope?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "What did shipping teach you that tutorials never did?",
+                                                            "Does Flutter make it easier to get from idea to real product?",
+                                                            "How does AI change the speed or quality of shipping?",
+                                                            "What is the smallest real Flutter app that would prove serious ability?"
+                                                  ],
+                                                  "follow_ups": [
+                                                            "Should portfolios include metrics or user feedback?",
+                                                            "What mistakes only appear after launch?",
+                                                            "How do you balance shipping fast with learning deeply?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Communication and Judgment",
+                                                  "prompt": "Anyone think communication and judgment are now part of the technical skill set?",
+                                                  "hints": "Examples: explaining tradeoffs, aligning with stakeholders, writing clear tickets, reviewing AI outputs, and deciding what not to build.",
+                                                  "no_hands": [
+                                                            "Do technical skills still dominate hiring and promotion?",
+                                                            "Where can communication be overrated?",
+                                                            "What judgment can only come after building experience?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "What communication skill matters most for AI-assisted developers?",
+                                                            "How do you explain AI-generated work in a team setting?",
+                                                            "What does good judgment look like during code review?",
+                                                            "How can Flutter developers practice explaining technical tradeoffs?"
+                                                  ],
+                                                  "follow_ups": [
+                                                            "What is one phrase that signals strong engineering judgment?",
+                                                            "How do you disagree with AI output clearly?",
+                                                            "Can communication become a differentiator for junior developers?"
+                                                  ]
+                                        }
+                              ],
+                              "wrap_up": [
+                                        "What career-resilience skill should every Flutter developer build next?",
+                                        "What separates a developer who can ship from one who can only generate code?",
+                                        "Which Flutter project would best prove product, systems, and judgment skills together?"
+                              ]
+                    },
+                    "q6": {
+                              "sections": [
+                                        {
+                                                  "title": "What to Learn Next",
+                                                  "prompt": "How many of you are choosing your next learning step by asking: will this help me work with AI, not compete against it?",
+                                                  "hints": "Examples: Flutter fundamentals, native mobile, state management, testing, backend integration, AI tooling, product design, deployment, and verification habits.",
+                                                  "no_hands": [
+                                                            "What makes choosing the next step difficult?",
+                                                            "Are there too many competing skills to learn?",
+                                                            "What would help you pick one focus for the next month?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "What is your next learning priority and why?",
+                                                            "How does AI change the way you plan to learn it?",
+                                                            "What will you build, ship, or verify to know you improved?",
+                                                            "What would you stop learning for now?"
+                                                  ],
+                                                  "follow_ups": [
+                                                            "What is a realistic 30-day Flutter learning goal?",
+                                                            "How do you avoid collecting courses instead of building?",
+                                                            "What would make your learning visible to employers or collaborators?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Projects Worth Building",
+                                                  "prompt": "Raise your hand if you think the right project can answer 'why Flutter?' better than a resume bullet can.",
+                                                  "hints": "Examples: multi-platform apps, AI-powered tools, local business apps, internal dashboards, accessibility-focused products, monetized apps, and products with real users.",
+                                                  "no_hands": [
+                                                            "What makes project choice less important than fundamentals?",
+                                                            "Which project ideas feel overdone or weak now?",
+                                                            "How can beginners choose a project that is achievable?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "What kind of Flutter project would impress you in 2026: polished app, useful tool, native integration, real users, or revenue?",
+                                                            "How should AI be used in the project without becoming the whole story?",
+                                                            "What project proves cross-platform value clearly?",
+                                                            "How do you scope a project so it ships?"
+                                                  ],
+                                                  "follow_ups": [
+                                                            "What is one project idea you would recommend to a student?",
+                                                            "What is one project idea you would recommend to a working developer?",
+                                                            "Should projects target employers, users, or personal learning first?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Evaluating Opportunities",
+                                                  "prompt": "Has anyone started asking different questions before joining a company because of AI?",
+                                                  "hints": "Examples: team maturity, product domain, platform requirements, native complexity, AI expectations, testing culture, salary, mentorship, and whether AI investment is paired with hiring or cuts.",
+                                                  "no_hands": [
+                                                            "What makes Flutter opportunities hard to evaluate?",
+                                                            "Which questions would you ask before joining a Flutter team?",
+                                                            "How do you avoid choosing only based on technology?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "What signals make a Flutter opportunity attractive?",
+                                                            "What red flags would make you hesitate: no mentorship, vague AI strategy, rushed rewrites, or shrinking teams?",
+                                                            "How important is the product domain compared with the framework?",
+                                                            "Would AI adoption by the team make the opportunity better or riskier?"
+                                                  ],
+                                                  "follow_ups": [
+                                                            "What interview question reveals a healthy Flutter team?",
+                                                            "How do you judge whether a company uses AI to augment developers or avoid developing people?",
+                                                            "What opportunity would you take even if Flutter were not the main stack?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Advice to Your Past Self",
+                                                  "prompt": "By a show of hands, would you give your past self different Flutter or career advice because of AI and the current market?",
+                                                  "hints": "Examples: learn fundamentals earlier, ship more, add native/backend depth, use AI deliberately, build product sense, or avoid chasing every tool.",
+                                                  "no_hands": [
+                                                            "What advice would stay exactly the same?",
+                                                            "Which old advice still works surprisingly well?",
+                                                            "What should newcomers not overthink?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "What would you tell your past self to learn sooner?",
+                                                            "What would you tell your past self to stop worrying about?",
+                                                            "How would Flutter fit into that advice?",
+                                                            "What habit would have compounded the most over time?"
+                                                  ],
+                                                  "follow_ups": [
+                                                            "What advice sounds smart but is actually harmful now?",
+                                                            "What is one small action people can take after this roundtable?",
+                                                            "What should the Flutter community help newcomers understand better?"
+                                                  ]
+                                        }
+                              ],
+                              "wrap_up": [
+                                        "After this discussion, does Flutter feel like a smarter bet, a niche bet, a product-builder bet, or a riskier bet?",
+                                        "What is one concrete next step you will take in the next 30 days?",
+                                        "What should this community do to help people navigate AI-driven career uncertainty?"
+                              ]
+                    }
+          }
+};
+
+        function toggle(id){
+          const el = document.getElementById(id);
+          if(!el) return;
+          el.classList.toggle('visible');
+        }
+
+        function showTab(tabId) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => button.classList.remove('active'));
+            const questionItems = document.querySelectorAll('.question-item');
+            questionItems.forEach(item => item.classList.remove('active'));
+            
+            document.getElementById(tabId + '-content').classList.add('active');
+            
+            // Find and activate the corresponding question item
+            const questionNum = tabId.replace('q', '');
+            const questionItemsArray = document.querySelectorAll('.question-item');
+            if (questionItemsArray[questionNum - 1]) {
+                questionItemsArray[questionNum - 1].classList.add('active');
+            }
+        }
+
+        function loadTopic(topic) {
+            currentTopic = topic;
+            document.getElementById('topic-selection').classList.add('hidden');
+            document.getElementById('loading').classList.remove('hidden');
+
+            try {
+                // Use embedded data instead of fetching JSON files
+                questionsData = embeddedData[topic];
+
+                generateContent();
+                document.getElementById('loading').classList.add('hidden');
+                document.getElementById('main-content').classList.remove('hidden');
+            } catch (error) {
+                console.error('Error loading data:', error);
+                document.getElementById('loading').innerHTML = `<h2>Error loading ${topic} data</h2><p>Please check that the embedded data is available.</p>`;
+            }
+        }
+
+        function goBackToSelection() {
+            document.getElementById('main-content').classList.add('hidden');
+            document.getElementById('topic-selection').classList.remove('hidden');
+        }
+
+        // Roulette System
+        let rouletteSegments = [];
+        let isSpinning = false;
+
+        function openRoulette() {
+            if (!currentTopic) {
+                alert('Please select a topic first!');
+                return;
+            }
+            
+            generateRouletteSegments();
+            renderRouletteWheel();
+            updateRouletteStats();
+            document.getElementById('roulette-modal').classList.remove('hidden');
+        }
+
+        function closeRoulette() {
+            document.getElementById('roulette-modal').classList.add('hidden');
+            clearRouletteSelection();
+            
+            // Reset to initial state
+            showWheelForNext();
+        }
+
+        function generateRouletteSegments() {
+            rouletteSegments = [];
+            const usedSegments = getUsedSegments();
+            
+            if (!questionsData) return;
+            
+            // Generate segments for each question and section
+            for (let qNum = 1; qNum <= 6; qNum++) {
+                const questionKey = `q${qNum}`;
+                const questionData = questionsData[questionKey];
+                
+                if (!questionData || !questionData.sections) continue;
+                
+                questionData.sections.forEach((section, sectionIndex) => {
+                    const segmentId = `Q${qNum}S${sectionIndex + 1}`;
+                    
+                    // Only include if not already used
+                    if (!usedSegments.includes(segmentId)) {
+                        rouletteSegments.push({
+                            id: segmentId,
+                            questionNum: qNum,
+                            sectionIndex: sectionIndex,
+                            title: section.title,
+                            prompt: section.prompt
+                        });
+                    }
+                });
+            }
+        }
+
+        function renderRouletteWheel() {
+            const wheel = document.getElementById('roulette-wheel');
+            wheel.innerHTML = '';
+            
+            if (rouletteSegments.length === 0) {
+                wheel.innerHTML = '<div style="display: flex; align-items: center; justify-content: center; height: 100%; color: var(--ink); font-size: 18px; font-weight: 600; text-align: center;">All segments used!<br>Reset to continue.</div>';
+                document.getElementById('spin-btn').disabled = true;
+                return;
+            }
+            
+            document.getElementById('spin-btn').disabled = false;
+            
+            // Fixed number of visual segments for consistent spinning
+            const visualSegments = 12;
+            const segmentAngle = 360 / visualSegments;
+            const colors = [
+                '#a8c1ff', '#3bc07b', '#ff8a8a', '#ffd93d', 
+                '#ff9f43', '#a55eea', '#26de81', '#fd79a8',
+                '#74b9ff', '#e17055', '#00b894', '#fdcb6e'
+            ];
+            
+            // Create SVG element
+            const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+            svg.setAttribute('class', 'wheel-svg');
+            svg.setAttribute('viewBox', '0 0 200 200');
+            
+            const centerX = 100;
+            const centerY = 100;
+            const radius = 95;
+            
+            // Create visual segments (just colors, no labels)
+            for (let i = 0; i < visualSegments; i++) {
+                const startAngle = (i * segmentAngle - 90) * Math.PI / 180;
+                const endAngle = ((i + 1) * segmentAngle - 90) * Math.PI / 180;
+                
+                const x1 = centerX + radius * Math.cos(startAngle);
+                const y1 = centerY + radius * Math.sin(startAngle);
+                const x2 = centerX + radius * Math.cos(endAngle);
+                const y2 = centerY + radius * Math.sin(endAngle);
+                
+                const largeArcFlag = segmentAngle > 180 ? 1 : 0;
+                
+                // Create path for segment
+                const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                const pathData = `M ${centerX} ${centerY} L ${x1} ${y1} A ${radius} ${radius} 0 ${largeArcFlag} 1 ${x2} ${y2} Z`;
+                path.setAttribute('d', pathData);
+                path.setAttribute('fill', colors[i % colors.length]);
+                path.setAttribute('stroke', '#ffffff');
+                path.setAttribute('stroke-width', '1');
+                
+                svg.appendChild(path);
+            }
+            
+            wheel.appendChild(svg);
+        }
+
+        function spinWheel() {
+            if (isSpinning || rouletteSegments.length === 0) return;
+            
+            isSpinning = true;
+            document.getElementById('spin-btn').disabled = true;
+            document.getElementById('roulette-result').classList.add('hidden');
+            
+            // Clear any previous selection highlighting
+            clearRouletteSelection();
+            
+            // Randomly select from unused segments (independent of visual wheel)
+            const selectedIndex = Math.floor(Math.random() * rouletteSegments.length);
+            const selectedSegment = rouletteSegments[selectedIndex];
+            
+            // Create a fun spinning animation with random final position
+            const baseSpins = 5; // Number of full rotations
+            const randomFinalAngle = Math.random() * 360; // Random final position
+            const totalRotation = baseSpins * 360 + randomFinalAngle;
+            
+            // Apply spinning animation
+            const wheel = document.getElementById('roulette-wheel');
+            const svg = wheel.querySelector('.wheel-svg');
+            if (svg) {
+                svg.style.setProperty('--spin-rotation', `${totalRotation}deg`);
+                svg.classList.add('wheel-spinning');
+            }
+            
+            // Handle result after animation (independent of where wheel stops)
+            setTimeout(() => {
+                handleSpinResult(selectedSegment);
+                if (svg) {
+                    svg.classList.remove('wheel-spinning');
+                }
+                isSpinning = false;
+                document.getElementById('spin-btn').disabled = false;
+            }, 4000);
+        }
+
+        function handleSpinResult(selectedSegment) {
+            // Mark segment as used
+            markSegmentAsUsed(selectedSegment.id);
+            
+            // Get the full section data
+            const questionData = questionsData[`q${selectedSegment.questionNum}`];
+            const section = questionData.sections[selectedSegment.sectionIndex];
+            
+            // Show full section content
+            const resultDiv = document.getElementById('roulette-result');
+            resultDiv.innerHTML = `
+                <div style="font-size: 24px; margin-bottom: 15px;">🎯 ${selectedSegment.id}</div>
+                <div style="background: var(--node); border: 1px solid var(--border); border-radius: 8px; padding: 15px; text-align: left;">
+                    <div style="font-size: 16px; color: var(--accent); margin-bottom: 10px; font-weight: 600;">${section.title}</div>
+                    <div style="font-size: 15px; color: var(--ink); margin-bottom: 12px; font-weight: 500;">${section.prompt}</div>
+                    <div style="font-size: 13px; color: var(--line); margin-bottom: 15px; font-style: italic;">${section.hints}</div>
+                    
+                    <div style="margin-top: 15px;">
+                        <div style="display: flex; gap: 12px; justify-content: center;">
+                            <button onclick="toggleRouletteDetails('${selectedSegment.id}No')" 
+                                    style="background: var(--card); border: 2px solid var(--border); color: var(--ink); padding: 12px 20px; border-radius: 8px; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; min-width: 120px;">
+                                <span style="padding: 2px 8px; border-radius: 999px; border:1px solid var(--border); font-size: 12px; color:#ffd6d6; border-color:#5b2525; background:#2a0e0e;">No Hands</span>
+                            </button>
+                            <button onclick="toggleRouletteDetails('${selectedSegment.id}Yes')" 
+                                    style="background: var(--card); border: 2px solid var(--border); color: var(--ink); padding: 12px 20px; border-radius: 8px; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; min-width: 120px;">
+                                <span style="padding: 2px 8px; border-radius: 999px; border:1px solid var(--border); font-size: 12px; color:#bdf6d2; border-color:#255b40; background:#0e2a1d;">Hands Up</span>
+                            </button>
+                        </div>
+                        
+                        <div id="${selectedSegment.id}No" class="roulette-details no-hands" style="display: none; background: #2a0e0e; border: 1px solid #5b2525; border-radius: 10px; padding: 10px 12px; margin: 8px 0 4px; font-size: 13px;">
+                            <h3 style="margin:0 0 4px; font-size:14px; color:#dbe7ff;">🙅 No Hands Questions</h3>
+                            <ul style="margin:6px 0 0 18px;">
+                                ${section.no_hands.map(q => `<li style="margin-bottom: 4px;">${q}</li>`).join('')}
+                            </ul>
+                        </div>
+                        
+                        <div id="${selectedSegment.id}Yes" class="roulette-details hands-up" style="display: none; background: #0e2a1d; border: 1px solid #255b40; border-radius: 10px; padding: 10px 12px; margin: 8px 0 4px; font-size: 13px;">
+                            <h3 style="margin:0 0 4px; font-size:14px; color:#dbe7ff;">🙋 Hands Up Questions</h3>
+                            <ul style="margin:6px 0 0 18px;">
+                                ${section.hands_up.map(q => `<li style="margin-bottom: 4px;">${q}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 20px;">
+                    <button onclick="navigateToSelectedSection('${selectedSegment.questionNum}', '${selectedSegment.sectionIndex}')" 
+                            style="background: var(--card); border: 1px solid var(--border); color: var(--ink); padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: 600;">
+                        📍 Go to Full Page
+                    </button>
+                </div>
+            `;
+            resultDiv.classList.remove('hidden');
+            
+            // Update segments and stats
+            generateRouletteSegments();
+            renderRouletteWheel();
+            updateRouletteStats();
+            
+            // Automatically hide wheel after showing result
+            hideWheelShowNext();
+        }
+
+        function hideWheelShowNext() {
+            // Hide wheel and wheel controls
+            document.querySelector('.wheel-container').classList.add('hidden');
+            document.getElementById('wheel-controls').classList.add('hidden');
+            
+            // Show next controls
+            document.getElementById('next-controls').classList.remove('hidden');
+            
+            // Update title
+            document.querySelector('#roulette-modal h2').textContent = '📋 Discussion Time';
+            document.querySelector('#roulette-modal p').textContent = 'Discuss the topic above, then spin again for the next one!';
+        }
+
+        function showWheelForNext() {
+            // Show wheel and wheel controls
+            document.querySelector('.wheel-container').classList.remove('hidden');
+            document.getElementById('wheel-controls').classList.remove('hidden');
+            
+            // Hide next controls and result
+            document.getElementById('next-controls').classList.add('hidden');
+            document.getElementById('roulette-result').classList.add('hidden');
+            
+            // Update title back
+            document.querySelector('#roulette-modal h2').textContent = '🎰 Question Roulette';
+            document.querySelector('#roulette-modal p').textContent = 'Spin to randomly select a discussion topic!';
+        }
+
+        function navigateToSelectedSection(questionNum, sectionIndex) {
+            closeRoulette();
+            
+            // Switch to the correct question tab
+            showTab(`q${questionNum}`);
+            
+            // Highlight the selected section
+            setTimeout(() => {
+                highlightSelectedSection(questionNum, sectionIndex);
+            }, 100);
+        }
+
+        function highlightSelectedSection(questionNum, sectionIndex) {
+            // Clear previous selections
+            clearRouletteSelection();
+            
+            // Find and highlight the section
+            const questionData = questionsData[`q${questionNum}`];
+            if (!questionData || !questionData.sections[sectionIndex]) return;
+            
+            const section = questionData.sections[sectionIndex];
+            
+            // Find the section card by looking for the section title within the current question
+            setTimeout(() => {
+                const activeQuestionContent = document.querySelector('.tab-content.active');
+                if (!activeQuestionContent) return;
+                
+                const cards = activeQuestionContent.querySelectorAll('.card');
+                // Skip the wrap-up card (last one), only highlight section cards
+                const sectionCards = Array.from(cards).slice(0, -1);
+                
+                if (sectionCards[sectionIndex]) {
+                    sectionCards[sectionIndex].classList.add('roulette-selected');
+                    sectionCards[sectionIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }, 200);
+        }
+
+        function clearRouletteSelection() {
+            document.querySelectorAll('.roulette-selected').forEach(el => {
+                el.classList.remove('roulette-selected');
+            });
+        }
+
+        function toggleRouletteDetails(id) {
+            const el = document.getElementById(id);
+            if (!el) return;
+            el.style.display = el.style.display === 'none' ? 'block' : 'none';
+        }
+
+        // LocalStorage Management
+        function getStorageKey() {
+            return `roulette_used_${currentTopic}`;
+        }
+
+        function getUsedSegments() {
+            const stored = localStorage.getItem(getStorageKey());
+            return stored ? JSON.parse(stored) : [];
+        }
+
+        function markSegmentAsUsed(segmentId) {
+            const used = getUsedSegments();
+            if (!used.includes(segmentId)) {
+                used.push(segmentId);
+                localStorage.setItem(getStorageKey(), JSON.stringify(used));
+            }
+        }
+
+        function resetRoulette() {
+            if (confirm('Reset all used segments? This will make all topics available again.')) {
+                localStorage.removeItem(getStorageKey());
+                generateRouletteSegments();
+                renderRouletteWheel();
+                updateRouletteStats();
+                
+                // Reset to wheel view
+                showWheelForNext();
+            }
+        }
+
+        function updateRouletteStats() {
+            const usedSegments = getUsedSegments();
+            const totalSegments = getTotalSegments();
+            const availableSegments = rouletteSegments.length;
+            
+            document.getElementById('roulette-stats').innerHTML = `
+                Available: ${availableSegments} | Used: ${usedSegments.length} | Total: ${totalSegments}
+            `;
+            
+            // Update used questions list
+            const usedQuestionsDiv = document.getElementById('used-questions-list');
+            if (usedSegments.length === 0) {
+                usedQuestionsDiv.innerHTML = '<em>None yet - spin to get started!</em>';
+            } else {
+                // Group by question for better display
+                const groupedUsed = {};
+                usedSegments.forEach(segmentId => {
+                    const qMatch = segmentId.match(/Q(\d+)S(\d+)/);
+                    if (qMatch) {
+                        const qNum = qMatch[1];
+                        const sNum = qMatch[2];
+                        if (!groupedUsed[qNum]) {
+                            groupedUsed[qNum] = [];
+                        }
+                        groupedUsed[qNum].push(sNum);
+                    }
+                });
+                
+                let html = '';
+                Object.keys(groupedUsed).sort().forEach(qNum => {
+                    const sections = groupedUsed[qNum].sort();
+                    html += `<span style="display: inline-block; margin: 2px 6px 2px 0; padding: 2px 6px; background: var(--node); border-radius: 4px; border: 1px solid var(--border);">Q${qNum}: ${sections.map(s => `S${s}`).join(', ')}</span>`;
+                });
+                usedQuestionsDiv.innerHTML = html;
+            }
+        }
+
+        function getTotalSegments() {
+            if (!questionsData) return 0;
+            
+            let total = 0;
+            for (let qNum = 1; qNum <= 6; qNum++) {
+                const questionData = questionsData[`q${qNum}`];
+                if (questionData && questionData.sections) {
+                    total += questionData.sections.length;
+                }
+            }
+            return total;
+        }
+
+        function generateContent() {
+            const contentArea = document.getElementById('content-area');
+            const mainTitle = document.getElementById('main-title');
+            const questionList = document.getElementById('question-list');
+            
+            // Update title
+            const topicDisplayName = 'Is Flutter a Smart Bet in an AI-Driven Job Market?';
+            mainTitle.innerHTML = `FlutterCon USA 2026 Roundtable: ${topicDisplayName} <span class="chip">Click any box to expand</span>`;
+            
+            // Generate question navigation
+            questionList.innerHTML = '';
+            for (let qNum = 1; qNum <= 6; qNum++) {
+                const questionTitle = getQuestionTitle(currentTopic, qNum);
+                const questionItem = document.createElement('div');
+                questionItem.className = qNum === 1 ? 'question-item active' : 'question-item';
+                questionItem.textContent = questionTitle;
+                questionItem.onclick = () => showTab(`q${qNum}`);
+                questionList.appendChild(questionItem);
+            }
+            
+            // Clear previous content
+            contentArea.innerHTML = '';
+            
+            // Generate content for each question
+            for (let qNum = 1; qNum <= 6; qNum++) {
+                const questionKey = `q${qNum}`;
+                const questionData = questionsData[questionKey];
+                
+                if (!questionData) continue;
+                
+                const questionDiv = document.createElement('div');
+                questionDiv.id = `${questionKey}-content`;
+                questionDiv.className = qNum === 1 ? 'tab-content active' : 'tab-content';
+                
+                // Question title
+                const questionTitle = getQuestionTitle(currentTopic, qNum);
+                questionDiv.innerHTML = `<h1>${questionTitle}</h1>`;
+                
+                // Generate sections
+                questionData.sections.forEach((section, sectionIndex) => {
+                    const sectionId = getSectionId(section.title);
+                    
+                    const cardDiv = document.createElement('div');
+                    cardDiv.className = 'card';
+                    
+                    cardDiv.innerHTML = `
+                        <div class="sectionTitle">${section.title}</div>
+                        <div class="prompt-section">
+                            <div class="prompt-text">${section.prompt}</div>
+                            <div class="response-options">
+                                <button class="response-btn no-btn" onclick="toggle('${sectionId}No')">
+                                    <span class="pill no">No Hands</span>
+                                </button>
+                                <button class="response-btn yes-btn" onclick="toggle('${sectionId}Yes')">
+                                    <span class="pill yes">Hands Up</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div id="${sectionId}No" class="details no-hands">
+                            <h3>${section.title.replace(/^[A-Z]\)\s*/, '')} – No Hands</h3>
+                            <small>${section.hints}</small>
+                            <ul>
+                                ${section.no_hands.map(q => `<li>${q}</li>`).join('')}
+                            </ul>
+                        </div>
+                        <div id="${sectionId}Yes" class="details hands-up">
+                            <h3>${section.title.replace(/^[A-Z]\)\s*/, '')} – Hands Up</h3>
+                            <small>${section.hints}</small>
+                            <ul>
+                                ${section.hands_up.map(q => `<li>${q}</li>`).join('')}
+                            </ul>
+                        </div>
+                    `;
+                    
+                    questionDiv.appendChild(cardDiv);
+                });
+                
+                // Add wrap-up section
+                if (questionData.wrap_up && questionData.wrap_up.length > 0) {
+                    const wrapUpDiv = document.createElement('div');
+                    wrapUpDiv.className = 'card';
+                    wrapUpDiv.innerHTML = `
+                        <div class="sectionTitle">Wrap-up Question</div>
+                        <div class="prompt-section">
+                            <div class="prompt-text">Final thoughts on ${questionTitle.toLowerCase()}</div>
+                            <div class="response-options">
+                                <button class="response-btn wrap-btn" onclick="toggle('${questionKey}Wrap')" style="width: 100%;">
+                                    <span class="pill" style="background: var(--accent); color: #0b1220;">Discuss Wrap-up</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div id="${questionKey}Wrap" class="details">
+                            <h3>${questionTitle} Wrap-up</h3>
+                            <ul>
+                                ${questionData.wrap_up.map(q => `<li>${q}</li>`).join('')}
+                            </ul>
+                        </div>
+                    `;
+                    questionDiv.appendChild(wrapUpDiv);
+                }
+                
+                contentArea.appendChild(questionDiv);
+            }
+        }
+
+        function getQuestionTitle(topic, qNum) {
+            const titles = {
+                flutter_ai_job_market: [
+                    'Q1: Who Is Hiring, Looking, or Worried?',
+                    'Q2: Is Flutter Still a Smart Bet?',
+                    'Q3: Specialize Deeply or Stay Adaptable?',
+                    'Q4: Flutter in an Agentic Coding World',
+                    'Q5: Building Career Resilience with Flutter',
+                    'Q6: Practical Next Steps'
+                ]
+            };
+            return titles[topic][qNum - 1] || `Q${qNum}`;
+        }
+
+        function getSectionId(title) {
+            return title.replace(/[^a-zA-Z]/g, '').toLowerCase();
+        }
+    </script>
+</head>
+<body onload="loadTopic('flutter_ai_job_market')">
+    <!-- Topic Selection Screen -->
+    <div id="topic-selection" class="topic-selection hidden">
+        <div class="wrap">
+            <h1>FlutterCon USA 2026 Roundtable Facilitator</h1>
+            <p>Is Flutter a Smart Bet in an AI-Driven Job Market?</p>
+            <div class="topic-buttons">
+                <button class="topic-button" onclick="loadTopic('flutter_ai_job_market')">
+                    Start Discussion
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Screen -->
+    <div id="loading" class="loading hidden">
+        <h2>Loading content...</h2>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content" class="hidden">
+        <div class="wrap">
+            <h1 id="main-title">FlutterCon USA 2026 Roundtable Facilitator <span class="chip">Click any box to expand</span></h1>
+            
+            <div style="margin-bottom: 20px; display: flex; gap: 12px; align-items: center;">
+                <button onclick="openRoulette()" style="background: var(--accent); border: 1px solid var(--accent); color: #0b1220; padding: 8px 16px; border-radius: 5px; cursor: pointer; font-weight: 600;">
+                    🎰 Open Roulette
+                </button>
+            </div>
+
+            <div class="question-nav">
+                <div id="question-list" class="question-list">
+                    <!-- Questions will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <div id="content-area"></div>
+        </div>
+    </div>
+
+    <!-- Roulette Modal -->
+    <div id="roulette-modal" class="roulette-modal hidden">
+        <div class="roulette-container">
+            <button class="roulette-close" onclick="closeRoulette()">×</button>
+            <h2 style="margin-top: 0; color: var(--accent);">🎰 Question Roulette</h2>
+            <p style="color: var(--ink); margin-bottom: 20px;">Spin to randomly select a discussion topic!</p>
+            
+            <div class="wheel-container">
+                <div class="wheel-pointer"></div>
+                <div id="roulette-wheel" class="roulette-wheel">
+                    <!-- Wheel segments will be generated by JavaScript -->
+                </div>
+            </div>
+            
+            <div id="wheel-controls" class="roulette-controls">
+                <button id="spin-btn" class="roulette-btn" onclick="spinWheel()">
+                    🎲 Spin the Wheel!
+                </button>
+                <button class="roulette-btn" onclick="resetRoulette()" style="background: var(--card); border-color: var(--border); color: var(--ink);">
+                    🔄 Reset Used
+                </button>
+            </div>
+            
+            <div id="next-controls" class="roulette-controls hidden">
+                <button class="roulette-btn" onclick="showWheelForNext()" style="font-size: 18px;">
+                    🎰 Next Spin
+                </button>
+                <button class="roulette-btn" onclick="resetRoulette()" style="background: var(--card); border-color: var(--border); color: var(--ink);">
+                    🔄 Reset Used
+                </button>
+            </div>
+            
+            <div id="roulette-result" class="roulette-result hidden">
+                <!-- Result will be shown here -->
+            </div>
+            
+            <div id="roulette-stats" style="margin-top: 15px; color: var(--line); font-size: 14px;">
+                <!-- Stats will be shown here -->
+            </div>
+            
+            <div id="used-questions" style="margin-top: 20px; padding-top: 15px; border-top: 1px solid var(--border);">
+                <h4 style="margin: 0 0 10px 0; color: var(--accent); font-size: 14px;">Already Used:</h4>
+                <div id="used-questions-list" style="color: var(--line); font-size: 12px; line-height: 1.4;">
+                    <!-- Used questions will be shown here -->
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

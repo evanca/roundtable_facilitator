@@ -1,0 +1,96 @@
+{
+  "source_file": "Original draft for FlutterCon USA 2026 roundtable",
+  "extracted_at": "2026-07-05T00:00:00.000000",
+  "question": "Q4: Flutter in an Agentic Coding World",
+  "sections": [
+    {
+      "model": "Coding After Coders",
+      "prompt": "How many of you feel AI coding agents are changing your work from writing every line to directing, reviewing, and integrating?",
+      "hint": "Recent mainstream coverage of AI coding describes developers spending less time typing code and more time supervising agents, shaping intent, and inspecting strange-but-useful outputs.",
+      "no_hands": [
+        "Why will traditional programming skill still matter?",
+        "Which parts of Flutter are hard for agents to abstract away?",
+        "What framework qualities become more important when AI writes more code?"
+      ],
+      "hands_up": [
+        "What parts of framework knowledge feel easier to delegate to AI?",
+        "Does AI make it less risky to choose a framework with a learning curve?",
+        "Will hiring shift from framework experts to product/system problem-solvers?",
+        "How should Flutter developers describe their value if syntax matters less?"
+      ],
+      "follow_ups": [
+        "Does framework maturity matter more when agents generate large diffs?",
+        "Will teams standardize more or experiment more with frameworks?",
+        "What remains uniquely human in framework selection?"
+      ]
+    },
+    {
+      "model": "What Agents Can Replace",
+      "prompt": "Has anyone found AI agents useful in their Flutter work so far?",
+      "hint": "Examples: widgets, tests, refactors, navigation, state management wiring, docs, bug investigation, and the review skill needed to catch confident mistakes.",
+      "no_hands": [
+        "Which Flutter tasks remain too context-heavy for agents?",
+        "What failure modes make you cautious?",
+        "What would you need before trusting an agent with larger changes?"
+      ],
+      "hands_up": [
+        "Which Flutter tasks do agents handle well today?",
+        "Where do they still make subtle mistakes?",
+        "How do you review AI-generated Flutter code efficiently?",
+        "What guardrails make agentic coding safer?"
+      ],
+      "follow_ups": [
+        "Are agents better at greenfield work or maintaining existing apps?",
+        "What tests catch the most AI-generated Flutter issues?",
+        "How do agents change the role of code review?"
+      ]
+    },
+    {
+      "model": "Verification as Core Skill",
+      "prompt": "Who here thinks that in agentic workflows, verification is becoming the core developer skill?",
+      "hint": "Recent software-engineering research and media coverage point in the same direction: as agents handle more implementation, humans spend more effort validating correctness, maintainability, security, and product fit.",
+      "no_hands": [
+        "Do you think writing from scratch is still the core skill?",
+        "Which writing skills should developers keep practicing?",
+        "What risks come from treating verification as a separate skill from implementation?"
+      ],
+      "hands_up": [
+        "What makes someone good at reviewing AI-generated Flutter code?",
+        "Which debugging skills are hardest for AI to replace?",
+        "How do you teach code reading to beginners if agents write much of the first draft?",
+        "What Flutter-specific bugs require real framework understanding?"
+      ],
+      "follow_ups": [
+        "Should interviews test debugging more than implementation?",
+        "How do you practice code review without a team?",
+        "What is one debugging habit AI users need?"
+      ]
+    },
+    {
+      "model": "Architecture and Product Judgment",
+      "prompt": "Anyone think judgment is becoming the real career bet: knowing what to build, not just how to ask AI to build it?",
+      "hint": "Examples: choosing problems, shaping user flows, deciding boundaries, managing complexity, and knowing when not to automate.",
+      "no_hands": [
+        "Where does syntax or framework detail still decide project success?",
+        "Can architecture judgment be learned through AI-assisted building?",
+        "What should juniors do before they can make good architecture decisions?"
+      ],
+      "hands_up": [
+        "What product or architecture decisions does AI still struggle with?",
+        "How does Flutter help or hurt product experimentation?",
+        "What should developers learn to guide agents instead of only prompting them?",
+        "How do you know when AI is solving the wrong problem?"
+      ],
+      "follow_ups": [
+        "What question should developers ask before asking AI to code?",
+        "How can Flutter developers show product judgment in real work?",
+        "What architecture mistake can AI make faster than a human?"
+      ]
+    }
+  ],
+  "wrap_up": [
+    "In an agentic coding world, what should Flutter developers become excellent at?",
+    "Does AI make Flutter more valuable, less valuable, or simply different?",
+    "What is one agentic workflow you would teach every Flutter developer?"
+  ]
+}

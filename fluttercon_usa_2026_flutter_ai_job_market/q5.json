@@ -1,0 +1,96 @@
+{
+  "source_file": "Original draft for FlutterCon USA 2026 roundtable",
+  "extracted_at": "2026-07-05T00:00:00.000000",
+  "question": "Q5: Building Career Resilience with Flutter",
+  "sections": [
+    {
+      "model": "Product Thinking",
+      "prompt": "Raise your hand if you think Flutter is most valuable when it is paired with product thinking, not just widget knowledge.",
+      "hint": "Examples: understanding users, prioritizing outcomes, validating ideas, measuring success, and using Flutter to ship something real across surfaces.",
+      "no_hands": [
+        "Should developers focus on implementation and leave product thinking to others?",
+        "Where can product thinking distract from technical excellence?",
+        "What product skill is useful without becoming a product manager?"
+      ],
+      "hands_up": [
+        "How has product thinking helped your technical work?",
+        "Why might Flutter be useful for validating product ideas quickly?",
+        "What product questions should a developer ask before building?",
+        "How can students practice product thinking in portfolio projects?"
+      ],
+      "follow_ups": [
+        "What makes a Flutter app feel like a product instead of a demo?",
+        "How should developers measure whether their work matters?",
+        "Can product thinking protect developers from automation pressure?"
+      ]
+    },
+    {
+      "model": "Systems Thinking",
+      "prompt": "By a show of hands, is systems thinking what keeps AI-generated code from becoming future technical debt?",
+      "hint": "Examples: data flow, state, APIs, reliability, observability, performance, security, platform integration, and maintenance.",
+      "no_hands": [
+        "Which framework-specific skills are still durable?",
+        "Can systems thinking be too abstract for early-career developers?",
+        "What concrete Flutter tasks teach systems thinking best?"
+      ],
+      "hands_up": [
+        "Which systems concepts show up most often in Flutter apps?",
+        "How do AI tools change the need to understand the whole system?",
+        "What systems skill helped you debug something AI could not?",
+        "How can Flutter developers become stronger end-to-end builders?"
+      ],
+      "follow_ups": [
+        "What system boundary do Flutter developers often misunderstand?",
+        "How do backend and deployment skills change Flutter career options?",
+        "What should every Flutter developer know about reliability?"
+      ]
+    },
+    {
+      "model": "Shipping Real Apps",
+      "prompt": "Who here thinks shipping real Flutter apps is a stronger signal than saying you know Flutter?",
+      "hint": "Examples: app stores, real users, analytics, payments, support, crash reports, platform review, and iteration after launch.",
+      "no_hands": [
+        "Can learning projects still be enough if they are well designed?",
+        "What blocks people from shipping real apps?",
+        "How can students ship responsibly without huge scope?"
+      ],
+      "hands_up": [
+        "What did shipping teach you that tutorials never did?",
+        "Does Flutter make it easier to get from idea to real product?",
+        "How does AI change the speed or quality of shipping?",
+        "What is the smallest real Flutter app that would prove serious ability?"
+      ],
+      "follow_ups": [
+        "Should portfolios include metrics or user feedback?",
+        "What mistakes only appear after launch?",
+        "How do you balance shipping fast with learning deeply?"
+      ]
+    },
+    {
+      "model": "Communication and Judgment",
+      "prompt": "Anyone think communication and judgment are now part of the technical skill set?",
+      "hint": "Examples: explaining tradeoffs, aligning with stakeholders, writing clear tickets, reviewing AI outputs, and deciding what not to build.",
+      "no_hands": [
+        "Do technical skills still dominate hiring and promotion?",
+        "Where can communication be overrated?",
+        "What judgment can only come after building experience?"
+      ],
+      "hands_up": [
+        "What communication skill matters most for AI-assisted developers?",
+        "How do you explain AI-generated work in a team setting?",
+        "What does good judgment look like during code review?",
+        "How can Flutter developers practice explaining technical tradeoffs?"
+      ],
+      "follow_ups": [
+        "What is one phrase that signals strong engineering judgment?",
+        "How do you disagree with AI output clearly?",
+        "Can communication become a differentiator for junior developers?"
+      ]
+    }
+  ],
+  "wrap_up": [
+    "What career-resilience skill should every Flutter developer build next?",
+    "What separates a developer who can ship from one who can only generate code?",
+    "Which Flutter project would best prove product, systems, and judgment skills together?"
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "source_file": "Original draft for FlutterCon USA 2026 roundtable",
+  "extracted_at": "2026-07-05T00:00:00.000000",
+  "question": "Q1: Who Is Hiring, Looking, or Worried?",
+  "sections": [
+    {
+      "model": "Hiring Right Now",
+      "prompt": "Who here is hiring developers, screening candidates, or involved in hiring decisions right now?",
+      "hint": "Start with people who can describe actual demand: what roles are open, what has changed, and what they now expect from Flutter or mobile candidates.",
+      "no_hands": [
+        "If you are not hiring, is that because your team is stable, budgets are frozen, or you are avoiding growth?",
+        "Have hiring plans changed because of AI, market uncertainty, or product priorities?",
+        "What would need to happen before your team hired another developer?"
+      ],
+      "hands_up": [
+        "What kind of developer are you actually looking for?",
+        "Are you hiring Flutter-specific roles, mobile generalists, full-stack builders, or product-minded engineers?",
+        "What matters more in screening now: framework skill, shipped apps, native experience, AI fluency, or fundamentals?",
+        "Are junior candidates getting a fair look, or do you mostly need people who can be productive immediately?",
+        "Has AI changed your interview process or your expectations for take-home work and portfolios?"
+      ],
+      "follow_ups": [
+        "What is the fastest way for a candidate to stand out positively?",
+        "What is the most common weak signal you see in Flutter candidates?",
+        "If someone here wanted to be hireable by your team in six months, what would you tell them to build or learn?"
+      ]
+    },
+    {
+      "model": "Looking for Work",
+      "prompt": "Raise your hand if you are currently looking for a job, internship, freelance work, or your next client.",
+      "hint": "Let job seekers describe what the market feels like before turning it into a strategy discussion.",
+      "no_hands": [
+        "If you are not looking, do you still keep an eye on the market?",
+        "What would make you consider switching roles right now?",
+        "Do you feel more secure because of your current skills, company, or network?"
+      ],
+      "hands_up": [
+        "How is the search going: lots of responses, silence, interviews, or confusing signals?",
+        "Are you applying for Flutter roles specifically, or broader mobile/software roles?",
+        "What seems to get attention from employers: shipped apps, GitHub, referrals, AI projects, native experience, or something else?",
+        "Where do you feel blocked: too few Flutter openings, too much competition, lack of experience, interviews, or confidence?",
+        "Has AI made the job search feel easier, harder, or just noisier?"
+      ],
+      "follow_ups": [
+        "What advice from the internet has been useful, and what has been demoralizing?",
+        "What would help most: better portfolio feedback, referrals, interview practice, or clearer market signals?",
+        "If you changed your strategy after today, what would you change first?"
+      ]
+    },
+    {
+      "model": "Mentoring Juniors",
+      "prompt": "By a show of hands, who mentors juniors, students, interns, bootcamp grads, or early-career developers?",
+      "hint": "This bridges employers and job seekers: what beginners need now, what teams still teach, and what AI changes about apprenticeship.",
+      "no_hands": [
+        "If you do not mentor juniors, is that because of time, team structure, remote work, or lack of junior hiring?",
+        "What would make mentoring easier for you?",
+        "Do you think AI can replace some mentoring, or does it make human mentoring more important?"
+      ],
+      "hands_up": [
+        "What do juniors struggle with most now: fundamentals, debugging, architecture, product thinking, or confidence?",
+        "Has AI helped juniors learn faster, or made it easier to skip understanding?",
+        "What beginner tasks are still worth doing manually?",
+        "How do you teach someone to review AI-generated Flutter code?",
+        "What would make a junior Flutter developer easier to trust on real work?"
+      ],
+      "follow_ups": [
+        "What should schools, bootcamps, and communities stop teaching?",
+        "What should they teach more of?",
+        "How can the Flutter community create more apprenticeship paths?"
+      ]
+    },
+    {
+      "model": "AI at Work",
+      "prompt": "Has anyone already seen AI change how they or their team writes, reviews, or ships code?",
+      "hint": "End the opener by connecting the room’s hiring/search reality to the practical question: what work is actually changing?",
+      "no_hands": [
+        "What has stopped you from using AI in real development work?",
+        "Is the blocker trust, company policy, privacy, tool quality, or habit?",
+        "What task would you be most willing to try AI on first?"
+      ],
+      "hands_up": [
+        "Which tasks changed first: boilerplate, tests, UI, refactoring, debugging, docs, or planning?",
+        "Did AI make your team faster, or did review and correction eat the gains?",
+        "What skills became more important once AI entered the workflow?",
+        "Has AI changed who gets hired, who gets promoted, or what counts as senior?",
+        "Where does Flutter feel easier or harder to use with AI tools?"
+      ],
+      "follow_ups": [
+        "What AI workflow would you actually recommend to a Flutter developer?",
+        "What is one AI habit that makes developers weaker?",
+        "What is one AI habit that makes developers stronger?"
+      ]
+    }
+  ],
+  "wrap_up": [
+    "Based on the people in this room, does the market feel open, tight, confusing, or split by experience level?",
+    "What is one concrete signal job seekers should pay attention to?",
+    "What is one concrete signal hiring teams should send more clearly?"
+  ]
+}

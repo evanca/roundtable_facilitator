@@ -1,0 +1,96 @@
+{
+  "source_file": "Original draft for FlutterCon USA 2026 roundtable",
+  "extracted_at": "2026-07-05T00:00:00.000000",
+  "question": "Q6: Practical Next Steps",
+  "sections": [
+    {
+      "model": "What to Learn Next",
+      "prompt": "How many of you are choosing your next learning step by asking: will this help me work with AI, not compete against it?",
+      "hint": "Examples: Flutter fundamentals, native mobile, state management, testing, backend integration, AI tooling, product design, deployment, and verification habits.",
+      "no_hands": [
+        "What makes choosing the next step difficult?",
+        "Are there too many competing skills to learn?",
+        "What would help you pick one focus for the next month?"
+      ],
+      "hands_up": [
+        "What is your next learning priority and why?",
+        "How does AI change the way you plan to learn it?",
+        "What will you build, ship, or verify to know you improved?",
+        "What would you stop learning for now?"
+      ],
+      "follow_ups": [
+        "What is a realistic 30-day Flutter learning goal?",
+        "How do you avoid collecting courses instead of building?",
+        "What would make your learning visible to employers or collaborators?"
+      ]
+    },
+    {
+      "model": "Projects Worth Building",
+      "prompt": "Raise your hand if you think the right project can answer 'why Flutter?' better than a resume bullet can.",
+      "hint": "Examples: multi-platform apps, AI-powered tools, local business apps, internal dashboards, accessibility-focused products, monetized apps, and products with real users.",
+      "no_hands": [
+        "What makes project choice less important than fundamentals?",
+        "Which project ideas feel overdone or weak now?",
+        "How can beginners choose a project that is achievable?"
+      ],
+      "hands_up": [
+        "What kind of Flutter project would impress you in 2026: polished app, useful tool, native integration, real users, or revenue?",
+        "How should AI be used in the project without becoming the whole story?",
+        "What project proves cross-platform value clearly?",
+        "How do you scope a project so it ships?"
+      ],
+      "follow_ups": [
+        "What is one project idea you would recommend to a student?",
+        "What is one project idea you would recommend to a working developer?",
+        "Should projects target employers, users, or personal learning first?"
+      ]
+    },
+    {
+      "model": "Evaluating Opportunities",
+      "prompt": "Has anyone started asking different questions before joining a company because of AI?",
+      "hint": "Examples: team maturity, product domain, platform requirements, native complexity, AI expectations, testing culture, salary, mentorship, and whether AI investment is paired with hiring or cuts.",
+      "no_hands": [
+        "What makes Flutter opportunities hard to evaluate?",
+        "Which questions would you ask before joining a Flutter team?",
+        "How do you avoid choosing only based on technology?"
+      ],
+      "hands_up": [
+        "What signals make a Flutter opportunity attractive?",
+        "What red flags would make you hesitate: no mentorship, vague AI strategy, rushed rewrites, or shrinking teams?",
+        "How important is the product domain compared with the framework?",
+        "Would AI adoption by the team make the opportunity better or riskier?"
+      ],
+      "follow_ups": [
+        "What interview question reveals a healthy Flutter team?",
+        "How do you judge whether a company uses AI to augment developers or avoid developing people?",
+        "What opportunity would you take even if Flutter were not the main stack?"
+      ]
+    },
+    {
+      "model": "Advice to Your Past Self",
+      "prompt": "By a show of hands, would you give your past self different Flutter or career advice because of AI and the current market?",
+      "hint": "Examples: learn fundamentals earlier, ship more, add native/backend depth, use AI deliberately, build product sense, or avoid chasing every tool.",
+      "no_hands": [
+        "What advice would stay exactly the same?",
+        "Which old advice still works surprisingly well?",
+        "What should newcomers not overthink?"
+      ],
+      "hands_up": [
+        "What would you tell your past self to learn sooner?",
+        "What would you tell your past self to stop worrying about?",
+        "How would Flutter fit into that advice?",
+        "What habit would have compounded the most over time?"
+      ],
+      "follow_ups": [
+        "What advice sounds smart but is actually harmful now?",
+        "What is one small action people can take after this roundtable?",
+        "What should the Flutter community help newcomers understand better?"
+      ]
+    }
+  ],
+  "wrap_up": [
+    "After this discussion, does Flutter feel like a smarter bet, a niche bet, a product-builder bet, or a riskier bet?",
+    "What is one concrete next step you will take in the next 30 days?",
+    "What should this community do to help people navigate AI-driven career uncertainty?"
+  ]
+}

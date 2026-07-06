@@ -1,0 +1,96 @@
+{
+  "source_file": "Original draft for FlutterCon USA 2026 roundtable",
+  "extracted_at": "2026-07-05T00:00:00.000000",
+  "question": "Q2: Is Flutter Still a Smart Bet?",
+  "sections": [
+    {
+      "model": "Cross-Platform Leverage",
+      "prompt": "By a show of hands, does Flutter’s cross-platform reach matter more when teams want fewer people to ship more surfaces?",
+      "hint": "Examples: one codebase across mobile, web, desktop, prototypes, internal tools, and product experiments, especially for small teams and founders.",
+      "no_hands": [
+        "Where do you think cross-platform reach is overrated?",
+        "When is native specialization a better career bet?",
+        "What would Flutter need to prove before you saw it as a strategic choice?"
+      ],
+      "hands_up": [
+        "Which platforms or project types make Flutter especially valuable?",
+        "Has Flutter helped you move between domains or roles?",
+        "How much does one-codebase leverage matter when teams are smaller, AI-assisted, or expected to validate ideas quickly?",
+        "What tradeoffs come with betting on cross-platform development?"
+      ],
+      "follow_ups": [
+        "Does Flutter’s value increase when teams are expected to ship more with fewer people?",
+        "What kind of product is Flutter best positioned for?",
+        "Where does Flutter still struggle to make the strategic case?"
+      ]
+    },
+    {
+      "model": "Beyond Mobile",
+      "prompt": "Anyone think Flutter’s best career value is building complete products, not just filling Flutter job postings?",
+      "hint": "A recurring Reddit tension: Flutter may have fewer 9-to-5 openings than JavaScript or Java, but it can be powerful for building your own apps, prototypes, and multi-platform products.",
+      "no_hands": [
+        "Would you still learn Flutter if it did not maximize the number of job postings you can apply to?",
+        "What makes 'build your own apps' feel like a weaker or stronger career strategy than targeting job listings?",
+        "Which non-mobile Flutter targets feel least convincing today?"
+      ],
+      "hands_up": [
+        "Where has Flutter helped you build something end-to-end faster than another stack?",
+        "Have you shipped or seen credible Flutter web, desktop, or embedded work?",
+        "How does multi-surface thinking change the career value of Flutter?",
+        "What would make employers care more about Flutter beyond mobile?"
+      ],
+      "follow_ups": [
+        "Does AI make rapid multi-platform prototyping more valuable?",
+        "What non-mobile Flutter demo would impress a hiring manager?",
+        "Where should the Flutter ecosystem invest next?"
+      ]
+    },
+    {
+      "model": "Flutter vs. Native Specialization",
+      "prompt": "Raise your hand if you think the safest Flutter bet is actually Flutter plus native mobile experience.",
+      "hint": "Reddit comments repeatedly distinguish 'knows Flutter' from 'knows Flutter and understands Android/iOS constraints, releases, performance, and native interop.'",
+      "no_hands": [
+        "Why might pure Flutter still be enough for some roles or products?",
+        "Do you think AI reduces the advantage of knowing one platform deeply?",
+        "What kinds of roles reward broad cross-platform skill without deep native experience?"
+      ],
+      "hands_up": [
+        "What native skills make a Flutter developer much more employable?",
+        "Where do Flutter projects still need Android or iOS judgment?",
+        "Does AI make it easier for Flutter developers to bridge native gaps, or does it hide gaps until production?",
+        "How would you advise someone choosing between Flutter-only and Flutter-plus-native today?"
+      ],
+      "follow_ups": [
+        "Is the best answer Flutter plus platform literacy?",
+        "How deep is deep enough in native APIs?",
+        "Where do teams get hurt by shallow cross-platform knowledge?"
+      ]
+    },
+    {
+      "model": "Ecosystem Trust",
+      "prompt": "How many of you like Flutter, but still worry about the smaller Flutter job market?",
+      "hint": "Reddit discussions often split the issue: fewer Flutter openings than mainstream stacks, but also fewer experienced Flutter specialists and sometimes more committed teams.",
+      "no_hands": [
+        "Do you choose technologies based more on personal fit than ecosystem signals?",
+        "What ecosystem concerns would not bother you?",
+        "How much does corporate backing matter to your decision?"
+      ],
+      "hands_up": [
+        "What makes you trust or question Flutter’s future?",
+        "Which matters more to you: number of openings, quality of teams, salary, or competition level?",
+        "How do you evaluate the risk of relying on a Google-backed framework?",
+        "What would make Flutter feel like a stronger bet for 2026 and beyond?"
+      ],
+      "follow_ups": [
+        "What adoption story would change skeptical minds?",
+        "How much should developers diversify beyond any one framework?",
+        "What is Flutter’s strongest ecosystem advantage today?"
+      ]
+    }
+  ],
+  "wrap_up": [
+    "If someone asked whether Flutter is still worth learning, what is your honest answer?",
+    "Where is Flutter a smart bet: employment, freelancing, startups, indie apps, or internal tools?",
+    "What would you watch over the next year to judge Flutter’s future?"
+  ]
+}
