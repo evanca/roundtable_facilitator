@@ -5,7 +5,7 @@
   "sections": [
     {
       "model": "Depth vs. Breadth",
-      "prompt": "Who here feels AI is pushing them to become a more adaptable builder rather than a single-framework specialist?",
+      "prompt": "Who here has changed what they're learning or how they learn because of AI?",
       "hint": "Examples: moving across platforms, using AI to bridge gaps, learning product domains, and being able to build something useful even when the job market shifts.",
       "no_hands": [
         "Why do you think deep specialization becomes more valuable with AI?",
@@ -20,27 +20,27 @@
       ],
       "follow_ups": [
         "What is one deep skill every adaptable Flutter developer still needs?",
-        "Can AI make a generalist more effective, or just more shallow faster?",
+        "How does AI actually change the effectiveness of a generalist?",
         "How do teams evaluate breadth during hiring?"
       ]
     },
     {
       "model": "T-Shaped Learning",
-      "prompt": "Anyone think Flutter should be one vertical in a T-shaped profile, not someone’s whole identity?",
+      "prompt": "Who actively spends time on skills outside Flutter — backend, native, design, AI tooling, anything?",
       "hint": "Examples: Flutter as a deep skill, with breadth across native mobile, backend, AI tooling, design, product, deployment, and analytics.",
       "no_hands": [
-        "Does the T-shaped idea feel too vague to guide learning?",
-        "Would you rather become excellent at one narrow thing?",
+        "How useful is the T-shaped idea when you're actually deciding what to learn?",
+        "How do you think about the tradeoff between going really deep on one thing versus spreading out?",
         "What would you choose as your vertical skill instead of Flutter?"
       ],
       "hands_up": [
         "What should be the deep vertical for a Flutter developer?",
-        "Which horizontal skills pair best with Flutter in an AI-driven market: native, backend, design, AI tooling, or product?",
+        "Which skills outside of Flutter feel most valuable to pair with it right now?",
         "How do you avoid spreading yourself too thin?",
         "What is a realistic T-shaped learning plan for six months?"
       ],
       "follow_ups": [
-        "Should AI tooling be part of the horizontal bar or the deep vertical?",
+        "Where does AI tooling fit in a developer's skill profile?",
         "How do you show T-shaped ability in a portfolio?",
         "What is one skill pairing with Flutter that looks underrated?"
       ]
@@ -50,25 +50,25 @@
       "prompt": "By a show of hands, is a basic CRUD app still enough for a Flutter portfolio?",
       "hint": "Examples: showing product reasoning, polish, distribution, metrics, maintainability, native integration, and real users instead of only generated screens.",
       "no_hands": [
-        "Do traditional portfolios still work if the projects are thoughtful?",
+        "How do you see traditional portfolios holding up when the projects behind them are genuinely thoughtful?",
         "What makes a simple Flutter app still impressive?",
         "How should beginners prove skill without overbuilding?"
       ],
       "hands_up": [
         "What makes a Flutter portfolio stand out when everyone can generate a decent-looking app shell?",
-        "Should developers show prompts, process, tradeoffs, or only the final app?",
+        "What parts of the building process are worth showing alongside the finished app?",
         "How important is shipping to stores or real users?",
         "What project would prove both Flutter skill and career resilience?"
       ],
       "follow_ups": [
         "What portfolio artifact shows judgment, not just code generation?",
         "How should students talk about AI use in projects?",
-        "Would you rather see one polished app or five experiments?"
+        "How do you weigh depth versus breadth when you're reviewing someone's portfolio?"
       ]
     },
     {
       "model": "Learning Time Allocation",
-      "prompt": "Raise your hand if you are spending less time memorizing syntax and more time learning how systems fit together.",
+      "prompt": "Has your learning routine actually changed in the past year or so?",
       "hint": "Examples: less syntax memorization, more architecture, product, debugging, review, testing, release, and AI-assisted workflows.",
       "no_hands": [
         "Why has your learning plan stayed the same?",
@@ -89,7 +89,7 @@
     }
   ],
   "wrap_up": [
-    "Would you advise people to specialize, generalize, or build a T-shaped profile?",
+    "What career shape would you honestly recommend to someone starting out today?",
     "What is the most valuable skill to pair with Flutter?",
     "What learning habit should developers protect as AI tools get better?"
   ]
