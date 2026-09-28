@@ -1,0 +1,72 @@
+{
+  "source_file": "Berlin 2026 edition for next app devCon 2026 (flutterCon Berlin), sources listed on the page",
+  "extracted_at": "2026-09-28T00:00:00.000000",
+  "question": "Q6: Your Next Move",
+  "sections": [
+    {
+      "model": "Depth or Breadth",
+      "prompt": "Raise your hand if you deliberately learned something outside Flutter this year: native, backend, AI, product, people.",
+      "hint": "METR, Jul 2025: experienced developers were 19% slower with AI tools while believing they were faster. Ask what they learned that an agent could not learn for them.",
+      "no_hands": [
+        "What is the deep skill you are protecting, and is it safe from AI?",
+        "What would you learn next if you had one free day a week?",
+        "For the seniors: which skill paid off the most over your career, and was it technical?"
+      ],
+      "hands_up": [
+        "What did you learn, and did it change what work comes to you?",
+        "Did you learn it with AI, and did that help or make it shallow?",
+        "Was it depth, like native internals or architecture, or breadth, like product, people, business?",
+        "How do you show that learning to an employer or a client?"
+      ],
+      "follow_ups": [
+        "What should a Flutter developer deliberately still do by hand in the next year?",
+        "Which skill pairing with Flutter is underrated right now?"
+      ]
+    },
+    {
+      "model": "An App With Your Name On It",
+      "prompt": "Raise your hand if you have an app in a store or on the web right now that you built yourself.",
+      "hint": "Google Play: a new personal developer account needs a closed test with 12 testers for 14 days before production. Ask what shipping taught them that tutorials did not.",
+      "no_hands": [
+        "What stopped you: an idea, time, store hurdles, or no need?",
+        "Would a shipped app help you more than a certificate or a course?",
+        "For hirers: does a shipped app with real users change how you read a candidate?"
+      ],
+      "hands_up": [
+        "What did shipping teach you that no tutorial did?",
+        "Real users, real money, real support requests: which of those do you have?",
+        "Did it lead to anything: a job, a client, a talk, a lesson?",
+        "How much of it would you let an agent build today, and what would you keep by hand?"
+      ],
+      "follow_ups": [
+        "What is the smallest app that would prove serious ability in one weekend?",
+        "What would you build to show product judgment rather than code generation?"
+      ]
+    },
+    {
+      "model": "Saying No to a Stack",
+      "prompt": "Raise your hand if you have turned down a job or a project this year because of its tech stack.",
+      "hint": "JetBrains DevEco 2025: 68% of developers expect employers to require AI proficiency. Ask whether the no was about the stack or about how the company decides.",
+      "no_hands": [
+        "What would you say yes to even if it were not Flutter: the product, the team, the pay?",
+        "How much does the framework matter next to the domain and the people?",
+        "For juniors: can you afford to say no right now, and who told you that you cannot?"
+      ],
+      "hands_up": [
+        "What was the stack, and what was the real reason: technology, team, or the AI expectations?",
+        "What questions do you ask before joining a team now that you did not ask two years ago?",
+        "Was it a red flag about the stack or about how the company makes decisions?",
+        "Have you regretted a no, or a yes?"
+      ],
+      "follow_ups": [
+        "What interview question reveals whether a team uses AI to grow people or to avoid hiring?",
+        "Which opportunity would you take even if Flutter were not the main stack?"
+      ]
+    }
+  ],
+  "wrap_up": [
+    "Hands up if you would still choose Flutter starting today. Compare with the worried count from Q1.",
+    "One sentence to your past self, from anyone who has been in Flutter for more than two years.",
+    "Where does this conversation continue: Flutter Berlin, Flutteristas, the Flutter Community AI Circle, or the native versus cross-platform panel on Friday?"
+  ]
+}

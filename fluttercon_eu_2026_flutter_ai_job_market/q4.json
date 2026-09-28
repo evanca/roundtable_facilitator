@@ -1,0 +1,71 @@
+{
+  "source_file": "Berlin 2026 edition for next app devCon 2026 (flutterCon Berlin), sources listed on the page",
+  "extracted_at": "2026-09-28T00:00:00.000000",
+  "question": "Q4: The Ugly: AI and the Entry-Level Squeeze",
+  "sections": [
+    {
+      "model": "The Missing Juniors",
+      "prompt": "Raise your hand if your company hired a junior, apprentice or working student developer in the last 12 months.",
+      "hint": "Indeed DE, Sep 2026: entry-level software postings are 70% below 2019 while apprenticeship places in the field are 27% above. Ask who trains the next seniors.",
+      "no_hands": [
+        "Why not: no budget, no time to mentor, or do seniors plus AI seem to cover it?",
+        "Where did you get your own first chance, and would that path still exist today?",
+        "For hirers: what would make a junior hire worth it again?"
+      ],
+      "hands_up": [
+        "How did you find them: Ausbildung, dual study, university, career change, community?",
+        "What does a junior do on your team now that AI writes the first draft?",
+        "Did AI make them productive faster, or let them skip understanding?",
+        "How do you teach someone to review code they did not write?"
+      ],
+      "follow_ups": [
+        "If juniors are not hired, where do the seniors of 2031 come from?",
+        "What should schools and courses stop teaching, and what should they teach more?"
+      ]
+    },
+    {
+      "model": "Agents in Daily Work",
+      "prompt": "Raise your hand if code written by an agent like Claude Code, Gemini CLI, Codex or Antigravity shipped to your production app this year.",
+      "hint": "JetBrains, Aug 2026: 90% of professional developers use coding agents weekly; Claude Code 39%, Copilot 21%, Codex 16%, Cursor 12%, Antigravity 6%. Ask who reviewed the agent.",
+      "no_hands": [
+        "What stops you: policy, trust, cost, or the code was not good enough?",
+        "Do you use AI for anything else in Flutter work: tests, docs, reviews, planning?",
+        "For team leads: is there a written rule about agents on your team, and who wrote it?"
+      ],
+      "hands_up": [
+        "Which Flutter tasks did the agent do well, and where did it fail confidently?",
+        "Who reviewed the agent's code, and how long did the review take compared with writing it?",
+        "Did agents change how many people the team needs, or just what they do all day?",
+        "Does Flutter feel easier or harder for agents than Swift or Kotlin, in your experience?"
+      ],
+      "follow_ups": [
+        "What is one habit that makes an agent user weaker, and one that makes them stronger?",
+        "Which agent setup would you recommend to a Flutter developer starting tomorrow?"
+      ]
+    },
+    {
+      "model": "Native by Agent",
+      "prompt": "Raise your hand if an agent has written Swift or Kotlin for you this year because you did not want to.",
+      "hint": "MobileDev-Bench, Mar 2026: top models resolved only 3 to 6% of 407 real mobile bug reports. Ask whether native-by-agent felt safe to ship, and who could read it.",
+      "no_hands": [
+        "If an agent could write the native parts, would you still choose a cross-platform framework?",
+        "Which native task would you hand to an agent first?",
+        "For the seniors: does cheap native code by agent make Flutter more or less attractive to you?"
+      ],
+      "hands_up": [
+        "What did it write: a platform channel, a plugin, a whole native module?",
+        "Did you understand the code well enough to ship it, and who checked it?",
+        "Did it make you more likely to go native next time, or less?",
+        "Did anything break in review, on device, or in store review?"
+      ],
+      "follow_ups": [
+        "If agents make native cheap, what is the remaining argument for one codebase?",
+        "Where do you draw the line on shipping code you could not have written?"
+      ]
+    }
+  ],
+  "wrap_up": [
+    "In a world where agents write the first draft, what should a Flutter developer become excellent at?",
+    "What would you tell a student who asks whether to start in mobile at all?"
+  ]
+}

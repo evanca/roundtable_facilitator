@@ -1,0 +1,1375 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FlutterCon EU 2026 Roundtable Facilitator</title>
+    <style>
+        :root{ --bg:#0b1220; --card:#121a2b; --ink:#e6edf6; --line:#7087b7; --node:#0f1a33; --border:#22304a; --yes:#3bc07b; --no:#ff8a8a; --accent:#a8c1ff; }
+        body { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; margin: 0; background: var(--bg); color: var(--ink); }
+        .wrap { max-width: 1200px; margin: 24px auto; padding: 16px; }
+        h1 { font-size: 20px; margin: 0 0 12px; font-weight: 700; }
+        .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 12px; box-shadow: 0 8px 24px rgba(0,0,0,.25); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+        .nodeBox { cursor: pointer; border:1px solid #2a3a5f; border-radius: 12px; background: #0f1a33; padding: 10px 12px; position: relative; }
+        .nodeBox:hover { outline: 2px solid #2a437a; }
+        .nodeTitle { font-size: 13px; color: var(--accent); margin-bottom: 6px; font-weight: 700; }
+        .chip { display:inline-block; padding:2px 8px; border-radius: 999px; font-size: 12px; border:1px solid var(--border); background:#0f1a33; color:#cfe1ff; margin-left: 6px; }
+        .hint { font-size: 12.5px; color: #d7e3ff; opacity:.9 }
+        .pill { padding: 2px 8px; border-radius: 999px; border:1px solid var(--border); font-size: 12px; }
+        .pill.yes { color:#bdf6d2; border-color:#255b40; background:#0e2a1d; }
+        .pill.no { color:#ffd6d6; border-color:#5b2525; background:#2a0e0e; }
+
+        .details { display: none; background: #0f1a33; border: 1px solid #3a5599; border-radius: 10px; padding: 10px 12px; margin: 8px 0 4px; font-size: 13px; }
+        .details.visible { display: block; }
+        .details h3 { margin:0 0 4px; font-size:14px; color:#dbe7ff; }
+        .details small { color:#9fb6d9; }
+        .details ul { margin:6px 0 0 18px; }
+        .details.hands-up { background: #0e2a1d; border-color: #255b40; }
+        .details.no-hands { background: #2a0e0e; border-color: #5b2525; }
+        .follow-ups { margin-top: 8px; padding-top: 6px; border-top: 1px dashed var(--border); }
+        .follow-ups small { color:#9fb6d9; font-weight: 600; }
+        .sectionTitle{ margin-top: 10px; font-size:14px; color:#bcd0ff; font-weight:700 }
+        .facilitators { margin: 0 0 16px; font-size: 13px; color: #9fb6d9; line-height: 1.5; }
+        .facilitators strong { color: var(--ink); }
+        .sources { margin-top: 28px; font-size: 13px; color: #9fb6d9; }
+        .sources summary { cursor: pointer; color: var(--accent); font-weight: 600; }
+        .sources ol { margin: 10px 0 0 18px; line-height: 1.5; }
+        .sources a { color: #cfe1ff; }
+
+        /* New prompt and response structure */
+        .prompt-section { margin-bottom: 12px; }
+        .prompt-text { 
+            font-size: 16px; 
+            color: var(--ink); 
+            margin-bottom: 12px; 
+            font-weight: 500;
+            line-height: 1.4;
+        }
+        .response-options { 
+            display: flex; 
+            gap: 12px; 
+            justify-content: center;
+        }
+        .response-btn { 
+            background: var(--card); 
+            border: 2px solid var(--border); 
+            border-radius: 8px; 
+            padding: 12px 20px; 
+            cursor: pointer; 
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 120px;
+        }
+        .response-btn:hover { 
+            border-color: var(--accent); 
+            background: var(--node); 
+            transform: translateY(-1px);
+        }
+        .response-btn:active { 
+            transform: translateY(0);
+        }
+        .tab-bar { display: flex; margin-bottom: 20px; gap: 5px; }
+        .tab-button { background: var(--card); color: var(--ink); border: 1px solid var(--border); padding: 10px 20px; cursor: pointer; border-radius: 5px 5px 0 0; }
+        .tab-button.active { background: var(--node); border-bottom-color: var(--node); }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+        /* Question Navigation Styles */
+        .question-nav { margin-bottom: 20px; }
+        .question-list { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+        .question-item { 
+            background: var(--card); 
+            border: 1px solid var(--border); 
+            padding: 8px 12px; 
+            border-radius: 6px; 
+            cursor: pointer; 
+            font-size: 14px;
+            transition: all 0.2s ease;
+            color: var(--ink);
+        }
+        .question-item:hover { 
+            border-color: var(--accent); 
+            background: var(--node); 
+        }
+        .question-item.active { 
+            background: var(--accent); 
+            color: #0b1220; 
+            border-color: var(--accent); 
+            font-weight: 600; 
+        }
+
+        /* Topic Selection Styles */
+        .topic-selection { text-align: center; padding: 40px 0; }
+        .topic-buttons { display: flex; gap: 20px; justify-content: center; margin-top: 30px; flex-wrap: wrap; }
+        .topic-button { 
+            background: var(--card); 
+            border: 2px solid var(--border); 
+            color: var(--ink); 
+            padding: 20px 40px; 
+            border-radius: 12px; 
+            cursor: pointer; 
+            font-size: 18px; 
+            font-weight: 600;
+            transition: all 0.3s ease;
+            min-width: 200px;
+        }
+        .topic-button:hover { 
+            border-color: var(--accent); 
+            background: var(--node); 
+        }
+
+        .hidden { display: none !important; }
+        
+        .loading { text-align: center; padding: 40px; color: var(--accent); }
+
+        /* Roulette Modal */
+        .roulette-modal { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            background: rgba(11, 18, 32, 0.95); 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            z-index: 1000; 
+        }
+        .roulette-container { 
+            background: var(--card); 
+            border: 2px solid var(--border); 
+            border-radius: 20px; 
+            padding: 30px; 
+            text-align: center; 
+            max-width: 95vw; 
+            max-height: 95vh; 
+            width: 800px;
+            position: relative;
+            overflow-y: auto;
+        }
+        .roulette-close { 
+            position: absolute; 
+            top: 15px; 
+            right: 20px; 
+            background: none; 
+            border: none; 
+            color: var(--ink); 
+            font-size: 24px; 
+            cursor: pointer; 
+            padding: 5px;
+        }
+        .roulette-close:hover { color: var(--accent); }
+
+        /* Wheel Container */
+        .wheel-container { 
+            position: relative; 
+            width: 400px; 
+            height: 400px; 
+            margin: 20px auto; 
+        }
+        @media (max-width: 480px) {
+            .wheel-container { 
+                width: 300px; 
+                height: 300px; 
+            }
+        }
+
+        /* The Wheel */
+        .roulette-wheel { 
+            width: 100%; 
+            height: 100%; 
+            border-radius: 50%; 
+            position: relative; 
+            overflow: hidden; 
+            border: 4px solid var(--accent); 
+            box-shadow: 0 0 20px rgba(168, 193, 255, 0.3);
+        }
+
+        /* SVG-based wheel segments */
+        .wheel-svg {
+            width: 100%;
+            height: 100%;
+            transform-origin: center;
+        }
+        
+        .segment-text {
+            font-size: 10px;
+            font-weight: 700;
+            fill: #0b1220;
+            text-anchor: middle;
+            dominant-baseline: middle;
+            paint-order: stroke fill;
+            stroke: rgba(255,255,255,0.8);
+            stroke-width: 0.5px;
+        }
+
+        /* Roulette Result Grid */
+        .roulette-questions-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        @media (max-width: 600px) {
+            .roulette-questions-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Wheel Pointer */
+        .wheel-pointer { 
+            position: absolute; 
+            top: -15px; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            width: 0; 
+            height: 0; 
+            border-left: 15px solid transparent; 
+            border-right: 15px solid transparent; 
+            border-top: 30px solid var(--accent); 
+            z-index: 10;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+        }
+
+        /* Spinning Animation */
+        .wheel-spinning { 
+            animation: roulette-spin 4s cubic-bezier(0.25, 0.1, 0.25, 1) forwards; 
+        }
+        @keyframes roulette-spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(var(--spin-rotation)); }
+        }
+
+        /* Roulette Controls */
+        .roulette-controls { 
+            margin-top: 20px; 
+        }
+        .roulette-btn { 
+            background: var(--accent); 
+            border: 2px solid var(--accent); 
+            color: #0b1220; 
+            padding: 12px 24px; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            font-weight: 600; 
+            font-size: 16px; 
+            margin: 0 10px;
+            transition: all 0.2s ease;
+        }
+        .roulette-btn:hover { 
+            background: var(--ink); 
+            border-color: var(--ink); 
+        }
+        .roulette-btn:disabled { 
+            background: var(--border); 
+            border-color: var(--border); 
+            color: #7087b7; 
+            cursor: not-allowed; 
+        }
+
+        /* Result Display */
+        .roulette-result { 
+            margin-top: 20px; 
+            padding: 15px; 
+            background: var(--node); 
+            border: 1px solid var(--border); 
+            border-radius: 8px; 
+            font-size: 18px; 
+            font-weight: 600; 
+            color: var(--accent); 
+        }
+
+        /* Section Highlighting */
+        .roulette-selected { 
+            background: linear-gradient(135deg, rgba(168, 193, 255, 0.2), rgba(168, 193, 255, 0.1)) !important; 
+            border: 2px solid var(--accent) !important; 
+            box-shadow: 0 0 15px rgba(168, 193, 255, 0.4) !important;
+            position: relative;
+        }
+        .roulette-selected::before { 
+            content: "🎰 Roulette Selected"; 
+            position: absolute; 
+            top: -10px; 
+            right: 10px; 
+            background: var(--accent); 
+            color: #0b1220; 
+            padding: 4px 8px; 
+            border-radius: 4px; 
+            font-size: 12px; 
+            font-weight: 600; 
+        }
+    </style>
+    <script>
+        let currentTopic = null;
+        let questionsData = {};
+
+        const embeddedData = {
+          "flutter_ai_job_market_eu": {
+                    "q1": {
+                              "sections": [
+                                        {
+                                                  "title": "Hiring Decisions",
+                                                  "prompt": "Raise your hand if you hire developers or have a say in who gets hired.",
+                                                  "hints": "Bitkom, Sep 2026: 79,000 unfilled IT jobs in Germany, down from 149,000 in 2023. Start with the hirers: what changed in their bar, not only in their budget.",
+                                                  "no_hands": [
+                                                            "What do you think hiring managers look for first in a Flutter candidate today?",
+                                                            "When did you last see a Flutter role advertised near you, and what did it ask for?",
+                                                            "If you were hiring tomorrow with a small budget, would you take a junior or a senior, and why?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "What are you hiring for right now, and what has changed in the role since last year?",
+                                                            "How do you evaluate candidates now that a portfolio can be generated in an afternoon?",
+                                                            "Do you hire Flutter-only developers, or Flutter plus native, and why?",
+                                                            "Have you hired across borders or fully remote this year, and what did that change?"
+                                                  ],
+                                                  "follow_ups": [
+                                                            "What is the fastest way for someone in this room to stand out to your team?",
+                                                            "What is one signal that makes you stop reading a CV?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Looking Right Now",
+                                                  "prompt": "Raise your hand if you are looking for a Flutter job or a Flutter project right now.",
+                                                  "hints": "Indeed via FRED, Sep 2026: German software-dev postings are at the lowest point in the index, 71% below the May 2022 peak. Let seekers describe the market before anyone gives advice.",
+                                                  "no_hands": [
+                                                            "What would make you start looking: a better offer, a worrying signal at work, or a new technology?",
+                                                            "How do you keep an eye on the market while you are not looking?",
+                                                            "For those who hire: what would you tell people who are not looking to keep doing anyway?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "Permanent role, freelance project, or both, and is that by choice?",
+                                                            "What gets a reply right now: applications, referrals, open source, or community?",
+                                                            "Are you looking only where you live, or across borders and remote too?",
+                                                            "How has AI changed the search itself, from screening to take-home tasks?"
+                                                  ],
+                                                  "follow_ups": [
+                                                            "What advice from the internet turned out to be wrong for your search?",
+                                                            "What support from this community would actually help this month?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Worried This Year",
+                                                  "prompt": "Raise your hand if this year has made you worry about your own career.",
+                                                  "hints": "SO 2025: 15% of developers call AI a threat to their job, 64% say no, down from 68% a year earlier. Count the hands aloud; the closing question comes back to this number.",
+                                                  "no_hands": [
+                                                            "What gives you confidence: your skills, your network, your savings, or your employer?",
+                                                            "Is there anything you are quietly watching even though you are not worried?",
+                                                            "For the seniors: what did an earlier downturn teach you that applies now?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "What triggered the worry: a layoff nearby, fewer job ads, AI demos, or something personal?",
+                                                            "Is the worry about Flutter specifically, about mobile, or about software careers in general?",
+                                                            "What have you actually done about it so far?"
+                                                  ],
+                                                  "follow_ups": [
+                                                            "What would make the worry go away, and is that within your control?",
+                                                            "Who do you talk to about this, and does it help?"
+                                                  ]
+                                        }
+                              ],
+                              "wrap_up": [
+                                        "Based on the hands in this room, how does the Berlin market feel right now, in one word?",
+                                        "What is one concrete signal a job seeker here should watch this autumn?"
+                              ]
+                    },
+                    "q2": {
+                              "sections": [
+                                        {
+                                                  "title": "One Codebase, Small Team",
+                                                  "prompt": "Raise your hand if you have shipped a production Flutter app with a team of three or fewer.",
+                                                  "hints": "Appfigures via Pragmatic Engineer, Jan 2025: Flutter was in 11% of new app releases in 2024, React Native in 7%. Ask for the concrete thing a tiny team shipped.",
+                                                  "no_hands": [
+                                                            "What is the smallest team you have seen ship a real app, on any stack?",
+                                                            "What would stop a two-person team from choosing Flutter today?",
+                                                            "For hirers: does a small team on Flutter change how many people you need to hire?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "What did the small team ship that would have needed separate native teams?",
+                                                            "Which platforms did one codebase actually cover for you: iOS, Android, web, desktop?",
+                                                            "Where did the one-codebase promise break, and what did it cost you?",
+                                                            "How much of that leverage came from Flutter and how much from AI tools?"
+                                                  ],
+                                                  "follow_ups": [
+                                                            "Would you build the same product the same way today?",
+                                                            "What did the small-team setup teach you about product decisions?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Beyond the Phone",
+                                                  "prompt": "Raise your hand if you have shipped Flutter to something other than a phone: web, desktop, car, TV, embedded.",
+                                                  "hints": "Flutter blog, May 2026: Toyota's 2026 RAV4 multimedia runs Flutter, Canonical leads the desktop work, an LG webOS SDK is coming. Ask for the least expected target in the room.",
+                                                  "no_hands": [
+                                                            "Which non-phone target would you try first, and what holds you back?",
+                                                            "Do employers near you ever ask for Flutter web or desktop?",
+                                                            "For the seniors: is going beyond the phone a real career lever or a niche?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "What did you ship, and why Flutter rather than the platform's own toolkit?",
+                                                            "What broke on that target that works fine on phones?",
+                                                            "Did the non-phone work change what roles or clients came to you?",
+                                                            "Would you recommend it to someone whose whole experience is mobile?"
+                                                  ],
+                                                  "follow_ups": [
+                                                            "What would make Flutter web the obvious choice for you?",
+                                                            "What is the most surprising place you have seen Flutter running?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Community as the Moat",
+                                                  "prompt": "Raise your hand if you have contributed to a Flutter package, to Flutter itself, or to a Flutter community.",
+                                                  "hints": "Flutter roadmap, Feb 2026: non-Google contributors now outnumber Google employees on Flutter. Ask what contributing gave back: skills, contacts, work.",
+                                                  "no_hands": [
+                                                            "What has the community given you without you contributing: packages, answers, meetups?",
+                                                            "What stops you from contributing: time, confidence, or not knowing where to start?",
+                                                            "For hirers: does open-source or community work count in your hiring decisions?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "What did you contribute, and what came back: skills, contacts, a job?",
+                                                            "Has contributing changed how you read the health of the ecosystem?",
+                                                            "Where is the community strong and where is it thin: packages, docs, local meetups, mentoring?",
+                                                            "What would you tell someone who wants to contribute for the first time?"
+                                                  ],
+                                                  "follow_ups": [
+                                                            "Does a strong community offset a shrinking job market, or is that wishful thinking?",
+                                                            "Which one contribution would help Flutter most right now?"
+                                                  ]
+                                        }
+                              ],
+                              "wrap_up": [
+                                        "If a friend asked whether Flutter is still worth learning today, what is your honest one-sentence answer?",
+                                        "Where does Flutter pay off most as a career bet: product type, team size, or platform?"
+                              ]
+                    },
+                    "q3": {
+                              "sections": [
+                                        {
+                                                  "title": "Job Ads Speak Native",
+                                                  "prompt": "Raise your hand if the last mobile job ad you read wanted Swift or Kotlin, with Flutter as a nice-to-have.",
+                                                  "hints": "itjobswatch UK, Sep 2026: 25 permanent Flutter ads in six months against 223 React Native and 265 Kotlin. Ask how the ratio looks on the boards they read.",
+                                                  "no_hands": [
+                                                            "What did the last mobile job ad you saw actually ask for?",
+                                                            "Do you read Flutter-only ads, or do you apply for native roles with Flutter experience?",
+                                                            "For hirers: when you write an ad, why native first, or why Flutter first?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "Did you apply anyway, and how did the conversation go?",
+                                                            "What native depth have you added to stay in the running, and was it worth it?",
+                                                            "Is the ratio different for freelance and contract work than for permanent roles?",
+                                                            "Is native plus Flutter a fair ask, or a sign the company has not decided its stack?"
+                                                  ],
+                                                  "follow_ups": [
+                                                            "What would you put in a job ad if you were hiring a Flutter developer today?",
+                                                            "Which native skills paid off most for you?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Google and the Trust Question",
+                                                  "prompt": "Raise your hand if a client, boss or colleague has told you that Flutter is dead or that Google will drop it.",
+                                                  "hints": "Timeline: Apr 2024 Google cut Flutter and Dart staff; Jan 2025 Dart macros were cancelled; Aug 2026 Flutter 3.47 shipped on the four-releases-a-year cadence. Ask what they answered, not what they feel.",
+                                                  "no_hands": [
+                                                            "Where do you think the Flutter-is-dead story comes from, and does it matter for your work?",
+                                                            "How much does Google's backing matter to your own decisions, honestly?",
+                                                            "For the seniors: which framework did you see actually die, and what were the early signs?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "What did you answer, and did it work?",
+                                                            "Did the doubt change a decision: a project, a hire, a rewrite?",
+                                                            "What would you need to see from Google or the community to stop the question coming back?",
+                                                            "Does a community fork like Flock make you feel safer or more worried?"
+                                                  ],
+                                                  "follow_ups": [
+                                                            "Is it good news or bad news that non-Google contributors now outnumber Google employees?",
+                                                            "What is your one-sentence answer for the next time someone says it?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Waiting for the Platform Catch-Up",
+                                                  "prompt": "Raise your hand if you have waited for Flutter to catch up with a new iOS or Android feature this year.",
+                                                  "hints": "Apple shipped iOS 26 with Liquid Glass in Sep 2025; Flutter's Cupertino widgets are still catching up (status on flutter.dev). Ask what they waited for and what they did meanwhile.",
+                                                  "no_hands": [
+                                                            "Which platform feature would you miss most if it arrived late in Flutter?",
+                                                            "Do your users or clients notice when a design language changes on iOS or Android?",
+                                                            "For hirers: does fidelity to the native look decide who you hire, or is it a detail?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "What did you wait for, how long, and what did you do in the meantime?",
+                                                            "Did you write a platform channel, a plugin, or just ship without it?",
+                                                            "Did the wait cost you a client, a release date, or a review rating?",
+                                                            "Would a native developer on the team have solved it faster?"
+                                                  ],
+                                                  "follow_ups": [
+                                                            "Is platform lag getting better or worse in your experience?",
+                                                            "Which gap should the Flutter team close first?"
+                                                  ]
+                                        }
+                              ],
+                              "wrap_up": [
+                                        "Which weakness in this block would actually change your decision, and which is noise?",
+                                        "What would you need to see from Google or the community in the next year to relax?"
+                              ]
+                    },
+                    "q4": {
+                              "sections": [
+                                        {
+                                                  "title": "The Missing Juniors",
+                                                  "prompt": "Raise your hand if your company hired a junior, apprentice or working student developer in the last 12 months.",
+                                                  "hints": "Indeed DE, Sep 2026: entry-level software postings are 70% below 2019 while apprenticeship places in the field are 27% above. Ask who trains the next seniors.",
+                                                  "no_hands": [
+                                                            "Why not: no budget, no time to mentor, or do seniors plus AI seem to cover it?",
+                                                            "Where did you get your own first chance, and would that path still exist today?",
+                                                            "For hirers: what would make a junior hire worth it again?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "How did you find them: Ausbildung, dual study, university, career change, community?",
+                                                            "What does a junior do on your team now that AI writes the first draft?",
+                                                            "Did AI make them productive faster, or let them skip understanding?",
+                                                            "How do you teach someone to review code they did not write?"
+                                                  ],
+                                                  "follow_ups": [
+                                                            "If juniors are not hired, where do the seniors of 2031 come from?",
+                                                            "What should schools and courses stop teaching, and what should they teach more?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Agents in Daily Work",
+                                                  "prompt": "Raise your hand if code written by an agent like Claude Code, Gemini CLI, Codex or Antigravity shipped to your production app this year.",
+                                                  "hints": "JetBrains, Aug 2026: 90% of professional developers use coding agents weekly; Claude Code 39%, Copilot 21%, Codex 16%, Cursor 12%, Antigravity 6%. Ask who reviewed the agent.",
+                                                  "no_hands": [
+                                                            "What stops you: policy, trust, cost, or the code was not good enough?",
+                                                            "Do you use AI for anything else in Flutter work: tests, docs, reviews, planning?",
+                                                            "For team leads: is there a written rule about agents on your team, and who wrote it?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "Which Flutter tasks did the agent do well, and where did it fail confidently?",
+                                                            "Who reviewed the agent's code, and how long did the review take compared with writing it?",
+                                                            "Did agents change how many people the team needs, or just what they do all day?",
+                                                            "Does Flutter feel easier or harder for agents than Swift or Kotlin, in your experience?"
+                                                  ],
+                                                  "follow_ups": [
+                                                            "What is one habit that makes an agent user weaker, and one that makes them stronger?",
+                                                            "Which agent setup would you recommend to a Flutter developer starting tomorrow?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Native by Agent",
+                                                  "prompt": "Raise your hand if an agent has written Swift or Kotlin for you this year because you did not want to.",
+                                                  "hints": "MobileDev-Bench, Mar 2026: top models resolved only 3 to 6% of 407 real mobile bug reports. Ask whether native-by-agent felt safe to ship, and who could read it.",
+                                                  "no_hands": [
+                                                            "If an agent could write the native parts, would you still choose a cross-platform framework?",
+                                                            "Which native task would you hand to an agent first?",
+                                                            "For the seniors: does cheap native code by agent make Flutter more or less attractive to you?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "What did it write: a platform channel, a plugin, a whole native module?",
+                                                            "Did you understand the code well enough to ship it, and who checked it?",
+                                                            "Did it make you more likely to go native next time, or less?",
+                                                            "Did anything break in review, on device, or in store review?"
+                                                  ],
+                                                  "follow_ups": [
+                                                            "If agents make native cheap, what is the remaining argument for one codebase?",
+                                                            "Where do you draw the line on shipping code you could not have written?"
+                                                  ]
+                                        }
+                              ],
+                              "wrap_up": [
+                                        "In a world where agents write the first draft, what should a Flutter developer become excellent at?",
+                                        "What would you tell a student who asks whether to start in mobile at all?"
+                              ]
+                    },
+                    "q5": {
+                              "sections": [
+                                        {
+                                                  "title": "Salary in the Job Ad",
+                                                  "prompt": "Raise your hand if you have seen a salary range in a Flutter job ad this year.",
+                                                  "hints": "EU Pay Transparency Directive 2023/970: member states had until 7 June 2026 to transpose it, so ranges in job ads are becoming the norm. Ask whether a range changed a decision.",
+                                                  "no_hands": [
+                                                            "Where do you get salary information today: friends, surveys, recruiters, guesswork?",
+                                                            "Would a visible range change which ads you apply to?",
+                                                            "For hirers: are you ready to put a range in every ad, and what are you afraid of?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "Did the range change your decision to apply, or your ask in the interview?",
+                                                            "Was the range for Flutter different from the native roles you saw?",
+                                                            "Was the range honest, or a wide band that said nothing?",
+                                                            "Have you seen ranges more often in Germany, elsewhere in the EU, or in remote roles?"
+                                                  ],
+                                                  "follow_ups": [
+                                                            "Does transparency help juniors or seniors more?",
+                                                            "What should a Flutter developer in Berlin ask for, without naming your own number?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Hired Across Borders",
+                                                  "prompt": "Raise your hand if you work for, or hire for, a company in a different country than the one you live in.",
+                                                  "hints": "Two facilitators, two markets: Berlin and Riga read the same job boards and see different offers. Ask what a portable skill is worth when the team is spread across countries.",
+                                                  "no_hands": [
+                                                            "Would you take a fully remote role from another country, and what would worry you?",
+                                                            "Do you think Berlin or the Baltics compete with each other or with the US for Flutter work?",
+                                                            "For hirers: what stops you hiring across borders: law, time zones, trust, or tax?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "How did the cross-border setup happen: remote job, relocation, contractor, employer of record?",
+                                                            "Does the framework matter more or less when the team is spread across countries?",
+                                                            "What surprised you most: pay, working culture, or paperwork?",
+                                                            "Is Flutter a portable skill across markets, or does each market want something else?"
+                                                  ],
+                                                  "follow_ups": [
+                                                            "Where in Europe is the Flutter demand you actually see?",
+                                                            "What would you tell someone in Riga or Berlin who wants to work for a company abroad?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Rules in Your Backlog",
+                                                  "prompt": "Raise your hand if an EU rule (AI Act, Accessibility Act, GDPR) created a ticket in your backlog this year.",
+                                                  "hints": "EU AI Act: the AI-literacy duty applies since Feb 2025 and the high-risk rules for hiring tools moved to Dec 2027 (Digital Omnibus, Jul 2026); the Accessibility Act applies since June 2025. Ask which rule became a real ticket.",
+                                                  "no_hands": [
+                                                            "Which rule do you expect to hit your app first, and are you ready?",
+                                                            "Is accessibility on your definition of done, or something for later?",
+                                                            "For team leads: who on your team knows what the AI Act asks of an app that uses a model?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "Which rule, what ticket, and how much work was it really?",
+                                                            "Did the rule change a design decision or a technology decision?",
+                                                            "Was Flutter a help or a hindrance: semantics, screen readers, data handling?",
+                                                            "Did anyone budget for it, or did it come out of feature time?"
+                                                  ],
+                                                  "follow_ups": [
+                                                            "Is regulation a competitive advantage for European developers, or just cost?",
+                                                            "What is one accessibility fix every Flutter app in the room could ship this month?"
+                                                  ]
+                                        }
+                              ],
+                              "wrap_up": [
+                                        "Does being in Europe make Flutter a better or a worse bet than in the US, and why?",
+                                        "Which EU rule will shape your next project more than any framework choice?"
+                              ]
+                    },
+                    "q6": {
+                              "sections": [
+                                        {
+                                                  "title": "Depth or Breadth",
+                                                  "prompt": "Raise your hand if you deliberately learned something outside Flutter this year: native, backend, AI, product, people.",
+                                                  "hints": "METR, Jul 2025: experienced developers were 19% slower with AI tools while believing they were faster. Ask what they learned that an agent could not learn for them.",
+                                                  "no_hands": [
+                                                            "What is the deep skill you are protecting, and is it safe from AI?",
+                                                            "What would you learn next if you had one free day a week?",
+                                                            "For the seniors: which skill paid off the most over your career, and was it technical?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "What did you learn, and did it change what work comes to you?",
+                                                            "Did you learn it with AI, and did that help or make it shallow?",
+                                                            "Was it depth, like native internals or architecture, or breadth, like product, people, business?",
+                                                            "How do you show that learning to an employer or a client?"
+                                                  ],
+                                                  "follow_ups": [
+                                                            "What should a Flutter developer deliberately still do by hand in the next year?",
+                                                            "Which skill pairing with Flutter is underrated right now?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "An App With Your Name On It",
+                                                  "prompt": "Raise your hand if you have an app in a store or on the web right now that you built yourself.",
+                                                  "hints": "Google Play: a new personal developer account needs a closed test with 12 testers for 14 days before production. Ask what shipping taught them that tutorials did not.",
+                                                  "no_hands": [
+                                                            "What stopped you: an idea, time, store hurdles, or no need?",
+                                                            "Would a shipped app help you more than a certificate or a course?",
+                                                            "For hirers: does a shipped app with real users change how you read a candidate?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "What did shipping teach you that no tutorial did?",
+                                                            "Real users, real money, real support requests: which of those do you have?",
+                                                            "Did it lead to anything: a job, a client, a talk, a lesson?",
+                                                            "How much of it would you let an agent build today, and what would you keep by hand?"
+                                                  ],
+                                                  "follow_ups": [
+                                                            "What is the smallest app that would prove serious ability in one weekend?",
+                                                            "What would you build to show product judgment rather than code generation?"
+                                                  ]
+                                        },
+                                        {
+                                                  "title": "Saying No to a Stack",
+                                                  "prompt": "Raise your hand if you have turned down a job or a project this year because of its tech stack.",
+                                                  "hints": "JetBrains DevEco 2025: 68% of developers expect employers to require AI proficiency. Ask whether the no was about the stack or about how the company decides.",
+                                                  "no_hands": [
+                                                            "What would you say yes to even if it were not Flutter: the product, the team, the pay?",
+                                                            "How much does the framework matter next to the domain and the people?",
+                                                            "For juniors: can you afford to say no right now, and who told you that you cannot?"
+                                                  ],
+                                                  "hands_up": [
+                                                            "What was the stack, and what was the real reason: technology, team, or the AI expectations?",
+                                                            "What questions do you ask before joining a team now that you did not ask two years ago?",
+                                                            "Was it a red flag about the stack or about how the company makes decisions?",
+                                                            "Have you regretted a no, or a yes?"
+                                                  ],
+                                                  "follow_ups": [
+                                                            "What interview question reveals whether a team uses AI to grow people or to avoid hiring?",
+                                                            "Which opportunity would you take even if Flutter were not the main stack?"
+                                                  ]
+                                        }
+                              ],
+                              "wrap_up": [
+                                        "Hands up if you would still choose Flutter starting today. Compare with the worried count from Q1.",
+                                        "One sentence to your past self, from anyone who has been in Flutter for more than two years.",
+                                        "Where does this conversation continue: Flutter Berlin, Flutteristas, the Flutter Community AI Circle, or the native versus cross-platform panel on Friday?"
+                              ]
+                    }
+          }
+};
+
+        function toggle(id){
+          const el = document.getElementById(id);
+          if(!el) return;
+          el.classList.toggle('visible');
+        }
+
+        // Opening a card's branch by hand counts as using it, so the roulette skips it later
+        function toggleBranch(panelId, segmentId) {
+          toggle(panelId);
+          const panel = document.getElementById(panelId);
+          if (panel && panel.classList.contains('visible')) {
+            markSegmentAsUsed(segmentId);
+          }
+        }
+
+        function renderFollowUps(followUps) {
+          if (!followUps || followUps.length === 0) return '';
+          return `
+                            <div class="follow-ups">
+                                <small>Follow-ups</small>
+                                <ul>
+                                    ${followUps.map(q => `<li>${q}</li>`).join('')}
+                                </ul>
+                            </div>`;
+        }
+
+        function showTab(tabId) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => button.classList.remove('active'));
+            const questionItems = document.querySelectorAll('.question-item');
+            questionItems.forEach(item => item.classList.remove('active'));
+            
+            document.getElementById(tabId + '-content').classList.add('active');
+            
+            // Find and activate the corresponding question item
+            const questionNum = tabId.replace('q', '');
+            const questionItemsArray = document.querySelectorAll('.question-item');
+            if (questionItemsArray[questionNum - 1]) {
+                questionItemsArray[questionNum - 1].classList.add('active');
+            }
+        }
+
+        function loadTopic(topic) {
+            currentTopic = topic;
+            document.getElementById('topic-selection').classList.add('hidden');
+            document.getElementById('loading').classList.remove('hidden');
+
+            try {
+                // Use embedded data instead of fetching JSON files
+                questionsData = embeddedData[topic];
+
+                generateContent();
+                document.getElementById('loading').classList.add('hidden');
+                document.getElementById('main-content').classList.remove('hidden');
+            } catch (error) {
+                console.error('Error loading data:', error);
+                document.getElementById('loading').innerHTML = `<h2>Error loading ${topic} data</h2><p>Please check that the embedded data is available.</p>`;
+            }
+        }
+
+        function goBackToSelection() {
+            document.getElementById('main-content').classList.add('hidden');
+            document.getElementById('topic-selection').classList.remove('hidden');
+        }
+
+        // Roulette System
+        let rouletteSegments = [];
+        let isSpinning = false;
+
+        function openRoulette() {
+            if (!currentTopic) {
+                alert('Please select a topic first!');
+                return;
+            }
+            
+            generateRouletteSegments();
+            renderRouletteWheel();
+            updateRouletteStats();
+            document.getElementById('roulette-modal').classList.remove('hidden');
+        }
+
+        function closeRoulette() {
+            document.getElementById('roulette-modal').classList.add('hidden');
+            clearRouletteSelection();
+            
+            // Reset to initial state
+            showWheelForNext();
+        }
+
+        function generateRouletteSegments() {
+            rouletteSegments = [];
+            const usedSegments = getUsedSegments();
+            
+            if (!questionsData) return;
+            
+            // Generate segments for each question and section
+            for (let qNum = 1; qNum <= 6; qNum++) {
+                const questionKey = `q${qNum}`;
+                const questionData = questionsData[questionKey];
+                
+                if (!questionData || !questionData.sections) continue;
+                
+                questionData.sections.forEach((section, sectionIndex) => {
+                    const segmentId = `Q${qNum}S${sectionIndex + 1}`;
+                    
+                    // Only include if not already used
+                    if (!usedSegments.includes(segmentId)) {
+                        rouletteSegments.push({
+                            id: segmentId,
+                            questionNum: qNum,
+                            sectionIndex: sectionIndex,
+                            title: section.title,
+                            prompt: section.prompt
+                        });
+                    }
+                });
+            }
+        }
+
+        function renderRouletteWheel() {
+            const wheel = document.getElementById('roulette-wheel');
+            wheel.innerHTML = '';
+            
+            if (rouletteSegments.length === 0) {
+                wheel.innerHTML = '<div style="display: flex; align-items: center; justify-content: center; height: 100%; color: var(--ink); font-size: 18px; font-weight: 600; text-align: center;">All segments used!<br>Reset to continue.</div>';
+                document.getElementById('spin-btn').disabled = true;
+                return;
+            }
+            
+            document.getElementById('spin-btn').disabled = false;
+            
+            // Fixed number of visual segments for consistent spinning
+            const visualSegments = 12;
+            const segmentAngle = 360 / visualSegments;
+            const colors = [
+                '#a8c1ff', '#3bc07b', '#ff8a8a', '#ffd93d', 
+                '#ff9f43', '#a55eea', '#26de81', '#fd79a8',
+                '#74b9ff', '#e17055', '#00b894', '#fdcb6e'
+            ];
+            
+            // Create SVG element
+            const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+            svg.setAttribute('class', 'wheel-svg');
+            svg.setAttribute('viewBox', '0 0 200 200');
+            
+            const centerX = 100;
+            const centerY = 100;
+            const radius = 95;
+            
+            // Create visual segments (just colors, no labels)
+            for (let i = 0; i < visualSegments; i++) {
+                const startAngle = (i * segmentAngle - 90) * Math.PI / 180;
+                const endAngle = ((i + 1) * segmentAngle - 90) * Math.PI / 180;
+                
+                const x1 = centerX + radius * Math.cos(startAngle);
+                const y1 = centerY + radius * Math.sin(startAngle);
+                const x2 = centerX + radius * Math.cos(endAngle);
+                const y2 = centerY + radius * Math.sin(endAngle);
+                
+                const largeArcFlag = segmentAngle > 180 ? 1 : 0;
+                
+                // Create path for segment
+                const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                const pathData = `M ${centerX} ${centerY} L ${x1} ${y1} A ${radius} ${radius} 0 ${largeArcFlag} 1 ${x2} ${y2} Z`;
+                path.setAttribute('d', pathData);
+                path.setAttribute('fill', colors[i % colors.length]);
+                path.setAttribute('stroke', '#ffffff');
+                path.setAttribute('stroke-width', '1');
+                
+                svg.appendChild(path);
+            }
+            
+            wheel.appendChild(svg);
+        }
+
+        function spinWheel() {
+            if (isSpinning || rouletteSegments.length === 0) return;
+            
+            isSpinning = true;
+            document.getElementById('spin-btn').disabled = true;
+            document.getElementById('roulette-result').classList.add('hidden');
+            
+            // Clear any previous selection highlighting
+            clearRouletteSelection();
+            
+            // Randomly select from unused segments (independent of visual wheel)
+            const selectedIndex = Math.floor(Math.random() * rouletteSegments.length);
+            const selectedSegment = rouletteSegments[selectedIndex];
+            
+            // Create a fun spinning animation with random final position
+            const baseSpins = 5; // Number of full rotations
+            const randomFinalAngle = Math.random() * 360; // Random final position
+            const totalRotation = baseSpins * 360 + randomFinalAngle;
+            
+            // Apply spinning animation
+            const wheel = document.getElementById('roulette-wheel');
+            const svg = wheel.querySelector('.wheel-svg');
+            if (svg) {
+                svg.style.setProperty('--spin-rotation', `${totalRotation}deg`);
+                svg.classList.add('wheel-spinning');
+            }
+            
+            // Handle result after animation (independent of where wheel stops)
+            setTimeout(() => {
+                handleSpinResult(selectedSegment);
+                if (svg) {
+                    svg.classList.remove('wheel-spinning');
+                }
+                isSpinning = false;
+                document.getElementById('spin-btn').disabled = false;
+            }, 4000);
+        }
+
+        function handleSpinResult(selectedSegment) {
+            // Mark segment as used
+            markSegmentAsUsed(selectedSegment.id);
+            
+            // Get the full section data
+            const questionData = questionsData[`q${selectedSegment.questionNum}`];
+            const section = questionData.sections[selectedSegment.sectionIndex];
+            
+            // Show full section content
+            const resultDiv = document.getElementById('roulette-result');
+            resultDiv.innerHTML = `
+                <div style="font-size: 24px; margin-bottom: 15px;">🎯 ${selectedSegment.id}</div>
+                <div style="background: var(--node); border: 1px solid var(--border); border-radius: 8px; padding: 15px; text-align: left;">
+                    <div style="font-size: 16px; color: var(--accent); margin-bottom: 10px; font-weight: 600;">${section.title}</div>
+                    <div style="font-size: 15px; color: var(--ink); margin-bottom: 12px; font-weight: 500;">${section.prompt}</div>
+                    <div style="font-size: 13px; color: var(--line); margin-bottom: 15px; font-style: italic;">${section.hints}</div>
+                    
+                    <div style="margin-top: 15px;">
+                        <div style="display: flex; gap: 12px; justify-content: center;">
+                            <button onclick="toggleRouletteDetails('${selectedSegment.id}No')" 
+                                    style="background: var(--card); border: 2px solid var(--border); color: var(--ink); padding: 12px 20px; border-radius: 8px; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; min-width: 120px;">
+                                <span style="padding: 2px 8px; border-radius: 999px; border:1px solid var(--border); font-size: 12px; color:#ffd6d6; border-color:#5b2525; background:#2a0e0e;">No Hands</span>
+                            </button>
+                            <button onclick="toggleRouletteDetails('${selectedSegment.id}Yes')" 
+                                    style="background: var(--card); border: 2px solid var(--border); color: var(--ink); padding: 12px 20px; border-radius: 8px; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; min-width: 120px;">
+                                <span style="padding: 2px 8px; border-radius: 999px; border:1px solid var(--border); font-size: 12px; color:#bdf6d2; border-color:#255b40; background:#0e2a1d;">Hands Up</span>
+                            </button>
+                        </div>
+                        
+                        <div id="${selectedSegment.id}No" class="roulette-details no-hands" style="display: none; background: #2a0e0e; border: 1px solid #5b2525; border-radius: 10px; padding: 10px 12px; margin: 8px 0 4px; font-size: 13px;">
+                            <h3 style="margin:0 0 4px; font-size:14px; color:#dbe7ff;">🙅 No Hands Questions</h3>
+                            <ul style="margin:6px 0 0 18px;">
+                                ${section.no_hands.map(q => `<li style="margin-bottom: 4px;">${q}</li>`).join('')}
+                            </ul>
+                            ${renderFollowUps(section.follow_ups)}
+                        </div>
+
+                        <div id="${selectedSegment.id}Yes" class="roulette-details hands-up" style="display: none; background: #0e2a1d; border: 1px solid #255b40; border-radius: 10px; padding: 10px 12px; margin: 8px 0 4px; font-size: 13px;">
+                            <h3 style="margin:0 0 4px; font-size:14px; color:#dbe7ff;">🙋 Hands Up Questions</h3>
+                            <ul style="margin:6px 0 0 18px;">
+                                ${section.hands_up.map(q => `<li style="margin-bottom: 4px;">${q}</li>`).join('')}
+                            </ul>
+                            ${renderFollowUps(section.follow_ups)}
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 20px;">
+                    <button onclick="navigateToSelectedSection('${selectedSegment.questionNum}', '${selectedSegment.sectionIndex}')" 
+                            style="background: var(--card); border: 1px solid var(--border); color: var(--ink); padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: 600;">
+                        📍 Go to Full Page
+                    </button>
+                </div>
+            `;
+            resultDiv.classList.remove('hidden');
+            
+            // Update segments and stats
+            generateRouletteSegments();
+            renderRouletteWheel();
+            updateRouletteStats();
+            
+            // Automatically hide wheel after showing result
+            hideWheelShowNext();
+        }
+
+        function hideWheelShowNext() {
+            // Hide wheel and wheel controls
+            document.querySelector('.wheel-container').classList.add('hidden');
+            document.getElementById('wheel-controls').classList.add('hidden');
+            
+            // Show next controls
+            document.getElementById('next-controls').classList.remove('hidden');
+            
+            // Update title
+            document.querySelector('#roulette-modal h2').textContent = '📋 Discussion Time';
+            document.querySelector('#roulette-modal p').textContent = 'Discuss the topic above, then spin again for the next one!';
+        }
+
+        function showWheelForNext() {
+            // Show wheel and wheel controls
+            document.querySelector('.wheel-container').classList.remove('hidden');
+            document.getElementById('wheel-controls').classList.remove('hidden');
+            
+            // Hide next controls and result
+            document.getElementById('next-controls').classList.add('hidden');
+            document.getElementById('roulette-result').classList.add('hidden');
+            
+            // Update title back
+            document.querySelector('#roulette-modal h2').textContent = '🎰 Question Roulette';
+            document.querySelector('#roulette-modal p').textContent = 'Spin to randomly select a discussion topic!';
+        }
+
+        function navigateToSelectedSection(questionNum, sectionIndex) {
+            closeRoulette();
+            
+            // Switch to the correct question tab
+            showTab(`q${questionNum}`);
+            
+            // Highlight the selected section
+            setTimeout(() => {
+                highlightSelectedSection(questionNum, sectionIndex);
+            }, 100);
+        }
+
+        function highlightSelectedSection(questionNum, sectionIndex) {
+            // Clear previous selections
+            clearRouletteSelection();
+            
+            // Find and highlight the section
+            const questionData = questionsData[`q${questionNum}`];
+            if (!questionData || !questionData.sections[sectionIndex]) return;
+            
+            const section = questionData.sections[sectionIndex];
+            
+            // Find the section card by looking for the section title within the current question
+            setTimeout(() => {
+                const activeQuestionContent = document.querySelector('.tab-content.active');
+                if (!activeQuestionContent) return;
+                
+                const cards = activeQuestionContent.querySelectorAll('.card');
+                // Skip the wrap-up card (last one), only highlight section cards
+                const sectionCards = Array.from(cards).slice(0, -1);
+                
+                if (sectionCards[sectionIndex]) {
+                    sectionCards[sectionIndex].classList.add('roulette-selected');
+                    sectionCards[sectionIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }, 200);
+        }
+
+        function clearRouletteSelection() {
+            document.querySelectorAll('.roulette-selected').forEach(el => {
+                el.classList.remove('roulette-selected');
+            });
+        }
+
+        function toggleRouletteDetails(id) {
+            const el = document.getElementById(id);
+            if (!el) return;
+            el.style.display = el.style.display === 'none' ? 'block' : 'none';
+        }
+
+        // LocalStorage Management
+        function getStorageKey() {
+            return `roulette_used_${currentTopic}`;
+        }
+
+        function getUsedSegments() {
+            const stored = localStorage.getItem(getStorageKey());
+            return stored ? JSON.parse(stored) : [];
+        }
+
+        function markSegmentAsUsed(segmentId) {
+            const used = getUsedSegments();
+            if (!used.includes(segmentId)) {
+                used.push(segmentId);
+                localStorage.setItem(getStorageKey(), JSON.stringify(used));
+            }
+        }
+
+        function resetRoulette() {
+            if (confirm('Reset all used segments? This will make all topics available again.')) {
+                localStorage.removeItem(getStorageKey());
+                generateRouletteSegments();
+                renderRouletteWheel();
+                updateRouletteStats();
+                
+                // Reset to wheel view
+                showWheelForNext();
+            }
+        }
+
+        function updateRouletteStats() {
+            const usedSegments = getUsedSegments();
+            const totalSegments = getTotalSegments();
+            const availableSegments = rouletteSegments.length;
+            
+            document.getElementById('roulette-stats').innerHTML = `
+                Available: ${availableSegments} | Used: ${usedSegments.length} | Total: ${totalSegments}
+            `;
+            
+            // Update used questions list
+            const usedQuestionsDiv = document.getElementById('used-questions-list');
+            if (usedSegments.length === 0) {
+                usedQuestionsDiv.innerHTML = '<em>None yet - spin to get started!</em>';
+            } else {
+                // Group by question for better display
+                const groupedUsed = {};
+                usedSegments.forEach(segmentId => {
+                    const qMatch = segmentId.match(/Q(\d+)S(\d+)/);
+                    if (qMatch) {
+                        const qNum = qMatch[1];
+                        const sNum = qMatch[2];
+                        if (!groupedUsed[qNum]) {
+                            groupedUsed[qNum] = [];
+                        }
+                        groupedUsed[qNum].push(sNum);
+                    }
+                });
+                
+                let html = '';
+                Object.keys(groupedUsed).sort().forEach(qNum => {
+                    const sections = groupedUsed[qNum].sort();
+                    html += `<span style="display: inline-block; margin: 2px 6px 2px 0; padding: 2px 6px; background: var(--node); border-radius: 4px; border: 1px solid var(--border);">Q${qNum}: ${sections.map(s => `S${s}`).join(', ')}</span>`;
+                });
+                usedQuestionsDiv.innerHTML = html;
+            }
+        }
+
+        function getTotalSegments() {
+            if (!questionsData) return 0;
+            
+            let total = 0;
+            for (let qNum = 1; qNum <= 6; qNum++) {
+                const questionData = questionsData[`q${qNum}`];
+                if (questionData && questionData.sections) {
+                    total += questionData.sections.length;
+                }
+            }
+            return total;
+        }
+
+        function generateContent() {
+            const contentArea = document.getElementById('content-area');
+            const mainTitle = document.getElementById('main-title');
+            const questionList = document.getElementById('question-list');
+            
+            // Update title
+            const topicDisplayName = 'Is Flutter a Smart Bet in an AI-Driven Job Market?';
+            mainTitle.innerHTML = `FlutterCon EU 2026 Roundtable: ${topicDisplayName} <span class="chip">Click any box to expand</span>`;
+            
+            // Generate question navigation
+            questionList.innerHTML = '';
+            for (let qNum = 1; qNum <= 6; qNum++) {
+                const questionTitle = getQuestionTitle(currentTopic, qNum);
+                const questionItem = document.createElement('div');
+                questionItem.className = qNum === 1 ? 'question-item active' : 'question-item';
+                questionItem.textContent = questionTitle;
+                questionItem.onclick = () => showTab(`q${qNum}`);
+                questionList.appendChild(questionItem);
+            }
+            
+            // Clear previous content
+            contentArea.innerHTML = '';
+            
+            // Generate content for each question
+            for (let qNum = 1; qNum <= 6; qNum++) {
+                const questionKey = `q${qNum}`;
+                const questionData = questionsData[questionKey];
+                
+                if (!questionData) continue;
+                
+                const questionDiv = document.createElement('div');
+                questionDiv.id = `${questionKey}-content`;
+                questionDiv.className = qNum === 1 ? 'tab-content active' : 'tab-content';
+                
+                // Question title
+                const questionTitle = getQuestionTitle(currentTopic, qNum);
+                questionDiv.innerHTML = `<h1>${questionTitle}</h1>`;
+                
+                // Generate sections
+                questionData.sections.forEach((section, sectionIndex) => {
+                    const sectionId = getSectionId(section.title);
+                    
+                    const cardDiv = document.createElement('div');
+                    cardDiv.className = 'card';
+                    
+                    cardDiv.innerHTML = `
+                        <div class="sectionTitle">${section.title}</div>
+                        <div class="prompt-section">
+                            <div class="prompt-text">${section.prompt}</div>
+                            <div class="response-options">
+                                <button class="response-btn no-btn" onclick="toggleBranch('${sectionId}No', 'Q${qNum}S${sectionIndex + 1}')">
+                                    <span class="pill no">No Hands</span>
+                                </button>
+                                <button class="response-btn yes-btn" onclick="toggleBranch('${sectionId}Yes', 'Q${qNum}S${sectionIndex + 1}')">
+                                    <span class="pill yes">Hands Up</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div id="${sectionId}No" class="details no-hands">
+                            <h3>${section.title.replace(/^[A-Z]\)\s*/, '')} – No Hands</h3>
+                            <small>${section.hints}</small>
+                            <ul>
+                                ${section.no_hands.map(q => `<li>${q}</li>`).join('')}
+                            </ul>
+                            ${renderFollowUps(section.follow_ups)}
+                        </div>
+                        <div id="${sectionId}Yes" class="details hands-up">
+                            <h3>${section.title.replace(/^[A-Z]\)\s*/, '')} – Hands Up</h3>
+                            <small>${section.hints}</small>
+                            <ul>
+                                ${section.hands_up.map(q => `<li>${q}</li>`).join('')}
+                            </ul>
+                            ${renderFollowUps(section.follow_ups)}
+                        </div>
+                    `;
+                    
+                    questionDiv.appendChild(cardDiv);
+                });
+                
+                // Add wrap-up section
+                if (questionData.wrap_up && questionData.wrap_up.length > 0) {
+                    const wrapUpDiv = document.createElement('div');
+                    wrapUpDiv.className = 'card';
+                    wrapUpDiv.innerHTML = `
+                        <div class="sectionTitle">Wrap-up Question</div>
+                        <div class="prompt-section">
+                            <div class="prompt-text">Final thoughts on ${questionTitle}</div>
+                            <div class="response-options">
+                                <button class="response-btn wrap-btn" onclick="toggle('${questionKey}Wrap')" style="width: 100%;">
+                                    <span class="pill" style="background: var(--accent); color: #0b1220;">Discuss Wrap-up</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div id="${questionKey}Wrap" class="details">
+                            <h3>${questionTitle} Wrap-up</h3>
+                            <ul>
+                                ${questionData.wrap_up.map(q => `<li>${q}</li>`).join('')}
+                            </ul>
+                        </div>
+                    `;
+                    questionDiv.appendChild(wrapUpDiv);
+                }
+                
+                contentArea.appendChild(questionDiv);
+            }
+        }
+
+        function getQuestionTitle(topic, qNum) {
+            const titles = {
+                flutter_ai_job_market_eu: [
+                    'Q1: Who Is Hiring, Looking, or Worried?',
+                    'Q2: The Good: Where Flutter Still Wins',
+                    'Q3: The Bad: Where Flutter Loses',
+                    'Q4: The Ugly: AI and the Entry-Level Squeeze',
+                    'Q5: The Europe Factor',
+                    'Q6: Your Next Move'
+                ]
+            };
+            return titles[topic][qNum - 1] || `Q${qNum}`;
+        }
+
+        function getSectionId(title) {
+            return title.replace(/[^a-zA-Z]/g, '').toLowerCase();
+        }
+    </script>
+</head>
+<body onload="loadTopic('flutter_ai_job_market_eu')">
+    <!-- Topic Selection Screen -->
+    <div id="topic-selection" class="topic-selection hidden">
+        <div class="wrap">
+            <h1>FlutterCon EU 2026 Roundtable Facilitator</h1>
+            <p>Is Flutter a Smart Bet in an AI-Driven Job Market?</p>
+            <div class="topic-buttons">
+                <button class="topic-button" onclick="loadTopic('flutter_ai_job_market_eu')">
+                    Start Discussion
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Screen -->
+    <div id="loading" class="loading hidden">
+        <h2>Loading content...</h2>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content" class="hidden">
+        <div class="wrap">
+            <h1 id="main-title">FlutterCon EU 2026 Roundtable Facilitator <span class="chip">Click any box to expand</span></h1>
+            <p class="facilitators">Facilitated by <strong>Ivanna Kaceviča</strong> (Google Developer Expert, Riga) and <strong>Esra Kadah</strong> (Google Developer Expert for Flutter and Dart, Berlin). next·app devCon 2026, flutterCon Berlin track, Wednesday 7 October, 10:20 to 11:00, Unconference Roundtables.</p>
+
+            <div style="margin-bottom: 20px; display: flex; gap: 12px; align-items: center;">
+                <button onclick="openRoulette()" style="background: var(--accent); border: 1px solid var(--accent); color: #0b1220; padding: 8px 16px; border-radius: 5px; cursor: pointer; font-weight: 600;">
+                    🎰 Open Roulette
+                </button>
+            </div>
+
+            <div class="question-nav">
+                <div id="question-list" class="question-list">
+                    <!-- Questions will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <div id="content-area"></div>
+        </div>
+    </div>
+
+    <!-- Roulette Modal -->
+    <div id="roulette-modal" class="roulette-modal hidden">
+        <div class="roulette-container">
+            <button class="roulette-close" onclick="closeRoulette()">×</button>
+            <h2 style="margin-top: 0; color: var(--accent);">🎰 Question Roulette</h2>
+            <p style="color: var(--ink); margin-bottom: 20px;">Spin to randomly select a discussion topic!</p>
+            
+            <div class="wheel-container">
+                <div class="wheel-pointer"></div>
+                <div id="roulette-wheel" class="roulette-wheel">
+                    <!-- Wheel segments will be generated by JavaScript -->
+                </div>
+            </div>
+            
+            <div id="wheel-controls" class="roulette-controls">
+                <button id="spin-btn" class="roulette-btn" onclick="spinWheel()">
+                    🎲 Spin the Wheel!
+                </button>
+                <button class="roulette-btn" onclick="resetRoulette()" style="background: var(--card); border-color: var(--border); color: var(--ink);">
+                    🔄 Reset Used
+                </button>
+            </div>
+            
+            <div id="next-controls" class="roulette-controls hidden">
+                <button class="roulette-btn" onclick="showWheelForNext()" style="font-size: 18px;">
+                    🎰 Next Spin
+                </button>
+                <button class="roulette-btn" onclick="resetRoulette()" style="background: var(--card); border-color: var(--border); color: var(--ink);">
+                    🔄 Reset Used
+                </button>
+            </div>
+            
+            <div id="roulette-result" class="roulette-result hidden">
+                <!-- Result will be shown here -->
+            </div>
+            
+            <div id="roulette-stats" style="margin-top: 15px; color: var(--line); font-size: 14px;">
+                <!-- Stats will be shown here -->
+            </div>
+            
+            <div id="used-questions" style="margin-top: 20px; padding-top: 15px; border-top: 1px solid var(--border);">
+                <h4 style="margin: 0 0 10px 0; color: var(--accent); font-size: 14px;">Already Used:</h4>
+                <div id="used-questions-list" style="color: var(--line); font-size: 12px; line-height: 1.4;">
+                    <!-- Used questions will be shown here -->
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

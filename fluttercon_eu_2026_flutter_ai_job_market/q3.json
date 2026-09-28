@@ -1,0 +1,71 @@
+{
+  "source_file": "Berlin 2026 edition for next app devCon 2026 (flutterCon Berlin), sources listed on the page",
+  "extracted_at": "2026-09-28T00:00:00.000000",
+  "question": "Q3: The Bad: Where Flutter Loses",
+  "sections": [
+    {
+      "model": "Job Ads Speak Native",
+      "prompt": "Raise your hand if the last mobile job ad you read wanted Swift or Kotlin, with Flutter as a nice-to-have.",
+      "hint": "itjobswatch UK, Sep 2026: 25 permanent Flutter ads in six months against 223 React Native and 265 Kotlin. Ask how the ratio looks on the boards they read.",
+      "no_hands": [
+        "What did the last mobile job ad you saw actually ask for?",
+        "Do you read Flutter-only ads, or do you apply for native roles with Flutter experience?",
+        "For hirers: when you write an ad, why native first, or why Flutter first?"
+      ],
+      "hands_up": [
+        "Did you apply anyway, and how did the conversation go?",
+        "What native depth have you added to stay in the running, and was it worth it?",
+        "Is the ratio different for freelance and contract work than for permanent roles?",
+        "Is native plus Flutter a fair ask, or a sign the company has not decided its stack?"
+      ],
+      "follow_ups": [
+        "What would you put in a job ad if you were hiring a Flutter developer today?",
+        "Which native skills paid off most for you?"
+      ]
+    },
+    {
+      "model": "Google and the Trust Question",
+      "prompt": "Raise your hand if a client, boss or colleague has told you that Flutter is dead or that Google will drop it.",
+      "hint": "Timeline: Apr 2024 Google cut Flutter and Dart staff; Jan 2025 Dart macros were cancelled; Aug 2026 Flutter 3.47 shipped on the four-releases-a-year cadence. Ask what they answered, not what they feel.",
+      "no_hands": [
+        "Where do you think the Flutter-is-dead story comes from, and does it matter for your work?",
+        "How much does Google's backing matter to your own decisions, honestly?",
+        "For the seniors: which framework did you see actually die, and what were the early signs?"
+      ],
+      "hands_up": [
+        "What did you answer, and did it work?",
+        "Did the doubt change a decision: a project, a hire, a rewrite?",
+        "What would you need to see from Google or the community to stop the question coming back?",
+        "Does a community fork like Flock make you feel safer or more worried?"
+      ],
+      "follow_ups": [
+        "Is it good news or bad news that non-Google contributors now outnumber Google employees?",
+        "What is your one-sentence answer for the next time someone says it?"
+      ]
+    },
+    {
+      "model": "Waiting for the Platform Catch-Up",
+      "prompt": "Raise your hand if you have waited for Flutter to catch up with a new iOS or Android feature this year.",
+      "hint": "Apple shipped iOS 26 with Liquid Glass in Sep 2025; Flutter's Cupertino widgets are still catching up (status on flutter.dev). Ask what they waited for and what they did meanwhile.",
+      "no_hands": [
+        "Which platform feature would you miss most if it arrived late in Flutter?",
+        "Do your users or clients notice when a design language changes on iOS or Android?",
+        "For hirers: does fidelity to the native look decide who you hire, or is it a detail?"
+      ],
+      "hands_up": [
+        "What did you wait for, how long, and what did you do in the meantime?",
+        "Did you write a platform channel, a plugin, or just ship without it?",
+        "Did the wait cost you a client, a release date, or a review rating?",
+        "Would a native developer on the team have solved it faster?"
+      ],
+      "follow_ups": [
+        "Is platform lag getting better or worse in your experience?",
+        "Which gap should the Flutter team close first?"
+      ]
+    }
+  ],
+  "wrap_up": [
+    "Which weakness in this block would actually change your decision, and which is noise?",
+    "What would you need to see from Google or the community in the next year to relax?"
+  ]
+}

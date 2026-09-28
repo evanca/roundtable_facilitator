@@ -1,0 +1,71 @@
+{
+  "source_file": "Berlin 2026 edition for next app devCon 2026 (flutterCon Berlin), sources listed on the page",
+  "extracted_at": "2026-09-28T00:00:00.000000",
+  "question": "Q5: The Europe Factor",
+  "sections": [
+    {
+      "model": "Salary in the Job Ad",
+      "prompt": "Raise your hand if you have seen a salary range in a Flutter job ad this year.",
+      "hint": "EU Pay Transparency Directive 2023/970: member states had until 7 June 2026 to transpose it, so ranges in job ads are becoming the norm. Ask whether a range changed a decision.",
+      "no_hands": [
+        "Where do you get salary information today: friends, surveys, recruiters, guesswork?",
+        "Would a visible range change which ads you apply to?",
+        "For hirers: are you ready to put a range in every ad, and what are you afraid of?"
+      ],
+      "hands_up": [
+        "Did the range change your decision to apply, or your ask in the interview?",
+        "Was the range for Flutter different from the native roles you saw?",
+        "Was the range honest, or a wide band that said nothing?",
+        "Have you seen ranges more often in Germany, elsewhere in the EU, or in remote roles?"
+      ],
+      "follow_ups": [
+        "Does transparency help juniors or seniors more?",
+        "What should a Flutter developer in Berlin ask for, without naming your own number?"
+      ]
+    },
+    {
+      "model": "Hired Across Borders",
+      "prompt": "Raise your hand if you work for, or hire for, a company in a different country than the one you live in.",
+      "hint": "Two facilitators, two markets: Berlin and Riga read the same job boards and see different offers. Ask what a portable skill is worth when the team is spread across countries.",
+      "no_hands": [
+        "Would you take a fully remote role from another country, and what would worry you?",
+        "Do you think Berlin or the Baltics compete with each other or with the US for Flutter work?",
+        "For hirers: what stops you hiring across borders: law, time zones, trust, or tax?"
+      ],
+      "hands_up": [
+        "How did the cross-border setup happen: remote job, relocation, contractor, employer of record?",
+        "Does the framework matter more or less when the team is spread across countries?",
+        "What surprised you most: pay, working culture, or paperwork?",
+        "Is Flutter a portable skill across markets, or does each market want something else?"
+      ],
+      "follow_ups": [
+        "Where in Europe is the Flutter demand you actually see?",
+        "What would you tell someone in Riga or Berlin who wants to work for a company abroad?"
+      ]
+    },
+    {
+      "model": "Rules in Your Backlog",
+      "prompt": "Raise your hand if an EU rule (AI Act, Accessibility Act, GDPR) created a ticket in your backlog this year.",
+      "hint": "EU AI Act: the AI-literacy duty applies since Feb 2025 and the high-risk rules for hiring tools moved to Dec 2027 (Digital Omnibus, Jul 2026); the Accessibility Act applies since June 2025. Ask which rule became a real ticket.",
+      "no_hands": [
+        "Which rule do you expect to hit your app first, and are you ready?",
+        "Is accessibility on your definition of done, or something for later?",
+        "For team leads: who on your team knows what the AI Act asks of an app that uses a model?"
+      ],
+      "hands_up": [
+        "Which rule, what ticket, and how much work was it really?",
+        "Did the rule change a design decision or a technology decision?",
+        "Was Flutter a help or a hindrance: semantics, screen readers, data handling?",
+        "Did anyone budget for it, or did it come out of feature time?"
+      ],
+      "follow_ups": [
+        "Is regulation a competitive advantage for European developers, or just cost?",
+        "What is one accessibility fix every Flutter app in the room could ship this month?"
+      ]
+    }
+  ],
+  "wrap_up": [
+    "Does being in Europe make Flutter a better or a worse bet than in the US, and why?",
+    "Which EU rule will shape your next project more than any framework choice?"
+  ]
+}
