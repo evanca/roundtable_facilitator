@@ -6,7 +6,7 @@
     {
       "model": "One Codebase, Small Team",
       "prompt": "Raise your hand if you have shipped a production Flutter app with a team of three or fewer.",
-      "hint": "Appfigures via Pragmatic Engineer, Jan 2025: Flutter was in 11% of new app releases in 2024, React Native in 7%. Ask for the concrete thing a tiny team shipped.",
+      "hint": "Appfigures via Pragmatic Engineer, Jan 2025: Flutter was in about 11% of new app releases in 2024, React Native in 7%. Ask for the concrete thing a tiny team shipped.",
       "no_hands": [
         "What is the smallest team you have seen ship a real app, on any stack?",
         "What would stop a two-person team from choosing Flutter today?",
@@ -26,7 +26,7 @@
     {
       "model": "Beyond the Phone",
       "prompt": "Raise your hand if you have shipped Flutter to something other than a phone: web, desktop, car, TV, embedded.",
-      "hint": "Flutter blog, May 2026: Toyota's 2026 RAV4 multimedia runs Flutter, Canonical leads the desktop work, an LG webOS SDK is coming. Ask for the least expected target in the room.",
+      "hint": "Flutter blog, May 2026: Toyota's 2026 RAV4 runs Flutter and Canonical leads Flutter desktop; LG shipped its webOS TV SDK on 30 June (LG developer portal). Ask for the least expected target in the room.",
       "no_hands": [
         "Which non-phone target would you try first, and what holds you back?",
         "Do employers near you ever ask for Flutter web or desktop?",

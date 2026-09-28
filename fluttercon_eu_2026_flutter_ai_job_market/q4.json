@@ -6,27 +6,27 @@
     {
       "model": "The Missing Juniors",
       "prompt": "Raise your hand if your company hired a junior, apprentice or working student developer in the last 12 months.",
-      "hint": "Indeed DE, Sep 2026: entry-level software postings are 70% below 2019 while apprenticeship places in the field are 27% above. Ask who trains the next seniors.",
+      "hint": "Indeed DE, Sep 2026: entry-level software postings are 70% below 2019 while apprenticeship postings in the field are 27% above. Ask who trains the next seniors.",
       "no_hands": [
-        "Why not: no budget, no time to mentor, or do seniors plus AI seem to cover it?",
         "Where did you get your own first chance, and would that path still exist today?",
-        "For hirers: what would make a junior hire worth it again?"
+        "If you are the student or junior looking for that first chance: what do you hear back, and from whom?",
+        "For hirers: why not, no budget, no time to mentor, or do seniors plus AI seem to cover it?"
       ],
       "hands_up": [
-        "How did you find them: Ausbildung, dual study, university, career change, community?",
+        "How did you find them: apprenticeship (Ausbildung), dual study, university, career change, community?",
         "What does a junior do on your team now that AI writes the first draft?",
         "Did AI make them productive faster, or let them skip understanding?",
         "How do you teach someone to review code they did not write?"
       ],
       "follow_ups": [
-        "If juniors are not hired, where do the seniors of 2031 come from?",
+        "If juniors are not hired, where do the seniors come from five years from now?",
         "What should schools and courses stop teaching, and what should they teach more?"
       ]
     },
     {
       "model": "Agents in Daily Work",
-      "prompt": "Raise your hand if code written by an agent like Claude Code, Gemini CLI, Codex or Antigravity shipped to your production app this year.",
-      "hint": "JetBrains, Aug 2026: 90% of professional developers use coding agents weekly; Claude Code 39%, Copilot 21%, Codex 16%, Cursor 12%, Antigravity 6%. Ask who reviewed the agent.",
+      "prompt": "Raise your hand if code written by an agent like Antigravity, Claude Code, Codex or Gemini CLI shipped to your production app this year.",
+      "hint": "JetBrains, Aug 2026: 90% of professional developers use a coding agent at least weekly. Ask who reviewed the agent's code and how long that took.",
       "no_hands": [
         "What stops you: policy, trust, cost, or the code was not good enough?",
         "Do you use AI for anything else in Flutter work: tests, docs, reviews, planning?",
@@ -46,9 +46,9 @@
     {
       "model": "Native by Agent",
       "prompt": "Raise your hand if an agent has written Swift or Kotlin for you this year because you did not want to.",
-      "hint": "MobileDev-Bench, Mar 2026: top models resolved only 3 to 6% of 407 real mobile bug reports. Ask whether native-by-agent felt safe to ship, and who could read it.",
+      "hint": "MobileDev-Bench study, Mar 2026: the best AI models fixed 3 to 4% of 407 real mobile issues, mostly Android, no iOS; 5.7% at best when handed the right files. Ask whether native-by-agent felt safe to ship.",
       "no_hands": [
-        "If an agent could write the native parts, would you still choose a cross-platform framework?",
+        "Who writes the Swift or Kotlin on your project today, and how long do you wait for them?",
         "Which native task would you hand to an agent first?",
         "For the seniors: does cheap native code by agent make Flutter more or less attractive to you?"
       ],

@@ -6,11 +6,11 @@
     {
       "model": "Salary in the Job Ad",
       "prompt": "Raise your hand if you have seen a salary range in a Flutter job ad this year.",
-      "hint": "EU Pay Transparency Directive 2023/970: member states had until 7 June 2026 to transpose it, so ranges in job ads are becoming the norm. Ask whether a range changed a decision.",
+      "hint": "EU Pay Transparency Directive: national laws were due by 7 June 2026, and Germany still had no draft in July (Bundestag). Ask whether a range changed a decision.",
       "no_hands": [
         "Where do you get salary information today: friends, surveys, recruiters, guesswork?",
         "Would a visible range change which ads you apply to?",
-        "For hirers: are you ready to put a range in every ad, and what are you afraid of?"
+        "For hirers: are you ready to put a range in every ad, and what holds you back?"
       ],
       "hands_up": [
         "Did the range change your decision to apply, or your ask in the interview?",
@@ -20,16 +20,16 @@
       ],
       "follow_ups": [
         "Does transparency help juniors or seniors more?",
-        "What should a Flutter developer in Berlin ask for, without naming your own number?"
+        "Where would you send a junior to find a realistic range before their first interview?"
       ]
     },
     {
       "model": "Hired Across Borders",
       "prompt": "Raise your hand if you work for, or hire for, a company in a different country than the one you live in.",
-      "hint": "Two facilitators, two markets: Berlin and Riga read the same job boards and see different offers. Ask what a portable skill is worth when the team is spread across countries.",
+      "hint": "Indeed job postings index, Sep 2026: US software-dev postings up 19% in a year, Germany down 15% and at a record low. Ask what a portable skill is worth when the team is spread across countries.",
       "no_hands": [
         "Would you take a fully remote role from another country, and what would worry you?",
-        "Do you think Berlin or the Baltics compete with each other or with the US for Flutter work?",
+        "Do European cities compete with each other for Flutter work, or all of them with the US?",
         "For hirers: what stops you hiring across borders: law, time zones, trust, or tax?"
       ],
       "hands_up": [
@@ -40,13 +40,13 @@
       ],
       "follow_ups": [
         "Where in Europe is the Flutter demand you actually see?",
-        "What would you tell someone in Riga or Berlin who wants to work for a company abroad?"
+        "What would you tell someone in your city who wants to work for a company abroad?"
       ]
     },
     {
       "model": "Rules in Your Backlog",
       "prompt": "Raise your hand if an EU rule (AI Act, Accessibility Act, GDPR) created a ticket in your backlog this year.",
-      "hint": "EU AI Act: the AI-literacy duty applies since Feb 2025 and the high-risk rules for hiring tools moved to Dec 2027 (Digital Omnibus, Jul 2026); the Accessibility Act applies since June 2025. Ask which rule became a real ticket.",
+      "hint": "Accessibility Act applies since June 2025. EU AI Act: literacy duty since Feb 2025; hiring-tool rules moved to Dec 2027 (Omnibus, Jul 2026). Ask which rule became a real ticket.",
       "no_hands": [
         "Which rule do you expect to hit your app first, and are you ready?",
         "Is accessibility on your definition of done, or something for later?",

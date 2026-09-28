@@ -30,8 +30,14 @@
         .follow-ups { margin-top: 8px; padding-top: 6px; border-top: 1px dashed var(--border); }
         .follow-ups small { color:#9fb6d9; font-weight: 600; }
         .sectionTitle{ margin-top: 10px; font-size:14px; color:#bcd0ff; font-weight:700 }
-        .facilitators { margin: 0 0 16px; font-size: 13px; color: #9fb6d9; line-height: 1.5; }
+        .facilitators { margin: 0 0 16px; font-size: 15px; color: #9fb6d9; line-height: 1.5; }
         .facilitators strong { color: var(--ink); }
+        /* Projector sizes for the Berlin room: larger than the USA page defaults */
+        .card .prompt-text { font-size: 22px; }
+        .card .card-hint { display: block; margin: -4px 0 12px; font-size: 15px; color: #9fb6d9; line-height: 1.45; }
+        .card .details { font-size: 17px; }
+        .card .details small { font-size: 15px; }
+        .card .sectionTitle { font-size: 16px; }
         .sources { margin-top: 28px; font-size: 13px; color: #9fb6d9; }
         .sources summary { cursor: pointer; color: var(--accent); font-weight: 600; }
         .sources ol { margin: 10px 0 0 18px; line-height: 1.5; }
@@ -313,7 +319,7 @@
                                         {
                                                   "title": "Hiring Decisions",
                                                   "prompt": "Raise your hand if you hire developers or have a say in who gets hired.",
-                                                  "hints": "Bitkom, Sep 2026: 79,000 unfilled IT jobs in Germany, down from 149,000 in 2023. Start with the hirers: what changed in their bar, not only in their budget.",
+                                                  "hints": "Bitkom, Sep 2026: 79,000 unfilled IT jobs in Germany, down from 149,000 in 2023. Start with the hirers: what changed in what they look for, not only in their budget.",
                                                   "no_hands": [
                                                             "What do you think hiring managers look for first in a Flutter candidate today?",
                                                             "When did you last see a Flutter role advertised near you, and what did it ask for?",
@@ -323,7 +329,7 @@
                                                             "What are you hiring for right now, and what has changed in the role since last year?",
                                                             "How do you evaluate candidates now that a portfolio can be generated in an afternoon?",
                                                             "Do you hire Flutter-only developers, or Flutter plus native, and why?",
-                                                            "Have you hired across borders or fully remote this year, and what did that change?"
+                                                            "What did you stop asking for in interviews this year?"
                                                   ],
                                                   "follow_ups": [
                                                             "What is the fastest way for someone in this room to stand out to your team?",
@@ -333,7 +339,7 @@
                                         {
                                                   "title": "Looking Right Now",
                                                   "prompt": "Raise your hand if you are looking for a Flutter job or a Flutter project right now.",
-                                                  "hints": "Indeed via FRED, Sep 2026: German software-dev postings are at the lowest point in the index, 71% below the May 2022 peak. Let seekers describe the market before anyone gives advice.",
+                                                  "hints": "Indeed job postings index, Sep 2026: German software-dev postings are at a record low, about half their Feb 2020 level. Let seekers describe the market before anyone gives advice.",
                                                   "no_hands": [
                                                             "What would make you start looking: a better offer, a worrying signal at work, or a new technology?",
                                                             "How do you keep an eye on the market while you are not looking?",
@@ -353,14 +359,14 @@
                                         {
                                                   "title": "Worried This Year",
                                                   "prompt": "Raise your hand if this year has made you worry about your own career.",
-                                                  "hints": "SO 2025: 15% of developers call AI a threat to their job, 64% say no, down from 68% a year earlier. Count the hands aloud; the closing question comes back to this number.",
+                                                  "hints": "Stack Overflow 2025: 64% of developers say AI is not a threat to their job, 15% say it is; the no camp was 68% a year earlier. Eyes closed, hands up, facilitators count; the closer repeats this.",
                                                   "no_hands": [
                                                             "What gives you confidence: your skills, your network, your savings, or your employer?",
                                                             "Is there anything you are quietly watching even though you are not worried?",
                                                             "For the seniors: what did an earlier downturn teach you that applies now?"
                                                   ],
                                                   "hands_up": [
-                                                            "What triggered the worry: a layoff nearby, fewer job ads, AI demos, or something personal?",
+                                                            "What triggered the worry: fewer job ads, a hiring freeze or cuts close to you, AI demos, or something you would rather keep private?",
                                                             "Is the worry about Flutter specifically, about mobile, or about software careers in general?",
                                                             "What have you actually done about it so far?"
                                                   ],
@@ -371,7 +377,7 @@
                                         }
                               ],
                               "wrap_up": [
-                                        "Based on the hands in this room, how does the Berlin market feel right now, in one word?",
+                                        "Based on the hands in this room, how does the market feel where you live, in one word?",
                                         "What is one concrete signal a job seeker here should watch this autumn?"
                               ]
                     },
@@ -380,7 +386,7 @@
                                         {
                                                   "title": "One Codebase, Small Team",
                                                   "prompt": "Raise your hand if you have shipped a production Flutter app with a team of three or fewer.",
-                                                  "hints": "Appfigures via Pragmatic Engineer, Jan 2025: Flutter was in 11% of new app releases in 2024, React Native in 7%. Ask for the concrete thing a tiny team shipped.",
+                                                  "hints": "Appfigures via Pragmatic Engineer, Jan 2025: Flutter was in about 11% of new app releases in 2024, React Native in 7%. Ask for the concrete thing a tiny team shipped.",
                                                   "no_hands": [
                                                             "What is the smallest team you have seen ship a real app, on any stack?",
                                                             "What would stop a two-person team from choosing Flutter today?",
@@ -400,7 +406,7 @@
                                         {
                                                   "title": "Beyond the Phone",
                                                   "prompt": "Raise your hand if you have shipped Flutter to something other than a phone: web, desktop, car, TV, embedded.",
-                                                  "hints": "Flutter blog, May 2026: Toyota's 2026 RAV4 multimedia runs Flutter, Canonical leads the desktop work, an LG webOS SDK is coming. Ask for the least expected target in the room.",
+                                                  "hints": "Flutter blog, May 2026: Toyota's 2026 RAV4 runs Flutter and Canonical leads Flutter desktop; LG shipped its webOS TV SDK on 30 June (LG developer portal). Ask for the least expected target in the room.",
                                                   "no_hands": [
                                                             "Which non-phone target would you try first, and what holds you back?",
                                                             "Do employers near you ever ask for Flutter web or desktop?",
@@ -448,7 +454,7 @@
                                         {
                                                   "title": "Job Ads Speak Native",
                                                   "prompt": "Raise your hand if the last mobile job ad you read wanted Swift or Kotlin, with Flutter as a nice-to-have.",
-                                                  "hints": "itjobswatch UK, Sep 2026: 25 permanent Flutter ads in six months against 223 React Native and 265 Kotlin. Ask how the ratio looks on the boards they read.",
+                                                  "hints": "StepStone.de, counted 28 Sep 2026: 42 ads mention Flutter against 174 for Swift iOS and 271 for Kotlin Android. Ask how the ratio looks on the boards they read.",
                                                   "no_hands": [
                                                             "What did the last mobile job ad you saw actually ask for?",
                                                             "Do you read Flutter-only ads, or do you apply for native roles with Flutter experience?",
@@ -468,17 +474,17 @@
                                         {
                                                   "title": "Google and the Trust Question",
                                                   "prompt": "Raise your hand if a client, boss or colleague has told you that Flutter is dead or that Google will drop it.",
-                                                  "hints": "Timeline: Apr 2024 Google cut Flutter and Dart staff; Jan 2025 Dart macros were cancelled; Aug 2026 Flutter 3.47 shipped on the four-releases-a-year cadence. Ask what they answered, not what they feel.",
+                                                  "hints": "Apr 2024 Google cut Flutter and Dart staff; Jan 2025 Dart macros stopped; Aug 2026 Flutter 3.47, the fourth stable release in twelve months (TechCrunch; Dart blog; Flutter releases). Ask what they answered and whether it worked.",
                                                   "no_hands": [
                                                             "Where do you think the Flutter-is-dead story comes from, and does it matter for your work?",
-                                                            "How much does Google's backing matter to your own decisions, honestly?",
+                                                            "How much does Google's backing really weigh in your own decisions?",
                                                             "For the seniors: which framework did you see actually die, and what were the early signs?"
                                                   ],
                                                   "hands_up": [
                                                             "What did you answer, and did it work?",
                                                             "Did the doubt change a decision: a project, a hire, a rewrite?",
-                                                            "What would you need to see from Google or the community to stop the question coming back?",
-                                                            "Does a community fork like Flock make you feel safer or more worried?"
+                                                            "Did you go looking for evidence after that conversation, and what did you find?",
+                                                            "Would a community-run fork of Flutter, like Flock (quiet since November 2025), make you feel safer or more worried?"
                                                   ],
                                                   "follow_ups": [
                                                             "Is it good news or bad news that non-Google contributors now outnumber Google employees?",
@@ -488,7 +494,7 @@
                                         {
                                                   "title": "Waiting for the Platform Catch-Up",
                                                   "prompt": "Raise your hand if you have waited for Flutter to catch up with a new iOS or Android feature this year.",
-                                                  "hints": "Apple shipped iOS 26 with Liquid Glass in Sep 2025; Flutter's Cupertino widgets are still catching up (status on flutter.dev). Ask what they waited for and what they did meanwhile.",
+                                                  "hints": "iOS 26 Liquid Glass shipped Sep 2025; Flutter's Cupertino has no Liquid Glass widgets yet, official work is 'underway' (Flutter blog, 9 Sep 2026). Ask what they waited for and what they did meanwhile.",
                                                   "no_hands": [
                                                             "Which platform feature would you miss most if it arrived late in Flutter?",
                                                             "Do your users or clients notice when a design language changes on iOS or Android?",
@@ -516,27 +522,27 @@
                                         {
                                                   "title": "The Missing Juniors",
                                                   "prompt": "Raise your hand if your company hired a junior, apprentice or working student developer in the last 12 months.",
-                                                  "hints": "Indeed DE, Sep 2026: entry-level software postings are 70% below 2019 while apprenticeship places in the field are 27% above. Ask who trains the next seniors.",
+                                                  "hints": "Indeed DE, Sep 2026: entry-level software postings are 70% below 2019 while apprenticeship postings in the field are 27% above. Ask who trains the next seniors.",
                                                   "no_hands": [
-                                                            "Why not: no budget, no time to mentor, or do seniors plus AI seem to cover it?",
                                                             "Where did you get your own first chance, and would that path still exist today?",
-                                                            "For hirers: what would make a junior hire worth it again?"
+                                                            "If you are the student or junior looking for that first chance: what do you hear back, and from whom?",
+                                                            "For hirers: why not, no budget, no time to mentor, or do seniors plus AI seem to cover it?"
                                                   ],
                                                   "hands_up": [
-                                                            "How did you find them: Ausbildung, dual study, university, career change, community?",
+                                                            "How did you find them: apprenticeship (Ausbildung), dual study, university, career change, community?",
                                                             "What does a junior do on your team now that AI writes the first draft?",
                                                             "Did AI make them productive faster, or let them skip understanding?",
                                                             "How do you teach someone to review code they did not write?"
                                                   ],
                                                   "follow_ups": [
-                                                            "If juniors are not hired, where do the seniors of 2031 come from?",
+                                                            "If juniors are not hired, where do the seniors come from five years from now?",
                                                             "What should schools and courses stop teaching, and what should they teach more?"
                                                   ]
                                         },
                                         {
                                                   "title": "Agents in Daily Work",
-                                                  "prompt": "Raise your hand if code written by an agent like Claude Code, Gemini CLI, Codex or Antigravity shipped to your production app this year.",
-                                                  "hints": "JetBrains, Aug 2026: 90% of professional developers use coding agents weekly; Claude Code 39%, Copilot 21%, Codex 16%, Cursor 12%, Antigravity 6%. Ask who reviewed the agent.",
+                                                  "prompt": "Raise your hand if code written by an agent like Antigravity, Claude Code, Codex or Gemini CLI shipped to your production app this year.",
+                                                  "hints": "JetBrains, Aug 2026: 90% of professional developers use a coding agent at least weekly. Ask who reviewed the agent's code and how long that took.",
                                                   "no_hands": [
                                                             "What stops you: policy, trust, cost, or the code was not good enough?",
                                                             "Do you use AI for anything else in Flutter work: tests, docs, reviews, planning?",
@@ -556,9 +562,9 @@
                                         {
                                                   "title": "Native by Agent",
                                                   "prompt": "Raise your hand if an agent has written Swift or Kotlin for you this year because you did not want to.",
-                                                  "hints": "MobileDev-Bench, Mar 2026: top models resolved only 3 to 6% of 407 real mobile bug reports. Ask whether native-by-agent felt safe to ship, and who could read it.",
+                                                  "hints": "MobileDev-Bench study, Mar 2026: the best AI models fixed 3 to 4% of 407 real mobile issues, mostly Android, no iOS; 5.7% at best when handed the right files. Ask whether native-by-agent felt safe to ship.",
                                                   "no_hands": [
-                                                            "If an agent could write the native parts, would you still choose a cross-platform framework?",
+                                                            "Who writes the Swift or Kotlin on your project today, and how long do you wait for them?",
                                                             "Which native task would you hand to an agent first?",
                                                             "For the seniors: does cheap native code by agent make Flutter more or less attractive to you?"
                                                   ],
@@ -584,11 +590,11 @@
                                         {
                                                   "title": "Salary in the Job Ad",
                                                   "prompt": "Raise your hand if you have seen a salary range in a Flutter job ad this year.",
-                                                  "hints": "EU Pay Transparency Directive 2023/970: member states had until 7 June 2026 to transpose it, so ranges in job ads are becoming the norm. Ask whether a range changed a decision.",
+                                                  "hints": "EU Pay Transparency Directive: national laws were due by 7 June 2026, and Germany still had no draft in July (Bundestag). Ask whether a range changed a decision.",
                                                   "no_hands": [
                                                             "Where do you get salary information today: friends, surveys, recruiters, guesswork?",
                                                             "Would a visible range change which ads you apply to?",
-                                                            "For hirers: are you ready to put a range in every ad, and what are you afraid of?"
+                                                            "For hirers: are you ready to put a range in every ad, and what holds you back?"
                                                   ],
                                                   "hands_up": [
                                                             "Did the range change your decision to apply, or your ask in the interview?",
@@ -598,16 +604,16 @@
                                                   ],
                                                   "follow_ups": [
                                                             "Does transparency help juniors or seniors more?",
-                                                            "What should a Flutter developer in Berlin ask for, without naming your own number?"
+                                                            "Where would you send a junior to find a realistic range before their first interview?"
                                                   ]
                                         },
                                         {
                                                   "title": "Hired Across Borders",
                                                   "prompt": "Raise your hand if you work for, or hire for, a company in a different country than the one you live in.",
-                                                  "hints": "Two facilitators, two markets: Berlin and Riga read the same job boards and see different offers. Ask what a portable skill is worth when the team is spread across countries.",
+                                                  "hints": "Indeed job postings index, Sep 2026: US software-dev postings up 19% in a year, Germany down 15% and at a record low. Ask what a portable skill is worth when the team is spread across countries.",
                                                   "no_hands": [
                                                             "Would you take a fully remote role from another country, and what would worry you?",
-                                                            "Do you think Berlin or the Baltics compete with each other or with the US for Flutter work?",
+                                                            "Do European cities compete with each other for Flutter work, or all of them with the US?",
                                                             "For hirers: what stops you hiring across borders: law, time zones, trust, or tax?"
                                                   ],
                                                   "hands_up": [
@@ -618,13 +624,13 @@
                                                   ],
                                                   "follow_ups": [
                                                             "Where in Europe is the Flutter demand you actually see?",
-                                                            "What would you tell someone in Riga or Berlin who wants to work for a company abroad?"
+                                                            "What would you tell someone in your city who wants to work for a company abroad?"
                                                   ]
                                         },
                                         {
                                                   "title": "Rules in Your Backlog",
                                                   "prompt": "Raise your hand if an EU rule (AI Act, Accessibility Act, GDPR) created a ticket in your backlog this year.",
-                                                  "hints": "EU AI Act: the AI-literacy duty applies since Feb 2025 and the high-risk rules for hiring tools moved to Dec 2027 (Digital Omnibus, Jul 2026); the Accessibility Act applies since June 2025. Ask which rule became a real ticket.",
+                                                  "hints": "Accessibility Act applies since June 2025. EU AI Act: literacy duty since Feb 2025; hiring-tool rules moved to Dec 2027 (Omnibus, Jul 2026). Ask which rule became a real ticket.",
                                                   "no_hands": [
                                                             "Which rule do you expect to hit your app first, and are you ready?",
                                                             "Is accessibility on your definition of done, or something for later?",
@@ -651,8 +657,8 @@
                               "sections": [
                                         {
                                                   "title": "Depth or Breadth",
-                                                  "prompt": "Raise your hand if you deliberately learned something outside Flutter this year: native, backend, AI, product, people.",
-                                                  "hints": "METR, Jul 2025: experienced developers were 19% slower with AI tools while believing they were faster. Ask what they learned that an agent could not learn for them.",
+                                                  "prompt": "Raise your hand if you spent real time this year on a skill outside Flutter: native, backend, product, people.",
+                                                  "hints": "METR study, Jul 2025: 16 experienced open-source developers were 19% slower with AI tools yet believed they were 20% faster; the Feb 2026 follow-up is still inconclusive. Ask what they learned that an agent could not.",
                                                   "no_hands": [
                                                             "What is the deep skill you are protecting, and is it safe from AI?",
                                                             "What would you learn next if you had one free day a week?",
@@ -692,14 +698,14 @@
                                         {
                                                   "title": "Saying No to a Stack",
                                                   "prompt": "Raise your hand if you have turned down a job or a project this year because of its tech stack.",
-                                                  "hints": "JetBrains DevEco 2025: 68% of developers expect employers to require AI proficiency. Ask whether the no was about the stack or about how the company decides.",
+                                                  "hints": "JetBrains developer survey, Oct 2025: 68% of developers expect employers to require AI-tool skills in the near future. Ask whether the no was about the stack or about how the company decides.",
                                                   "no_hands": [
                                                             "What would you say yes to even if it were not Flutter: the product, the team, the pay?",
                                                             "How much does the framework matter next to the domain and the people?",
-                                                            "For juniors: can you afford to say no right now, and who told you that you cannot?"
+                                                            "For juniors: what would you need to know about a team before saying yes, stack aside?"
                                                   ],
                                                   "hands_up": [
-                                                            "What was the stack, and what was the real reason: technology, team, or the AI expectations?",
+                                                            "Without naming the company: what was the stack, and what was the real reason: technology, team, or the AI expectations?",
                                                             "What questions do you ask before joining a team now that you did not ask two years ago?",
                                                             "Was it a red flag about the stack or about how the company makes decisions?",
                                                             "Have you regretted a no, or a yes?"
@@ -711,9 +717,9 @@
                                         }
                               ],
                               "wrap_up": [
-                                        "Hands up if you would still choose Flutter starting today. Compare with the worried count from Q1.",
+                                        "Eyes closed again: hands up if you would still choose Flutter starting today. Facilitators count and compare with the worried count from Q1.",
                                         "One sentence to your past self, from anyone who has been in Flutter for more than two years.",
-                                        "Where does this conversation continue: Flutter Berlin, Flutteristas, the Flutter Community AI Circle, or the native versus cross-platform panel on Friday?"
+                                        "Where does this conversation continue: Flutter Berlin or your local meetup, Flutteristas, the Flutter Community AI Circle, or the native versus cross-platform panel on Friday?"
                               ]
                     }
           }
@@ -1205,6 +1211,7 @@
                         <div class="sectionTitle">${section.title}</div>
                         <div class="prompt-section">
                             <div class="prompt-text">${section.prompt}</div>
+                            <small class="card-hint">${section.hints}</small>
                             <div class="response-options">
                                 <button class="response-btn no-btn" onclick="toggleBranch('${sectionId}No', 'Q${qNum}S${sectionIndex + 1}')">
                                     <span class="pill no">No Hands</span>
@@ -1215,7 +1222,7 @@
                             </div>
                         </div>
                         <div id="${sectionId}No" class="details no-hands">
-                            <h3>${section.title.replace(/^[A-Z]\)\s*/, '')} – No Hands</h3>
+                            <h3>${section.title.replace(/^[A-Z]\)\s*/, '')}: No Hands</h3>
                             <small>${section.hints}</small>
                             <ul>
                                 ${section.no_hands.map(q => `<li>${q}</li>`).join('')}
@@ -1223,7 +1230,7 @@
                             ${renderFollowUps(section.follow_ups)}
                         </div>
                         <div id="${sectionId}Yes" class="details hands-up">
-                            <h3>${section.title.replace(/^[A-Z]\)\s*/, '')} – Hands Up</h3>
+                            <h3>${section.title.replace(/^[A-Z]\)\s*/, '')}: Hands Up</h3>
                             <small>${section.hints}</small>
                             <ul>
                                 ${section.hands_up.map(q => `<li>${q}</li>`).join('')}
@@ -1305,7 +1312,7 @@
     <div id="main-content" class="hidden">
         <div class="wrap">
             <h1 id="main-title">FlutterCon EU 2026 Roundtable Facilitator <span class="chip">Click any box to expand</span></h1>
-            <p class="facilitators">Facilitated by <strong>Ivanna Kaceviča</strong> (Google Developer Expert, Riga) and <strong>Esra Kadah</strong> (Google Developer Expert for Flutter and Dart, Berlin). next·app devCon 2026, flutterCon Berlin track, Wednesday 7 October, 10:20 to 11:00, Unconference Roundtables.</p>
+            <p class="facilitators">Facilitated by <strong>Ivanna Kaceviča</strong> (Google Developer Expert, Riga) and <strong>Esra Kadah</strong> (Google Developer Expert, Berlin). Both speak for themselves, not for Google. next·app devCon 2026, flutterCon Berlin track, Wednesday 7 October, 10:20 to 11:00, Unconference Roundtables.</p>
 
             <div style="margin-bottom: 20px; display: flex; gap: 12px; align-items: center;">
                 <button onclick="openRoulette()" style="background: var(--accent); border: 1px solid var(--accent); color: #0b1220; padding: 8px 16px; border-radius: 5px; cursor: pointer; font-weight: 600;">
@@ -1320,6 +1327,33 @@
             </div>
 
             <div id="content-area"></div>
+
+            <details class="sources">
+                <summary>Sources (checked 28 September 2026)</summary>
+                <ol>
+                    <li><strong>Stack Overflow 2025</strong>: Stack Overflow Developer Survey 2025, 29 Jul 2025. AI section: <a href="https://survey.stackoverflow.co/2025/ai">survey.stackoverflow.co/2025/ai</a>. "Is AI a threat to your job?" (64% no, 21% unsure, 15% yes; 68% no in 2024) is in the Work section: <a href="https://survey.stackoverflow.co/2025/work#job-satisfaction-ai-threat">survey.stackoverflow.co/2025/work</a>. The 2025 survey dropped Flutter and React Native as answer options. No 2026 results were published as of the check date.</li>
+                    <li><strong>JetBrains, Aug 2026</strong>: AI Coding Agents: Adoption Trends, JetBrains Research, 18 Aug 2026 (May to July 2026 fieldwork, 15,000+ professional developers; 90% use agents at least weekly, 68% daily; tool shares Claude Code 39%, Copilot 21%, Codex 16%, Cursor 12%, Antigravity 6%). <a href="https://blog.jetbrains.com/research/2026/08/ai-coding-agent-adoption-2026/">blog.jetbrains.com</a></li>
+                    <li><strong>JetBrains developer survey, Oct 2025</strong>: The State of Developer Ecosystem 2025, JetBrains Research, Oct 2025 (24,534 developers; 68% expect employers to require proficiency in AI tools in the near future). <a href="https://blog.jetbrains.com/research/2025/10/state-of-developer-ecosystem-2025/">blog.jetbrains.com</a></li>
+                    <li><strong>Indeed job postings index, Sep 2026</strong> (Indeed data via FRED): Software Development Job Postings on Indeed in Germany, index 1 Feb 2020 = 100, value 48.87 on 18 Sep 2026 (series low, down 15% year on year; peak 168.98 on 21 May 2022). <a href="https://fred.stlouisfed.org/series/IHLIDXDETPSOFTDEVE">fred.stlouisfed.org/series/IHLIDXDETPSOFTDEVE</a>. US series for comparison (77.32, up 19% year on year): <a href="https://fred.stlouisfed.org/series/IHLIDXUSTPSOFTDEVE">IHLIDXUSTPSOFTDEVE</a></li>
+                    <li><strong>Indeed DE, Sep 2026</strong>: Berufseinstieg: Stellenangebot sinkt, Ausbildungssystem bietet einen Anker, Indeed Hiring Lab Deutschland, 23 Sep 2026 (season Aug 2025 to Jul 2026 vs 2019). <a href="https://hiringlab.indeed.com/de/blog/2026/09/23/berufseinstieg-stellenangebot-sinkt-ausbildungssystem-bietet-einen-anker/">hiringlab.indeed.com/de</a></li>
+                    <li><strong>Bitkom, Sep 2026</strong>: IT-Fachkräftemangel hat sich in den letzten drei Jahren halbiert, Bitkom e.V., 3 Sep 2026. <a href="https://www.bitkom.org/Presse/Presseinformation/IT-Fachkraeftemangel-in-den-letzten-drei-Jahren-halbiert">bitkom.org</a></li>
+                    <li><strong>StepStone.de, 28 Sep 2026</strong>: keyword landing pages counted on the check date: <a href="https://www.stepstone.de/jobs/flutter">Flutter</a> 42, <a href="https://www.stepstone.de/jobs/swift-ios">Swift iOS</a> 174, <a href="https://www.stepstone.de/jobs/kotlin-android">Kotlin Android</a> 271, <a href="https://www.stepstone.de/jobs/react-native">React Native</a> 939 (that search also matches plain React ads). Keyword matches, not like-for-like roles; a snapshot, not a series.</li>
+                    <li><strong>itjobswatch UK, Sep 2026</strong>: UK permanent ads citing each skill, six months to 28 Sep 2026 (same period 2025 in brackets): Flutter 25 (38), React Native 223 (138), Swift 73 (61), Kotlin 265 (152). <a href="https://www.itjobswatch.co.uk/jobs/uk/flutter.do">itjobswatch.co.uk</a></li>
+                    <li><strong>Appfigures via Pragmatic Engineer, Jan 2025</strong>: Cross-platform mobile development, The Pragmatic Engineer, 14 Jan 2025: about 11% of apps released in 2024 used Flutter, 7% React Native (Appfigures data). <a href="https://newsletter.pragmaticengineer.com/p/cross-platform-mobile-development">newsletter.pragmaticengineer.com</a></li>
+                    <li><strong>Flutter blog, May 2026</strong>: What's new in Flutter 3.44, 20 May 2026 (1.5M+ monthly developers, Toyota RAV4, Canonical as Flutter Desktop steward, Agentic Hot Reload). <a href="https://flutter.dev/blog/whats-new-in-flutter-3-44">flutter.dev</a>. LG: Flutter for webOS TV is Now Available for Developers, 30 Jun 2026. <a href="https://webostv.developer.lge.com/news/flutter-for-webos-tv-is-now-available-for-developers">webostv.developer.lge.com</a></li>
+                    <li><strong>Flutter roadmap, Feb 2026</strong>: Flutter and Dart's 2026 roadmap, 24 Feb 2026 ("non-Google contributors now outnumbering those of us employed by Google"). <a href="https://flutter.dev/blog/flutter-darts-2026-roadmap">flutter.dev</a></li>
+                    <li><strong>Flutter 3.47, Aug 2026</strong>: What's new in Flutter 3.47, 12 Aug 2026; stable releases in the last twelve months: 3.38, 3.41, 3.44, 3.47. <a href="https://flutter.dev/blog/whats-new-in-flutter-3-47">flutter.dev</a></li>
+                    <li><strong>Google commitment timeline</strong>: TechCrunch, Google lays off staff from Flutter, Dart and Python teams, 29 Apr 2024. <a href="https://techcrunch.com/2024/05/01/google-lays-off-staff-from-flutter-dart-python-weeks-before-its-developer-conference/">techcrunch.com</a>. Dart blog, An update on Dart macros and data serialization, 29 Jan 2025. <a href="https://dart.dev/blog/an-update-on-dart-macros-data-serialization">dart.dev</a>. Flock fork: last commit 25 Nov 2025, no activity in 2026 (GitHub API, 28 Sep 2026). <a href="https://github.com/join-the-flock/flock">github.com/join-the-flock/flock</a></li>
+                    <li><strong>Liquid Glass status</strong>: Flutter blog, Material and Cupertino decoupling are here, 9 Sep 2026 ("work is already underway on official implementations of Liquid Glass"). <a href="https://flutter.dev/blog/decoupling-material-cupertino">flutter.dev</a>. Tracking issue open since Jun 2025: <a href="https://github.com/flutter/flutter/issues/170310">flutter/flutter#170310</a>. No Liquid Glass entry in the cupertino_ui changelog through 1.1.1: <a href="https://pub.dev/packages/cupertino_ui/changelog">pub.dev</a>. iOS 26 platform support confirmed in What's new in Flutter 3.38, Nov 2025: <a href="https://flutter.dev/blog/whats-new-in-flutter-3-38">flutter.dev</a></li>
+                    <li><strong>MobileDev-Bench study, Mar 2026</strong>: MobileDev-Bench: A Benchmark for Issue Resolution in Mobile Application Development, arXiv 2603.24946 (407 issues; 3.23% to 4.23% resolved under automated retrieval, at most 5.69% with oracle retrieval). Set: Android native 328, Flutter 63, React Native 16, no iOS. Under automated retrieval Flutter tasks were 32.1% of solved tasks against a 15.5% share; React Native 0 of 16, indicative only (Table 10). <a href="https://arxiv.org/abs/2603.24946">arxiv.org</a></li>
+                    <li><strong>METR study, Jul 2025</strong>: Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity, 10 Jul 2025 (16 developers, 246 issues; 19% slower; developers expected 24% faster and afterwards believed 20% faster). <a href="https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/">metr.org</a>. Follow-up of 24 Feb 2026 (new estimates with intervals spanning zero): <a href="https://metr.org/blog/2026-02-24-uplift-update/">metr.org</a></li>
+                    <li><strong>Pay transparency</strong>: Directive (EU) 2023/970, transposition deadline 7 Jun 2026. Germany: Deutscher Bundestag, Umsetzung der EU-Entgelttransparenzrichtlinie, 16 Jul 2026 (no draft law yet). <a href="https://www.bundestag.de/presse/hib/kurzmeldungen-1195086">bundestag.de</a></li>
+                    <li><strong>EU AI Act</strong>: Article 4 AI literacy, applies since 2 Feb 2025 (<a href="https://artificialintelligenceact.eu/article/4/">AI Act Explorer</a>); Annex III point 4, recruitment and selection as high-risk (<a href="https://artificialintelligenceact.eu/annex/3/">Annex III</a>); Article 113 as amended by the Digital Omnibus on AI, Regulation (EU) 2026/1744, in force 27 Jul 2026, Annex III obligations from 2 Dec 2027 (<a href="https://artificialintelligenceact.eu/article/113/">Article 113</a>; <a href="https://knowledge.dlapiper.com/dlapiperknowledge/globalemploymentlatestdevelopments/2026/The-Digital-AI-Omnibus-Proposed-deferral-of-high-risk-AI-obligations-under-the-AI-Act">DLA Piper summary</a>).</li>
+                    <li><strong>Accessibility Act</strong>: Directive (EU) 2019/882, requirements apply from 28 Jun 2025; in Germany the Barrierefreiheitsstärkungsgesetz (BFSG), in force 28 Jun 2025, covering consumer e-commerce, banking and transport services on websites and mobile apps; micro-enterprises exempt for services. <a href="https://www.gesetze-im-internet.de/bfsg/BJNR297010021.html">gesetze-im-internet.de</a></li>
+                    <li><strong>Google Play</strong>: App testing requirements for new personal developer accounts (12 testers opted in for 14 continuous days). <a href="https://support.google.com/googleplay/android-developer/answer/14151465">support.google.com</a></li>
+                </ol>
+                <p>Job-ad counts are snapshots from the stated date. Summaries of EU law are engineering notes, not legal advice. The facilitators are Google Developer Experts and do not speak for Google.</p>
+            </details>
         </div>
     </div>
 

@@ -6,7 +6,7 @@
     {
       "model": "Job Ads Speak Native",
       "prompt": "Raise your hand if the last mobile job ad you read wanted Swift or Kotlin, with Flutter as a nice-to-have.",
-      "hint": "itjobswatch UK, Sep 2026: 25 permanent Flutter ads in six months against 223 React Native and 265 Kotlin. Ask how the ratio looks on the boards they read.",
+      "hint": "StepStone.de, counted 28 Sep 2026: 42 ads mention Flutter against 174 for Swift iOS and 271 for Kotlin Android. Ask how the ratio looks on the boards they read.",
       "no_hands": [
         "What did the last mobile job ad you saw actually ask for?",
         "Do you read Flutter-only ads, or do you apply for native roles with Flutter experience?",
@@ -26,17 +26,17 @@
     {
       "model": "Google and the Trust Question",
       "prompt": "Raise your hand if a client, boss or colleague has told you that Flutter is dead or that Google will drop it.",
-      "hint": "Timeline: Apr 2024 Google cut Flutter and Dart staff; Jan 2025 Dart macros were cancelled; Aug 2026 Flutter 3.47 shipped on the four-releases-a-year cadence. Ask what they answered, not what they feel.",
+      "hint": "Apr 2024 Google cut Flutter and Dart staff; Jan 2025 Dart macros stopped; Aug 2026 Flutter 3.47, the fourth stable release in twelve months (TechCrunch; Dart blog; Flutter releases). Ask what they answered and whether it worked.",
       "no_hands": [
         "Where do you think the Flutter-is-dead story comes from, and does it matter for your work?",
-        "How much does Google's backing matter to your own decisions, honestly?",
+        "How much does Google's backing really weigh in your own decisions?",
         "For the seniors: which framework did you see actually die, and what were the early signs?"
       ],
       "hands_up": [
         "What did you answer, and did it work?",
         "Did the doubt change a decision: a project, a hire, a rewrite?",
-        "What would you need to see from Google or the community to stop the question coming back?",
-        "Does a community fork like Flock make you feel safer or more worried?"
+        "Did you go looking for evidence after that conversation, and what did you find?",
+        "Would a community-run fork of Flutter, like Flock (quiet since November 2025), make you feel safer or more worried?"
       ],
       "follow_ups": [
         "Is it good news or bad news that non-Google contributors now outnumber Google employees?",
@@ -46,7 +46,7 @@
     {
       "model": "Waiting for the Platform Catch-Up",
       "prompt": "Raise your hand if you have waited for Flutter to catch up with a new iOS or Android feature this year.",
-      "hint": "Apple shipped iOS 26 with Liquid Glass in Sep 2025; Flutter's Cupertino widgets are still catching up (status on flutter.dev). Ask what they waited for and what they did meanwhile.",
+      "hint": "iOS 26 Liquid Glass shipped Sep 2025; Flutter's Cupertino has no Liquid Glass widgets yet, official work is 'underway' (Flutter blog, 9 Sep 2026). Ask what they waited for and what they did meanwhile.",
       "no_hands": [
         "Which platform feature would you miss most if it arrived late in Flutter?",
         "Do your users or clients notice when a design language changes on iOS or Android?",

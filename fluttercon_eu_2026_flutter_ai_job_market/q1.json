@@ -6,7 +6,7 @@
     {
       "model": "Hiring Decisions",
       "prompt": "Raise your hand if you hire developers or have a say in who gets hired.",
-      "hint": "Bitkom, Sep 2026: 79,000 unfilled IT jobs in Germany, down from 149,000 in 2023. Start with the hirers: what changed in their bar, not only in their budget.",
+      "hint": "Bitkom, Sep 2026: 79,000 unfilled IT jobs in Germany, down from 149,000 in 2023. Start with the hirers: what changed in what they look for, not only in their budget.",
       "no_hands": [
         "What do you think hiring managers look for first in a Flutter candidate today?",
         "When did you last see a Flutter role advertised near you, and what did it ask for?",
@@ -16,7 +16,7 @@
         "What are you hiring for right now, and what has changed in the role since last year?",
         "How do you evaluate candidates now that a portfolio can be generated in an afternoon?",
         "Do you hire Flutter-only developers, or Flutter plus native, and why?",
-        "Have you hired across borders or fully remote this year, and what did that change?"
+        "What did you stop asking for in interviews this year?"
       ],
       "follow_ups": [
         "What is the fastest way for someone in this room to stand out to your team?",
@@ -26,7 +26,7 @@
     {
       "model": "Looking Right Now",
       "prompt": "Raise your hand if you are looking for a Flutter job or a Flutter project right now.",
-      "hint": "Indeed via FRED, Sep 2026: German software-dev postings are at the lowest point in the index, 71% below the May 2022 peak. Let seekers describe the market before anyone gives advice.",
+      "hint": "Indeed job postings index, Sep 2026: German software-dev postings are at a record low, about half their Feb 2020 level. Let seekers describe the market before anyone gives advice.",
       "no_hands": [
         "What would make you start looking: a better offer, a worrying signal at work, or a new technology?",
         "How do you keep an eye on the market while you are not looking?",
@@ -46,14 +46,14 @@
     {
       "model": "Worried This Year",
       "prompt": "Raise your hand if this year has made you worry about your own career.",
-      "hint": "SO 2025: 15% of developers call AI a threat to their job, 64% say no, down from 68% a year earlier. Count the hands aloud; the closing question comes back to this number.",
+      "hint": "Stack Overflow 2025: 64% of developers say AI is not a threat to their job, 15% say it is; the no camp was 68% a year earlier. Eyes closed, hands up, facilitators count; the closer repeats this.",
       "no_hands": [
         "What gives you confidence: your skills, your network, your savings, or your employer?",
         "Is there anything you are quietly watching even though you are not worried?",
         "For the seniors: what did an earlier downturn teach you that applies now?"
       ],
       "hands_up": [
-        "What triggered the worry: a layoff nearby, fewer job ads, AI demos, or something personal?",
+        "What triggered the worry: fewer job ads, a hiring freeze or cuts close to you, AI demos, or something you would rather keep private?",
         "Is the worry about Flutter specifically, about mobile, or about software careers in general?",
         "What have you actually done about it so far?"
       ],
@@ -64,7 +64,7 @@
     }
   ],
   "wrap_up": [
-    "Based on the hands in this room, how does the Berlin market feel right now, in one word?",
+    "Based on the hands in this room, how does the market feel where you live, in one word?",
     "What is one concrete signal a job seeker here should watch this autumn?"
   ]
 }

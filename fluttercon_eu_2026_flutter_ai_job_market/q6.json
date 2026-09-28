@@ -5,8 +5,8 @@
   "sections": [
     {
       "model": "Depth or Breadth",
-      "prompt": "Raise your hand if you deliberately learned something outside Flutter this year: native, backend, AI, product, people.",
-      "hint": "METR, Jul 2025: experienced developers were 19% slower with AI tools while believing they were faster. Ask what they learned that an agent could not learn for them.",
+      "prompt": "Raise your hand if you spent real time this year on a skill outside Flutter: native, backend, product, people.",
+      "hint": "METR study, Jul 2025: 16 experienced open-source developers were 19% slower with AI tools yet believed they were 20% faster; the Feb 2026 follow-up is still inconclusive. Ask what they learned that an agent could not.",
       "no_hands": [
         "What is the deep skill you are protecting, and is it safe from AI?",
         "What would you learn next if you had one free day a week?",
@@ -46,14 +46,14 @@
     {
       "model": "Saying No to a Stack",
       "prompt": "Raise your hand if you have turned down a job or a project this year because of its tech stack.",
-      "hint": "JetBrains DevEco 2025: 68% of developers expect employers to require AI proficiency. Ask whether the no was about the stack or about how the company decides.",
+      "hint": "JetBrains developer survey, Oct 2025: 68% of developers expect employers to require AI-tool skills in the near future. Ask whether the no was about the stack or about how the company decides.",
       "no_hands": [
         "What would you say yes to even if it were not Flutter: the product, the team, the pay?",
         "How much does the framework matter next to the domain and the people?",
-        "For juniors: can you afford to say no right now, and who told you that you cannot?"
+        "For juniors: what would you need to know about a team before saying yes, stack aside?"
       ],
       "hands_up": [
-        "What was the stack, and what was the real reason: technology, team, or the AI expectations?",
+        "Without naming the company: what was the stack, and what was the real reason: technology, team, or the AI expectations?",
         "What questions do you ask before joining a team now that you did not ask two years ago?",
         "Was it a red flag about the stack or about how the company makes decisions?",
         "Have you regretted a no, or a yes?"
@@ -65,8 +65,8 @@
     }
   ],
   "wrap_up": [
-    "Hands up if you would still choose Flutter starting today. Compare with the worried count from Q1.",
+    "Eyes closed again: hands up if you would still choose Flutter starting today. Facilitators count and compare with the worried count from Q1.",
     "One sentence to your past self, from anyone who has been in Flutter for more than two years.",
-    "Where does this conversation continue: Flutter Berlin, Flutteristas, the Flutter Community AI Circle, or the native versus cross-platform panel on Friday?"
+    "Where does this conversation continue: Flutter Berlin or your local meetup, Flutteristas, the Flutter Community AI Circle, or the native versus cross-platform panel on Friday?"
   ]
 }
