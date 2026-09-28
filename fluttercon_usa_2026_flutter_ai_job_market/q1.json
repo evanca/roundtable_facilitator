@@ -94,10 +94,10 @@
     {
       "model": "Worried This Year",
       "prompt": "Has this past year made anyone here worry about their own career?",
-      "hint": "The title promises the worried, so give them a moment: name the trigger, then keep the answers concrete rather than letting the room spiral.",
+      "hint": "Give the worried a moment: name the trigger, then keep the answers concrete rather than letting the room spiral.",
       "no_hands": [
         "Where does your confidence come from: skills, network, savings, or your employer?",
-        "Is there anything you are quietly keeping an eye on even though you are not worried?",
+        "Is there anything you're quietly keeping an eye on even though you're not worried?",
         "What did an earlier downturn teach you that still applies?"
       ],
       "hands_up": [

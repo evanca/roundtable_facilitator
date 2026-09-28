@@ -27,7 +27,7 @@
     {
       "model": "Beyond Mobile",
       "prompt": "Has anyone here used Flutter for something that isn't a mobile app — web, desktop, embedded, anything like that?",
-      "hint": "Flutter's reach beyond phones: web, desktop, embedded, and internal tools. Fewer classic job openings than JavaScript stacks, but strong for building complete products and prototypes.",
+      "hint": "Flutter's reach beyond phones: web, desktop, embedded, and internal tools. The usual trade-off developers name: fewer classic job openings than JavaScript stacks, but strong for building complete products and prototypes.",
       "no_hands": [
         "Which non-mobile target would you try first, and what holds you back?",
         "Do employers you know ever ask for Flutter web or desktop?",
@@ -69,7 +69,7 @@
     {
       "model": "Ecosystem Trust",
       "prompt": "Has the Flutter job market — how big or small it is — ever made you second-guess a decision?",
-      "hint": "The job-market tension in one line: fewer Flutter openings than mainstream stacks, but also fewer experienced Flutter specialists and sometimes more committed teams.",
+      "hint": "The job-market tension as developers usually put it: fewer Flutter openings than mainstream stacks, but also fewer experienced Flutter specialists and sometimes more committed teams.",
       "no_hands": [
         "How do you weigh personal fit against ecosystem signals when choosing a technology?",
         "What ecosystem concerns would not bother you?",

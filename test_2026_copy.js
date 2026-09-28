@@ -81,13 +81,13 @@ class CopyVerificationTest {
 
     testQuestionTitles(expected) {
         const htmlContent = fs.readFileSync(HTML_FILE, 'utf8');
-        const titlesMatch = htmlContent.match(/flutter_ai_job_market: \[([\s\S]*?)\]/);
+        const titlesMatch = htmlContent.match(new RegExp(TOPIC_KEY + ': \\[([\\s\\S]*?)\\]'));
         if (!titlesMatch) {
             this.addError('Could not find 2026 question titles in HTML');
             return;
         }
 
-        const actualTitles = titlesMatch[1].match(/'([^']+)'/g)?.map(s => s.slice(1, -1)) || [];
+        const actualTitles = eval(`[${titlesMatch[1]}]`);
 
         for (let i = 1; i <= 6; i++) {
             this.testString(expected[`q${i}`].question, actualTitles[i - 1], `Q${i} title`);
