@@ -63,7 +63,7 @@ async function updateHtmlFile() {
         
         // Find the embedded data section and replace it
         const dataStartPattern = /const embeddedData = {/;
-        const dataEndPattern = /^        };$/m;
+        const dataEndPattern = /^};$/m;
         
         const startMatch = htmlContent.match(dataStartPattern);
         if (!startMatch) {

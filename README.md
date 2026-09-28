@@ -30,6 +30,24 @@ Run all copy verification tests:
 npm test
 ```
 
+## Editing content
+
+The JSON files are the source of truth. After editing them, write them back into the page and run the tests:
+
+```bash
+npm run inject:eu2026 && npm test
+```
+
+Use `inject:2025` or `inject:2026` for the other pages.
+
+## Adding a session
+
+1. Copy the closest HTML page and its data folder under new names.
+2. Copy the matching `inject_*.js` and `test_*.js` and change the three constants at the top (HTML file, data folder, topic key). The topic key must be unique: the roulette stores its used cards in `localStorage` under that key.
+3. In the copied page, change the topic key in `getQuestionTitle()`, in the `onload` call and in the topic picker, and update the question titles (they must match the `question` fields in the JSON).
+4. Add `inject:` and `test:` scripts to `package.json` and chain the new test into `npm test`.
+5. Section titles must be unique across the page (letters only become the DOM id) and content must not contain `<`.
+
 ## Files
 
 - `fluttercon_2025_ai_roundtable.html` - Main application
