@@ -27,10 +27,10 @@
     {
       "model": "Beyond Mobile",
       "prompt": "Has anyone here used Flutter for something that isn't a mobile app — web, desktop, embedded, anything like that?",
-      "hint": "A recurring Reddit tension: Flutter may have fewer 9-to-5 openings than JavaScript or Java, but it can be powerful for building your own apps, prototypes, and multi-platform products.",
+      "hint": "Flutter's reach beyond phones: web, desktop, embedded, and internal tools. Fewer classic job openings than JavaScript stacks, but strong for building complete products and prototypes.",
       "no_hands": [
-        "What would keep you invested in Flutter even if it never topped the job-listing charts?",
-        "What makes 'build your own apps' feel like a weaker or stronger career strategy than targeting job listings?",
+        "Which non-mobile target would you try first, and what holds you back?",
+        "Do employers you know ever ask for Flutter web or desktop?",
         "Which non-mobile Flutter targets feel least convincing today?"
       ],
       "hands_up": [
@@ -48,7 +48,7 @@
     {
       "model": "Flutter vs. Native Specialization",
       "prompt": "Who here has actually needed native Android or iOS skills on top of Flutter in their work?",
-      "hint": "Reddit comments repeatedly distinguish 'knows Flutter' from 'knows Flutter and understands Android/iOS constraints, releases, performance, and native interop.'",
+      "hint": "Hiring conversations often separate 'knows Flutter' from 'knows Flutter and understands Android/iOS constraints, releases, performance, and native interop.'",
       "no_hands": [
         "Why might pure Flutter still be enough for some roles or products?",
         "How do you see AI changing the advantage of knowing one platform deeply?",
@@ -69,7 +69,7 @@
     {
       "model": "Ecosystem Trust",
       "prompt": "Has the Flutter job market — how big or small it is — ever made you second-guess a decision?",
-      "hint": "Reddit discussions often split the issue: fewer Flutter openings than mainstream stacks, but also fewer experienced Flutter specialists and sometimes more committed teams.",
+      "hint": "The job-market tension in one line: fewer Flutter openings than mainstream stacks, but also fewer experienced Flutter specialists and sometimes more committed teams.",
       "no_hands": [
         "How do you weigh personal fit against ecosystem signals when choosing a technology?",
         "What ecosystem concerns would not bother you?",
@@ -79,7 +79,7 @@
         "What makes you trust or question Flutter’s future?",
         "Which matters more to you: number of openings, quality of teams, salary, or competition level?",
         "How do you evaluate the risk of relying on a Google-backed framework?",
-        "What would make Flutter feel like a stronger bet for 2026 and beyond?"
+        "What would make Flutter feel like a stronger bet for the next few years?"
       ],
       "follow_ups": [
         "What adoption story would change skeptical minds?",

@@ -14,7 +14,7 @@
       ],
       "hands_up": [
         "What kind of developer are you actually looking for?",
-        "How would you describe the kind of developer role you're actually trying to fill?",
+        "Which roles have you managed to fill this year, and which stayed open, and why?",
         "What do you find yourself weighing most heavily when you're screening candidates now?",
         "How does your team think about hiring junior versus experienced candidates right now?",
         "How has AI affected the way you interview or evaluate take-home work and portfolios?"
@@ -75,7 +75,7 @@
       "hint": "End the opener by connecting the room’s hiring/search reality to the practical question: what work is actually changing?",
       "no_hands": [
         "What has stopped you from using AI in real development work?",
-        "What's the biggest thing standing between you and using AI in real work?",
+        "Has your team talked about AI at all, or is it still individual experiments?",
         "What task would you be most willing to try AI on first?"
       ],
       "hands_up": [
@@ -89,6 +89,26 @@
         "What AI workflow would you actually recommend to a Flutter developer?",
         "What is one AI habit that makes developers weaker?",
         "What is one AI habit that makes developers stronger?"
+      ]
+    },
+    {
+      "model": "Worried This Year",
+      "prompt": "Has this past year made anyone here worry about their own career?",
+      "hint": "The title promises the worried, so give them a moment: name the trigger, then keep the answers concrete rather than letting the room spiral.",
+      "no_hands": [
+        "Where does your confidence come from: skills, network, savings, or your employer?",
+        "Is there anything you are quietly keeping an eye on even though you are not worried?",
+        "What did an earlier downturn teach you that still applies?"
+      ],
+      "hands_up": [
+        "What triggered it: a layoff nearby, fewer job postings, AI demos, or something closer to home?",
+        "Is the worry about Flutter specifically, about mobile, or about software careers in general?",
+        "What have you actually done about it so far?",
+        "What would make the worry go away, and is that within your control?"
+      ],
+      "follow_ups": [
+        "Who do you talk to about this, and does it help?",
+        "What is one signal that would tell you things are improving?"
       ]
     }
   ],

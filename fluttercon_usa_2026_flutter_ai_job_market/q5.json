@@ -29,7 +29,7 @@
       "prompt": "Who's dealt with a production issue that you couldn't fix without understanding the bigger system around your code?",
       "hint": "Examples: data flow, state, APIs, reliability, observability, performance, security, platform integration, and maintenance.",
       "no_hands": [
-        "Which framework-specific skills are still durable?",
+        "What is the biggest system around your code that you have never had to touch?",
         "How do early-career developers actually engage with systems thinking — and where does it get tricky?",
         "What concrete Flutter tasks teach systems thinking best?"
       ],
@@ -71,13 +71,13 @@
       "prompt": "Has anyone seen a project go sideways mainly because of communication, not code?",
       "hint": "Examples: explaining tradeoffs, aligning with stakeholders, writing clear tickets, reviewing AI outputs, and deciding what not to build.",
       "no_hands": [
-        "How do you weigh technical skills against other qualities in hiring and promotion right now?",
+        "What keeps communication from becoming the problem on your projects?",
         "Where can communication be overrated?",
         "What judgment can only come after building experience?"
       ],
       "hands_up": [
-        "What communication skill matters most for AI-assisted developers?",
-        "How do you explain AI-generated work in a team setting?",
+        "What went wrong, and what would have prevented it?",
+        "Was AI-generated work part of the misunderstanding?",
         "What does good judgment look like during code review?",
         "How can Flutter developers practice explaining technical tradeoffs?"
       ],

@@ -29,12 +29,12 @@
       "prompt": "Has a side project or portfolio piece ever directly led to an opportunity for you?",
       "hint": "Examples: multi-platform apps, AI-powered tools, local business apps, internal dashboards, accessibility-focused products, monetized apps, and products with real users.",
       "no_hands": [
-        "What makes project choice less important than fundamentals?",
+        "What has opened doors for you instead: referrals, work history, community?",
         "Which project ideas feel overdone or weak now?",
         "How can beginners choose a project that is achievable?"
       ],
       "hands_up": [
-        "What kind of Flutter project would genuinely impress you in 2026?",
+        "What was the project, and how did the opportunity find it?",
         "How should AI be used in the project without becoming the whole story?",
         "What project proves cross-platform value clearly?",
         "How do you scope a project so it ships?"
@@ -71,8 +71,8 @@
       "prompt": "Who's been in the Flutter ecosystem for more than a couple of years?",
       "hint": "Examples: learn fundamentals earlier, ship more, add native/backend depth, use AI deliberately, build product sense, or avoid chasing every tool.",
       "no_hands": [
-        "What advice would stay exactly the same?",
-        "Which old advice still works surprisingly well?",
+        "What brought you to Flutter recently, and what surprised you?",
+        "Which advice have you already received, and did it help?",
         "What should newcomers not overthink?"
       ],
       "hands_up": [
