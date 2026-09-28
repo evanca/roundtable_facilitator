@@ -6,57 +6,53 @@
     {
       "model": "The Missing Juniors",
       "prompt": "Raise your hand if your company hired a junior, apprentice or working student developer in the last 12 months.",
-      "hint": "Indeed DE, Sep 2026: entry-level software postings are 70% below 2019 while apprenticeship postings in the field are 27% above. Ask who trains the next seniors.",
+      "hint": "Indeed DE, Sep 2026: entry-level software postings are 70% below 2019 while apprenticeship postings in the field are 27% above. Ask how juniors get in now.",
       "no_hands": [
-        "Where did you get your own first chance, and would that path still exist today?",
-        "If you are the student or junior looking for that first chance: what do you hear back, and from whom?",
-        "For hirers: why not, no budget, no time to mentor, or do seniors plus AI seem to cover it?"
+        "Would the path that gave you your first chance still exist today?",
+        "For students and juniors: what do you hear back when you apply?",
+        "For hirers: did budget, mentoring time, or seniors with AI stop a junior hire?"
       ],
       "hands_up": [
         "How did you find them: apprenticeship (Ausbildung), dual study, university, career change, community?",
         "What does a junior do on your team now that AI writes the first draft?",
-        "Did AI make them productive faster, or let them skip understanding?",
-        "How do you teach someone to review code they did not write?"
+        "Did AI make them productive faster, or let them skip understanding?"
       ],
       "follow_ups": [
-        "If juniors are not hired, where do the seniors come from five years from now?",
-        "What should schools and courses stop teaching, and what should they teach more?"
+        "If juniors are not hired, where do the seniors come from five years from now?"
       ]
     },
     {
       "model": "Agents in Daily Work",
-      "prompt": "Raise your hand if code written by an agent like Antigravity, Claude Code, Codex or Gemini CLI shipped to your production app this year.",
-      "hint": "JetBrains, Aug 2026: 90% of professional developers use a coding agent at least weekly. Ask who reviewed the agent's code and how long that took.",
+      "prompt": "Raise your hand if code from a coding agent shipped to your production app this year.",
+      "hint": "JetBrains, Aug 2026: 90% of professional developers use a coding agent at least weekly. Ask who reviewed the code.",
       "no_hands": [
-        "What stops you: policy, trust, cost, or the code was not good enough?",
-        "Do you use AI for anything else in Flutter work: tests, docs, reviews, planning?",
-        "For team leads: is there a written rule about agents on your team, and who wrote it?"
+        "Where else do you use AI in Flutter work: tests, docs, reviews, planning?",
+        "What stops you: policy, trust, cost, or quality?",
+        "For team leads: does your team have a written rule for agents?"
       ],
       "hands_up": [
-        "Which Flutter tasks did the agent do well, and where did it fail confidently?",
-        "Who reviewed the agent's code, and how long did the review take compared with writing it?",
+        "Which Flutter task did the agent get confidently wrong?",
+        "Did reviewing the agent's code take longer than writing it yourself?",
         "Did agents change how many people the team needs, or just what they do all day?",
-        "Does Flutter feel easier or harder for agents than Swift or Kotlin, in your experience?"
+        "Is Flutter easier or harder for agents than Swift or Kotlin?"
       ],
       "follow_ups": [
-        "What is one habit that makes an agent user weaker, and one that makes them stronger?",
-        "Which agent setup would you recommend to a Flutter developer starting tomorrow?"
+        "Which agent habit makes a developer weaker over time?"
       ]
     },
     {
       "model": "Native by Agent",
-      "prompt": "Raise your hand if an agent has written Swift or Kotlin for you this year because you did not want to.",
-      "hint": "MobileDev-Bench study, Mar 2026: the best AI models fixed 3 to 4% of 407 real mobile issues, mostly Android, no iOS; 5.7% at best when handed the right files. Ask whether native-by-agent felt safe to ship.",
+      "prompt": "Raise your hand if you let an agent write Swift or Kotlin for you this year.",
+      "hint": "MobileDev-Bench study, Mar 2026: top AI models fixed 3 to 4% of 407 mobile issues, 5.7% with the right files; no iOS. Ask if it felt safe.",
       "no_hands": [
-        "Who writes the Swift or Kotlin on your project today, and how long do you wait for them?",
         "Which native task would you hand to an agent first?",
-        "For the seniors: does cheap native code by agent make Flutter more or less attractive to you?"
+        "Who writes the Swift or Kotlin on your project today?",
+        "For the seniors: does cheap agent-written native code make Flutter more or less attractive?"
       ],
       "hands_up": [
         "What did it write: a platform channel, a plugin, a whole native module?",
-        "Did you understand the code well enough to ship it, and who checked it?",
-        "Did it make you more likely to go native next time, or less?",
-        "Did anything break in review, on device, or in store review?"
+        "How did you check the Swift or Kotlin before it shipped?",
+        "Did it make you more likely to go native next time, or less?"
       ],
       "follow_ups": [
         "If agents make native cheap, what is the remaining argument for one codebase?",

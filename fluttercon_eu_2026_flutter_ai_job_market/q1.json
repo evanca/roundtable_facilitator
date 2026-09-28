@@ -6,60 +6,57 @@
     {
       "model": "Hiring Decisions",
       "prompt": "Raise your hand if you hire developers or have a say in who gets hired.",
-      "hint": "Bitkom, Sep 2026: 79,000 unfilled IT jobs in Germany, down from 149,000 in 2023. Start with the hirers: what changed in what they look for, not only in their budget.",
+      "hint": "Bitkom, Sep 2026: 79,000 unfilled IT jobs in Germany, down from 149,000 in 2023. Ask hirers what they look for now, beyond budget.",
       "no_hands": [
         "What do you think hiring managers look for first in a Flutter candidate today?",
-        "When did you last see a Flutter role advertised near you, and what did it ask for?",
-        "If you were hiring tomorrow with a small budget, would you take a junior or a senior, and why?"
+        "Hiring tomorrow on a small budget: would you take a junior or a senior?",
+        "For the seniors: would what got you your last job still work today?"
       ],
       "hands_up": [
-        "What are you hiring for right now, and what has changed in the role since last year?",
-        "How do you evaluate candidates now that a portfolio can be generated in an afternoon?",
-        "Do you hire Flutter-only developers, or Flutter plus native, and why?",
+        "What has changed in how you hire since last year?",
+        "How do you judge a candidate when a portfolio can be generated in an afternoon?",
         "What did you stop asking for in interviews this year?"
       ],
       "follow_ups": [
-        "What is the fastest way for someone in this room to stand out to your team?",
-        "What is one signal that makes you stop reading a CV?"
+        "What is the fastest way for someone in this room to stand out to you?"
       ]
     },
     {
       "model": "Looking Right Now",
-      "prompt": "Raise your hand if you are looking for a Flutter job or a Flutter project right now.",
-      "hint": "Indeed job postings index, Sep 2026: German software-dev postings are at a record low, about half their Feb 2020 level. Let seekers describe the market before anyone gives advice.",
+      "prompt": "Raise your hand if you are looking for a Flutter job or project right now.",
+      "hint": "Indeed job postings index, Sep 2026: German software-dev postings at a record low, about half their Feb 2020 level. Let seekers speak before anyone gives advice.",
       "no_hands": [
-        "What would make you start looking: a better offer, a worrying signal at work, or a new technology?",
+        "What would make you start looking?",
         "How do you keep an eye on the market while you are not looking?",
-        "For those who hire: what would you tell people who are not looking to keep doing anyway?"
+        "For hirers: what should people who are not looking still keep doing?"
       ],
       "hands_up": [
-        "Permanent role, freelance project, or both, and is that by choice?",
+        "Permanent role or freelance project: which are you looking for?",
         "What gets a reply right now: applications, referrals, open source, or community?",
-        "Are you looking only where you live, or across borders and remote too?",
         "How has AI changed the search itself, from screening to take-home tasks?"
       ],
       "follow_ups": [
-        "What advice from the internet turned out to be wrong for your search?",
+        "Which advice from the internet turned out to be wrong for your search?",
         "What support from this community would actually help this month?"
       ]
     },
     {
       "model": "Worried This Year",
       "prompt": "Raise your hand if this year has made you worry about your own career.",
-      "hint": "Stack Overflow 2025: 64% of developers say AI is not a threat to their job, 15% say it is; the no camp was 68% a year earlier. Eyes closed, hands up, facilitators count; the closer repeats this.",
+      "hint": "Stack Overflow 2025: 64% of developers say AI is no threat to their job, down from 68% a year earlier. Eyes closed; count hands for the closer.",
       "no_hands": [
         "What gives you confidence: your skills, your network, your savings, or your employer?",
         "Is there anything you are quietly watching even though you are not worried?",
         "For the seniors: what did an earlier downturn teach you that applies now?"
       ],
       "hands_up": [
-        "What triggered the worry: fewer job ads, a hiring freeze or cuts close to you, AI demos, or something you would rather keep private?",
-        "Is the worry about Flutter specifically, about mobile, or about software careers in general?",
+        "What triggered it: fewer job ads, AI demos, the news, or something you keep private?",
+        "Is it about Flutter, about mobile, or about software careers in general?",
         "What have you actually done about it so far?"
       ],
       "follow_ups": [
-        "What would make the worry go away, and is that within your control?",
-        "Who do you talk to about this, and does it help?"
+        "Which part of the worry is within your control?",
+        "Who do you talk to about it?"
       ]
     }
   ],

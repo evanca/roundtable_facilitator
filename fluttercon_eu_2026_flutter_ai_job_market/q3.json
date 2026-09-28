@@ -5,38 +5,37 @@
   "sections": [
     {
       "model": "Job Ads Speak Native",
-      "prompt": "Raise your hand if the last mobile job ad you read wanted Swift or Kotlin, with Flutter as a nice-to-have.",
-      "hint": "StepStone.de, counted 28 Sep 2026: 42 ads mention Flutter against 174 for Swift iOS and 271 for Kotlin Android. Ask how the ratio looks on the boards they read.",
+      "prompt": "Raise your hand if the last mobile job ad you read wanted Swift or Kotlin first.",
+      "hint": "StepStone.de, counted 28 Sep 2026: 42 ads mention Flutter, 174 Swift iOS, 271 Kotlin Android. Ask how the boards they read compare.",
       "no_hands": [
         "What did the last mobile job ad you saw actually ask for?",
-        "Do you read Flutter-only ads, or do you apply for native roles with Flutter experience?",
-        "For hirers: when you write an ad, why native first, or why Flutter first?"
+        "Would you apply for a native role with only Flutter experience?",
+        "For hirers: what decides whether your ad leads with native or Flutter?"
       ],
       "hands_up": [
-        "Did you apply anyway, and how did the conversation go?",
-        "What native depth have you added to stay in the running, and was it worth it?",
-        "Is the ratio different for freelance and contract work than for permanent roles?",
+        "Did you apply anyway?",
+        "What native skill have you added to stay in the running?",
+        "Is the ratio different for freelance work than for permanent roles?",
         "Is native plus Flutter a fair ask, or a sign the company has not decided its stack?"
       ],
       "follow_ups": [
-        "What would you put in a job ad if you were hiring a Flutter developer today?",
-        "Which native skills paid off most for you?"
+        "What would you put in a job ad if you were hiring a Flutter developer today?"
       ]
     },
     {
       "model": "Google and the Trust Question",
-      "prompt": "Raise your hand if a client, boss or colleague has told you that Flutter is dead or that Google will drop it.",
-      "hint": "Apr 2024 Google cut Flutter and Dart staff; Jan 2025 Dart macros stopped; Aug 2026 Flutter 3.47, the fourth stable release in twelve months (TechCrunch; Dart blog; Flutter releases). Ask what they answered and whether it worked.",
+      "prompt": "Raise your hand if someone told you Flutter is dead or Google will drop it.",
+      "hint": "Apr 2024: Google cut Flutter and Dart staff. Aug 2026: Flutter 3.47, fourth stable release in twelve months (Google commitment timeline; Flutter 3.47). Ask which answer worked.",
       "no_hands": [
-        "Where do you think the Flutter-is-dead story comes from, and does it matter for your work?",
+        "Where do you think the 'Flutter is dead' story comes from?",
         "How much does Google's backing really weigh in your own decisions?",
-        "For the seniors: which framework did you see actually die, and what were the early signs?"
+        "For the seniors: what were the early signs when a framework you used died?"
       ],
       "hands_up": [
-        "What did you answer, and did it work?",
+        "What did you answer them?",
         "Did the doubt change a decision: a project, a hire, a rewrite?",
-        "Did you go looking for evidence after that conversation, and what did you find?",
-        "Would a community-run fork of Flutter, like Flock (quiet since November 2025), make you feel safer or more worried?"
+        "What evidence did you go looking for afterwards?",
+        "Would a community-run fork of Flutter make you feel safer or more worried?"
       ],
       "follow_ups": [
         "Is it good news or bad news that non-Google contributors now outnumber Google employees?",
@@ -45,18 +44,17 @@
     },
     {
       "model": "Waiting for the Platform Catch-Up",
-      "prompt": "Raise your hand if you have waited for Flutter to catch up with a new iOS or Android feature this year.",
-      "hint": "iOS 26 Liquid Glass shipped Sep 2025; Flutter's Cupertino has no Liquid Glass widgets yet, official work is 'underway' (Flutter blog, 9 Sep 2026). Ask what they waited for and what they did meanwhile.",
+      "prompt": "Raise your hand if you waited this year for Flutter to support a new iOS or Android feature.",
+      "hint": "iOS 26 Liquid Glass shipped Sep 2025; Flutter's Cupertino still lacks it, official work is 'underway' (Flutter blog, 9 Sep 2026). Ask what they did meanwhile.",
       "no_hands": [
         "Which platform feature would you miss most if it arrived late in Flutter?",
-        "Do your users or clients notice when a design language changes on iOS or Android?",
-        "For hirers: does fidelity to the native look decide who you hire, or is it a detail?"
+        "Do your users notice when iOS or Android changes its design?",
+        "For the seniors: has platform lag ever changed a stack decision you made?"
       ],
       "hands_up": [
-        "What did you wait for, how long, and what did you do in the meantime?",
+        "Which feature did you wait for?",
         "Did you write a platform channel, a plugin, or just ship without it?",
-        "Did the wait cost you a client, a release date, or a review rating?",
-        "Would a native developer on the team have solved it faster?"
+        "Did the wait cost you a client, a release date, or a review rating?"
       ],
       "follow_ups": [
         "Is platform lag getting better or worse in your experience?",
