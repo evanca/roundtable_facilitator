@@ -1,0 +1,68 @@
+{
+  "source_file": "Berlin 2026 edition for next app devCon 2026 (flutterCon Berlin), sources listed on the page",
+  "extracted_at": "2026-09-28T00:00:00.000000",
+  "question": "Q6: Your Next Move",
+  "sections": [
+    {
+      "model": "Depth or Breadth",
+      "prompt": "Raise your hand if you spent real time this year on a skill outside Flutter: native, backend, product, people.",
+      "hint": "METR study, Jul 2025: with AI, 16 experienced open-source developers were 19% slower but felt 20% faster; Feb 2026 follow-up: inconclusive. Ask what AI could not shortcut.",
+      "no_hands": [
+        "What is the one deep skill you are betting on?",
+        "What would you learn next if you had one free day a week?",
+        "For the seniors: which skill paid off most over your career?"
+      ],
+      "hands_up": [
+        "Did the new skill change what work comes to you?",
+        "Did learning it with AI help, or make it shallow?",
+        "Was it depth, like native or architecture, or breadth, like product or people?",
+        "How do you show that learning to an employer or a client?"
+      ],
+      "follow_ups": [
+        "What should a Flutter developer still do deliberately by hand?",
+        "Which skill pairing with Flutter is underrated right now?"
+      ]
+    },
+    {
+      "model": "An App With Your Name On It",
+      "prompt": "Raise your hand if an app you built yourself is live in a store or on the web.",
+      "hint": "Google Play: new personal developer accounts need a closed test with 12 testers for 14 days before production. Ask who hit this hurdle.",
+      "no_hands": [
+        "What stopped you: an idea, time, store hurdles, or no need?",
+        "Would a shipped app help you more than a certificate or a course?",
+        "For hirers: does a shipped app with real users change how you read a candidate?"
+      ],
+      "hands_up": [
+        "What did shipping teach you that no tutorial did?",
+        "Did it lead to anything: a job, a client, a talk, a lesson?",
+        "How much of it would you let an agent build today?"
+      ],
+      "follow_ups": [
+        "What would you build to show product judgment rather than code generation?"
+      ]
+    },
+    {
+      "model": "Saying No to a Stack",
+      "prompt": "Raise your hand if you turned down a job or project this year because of its stack.",
+      "hint": "JetBrains developer survey, Oct 2025: 68% of developers expect employers to require AI-tool skills in the near future. Ask whether AI expectations were behind the no.",
+      "no_hands": [
+        "What would you say yes to outside Flutter: the product, the team, the pay?",
+        "How much does the framework matter next to the domain and the people?",
+        "For juniors: what would you need to know about a team before saying yes, stack aside?"
+      ],
+      "hands_up": [
+        "Without naming the company: was the real reason the tech, the team, or the AI expectations?",
+        "What do you ask a team now that you did not ask before?",
+        "Have you regretted a no, or a yes?"
+      ],
+      "follow_ups": [
+        "What interview question reveals whether a team uses AI to grow people or to avoid hiring?"
+      ]
+    }
+  ],
+  "wrap_up": [
+    "Eyes closed again: hands up if you would still choose Flutter starting today. Facilitators count and compare with the worried count from Q1.",
+    "One sentence to your past self, from anyone who has been in Flutter for more than two years.",
+    "Where does this conversation continue: Flutter Berlin or your local meetup, Flutteristas, the Flutter Community AI Circle, or Friday's native versus cross-platform panel?"
+  ]
+}

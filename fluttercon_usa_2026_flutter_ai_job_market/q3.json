@@ -8,13 +8,13 @@
       "prompt": "Who here has changed what they're learning or how they learn because of AI?",
       "hint": "Examples: moving across platforms, using AI to bridge gaps, learning product domains, and being able to build something useful even when the job market shifts.",
       "no_hands": [
-        "Why do you think deep specialization becomes more valuable with AI?",
-        "Which specialties are hardest for AI to flatten?",
-        "What risks come from being too broad?"
+        "What keeps your learning plan stable while the tools around you change?",
+        "Which specialties do you think are hardest for AI to flatten, so not worth changing course for?",
+        "What would have to happen for you to change what you learn?"
       ],
       "hands_up": [
-        "What kinds of adaptability matter most: technical, product, communication, or domain learning?",
-        "How does Flutter support an adaptable career path?",
+        "What did you change: the topics, the depth, or the way you learn?",
+        "Did AI push you toward being more adaptable or more specialized?",
         "Where can broad developers still get exposed by lack of depth?",
         "How do you decide when to go deeper versus wider?"
       ],
@@ -31,7 +31,7 @@
       "no_hands": [
         "How useful is the T-shaped idea when you're actually deciding what to learn?",
         "How do you think about the tradeoff between going really deep on one thing versus spreading out?",
-        "What would you choose as your vertical skill instead of Flutter?"
+        "If you had to add one skill outside Flutter next month, which would it be?"
       ],
       "hands_up": [
         "What should be the deep vertical for a Flutter developer?",
@@ -68,10 +68,10 @@
     },
     {
       "model": "Learning Time Allocation",
-      "prompt": "Has your learning routine actually changed in the past year or so?",
+      "prompt": "Has the amount of time you spend learning each week changed in the past year or so?",
       "hint": "Examples: less syntax memorization, more architecture, product, debugging, review, testing, release, and AI-assisted workflows.",
       "no_hands": [
-        "Why has your learning plan stayed the same?",
+        "What keeps your weekly learning time steady?",
         "Which old-school learning habits are still worth protecting?",
         "What should learners avoid outsourcing to AI too early?"
       ],

@@ -1,0 +1,67 @@
+{
+  "source_file": "Berlin 2026 edition for next app devCon 2026 (flutterCon Berlin), sources listed on the page",
+  "extracted_at": "2026-09-28T00:00:00.000000",
+  "question": "Q4: The Ugly: AI and the Entry-Level Squeeze",
+  "sections": [
+    {
+      "model": "The Missing Juniors",
+      "prompt": "Raise your hand if your company hired a junior, apprentice or working student developer in the last 12 months.",
+      "hint": "Indeed DE, Sep 2026: entry-level software postings are 70% below 2019 while apprenticeship postings in the field are 27% above. Ask how juniors get in now.",
+      "no_hands": [
+        "Would the path that gave you your first chance still exist today?",
+        "For students and juniors: what do you hear back when you apply?",
+        "For hirers: did budget, mentoring time, or seniors with AI stop a junior hire?"
+      ],
+      "hands_up": [
+        "How did you find them: apprenticeship (Ausbildung), dual study, university, career change, community?",
+        "What does a junior do on your team now that AI writes the first draft?",
+        "Did AI make them productive faster, or let them skip understanding?"
+      ],
+      "follow_ups": [
+        "If juniors are not hired, where do the seniors come from five years from now?"
+      ]
+    },
+    {
+      "model": "Agents in Daily Work",
+      "prompt": "Raise your hand if code from a coding agent shipped to your production app this year.",
+      "hint": "JetBrains, Aug 2026: 90% of professional developers use a coding agent at least weekly. Ask who reviewed the code.",
+      "no_hands": [
+        "Where else do you use AI in Flutter work: tests, docs, reviews, planning?",
+        "What stops you: policy, trust, cost, or quality?",
+        "For team leads: does your team have a written rule for agents?"
+      ],
+      "hands_up": [
+        "Which Flutter task did the agent get confidently wrong?",
+        "Did reviewing the agent's code take longer than writing it yourself?",
+        "Did agents change how many people the team needs, or just what they do all day?",
+        "Is Flutter easier or harder for agents than Swift or Kotlin?"
+      ],
+      "follow_ups": [
+        "Which agent habit makes a developer weaker over time?"
+      ]
+    },
+    {
+      "model": "Native by Agent",
+      "prompt": "Raise your hand if you let an agent write Swift or Kotlin for you this year.",
+      "hint": "MobileDev-Bench study, Mar 2026: top AI models fixed 3 to 4% of 407 mobile issues, 5.7% with the right files; no iOS. Ask if it felt safe.",
+      "no_hands": [
+        "Which native task would you hand to an agent first?",
+        "Who writes the Swift or Kotlin on your project today?",
+        "For the seniors: does cheap agent-written native code make Flutter more or less attractive?"
+      ],
+      "hands_up": [
+        "What did it write: a platform channel, a plugin, a whole native module?",
+        "How did you check the Swift or Kotlin before it shipped?",
+        "Did it make you more likely to go native next time, or less?"
+      ],
+      "follow_ups": [
+        "If agents make native cheap, what is the remaining argument for one codebase?",
+        "Where do you draw the line on shipping code you could not have written?"
+      ]
+    }
+  ],
+  "wrap_up": [
+    "In a world where agents write the first draft, what should a Flutter developer become excellent at?",
+    "What would you tell a student who asks whether to start in mobile at all?"
+  ]
+}

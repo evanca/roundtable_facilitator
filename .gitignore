@@ -2,3 +2,7 @@
 /shelf/
 /.idea/workspace.xml
 /.idea/
+
+# local tooling and script backups
+.claude/settings.local.json
+*.backup

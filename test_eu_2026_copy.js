@@ -1,15 +1,15 @@
 #!/usr/bin/env node
 
 /**
- * Verify that the FlutterCon USA 2026 HTML embeds the expected JSON copy.
+ * Verify that the FlutterCon EU 2026 HTML embeds the expected JSON copy.
  */
 
 const fs = require('fs');
 const path = require('path');
 
-const HTML_FILE = './fluttercon_usa_2026_flutter_ai_job_market.html';
-const DATA_DIR = './fluttercon_usa_2026_flutter_ai_job_market';
-const TOPIC_KEY = 'flutter_ai_job_market';
+const HTML_FILE = './fluttercon_eu_2026_flutter_ai_job_market.html';
+const DATA_DIR = './fluttercon_eu_2026_flutter_ai_job_market';
+const TOPIC_KEY = 'flutter_ai_job_market_eu';
 
 class CopyVerificationTest {
     constructor() {
@@ -19,12 +19,12 @@ class CopyVerificationTest {
     }
 
     runAllTests() {
-        console.log('Starting FlutterCon USA 2026 copy verification tests...\n');
+        console.log('Starting FlutterCon EU 2026 copy verification tests...\n');
 
         const expectedData = this.loadJsonFiles(DATA_DIR);
         const embeddedData = this.extractEmbeddedData();
 
-        this.testExists(embeddedData[TOPIC_KEY], '2026 topic data');
+        this.testExists(embeddedData[TOPIC_KEY], 'EU 2026 topic data');
         this.testTopicData(expectedData, embeddedData[TOPIC_KEY]);
         this.testQuestionTitles(expectedData);
         this.reportResults();
@@ -83,7 +83,7 @@ class CopyVerificationTest {
         const htmlContent = fs.readFileSync(HTML_FILE, 'utf8');
         const titlesMatch = htmlContent.match(new RegExp(TOPIC_KEY + ': \\[([\\s\\S]*?)\\]'));
         if (!titlesMatch) {
-            this.addError('Could not find 2026 question titles in HTML');
+            this.addError('Could not find EU 2026 question titles in HTML');
             return;
         }
 

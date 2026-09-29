@@ -2,12 +2,14 @@
   "name": "roundtable-facilitator-tests",
   "version": "1.0.0",
   "description": "Test suite for FlutterCon roundtable facilitator data integrity",
-  "main": "test/test_suite.js",
   "scripts": {
-    "test": "node test_correct_copy.js && node test_2026_copy.js",
+    "test": "node test_correct_copy.js && node test_2026_copy.js && node test_eu_2026_copy.js",
     "test:2025": "node test_correct_copy.js",
     "test:2026": "node test_2026_copy.js",
-    "inject:2026": "node inject_2026_data.js"
+    "test:eu2026": "node test_eu_2026_copy.js",
+    "inject:2025": "node inject_correct_data.js",
+    "inject:2026": "node inject_2026_data.js",
+    "inject:eu2026": "node inject_eu_2026_data.js"
   },
   "keywords": [
     "fluttercon",

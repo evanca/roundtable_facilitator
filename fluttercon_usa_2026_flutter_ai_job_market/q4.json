@@ -5,12 +5,12 @@
   "sections": [
     {
       "model": "Coding After Coders",
-      "prompt": "Who here uses an AI coding agent — Copilot, Cursor, Gemini, whatever — regularly in their Flutter work?",
-      "hint": "Recent mainstream coverage of AI coding describes developers spending less time typing code and more time supervising agents, shaping intent, and inspecting strange-but-useful outputs.",
+      "prompt": "Who here uses an AI coding agent — Copilot, Cursor, Gemini, Claude Code, whatever — regularly in their Flutter work?",
+      "hint": "Clive Thompson's 'Coding After Coders' (New York Times Magazine, 12 March 2026) describes developers spending less time typing code and more time supervising agents, shaping intent, and inspecting strange-but-useful outputs.",
       "no_hands": [
-        "Why will traditional programming skill still matter?",
-        "Which parts of Flutter are hard for agents to abstract away?",
-        "What framework qualities become more important when AI writes more code?"
+        "What has kept you from making an agent part of your routine: trust, cost, policy, or no need?",
+        "Which parts of Flutter work would you never hand to an agent?",
+        "What would an agent have to prove before you used it regularly?"
       ],
       "hands_up": [
         "What parts of framework knowledge feel easier to delegate to AI?",
@@ -26,7 +26,7 @@
     },
     {
       "model": "What Agents Can Replace",
-      "prompt": "Has anyone found AI agents useful in their Flutter work so far?",
+      "prompt": "Has an AI agent shipped a change to one of your production Flutter apps?",
       "hint": "Examples: widgets, tests, refactors, navigation, state management wiring, docs, bug investigation, and the review skill needed to catch confident mistakes.",
       "no_hands": [
         "Which Flutter tasks remain too context-heavy for agents?",
@@ -50,9 +50,9 @@
       "prompt": "Who's caught a real bug or a bad design choice in AI-generated code?",
       "hint": "Recent software-engineering research and media coverage point in the same direction: as agents handle more implementation, humans spend more effort validating correctness, maintainability, security, and product fit.",
       "no_hands": [
-        "What do you see as the core skill for developers now — and how has that shifted?",
+        "Do you review AI-generated code differently from human code, or not at all?",
         "Which writing skills should developers keep practicing?",
-        "What risks come from treating verification as a separate skill from implementation?"
+        "What would make you look harder at AI output before shipping it?"
       ],
       "hands_up": [
         "What makes someone good at reviewing AI-generated Flutter code?",
@@ -71,7 +71,7 @@
       "prompt": "Has anyone made an architecture or product call recently that you're pretty sure no AI tool would have gotten right?",
       "hint": "Examples: choosing problems, shaping user flows, deciding boundaries, managing complexity, and knowing when not to automate.",
       "no_hands": [
-        "Where does syntax or framework detail still decide project success?",
+        "What was the last architecture call on your project, and who made it?",
         "How does building with AI actually affect the way developers learn architecture judgment?",
         "What should juniors do before they can make good architecture decisions?"
       ],

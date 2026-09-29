@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>FlutterCon USA 2026 Roundtable Facilitator</title>
+    <title>FlutterCon EU 2026 Roundtable Facilitator</title>
     <style>
         :root{ --bg:#0b1220; --card:#121a2b; --ink:#e6edf6; --line:#7087b7; --node:#0f1a33; --border:#22304a; --yes:#3bc07b; --no:#ff8a8a; --accent:#a8c1ff; }
         body { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; margin: 0; background: var(--bg); color: var(--ink); }
@@ -30,6 +30,18 @@
         .follow-ups { margin-top: 8px; padding-top: 6px; border-top: 1px dashed var(--border); }
         .follow-ups small { color:#9fb6d9; font-weight: 600; }
         .sectionTitle{ margin-top: 10px; font-size:14px; color:#bcd0ff; font-weight:700 }
+        .facilitators { margin: 0 0 16px; font-size: 15px; color: #9fb6d9; line-height: 1.5; }
+        .facilitators strong { color: var(--ink); }
+        /* Projector sizes for the Berlin room: larger than the USA page defaults */
+        .card .prompt-text { font-size: 22px; }
+        .card .card-hint { display: block; margin: -4px 0 12px; font-size: 15px; color: #9fb6d9; line-height: 1.45; }
+        .card .details { font-size: 17px; }
+        .card .details small { font-size: 15px; }
+        .card .sectionTitle { font-size: 16px; }
+        .sources { margin-top: 28px; font-size: 13px; color: #9fb6d9; }
+        .sources summary { cursor: pointer; color: var(--accent); font-weight: 600; }
+        .sources ol { margin: 10px 0 0 18px; line-height: 1.5; }
+        .sources a { color: #cfe1ff; }
 
         /* New prompt and response structure */
         .prompt-section { margin-bottom: 12px; }
@@ -301,587 +313,393 @@
         let questionsData = {};
 
         const embeddedData = {
-          "flutter_ai_job_market": {
+          "flutter_ai_job_market_eu": {
                     "q1": {
                               "sections": [
                                         {
-                                                  "title": "Hiring Right Now",
-                                                  "prompt": "Who here is hiring developers, screening candidates, or involved in hiring decisions right now?",
-                                                  "hints": "Start with people who can describe actual demand: what roles are open, what has changed, and what they now expect from Flutter or mobile candidates.",
+                                                  "title": "Hiring Decisions",
+                                                  "prompt": "Raise your hand if you hire developers or have a say in who gets hired.",
+                                                  "hints": "Bitkom, Sep 2026: 79,000 unfilled IT jobs in Germany, down from 149,000 in 2023. Ask hirers what they look for now, beyond budget.",
                                                   "no_hands": [
-                                                            "What's behind the decision not to hire right now?",
-                                                            "What's shifted in your hiring plans recently, and what drove that change?",
-                                                            "What would need to happen before your team hired another developer?"
+                                                            "What do you think hiring managers look for first in a Flutter candidate today?",
+                                                            "Hiring tomorrow on a small budget: would you take a junior or a senior?",
+                                                            "For the seniors: would what got you your last job still work today?"
                                                   ],
                                                   "hands_up": [
-                                                            "What kind of developer are you actually looking for?",
-                                                            "Which roles have you managed to fill this year, and which stayed open, and why?",
-                                                            "What do you find yourself weighing most heavily when you're screening candidates now?",
-                                                            "How does your team think about hiring junior versus experienced candidates right now?",
-                                                            "How has AI affected the way you interview or evaluate take-home work and portfolios?"
+                                                            "What has changed in how you hire since last year?",
+                                                            "How do you judge a candidate when a portfolio can be generated in an afternoon?",
+                                                            "What did you stop asking for in interviews this year?"
                                                   ],
                                                   "follow_ups": [
-                                                            "What is the fastest way for a candidate to stand out positively?",
-                                                            "What is the most common weak signal you see in Flutter candidates?",
-                                                            "If someone here wanted to be hireable by your team in six months, what would you tell them to build or learn?"
+                                                            "What is the fastest way for someone in this room to stand out to you?"
                                                   ]
                                         },
                                         {
-                                                  "title": "Looking for Work",
-                                                  "prompt": "Raise your hand if you are currently looking for a job, internship, freelance work, or your next client.",
-                                                  "hints": "Let job seekers describe what the market feels like before turning it into a strategy discussion.",
+                                                  "title": "Looking Right Now",
+                                                  "prompt": "Raise your hand if you are looking for a Flutter job or project right now.",
+                                                  "hints": "Indeed job postings index, Sep 2026: German software-dev postings at a record low, about half their Feb 2020 level. Let seekers speak before anyone gives advice.",
                                                   "no_hands": [
-                                                            "How connected do you stay to the job market even when you're not actively looking?",
-                                                            "What would make you consider switching roles right now?",
-                                                            "Where does your sense of job security come from right now?"
+                                                            "What would make you start looking?",
+                                                            "How do you keep an eye on the market while you are not looking?",
+                                                            "For hirers: what should people who are not looking still keep doing?"
                                                   ],
                                                   "hands_up": [
-                                                            "How is the search going: lots of responses, silence, interviews, or confusing signals?",
-                                                            "How are you scoping the roles you're applying for?",
-                                                            "What have you noticed actually gets a response from employers?",
-                                                            "Where do you feel blocked: too few Flutter openings, too much competition, lack of experience, interviews, or confidence?",
-                                                            "How has AI changed what the job search feels like for you?"
+                                                            "Permanent role or freelance project: which are you looking for?",
+                                                            "What gets a reply right now: applications, referrals, open source, or community?",
+                                                            "How has AI changed the search itself, from screening to take-home tasks?"
                                                   ],
                                                   "follow_ups": [
-                                                            "What advice from the internet has been useful, and what has been demoralizing?",
-                                                            "What kind of support would make the biggest difference in your search right now?",
-                                                            "If you changed your strategy after today, what would you change first?"
-                                                  ]
-                                        },
-                                        {
-                                                  "title": "Mentoring Juniors",
-                                                  "prompt": "By a show of hands, who mentors juniors, students, interns, bootcamp grads, or early-career developers?",
-                                                  "hints": "This bridges employers and job seekers: what beginners need now, what teams still teach, and what AI changes about apprenticeship.",
-                                                  "no_hands": [
-                                                            "What gets in the way of mentoring juniors on your team?",
-                                                            "What would make mentoring easier for you?",
-                                                            "How do you see AI changing the role of human mentoring?"
-                                                  ],
-                                                  "hands_up": [
-                                                            "What do juniors struggle with most now: fundamentals, debugging, architecture, product thinking, or confidence?",
-                                                            "Has AI helped juniors learn faster, or made it easier to skip understanding?",
-                                                            "What beginner tasks are still worth doing manually?",
-                                                            "How do you teach someone to review AI-generated Flutter code?",
-                                                            "What would make a junior Flutter developer easier to trust on real work?"
-                                                  ],
-                                                  "follow_ups": [
-                                                            "What should schools, bootcamps, and communities stop teaching?",
-                                                            "What should they teach more of?",
-                                                            "How can the Flutter community create more apprenticeship paths?"
-                                                  ]
-                                        },
-                                        {
-                                                  "title": "AI at Work",
-                                                  "prompt": "Has anyone already seen AI change how they or their team writes, reviews, or ships code?",
-                                                  "hints": "End the opener by connecting the room’s hiring/search reality to the practical question: what work is actually changing?",
-                                                  "no_hands": [
-                                                            "What has stopped you from using AI in real development work?",
-                                                            "Has your team talked about AI at all, or is it still individual experiments?",
-                                                            "What task would you be most willing to try AI on first?"
-                                                  ],
-                                                  "hands_up": [
-                                                            "Which parts of your workflow did AI touch first, and why those?",
-                                                            "How has AI actually affected your team's overall speed?",
-                                                            "What skills became more important once AI entered the workflow?",
-                                                            "How has AI shifted the way your company thinks about hiring, promotions, or seniority?",
-                                                            "Where does Flutter feel easier or harder to use with AI tools?"
-                                                  ],
-                                                  "follow_ups": [
-                                                            "What AI workflow would you actually recommend to a Flutter developer?",
-                                                            "What is one AI habit that makes developers weaker?",
-                                                            "What is one AI habit that makes developers stronger?"
+                                                            "Which advice from the internet turned out to be wrong for your search?",
+                                                            "What support from this community would actually help this month?"
                                                   ]
                                         },
                                         {
                                                   "title": "Worried This Year",
-                                                  "prompt": "Has this past year made anyone here worry about their own career?",
-                                                  "hints": "Give the worried a moment: name the trigger, then keep the answers concrete rather than letting the room spiral.",
+                                                  "prompt": "Raise your hand if this year has made you worry about your own career.",
+                                                  "hints": "Stack Overflow 2025: 64% of developers say AI is no threat to their job, down from 68% a year earlier. Eyes closed; count hands for the closer.",
                                                   "no_hands": [
-                                                            "Where does your confidence come from: skills, network, savings, or your employer?",
-                                                            "Is there anything you're quietly keeping an eye on even though you're not worried?",
-                                                            "What did an earlier downturn teach you that still applies?"
+                                                            "What gives you confidence: your skills, your network, your savings, or your employer?",
+                                                            "Is there anything you are quietly watching even though you are not worried?",
+                                                            "For the seniors: what did an earlier downturn teach you that applies now?"
                                                   ],
                                                   "hands_up": [
-                                                            "What triggered it: a layoff nearby, fewer job postings, AI demos, or something closer to home?",
-                                                            "Is the worry about Flutter specifically, about mobile, or about software careers in general?",
-                                                            "What have you actually done about it so far?",
-                                                            "What would make the worry go away, and is that within your control?"
+                                                            "What triggered it: fewer job ads, AI demos, the news, or something you keep private?",
+                                                            "Is it about Flutter, about mobile, or about software careers in general?",
+                                                            "What have you actually done about it so far?"
                                                   ],
                                                   "follow_ups": [
-                                                            "Who do you talk to about this, and does it help?",
-                                                            "What is one signal that would tell you things are improving?"
+                                                            "Which part of the worry is within your control?",
+                                                            "Who do you talk to about it?"
                                                   ]
                                         }
                               ],
                               "wrap_up": [
-                                        "Based on the people in this room, how does the job market actually feel right now?",
-                                        "What is one concrete signal job seekers should pay attention to?",
-                                        "What is one concrete signal hiring teams should send more clearly?"
+                                        "Based on the hands in this room, how does the market feel where you live, in one word?",
+                                        "What is one concrete signal a job seeker here should watch this autumn?"
                               ]
                     },
                     "q2": {
                               "sections": [
                                         {
-                                                  "title": "Cross-Platform Leverage",
-                                                  "prompt": "Who here picked Flutter mainly because of the cross-platform story?",
-                                                  "hints": "Examples: one codebase across mobile, web, desktop, prototypes, internal tools, and product experiments, especially for small teams and founders.",
+                                                  "title": "One Codebase, Small Team",
+                                                  "prompt": "Raise your hand if you have shipped a production Flutter app with three people or fewer.",
+                                                  "hints": "Appfigures via Pragmatic Engineer, Jan 2025: Flutter in about 11% of new app releases in 2024, React Native in 7%. Ask what a tiny team shipped.",
                                                   "no_hands": [
-                                                            "Where do you think cross-platform reach is overrated?",
-                                                            "When is native specialization a better career bet?",
-                                                            "What would Flutter need to prove before you saw it as a strategic choice?"
+                                                            "What is the smallest team you have seen ship a real app, on any stack?",
+                                                            "What would stop a two-person team from choosing Flutter today?",
+                                                            "For hirers: does Flutter change how many people you need to hire?"
                                                   ],
                                                   "hands_up": [
-                                                            "Which platforms or project types make Flutter especially valuable?",
-                                                            "How has Flutter shaped the kinds of domains or roles you've been able to move into?",
-                                                            "How much does one-codebase leverage matter when teams are smaller, AI-assisted, or expected to validate ideas quickly?",
-                                                            "What tradeoffs come with betting on cross-platform development?"
+                                                            "What did the small team ship that would have needed separate native teams?",
+                                                            "Where did the one-codebase promise break for you?",
+                                                            "How much of that leverage came from Flutter and how much from AI tools?"
                                                   ],
                                                   "follow_ups": [
-                                                            "How does team size and shipping pressure change the way you think about Flutter's value?",
-                                                            "What kind of product is Flutter best positioned for?",
-                                                            "Where does Flutter still struggle to make the strategic case?"
+                                                            "Would you build the same product the same way today?"
                                                   ]
                                         },
                                         {
-                                                  "title": "Beyond Mobile",
-                                                  "prompt": "Has anyone here used Flutter for something that isn't a mobile app — web, desktop, embedded, anything like that?",
-                                                  "hints": "Flutter's reach beyond phones: web, desktop, embedded, and internal tools. The usual trade-off developers name: fewer classic job openings than JavaScript stacks, but strong for building complete products and prototypes.",
+                                                  "title": "Beyond the Phone",
+                                                  "prompt": "Raise your hand if you have shipped Flutter to something other than a phone: web, desktop, car, TV, embedded.",
+                                                  "hints": "Flutter blog, May 2026: Toyota's 2026 RAV4 runs Flutter; Canonical leads Flutter desktop. LG, Jun 2026: Flutter for webOS TV available. Ask for the least expected target.",
                                                   "no_hands": [
-                                                            "Which non-mobile target would you try first, and what holds you back?",
-                                                            "Do employers you know ever ask for Flutter web or desktop?",
-                                                            "Which non-mobile Flutter targets feel least convincing today?"
+                                                            "Which non-phone target would you try first?",
+                                                            "Do employers near you ever ask for Flutter web or desktop?",
+                                                            "For the seniors: is going beyond the phone a real career lever or a niche?"
                                                   ],
                                                   "hands_up": [
-                                                            "Where has Flutter helped you build something end-to-end faster than another stack?",
-                                                            "What's the most credible Flutter web, desktop, or embedded work you've shipped or come across?",
-                                                            "How does multi-surface thinking change the career value of Flutter?",
-                                                            "What would make employers care more about Flutter beyond mobile?"
+                                                            "What did you ship beyond the phone?",
+                                                            "Why Flutter there, rather than the platform's own toolkit?",
+                                                            "What broke on that target that works fine on phones?",
+                                                            "Did that work change which roles or clients came to you?"
                                                   ],
                                                   "follow_ups": [
-                                                            "How does AI change the value of being able to prototype across platforms quickly?",
-                                                            "What non-mobile Flutter demo would impress a hiring manager?",
-                                                            "Where should the Flutter ecosystem invest next?"
+                                                            "What would make Flutter web the obvious choice for you?"
                                                   ]
                                         },
                                         {
-                                                  "title": "Flutter vs. Native Specialization",
-                                                  "prompt": "Who here has actually needed native Android or iOS skills on top of Flutter in their work?",
-                                                  "hints": "Hiring conversations often separate 'knows Flutter' from 'knows Flutter and understands Android/iOS constraints, releases, performance, and native interop.'",
+                                                  "title": "Community as the Moat",
+                                                  "prompt": "Raise your hand if you have contributed to a Flutter package, to Flutter itself, or to a Flutter community.",
+                                                  "hints": "Flutter roadmap, Feb 2026: non-Google contributors now outnumber Google employees on Flutter. Ask what contributing gave back: skills, contacts, work.",
                                                   "no_hands": [
-                                                            "Why might pure Flutter still be enough for some roles or products?",
-                                                            "How do you see AI changing the advantage of knowing one platform deeply?",
-                                                            "What kinds of roles reward broad cross-platform skill without deep native experience?"
+                                                            "What has the community given you so far: packages, answers, meetups?",
+                                                            "What stops you from contributing: time, confidence, or not knowing where to start?",
+                                                            "For hirers: does open-source or community work count when you hire?"
                                                   ],
                                                   "hands_up": [
-                                                            "What native skills make a Flutter developer much more employable?",
-                                                            "Where do Flutter projects still need Android or iOS judgment?",
-                                                            "How does AI affect the way Flutter developers handle native platform gaps?",
-                                                            "How would you advise someone choosing between Flutter-only and Flutter-plus-native today?"
+                                                            "What came back from contributing: skills, contacts, a job?",
+                                                            "Where is the community thin: packages, docs, meetups, or mentoring?",
+                                                            "What would you tell someone who wants to contribute for the first time?"
                                                   ],
                                                   "follow_ups": [
-                                                            "What does the ideal mix of Flutter and platform knowledge actually look like?",
-                                                            "How deep is deep enough in native APIs?",
-                                                            "Where do teams get hurt by shallow cross-platform knowledge?"
-                                                  ]
-                                        },
-                                        {
-                                                  "title": "Ecosystem Trust",
-                                                  "prompt": "Has the Flutter job market — how big or small it is — ever made you second-guess a decision?",
-                                                  "hints": "The job-market tension as developers usually put it: fewer Flutter openings than mainstream stacks, but also fewer experienced Flutter specialists and sometimes more committed teams.",
-                                                  "no_hands": [
-                                                            "How do you weigh personal fit against ecosystem signals when choosing a technology?",
-                                                            "What ecosystem concerns would not bother you?",
-                                                            "How much does corporate backing matter to your decision?"
-                                                  ],
-                                                  "hands_up": [
-                                                            "What makes you trust or question Flutter’s future?",
-                                                            "Which matters more to you: number of openings, quality of teams, salary, or competition level?",
-                                                            "How do you evaluate the risk of relying on a Google-backed framework?",
-                                                            "What would make Flutter feel like a stronger bet for the next few years?"
-                                                  ],
-                                                  "follow_ups": [
-                                                            "What adoption story would change skeptical minds?",
-                                                            "How much should developers diversify beyond any one framework?",
-                                                            "What is Flutter’s strongest ecosystem advantage today?"
+                                                            "Does a strong community offset a shrinking job market, or is that wishful thinking?",
+                                                            "Which one contribution would help Flutter most right now?"
                                                   ]
                                         }
                               ],
                               "wrap_up": [
-                                        "If someone asked whether Flutter is still worth learning, what is your honest answer?",
-                                        "Where do you think Flutter pays off the most as a career bet?",
-                                        "What would you watch over the next year to judge Flutter’s future?"
+                                        "If a friend asked whether Flutter is still worth learning today, what is your honest one-sentence answer?",
+                                        "Where does Flutter pay off most as a career bet: product type, team size, or platform?"
                               ]
                     },
                     "q3": {
                               "sections": [
                                         {
-                                                  "title": "Depth vs. Breadth",
-                                                  "prompt": "Who here has changed what they're learning or how they learn because of AI?",
-                                                  "hints": "Examples: moving across platforms, using AI to bridge gaps, learning product domains, and being able to build something useful even when the job market shifts.",
+                                                  "title": "Job Ads Speak Native",
+                                                  "prompt": "Raise your hand if the last mobile job ad you read wanted Swift or Kotlin first.",
+                                                  "hints": "StepStone.de, counted 28 Sep 2026: 42 ads mention Flutter, 174 Swift iOS, 271 Kotlin Android. Ask how the boards they read compare.",
                                                   "no_hands": [
-                                                            "What keeps your learning plan stable while the tools around you change?",
-                                                            "Which specialties do you think are hardest for AI to flatten, so not worth changing course for?",
-                                                            "What would have to happen for you to change what you learn?"
+                                                            "What did the last mobile job ad you saw actually ask for?",
+                                                            "Would you apply for a native role with only Flutter experience?",
+                                                            "For hirers: what decides whether your ad leads with native or Flutter?"
                                                   ],
                                                   "hands_up": [
-                                                            "What did you change: the topics, the depth, or the way you learn?",
-                                                            "Did AI push you toward being more adaptable or more specialized?",
-                                                            "Where can broad developers still get exposed by lack of depth?",
-                                                            "How do you decide when to go deeper versus wider?"
+                                                            "Did you apply anyway?",
+                                                            "What native skill have you added to stay in the running?",
+                                                            "Is the ratio different for freelance work than for permanent roles?",
+                                                            "Is native plus Flutter a fair ask, or a sign the company has not decided its stack?"
                                                   ],
                                                   "follow_ups": [
-                                                            "What is one deep skill every adaptable Flutter developer still needs?",
-                                                            "How does AI actually change the effectiveness of a generalist?",
-                                                            "How do teams evaluate breadth during hiring?"
+                                                            "What would you put in a job ad if you were hiring a Flutter developer today?"
                                                   ]
                                         },
                                         {
-                                                  "title": "T-Shaped Learning",
-                                                  "prompt": "Who actively spends time on skills outside Flutter — backend, native, design, AI tooling, anything?",
-                                                  "hints": "Examples: Flutter as a deep skill, with breadth across native mobile, backend, AI tooling, design, product, deployment, and analytics.",
+                                                  "title": "Google and the Trust Question",
+                                                  "prompt": "Raise your hand if someone told you Flutter is dead or Google will drop it.",
+                                                  "hints": "Apr 2024: Google cut Flutter and Dart staff. Aug 2026: Flutter 3.47, fourth stable release in twelve months (Google commitment timeline; Flutter 3.47). Ask which answer worked.",
                                                   "no_hands": [
-                                                            "How useful is the T-shaped idea when you're actually deciding what to learn?",
-                                                            "How do you think about the tradeoff between going really deep on one thing versus spreading out?",
-                                                            "If you had to add one skill outside Flutter next month, which would it be?"
+                                                            "Where do you think the 'Flutter is dead' story comes from?",
+                                                            "How much does Google's backing really weigh in your own decisions?",
+                                                            "For the seniors: what were the early signs when a framework you used died?"
                                                   ],
                                                   "hands_up": [
-                                                            "What should be the deep vertical for a Flutter developer?",
-                                                            "Which skills outside of Flutter feel most valuable to pair with it right now?",
-                                                            "How do you avoid spreading yourself too thin?",
-                                                            "What is a realistic T-shaped learning plan for six months?"
+                                                            "What did you answer them?",
+                                                            "Did the doubt change a decision: a project, a hire, a rewrite?",
+                                                            "What evidence did you go looking for afterwards?",
+                                                            "Would a community-run fork of Flutter make you feel safer or more worried?"
                                                   ],
                                                   "follow_ups": [
-                                                            "Where does AI tooling fit in a developer's skill profile?",
-                                                            "How do you show T-shaped ability in a portfolio?",
-                                                            "What is one skill pairing with Flutter that looks underrated?"
+                                                            "Is it good news or bad news that non-Google contributors now outnumber Google employees?",
+                                                            "What is your one-sentence answer for the next time someone says it?"
                                                   ]
                                         },
                                         {
-                                                  "title": "Portfolio Strategy",
-                                                  "prompt": "By a show of hands, is a basic CRUD app still enough for a Flutter portfolio?",
-                                                  "hints": "Examples: showing product reasoning, polish, distribution, metrics, maintainability, native integration, and real users instead of only generated screens.",
+                                                  "title": "Waiting for the Platform Catch-Up",
+                                                  "prompt": "Raise your hand if you waited this year for Flutter to support a new iOS or Android feature.",
+                                                  "hints": "iOS 26 Liquid Glass shipped Sep 2025; Flutter's Cupertino still lacks it, official work is 'underway' (Flutter blog, 9 Sep 2026). Ask what they did meanwhile.",
                                                   "no_hands": [
-                                                            "How do you see traditional portfolios holding up when the projects behind them are genuinely thoughtful?",
-                                                            "What makes a simple Flutter app still impressive?",
-                                                            "How should beginners prove skill without overbuilding?"
+                                                            "Which platform feature would you miss most if it arrived late in Flutter?",
+                                                            "Do your users notice when iOS or Android changes its design?",
+                                                            "For the seniors: has platform lag ever changed a stack decision you made?"
                                                   ],
                                                   "hands_up": [
-                                                            "What makes a Flutter portfolio stand out when everyone can generate a decent-looking app shell?",
-                                                            "What parts of the building process are worth showing alongside the finished app?",
-                                                            "How important is shipping to stores or real users?",
-                                                            "What project would prove both Flutter skill and career resilience?"
+                                                            "Which feature did you wait for?",
+                                                            "Did you write a platform channel, a plugin, or just ship without it?",
+                                                            "Did the wait cost you a client, a release date, or a review rating?"
                                                   ],
                                                   "follow_ups": [
-                                                            "What portfolio artifact shows judgment, not just code generation?",
-                                                            "How should students talk about AI use in projects?",
-                                                            "How do you weigh depth versus breadth when you're reviewing someone's portfolio?"
-                                                  ]
-                                        },
-                                        {
-                                                  "title": "Learning Time Allocation",
-                                                  "prompt": "Has the amount of time you spend learning each week changed in the past year or so?",
-                                                  "hints": "Examples: less syntax memorization, more architecture, product, debugging, review, testing, release, and AI-assisted workflows.",
-                                                  "no_hands": [
-                                                            "What keeps your weekly learning time steady?",
-                                                            "Which old-school learning habits are still worth protecting?",
-                                                            "What should learners avoid outsourcing to AI too early?"
-                                                  ],
-                                                  "hands_up": [
-                                                            "What do you spend less time learning now?",
-                                                            "What do you spend more time practicing now?",
-                                                            "How do you learn a framework when AI can answer questions instantly?",
-                                                            "What would you put in a weekly learning routine for Flutter plus AI?"
-                                                  ],
-                                                  "follow_ups": [
-                                                            "How much time should go to building versus reading versus debugging?",
-                                                            "What is the right role for official docs now?",
-                                                            "How do you keep from becoming dependent on AI explanations?"
+                                                            "Is platform lag getting better or worse in your experience?",
+                                                            "Which gap should the Flutter team close first?"
                                                   ]
                                         }
                               ],
                               "wrap_up": [
-                                        "What career shape would you honestly recommend to someone starting out today?",
-                                        "What is the most valuable skill to pair with Flutter?",
-                                        "What learning habit should developers protect as AI tools get better?"
+                                        "Which weakness in this block would actually change your decision, and which is noise?",
+                                        "What would you need to see from Google or the community in the next year to relax?"
                               ]
                     },
                     "q4": {
                               "sections": [
                                         {
-                                                  "title": "Coding After Coders",
-                                                  "prompt": "Who here uses an AI coding agent — Copilot, Cursor, Gemini, Claude Code, whatever — regularly in their Flutter work?",
-                                                  "hints": "Clive Thompson's 'Coding After Coders' (New York Times Magazine, 12 March 2026) describes developers spending less time typing code and more time supervising agents, shaping intent, and inspecting strange-but-useful outputs.",
+                                                  "title": "The Missing Juniors",
+                                                  "prompt": "Raise your hand if your company hired a junior, apprentice or working student developer in the last 12 months.",
+                                                  "hints": "Indeed DE, Sep 2026: entry-level software postings are 70% below 2019 while apprenticeship postings in the field are 27% above. Ask how juniors get in now.",
                                                   "no_hands": [
-                                                            "What has kept you from making an agent part of your routine: trust, cost, policy, or no need?",
-                                                            "Which parts of Flutter work would you never hand to an agent?",
-                                                            "What would an agent have to prove before you used it regularly?"
+                                                            "Would the path that gave you your first chance still exist today?",
+                                                            "For students and juniors: what do you hear back when you apply?",
+                                                            "For hirers: did budget, mentoring time, or seniors with AI stop a junior hire?"
                                                   ],
                                                   "hands_up": [
-                                                            "What parts of framework knowledge feel easier to delegate to AI?",
-                                                            "How does AI change the risk of picking a framework with a steep learning curve?",
-                                                            "How do you see hiring evolving — what kind of developer will teams look for?",
-                                                            "How should Flutter developers describe their value if syntax matters less?"
+                                                            "How did you find them: apprenticeship (Ausbildung), dual study, university, career change, community?",
+                                                            "What does a junior do on your team now that AI writes the first draft?",
+                                                            "Did AI make them productive faster, or let them skip understanding?"
                                                   ],
                                                   "follow_ups": [
-                                                            "How does framework maturity play into things when agents are generating large diffs?",
-                                                            "How do you think teams' relationship with framework choice will change?",
-                                                            "What remains uniquely human in framework selection?"
+                                                            "If juniors are not hired, where do the seniors come from five years from now?"
                                                   ]
                                         },
                                         {
-                                                  "title": "What Agents Can Replace",
-                                                  "prompt": "Has an AI agent shipped a change to one of your production Flutter apps?",
-                                                  "hints": "Examples: widgets, tests, refactors, navigation, state management wiring, docs, bug investigation, and the review skill needed to catch confident mistakes.",
+                                                  "title": "Agents in Daily Work",
+                                                  "prompt": "Raise your hand if code from a coding agent shipped to your production app this year.",
+                                                  "hints": "JetBrains, Aug 2026: 90% of professional developers use a coding agent at least weekly. Ask who reviewed the code.",
                                                   "no_hands": [
-                                                            "Which Flutter tasks remain too context-heavy for agents?",
-                                                            "What failure modes make you cautious?",
-                                                            "What would you need before trusting an agent with larger changes?"
+                                                            "Where else do you use AI in Flutter work: tests, docs, reviews, planning?",
+                                                            "What stops you: policy, trust, cost, or quality?",
+                                                            "For team leads: does your team have a written rule for agents?"
                                                   ],
                                                   "hands_up": [
-                                                            "Which Flutter tasks do agents handle well today?",
-                                                            "Where do they still make subtle mistakes?",
-                                                            "How do you review AI-generated Flutter code efficiently?",
-                                                            "What guardrails make agentic coding safer?"
+                                                            "Which Flutter task did the agent get confidently wrong?",
+                                                            "Did reviewing the agent's code take longer than writing it yourself?",
+                                                            "Did agents change how many people the team needs, or just what they do all day?",
+                                                            "Is Flutter easier or harder for agents than Swift or Kotlin?"
                                                   ],
                                                   "follow_ups": [
-                                                            "Where do agents add the most value — and where do they fall short — between new builds and maintenance?",
-                                                            "What tests catch the most AI-generated Flutter issues?",
-                                                            "How do agents change the role of code review?"
+                                                            "Which agent habit makes a developer weaker over time?"
                                                   ]
                                         },
                                         {
-                                                  "title": "Verification as Core Skill",
-                                                  "prompt": "Who's caught a real bug or a bad design choice in AI-generated code?",
-                                                  "hints": "Recent software-engineering research and media coverage point in the same direction: as agents handle more implementation, humans spend more effort validating correctness, maintainability, security, and product fit.",
+                                                  "title": "Native by Agent",
+                                                  "prompt": "Raise your hand if you let an agent write Swift or Kotlin for you this year.",
+                                                  "hints": "MobileDev-Bench study, Mar 2026: top AI models fixed 3 to 4% of 407 mobile issues, 5.7% with the right files; no iOS. Ask if it felt safe.",
                                                   "no_hands": [
-                                                            "Do you review AI-generated code differently from human code, or not at all?",
-                                                            "Which writing skills should developers keep practicing?",
-                                                            "What would make you look harder at AI output before shipping it?"
+                                                            "Which native task would you hand to an agent first?",
+                                                            "Who writes the Swift or Kotlin on your project today?",
+                                                            "For the seniors: does cheap agent-written native code make Flutter more or less attractive?"
                                                   ],
                                                   "hands_up": [
-                                                            "What makes someone good at reviewing AI-generated Flutter code?",
-                                                            "Which debugging skills are hardest for AI to replace?",
-                                                            "How do you teach code reading to beginners if agents write much of the first draft?",
-                                                            "What Flutter-specific bugs require real framework understanding?"
+                                                            "What did it write: a platform channel, a plugin, a whole native module?",
+                                                            "How did you check the Swift or Kotlin before it shipped?",
+                                                            "Did it make you more likely to go native next time, or less?"
                                                   ],
                                                   "follow_ups": [
-                                                            "How should interviews balance debugging versus implementation when testing candidates?",
-                                                            "How do you practice code review without a team?",
-                                                            "What is one debugging habit AI users need?"
-                                                  ]
-                                        },
-                                        {
-                                                  "title": "Architecture and Product Judgment",
-                                                  "prompt": "Has anyone made an architecture or product call recently that you're pretty sure no AI tool would have gotten right?",
-                                                  "hints": "Examples: choosing problems, shaping user flows, deciding boundaries, managing complexity, and knowing when not to automate.",
-                                                  "no_hands": [
-                                                            "What was the last architecture call on your project, and who made it?",
-                                                            "How does building with AI actually affect the way developers learn architecture judgment?",
-                                                            "What should juniors do before they can make good architecture decisions?"
-                                                  ],
-                                                  "hands_up": [
-                                                            "What product or architecture decisions does AI still struggle with?",
-                                                            "How does Flutter help or hurt product experimentation?",
-                                                            "What should developers learn to guide agents instead of only prompting them?",
-                                                            "How do you know when AI is solving the wrong problem?"
-                                                  ],
-                                                  "follow_ups": [
-                                                            "What question should developers ask before asking AI to code?",
-                                                            "How can Flutter developers show product judgment in real work?",
-                                                            "What architecture mistake can AI make faster than a human?"
+                                                            "If agents make native cheap, what is the remaining argument for one codebase?",
+                                                            "Where do you draw the line on shipping code you could not have written?"
                                                   ]
                                         }
                               ],
                               "wrap_up": [
-                                        "In an agentic coding world, what should Flutter developers become excellent at?",
-                                        "How has AI changed Flutter's value proposition as a career investment?",
-                                        "What is one agentic workflow you would teach every Flutter developer?"
+                                        "In a world where agents write the first draft, what should a Flutter developer become excellent at?",
+                                        "What would you tell a student who asks whether to start in mobile at all?"
                               ]
                     },
                     "q5": {
                               "sections": [
                                         {
-                                                  "title": "Product Thinking",
-                                                  "prompt": "Who here has shaped a product decision — not just built what was specced — on a Flutter project?",
-                                                  "hints": "Examples: understanding users, prioritizing outcomes, validating ideas, measuring success, and using Flutter to ship something real across surfaces.",
+                                                  "title": "Salary in the Job Ad",
+                                                  "prompt": "Raise your hand if you have seen a salary range in a Flutter job ad this year.",
+                                                  "hints": "EU Pay Transparency Directive: national laws were due 7 June 2026; Germany had no draft in July (Pay transparency, Bundestag). Ask whether a range changed a decision.",
                                                   "no_hands": [
-                                                            "How do you think about the boundary between a developer's job and product thinking?",
-                                                            "Where can product thinking distract from technical excellence?",
-                                                            "What product skill is useful without becoming a product manager?"
+                                                            "Where do you get salary information today: friends, surveys, recruiters, guesswork?",
+                                                            "Would a visible range change which ads you apply to?",
+                                                            "For hirers: what holds you back from putting a range in every ad?"
                                                   ],
                                                   "hands_up": [
-                                                            "How has product thinking helped your technical work?",
-                                                            "Why might Flutter be useful for validating product ideas quickly?",
-                                                            "What product questions should a developer ask before building?",
-                                                            "How can students practice product thinking in portfolio projects?"
+                                                            "Did the range change your decision to apply, or your ask in the interview?",
+                                                            "Was the range for Flutter different from the native roles you saw?",
+                                                            "Was the range honest, or a wide band that said nothing?"
                                                   ],
                                                   "follow_ups": [
-                                                            "What makes a Flutter app feel like a product instead of a demo?",
-                                                            "How should developers measure whether their work matters?",
-                                                            "How does product thinking change a developer's position when automation pressure increases?"
+                                                            "Does transparency help juniors or seniors more?",
+                                                            "Where should a junior look for a realistic range before interviewing?"
                                                   ]
                                         },
                                         {
-                                                  "title": "Systems Thinking",
-                                                  "prompt": "Who's dealt with a production issue that you couldn't fix without understanding the bigger system around your code?",
-                                                  "hints": "Examples: data flow, state, APIs, reliability, observability, performance, security, platform integration, and maintenance.",
+                                                  "title": "Hired Across Borders",
+                                                  "prompt": "Raise your hand if you work or hire for a company based in another country.",
+                                                  "hints": "Indeed job postings index, Sep 2026: US software-dev postings up 19% in a year, Germany down 15% to a record low. Ask what makes a skill portable.",
                                                   "no_hands": [
-                                                            "What is the biggest system around your code that you have never had to touch?",
-                                                            "How do early-career developers actually engage with systems thinking — and where does it get tricky?",
-                                                            "What concrete Flutter tasks teach systems thinking best?"
+                                                            "What would worry you about a fully remote role abroad?",
+                                                            "Do European cities compete with each other for Flutter work, or all of them with the US?",
+                                                            "For hirers: what stops you hiring across borders: law, time zones, trust, or tax?"
                                                   ],
                                                   "hands_up": [
-                                                            "Which systems concepts show up most often in Flutter apps?",
-                                                            "How do AI tools change the need to understand the whole system?",
-                                                            "What systems skill helped you debug something AI could not?",
-                                                            "How can Flutter developers become stronger end-to-end builders?"
+                                                            "How did it happen: remote job, relocation, or freelance contract?",
+                                                            "What surprised you most: pay, working culture, or paperwork?",
+                                                            "Is Flutter a portable skill across markets, or does each market want something else?"
                                                   ],
                                                   "follow_ups": [
-                                                            "What system boundary do Flutter developers often misunderstand?",
-                                                            "How do backend and deployment skills change Flutter career options?",
-                                                            "What should every Flutter developer know about reliability?"
+                                                            "Where in Europe is the Flutter demand you actually see?",
+                                                            "What would you tell someone in your city who wants to work for a company abroad?"
                                                   ]
                                         },
                                         {
-                                                  "title": "Shipping Real Apps",
-                                                  "prompt": "Who here has actually shipped a Flutter app to a store or to real users?",
-                                                  "hints": "Examples: app stores, real users, analytics, payments, support, crash reports, platform review, and iteration after launch.",
+                                                  "title": "Rules in Your Backlog",
+                                                  "prompt": "Raise your hand if the AI Act, Accessibility Act or GDPR put a ticket in your backlog this year.",
+                                                  "hints": "Accessibility Act: applies since June 2025. EU AI Act: literacy duty since Feb 2025, hiring-tool rules moved to Dec 2027. Ask which became a real ticket.",
                                                   "no_hands": [
-                                                            "What makes a learning project compelling enough to stand on its own without a real launch?",
-                                                            "What blocks people from shipping real apps?",
-                                                            "How can students ship responsibly without huge scope?"
+                                                            "Which rule do you expect to reach your work first?",
+                                                            "Is accessibility on your definition of done, or something for later?",
+                                                            "For team leads: who on your team knows what the AI Act asks of your app?"
                                                   ],
                                                   "hands_up": [
-                                                            "What did shipping teach you that tutorials never did?",
-                                                            "How does Flutter affect the path from idea to a real, shipped product?",
-                                                            "How does AI change the speed or quality of shipping?",
-                                                            "What is the smallest real Flutter app that would prove serious ability?"
+                                                            "How big did that ticket turn out to be?",
+                                                            "Did the rule change a design decision or a technology decision?",
+                                                            "Was Flutter a help or a hindrance: semantics, screen readers, data handling?"
                                                   ],
                                                   "follow_ups": [
-                                                            "What role do metrics and user feedback play in making a portfolio convincing?",
-                                                            "What mistakes only appear after launch?",
-                                                            "How do you balance shipping fast with learning deeply?"
-                                                  ]
-                                        },
-                                        {
-                                                  "title": "Communication and Judgment",
-                                                  "prompt": "Has anyone seen a project go sideways mainly because of communication, not code?",
-                                                  "hints": "Examples: explaining tradeoffs, aligning with stakeholders, writing clear tickets, reviewing AI outputs, and deciding what not to build.",
-                                                  "no_hands": [
-                                                            "What keeps communication from becoming the problem on your projects?",
-                                                            "Where can communication be overrated?",
-                                                            "What judgment can only come after building experience?"
-                                                  ],
-                                                  "hands_up": [
-                                                            "What went wrong, and what would have prevented it?",
-                                                            "Was AI-generated work part of the misunderstanding?",
-                                                            "What does good judgment look like during code review?",
-                                                            "How can Flutter developers practice explaining technical tradeoffs?"
-                                                  ],
-                                                  "follow_ups": [
-                                                            "What is one phrase that signals strong engineering judgment?",
-                                                            "How do you disagree with AI output clearly?",
-                                                            "How much of a difference can strong communication make for a junior developer trying to stand out?"
+                                                            "Is regulation a competitive advantage for European developers, or just cost?",
+                                                            "What is one accessibility fix every Flutter app in the room could ship this month?"
                                                   ]
                                         }
                               ],
                               "wrap_up": [
-                                        "What career-resilience skill should every Flutter developer build next?",
-                                        "What separates a developer who can ship from one who can only generate code?",
-                                        "Which Flutter project would best prove product, systems, and judgment skills together?"
+                                        "Does being in Europe make Flutter a better or a worse bet than in the US, and why?",
+                                        "Which EU rule will shape your next project more than any framework choice?"
                               ]
                     },
                     "q6": {
                               "sections": [
                                         {
-                                                  "title": "What to Learn Next",
-                                                  "prompt": "Who here has a specific thing they want to learn or build in the next few months?",
-                                                  "hints": "Examples: Flutter fundamentals, native mobile, state management, testing, backend integration, AI tooling, product design, deployment, and verification habits.",
+                                                  "title": "Depth or Breadth",
+                                                  "prompt": "Raise your hand if you spent real time this year on a skill outside Flutter: native, backend, product, people.",
+                                                  "hints": "METR study, Jul 2025: with AI, 16 experienced open-source developers were 19% slower but felt 20% faster; Feb 2026 follow-up: inconclusive. Ask what AI could not shortcut.",
                                                   "no_hands": [
-                                                            "What makes choosing the next step difficult?",
-                                                            "How do you deal with the sheer number of competing skills you could be learning?",
-                                                            "What would help you pick one focus for the next month?"
+                                                            "What is the one deep skill you are betting on?",
+                                                            "What would you learn next if you had one free day a week?",
+                                                            "For the seniors: which skill paid off most over your career?"
                                                   ],
                                                   "hands_up": [
-                                                            "What is your next learning priority and why?",
-                                                            "How does AI change the way you plan to learn it?",
-                                                            "What will you build, ship, or verify to know you improved?",
-                                                            "What would you stop learning for now?"
+                                                            "Did the new skill change what work comes to you?",
+                                                            "Did learning it with AI help, or make it shallow?",
+                                                            "Was it depth, like native or architecture, or breadth, like product or people?",
+                                                            "How do you show that learning to an employer or a client?"
                                                   ],
                                                   "follow_ups": [
-                                                            "What is a realistic 30-day Flutter learning goal?",
-                                                            "How do you avoid collecting courses instead of building?",
-                                                            "What would make your learning visible to employers or collaborators?"
+                                                            "What should a Flutter developer still do deliberately by hand?",
+                                                            "Which skill pairing with Flutter is underrated right now?"
                                                   ]
                                         },
                                         {
-                                                  "title": "Projects Worth Building",
-                                                  "prompt": "Has a side project or portfolio piece ever directly led to an opportunity for you?",
-                                                  "hints": "Examples: multi-platform apps, AI-powered tools, local business apps, internal dashboards, accessibility-focused products, monetized apps, and products with real users.",
+                                                  "title": "An App With Your Name On It",
+                                                  "prompt": "Raise your hand if an app you built yourself is live in a store or on the web.",
+                                                  "hints": "Google Play: new personal developer accounts need a closed test with 12 testers for 14 days before production. Ask who hit this hurdle.",
                                                   "no_hands": [
-                                                            "What has opened doors for you instead: referrals, work history, community?",
-                                                            "Which project ideas feel overdone or weak now?",
-                                                            "How can beginners choose a project that is achievable?"
+                                                            "What stopped you: an idea, time, store hurdles, or no need?",
+                                                            "Would a shipped app help you more than a certificate or a course?",
+                                                            "For hirers: does a shipped app with real users change how you read a candidate?"
                                                   ],
                                                   "hands_up": [
-                                                            "What was the project, and how did the opportunity find it?",
-                                                            "How should AI be used in the project without becoming the whole story?",
-                                                            "What project proves cross-platform value clearly?",
-                                                            "How do you scope a project so it ships?"
+                                                            "What did shipping teach you that no tutorial did?",
+                                                            "Did it lead to anything: a job, a client, a talk, a lesson?",
+                                                            "How much of it would you let an agent build today?"
                                                   ],
                                                   "follow_ups": [
-                                                            "What is one project idea you would recommend to a student?",
-                                                            "What is one project idea you would recommend to a working developer?",
-                                                            "How do you think about who a portfolio project should serve first?"
+                                                            "What would you build to show product judgment rather than code generation?"
                                                   ]
                                         },
                                         {
-                                                  "title": "Evaluating Opportunities",
-                                                  "prompt": "Has anyone started asking different questions before joining a company because of AI?",
-                                                  "hints": "Examples: team maturity, product domain, platform requirements, native complexity, AI expectations, testing culture, salary, mentorship, and whether AI investment is paired with hiring or cuts.",
+                                                  "title": "Saying No to a Stack",
+                                                  "prompt": "Raise your hand if you turned down a job or project this year because of its stack.",
+                                                  "hints": "JetBrains developer survey, Oct 2025: 68% of developers expect employers to require AI-tool skills in the near future. Ask whether AI expectations were behind the no.",
                                                   "no_hands": [
-                                                            "What makes Flutter opportunities hard to evaluate?",
-                                                            "Which questions would you ask before joining a Flutter team?",
-                                                            "How do you avoid choosing only based on technology?"
+                                                            "What would you say yes to outside Flutter: the product, the team, the pay?",
+                                                            "How much does the framework matter next to the domain and the people?",
+                                                            "For juniors: what would you need to know about a team before saying yes, stack aside?"
                                                   ],
                                                   "hands_up": [
-                                                            "What signals make a Flutter opportunity attractive?",
-                                                            "What red flags would make you hesitate: no mentorship, vague AI strategy, rushed rewrites, or shrinking teams?",
-                                                            "How important is the product domain compared with the framework?",
-                                                            "How does a team's AI adoption affect your interest in joining them?"
+                                                            "Without naming the company: was the real reason the tech, the team, or the AI expectations?",
+                                                            "What do you ask a team now that you did not ask before?",
+                                                            "Have you regretted a no, or a yes?"
                                                   ],
                                                   "follow_ups": [
-                                                            "What interview question reveals a healthy Flutter team?",
-                                                            "How do you judge whether a company uses AI to augment developers or avoid developing people?",
-                                                            "What opportunity would you take even if Flutter were not the main stack?"
-                                                  ]
-                                        },
-                                        {
-                                                  "title": "Advice to Your Past Self",
-                                                  "prompt": "Who's been in the Flutter ecosystem for more than a couple of years?",
-                                                  "hints": "Examples: learn fundamentals earlier, ship more, add native/backend depth, use AI deliberately, build product sense, or avoid chasing every tool.",
-                                                  "no_hands": [
-                                                            "What brought you to Flutter recently, and what surprised you?",
-                                                            "Which advice have you already received, and did it help?",
-                                                            "What should newcomers not overthink?"
-                                                  ],
-                                                  "hands_up": [
-                                                            "What would you tell your past self to learn sooner?",
-                                                            "What would you tell your past self to stop worrying about?",
-                                                            "How would Flutter fit into that advice?",
-                                                            "What habit would have compounded the most over time?"
-                                                  ],
-                                                  "follow_ups": [
-                                                            "What advice sounds smart but is actually harmful now?",
-                                                            "What is one small action people can take after this roundtable?",
-                                                            "What should the Flutter community help newcomers understand better?"
+                                                            "What interview question reveals whether a team uses AI to grow people or to avoid hiring?"
                                                   ]
                                         }
                               ],
                               "wrap_up": [
-                                        "After this discussion, how has your thinking about Flutter as a career bet changed?",
-                                        "What is one concrete next step you will take in the next 30 days?",
-                                        "What should this community do to help people navigate AI-driven career uncertainty?"
+                                        "Eyes closed again: hands up if you would still choose Flutter starting today. Facilitators count and compare with the worried count from Q1.",
+                                        "One sentence to your past self, from anyone who has been in Flutter for more than two years.",
+                                        "Where does this conversation continue: Flutter Berlin or your local meetup, Flutteristas, the Flutter Community AI Circle, or Friday's native versus cross-platform panel?"
                               ]
                     }
           }
@@ -1331,7 +1149,7 @@
             
             // Update title
             const topicDisplayName = 'Is Flutter a Smart Bet in an AI-Driven Job Market?';
-            mainTitle.innerHTML = `FlutterCon USA 2026 Roundtable: ${topicDisplayName} <span class="chip">Click any box to expand</span>`;
+            mainTitle.innerHTML = `FlutterCon EU 2026 Roundtable: ${topicDisplayName} <span class="chip">Click any box to expand</span>`;
             
             // Generate question navigation
             questionList.innerHTML = '';
@@ -1373,6 +1191,7 @@
                         <div class="sectionTitle">${section.title}</div>
                         <div class="prompt-section">
                             <div class="prompt-text">${section.prompt}</div>
+                            <small class="card-hint">${section.hints}</small>
                             <div class="response-options">
                                 <button class="response-btn no-btn" onclick="toggleBranch('${sectionId}No', 'Q${qNum}S${sectionIndex + 1}')">
                                     <span class="pill no">No Hands</span>
@@ -1383,7 +1202,7 @@
                             </div>
                         </div>
                         <div id="${sectionId}No" class="details no-hands">
-                            <h3>${section.title.replace(/^[A-Z]\)\s*/, '')} – No Hands</h3>
+                            <h3>${section.title.replace(/^[A-Z]\)\s*/, '')}: No Hands</h3>
                             <small>${section.hints}</small>
                             <ul>
                                 ${section.no_hands.map(q => `<li>${q}</li>`).join('')}
@@ -1391,7 +1210,7 @@
                             ${renderFollowUps(section.follow_ups)}
                         </div>
                         <div id="${sectionId}Yes" class="details hands-up">
-                            <h3>${section.title.replace(/^[A-Z]\)\s*/, '')} – Hands Up</h3>
+                            <h3>${section.title.replace(/^[A-Z]\)\s*/, '')}: Hands Up</h3>
                             <small>${section.hints}</small>
                             <ul>
                                 ${section.hands_up.map(q => `<li>${q}</li>`).join('')}
@@ -1433,13 +1252,13 @@
 
         function getQuestionTitle(topic, qNum) {
             const titles = {
-                flutter_ai_job_market: [
+                flutter_ai_job_market_eu: [
                     'Q1: Who Is Hiring, Looking, or Worried?',
-                    'Q2: Is Flutter Still a Smart Bet?',
-                    'Q3: Specialize Deeply or Stay Adaptable?',
-                    'Q4: Flutter in an Agentic Coding World',
-                    'Q5: Building Career Resilience with Flutter',
-                    'Q6: Practical Next Steps'
+                    'Q2: The Good: Where Flutter Still Wins',
+                    'Q3: The Bad: Where Flutter Loses',
+                    'Q4: The Ugly: AI and the Entry-Level Squeeze',
+                    'Q5: The Europe Factor',
+                    'Q6: Your Next Move'
                 ]
             };
             return titles[topic][qNum - 1] || `Q${qNum}`;
@@ -1450,14 +1269,14 @@
         }
     </script>
 </head>
-<body onload="loadTopic('flutter_ai_job_market')">
+<body onload="loadTopic('flutter_ai_job_market_eu')">
     <!-- Topic Selection Screen -->
     <div id="topic-selection" class="topic-selection hidden">
         <div class="wrap">
-            <h1>FlutterCon USA 2026 Roundtable Facilitator</h1>
+            <h1>FlutterCon EU 2026 Roundtable Facilitator</h1>
             <p>Is Flutter a Smart Bet in an AI-Driven Job Market?</p>
             <div class="topic-buttons">
-                <button class="topic-button" onclick="loadTopic('flutter_ai_job_market')">
+                <button class="topic-button" onclick="loadTopic('flutter_ai_job_market_eu')">
                     Start Discussion
                 </button>
             </div>
@@ -1472,8 +1291,9 @@
     <!-- Main Content -->
     <div id="main-content" class="hidden">
         <div class="wrap">
-            <h1 id="main-title">FlutterCon USA 2026 Roundtable Facilitator <span class="chip">Click any box to expand</span></h1>
-            
+            <h1 id="main-title">FlutterCon EU 2026 Roundtable Facilitator <span class="chip">Click any box to expand</span></h1>
+            <p class="facilitators">Facilitated by <strong>Ivanna Kaceviča</strong> (Google Developer Expert, Riga) and <strong>Esra Kadah</strong> (Google Developer Expert, Berlin). Both speak for themselves, not for Google. next·app devCon 2026, flutterCon Berlin track, Wednesday 7 October, 10:20 to 11:00, Unconference Roundtables.</p>
+
             <div style="margin-bottom: 20px; display: flex; gap: 12px; align-items: center;">
                 <button onclick="openRoulette()" style="background: var(--accent); border: 1px solid var(--accent); color: #0b1220; padding: 8px 16px; border-radius: 5px; cursor: pointer; font-weight: 600;">
                     🎰 Open Roulette
@@ -1487,6 +1307,33 @@
             </div>
 
             <div id="content-area"></div>
+
+            <details class="sources">
+                <summary>Sources (checked 28 September 2026)</summary>
+                <ol>
+                    <li><strong>Stack Overflow 2025</strong>: Stack Overflow Developer Survey 2025, 29 Jul 2025: 64% say AI is not a threat to their job, 68% in 2024 (15% say it is). <a href="https://survey.stackoverflow.co/2025/work#job-satisfaction-ai-threat">survey.stackoverflow.co/2025/work</a></li>
+                    <li><strong>JetBrains, Aug 2026</strong>: AI Coding Agents: Adoption Trends, JetBrains Research, 18 Aug 2026: 90% of 15,000+ professional developers use coding agents at least weekly. <a href="https://blog.jetbrains.com/research/2026/08/ai-coding-agent-adoption-2026/">blog.jetbrains.com</a></li>
+                    <li><strong>JetBrains developer survey, Oct 2025</strong>: The State of Developer Ecosystem 2025, JetBrains Research, Oct 2025: 68% of 24,534 developers expect employers to require proficiency in AI tools in the near future. <a href="https://blog.jetbrains.com/research/2025/10/state-of-developer-ecosystem-2025/">blog.jetbrains.com</a></li>
+                    <li><strong>Indeed job postings index, Sep 2026</strong>: Software development postings on Indeed, index 1 Feb 2020 = 100, via FRED, 18 Sep 2026: Germany 48.87, a series low, down 15% in a year (<a href="https://fred.stlouisfed.org/series/IHLIDXDETPSOFTDEVE">IHLIDXDETPSOFTDEVE</a>); US 77.32, up 19% (<a href="https://fred.stlouisfed.org/series/IHLIDXUSTPSOFTDEVE">IHLIDXUSTPSOFTDEVE</a>).</li>
+                    <li><strong>Indeed DE, Sep 2026</strong>: Berufseinstieg: Stellenangebot sinkt, Ausbildungssystem bietet einen Anker, Indeed Hiring Lab Deutschland, 23 Sep 2026: entry-level software postings 70% below 2019, apprenticeship postings 27% above (Aug 2025 to Jul 2026). <a href="https://hiringlab.indeed.com/de/blog/2026/09/23/berufseinstieg-stellenangebot-sinkt-ausbildungssystem-bietet-einen-anker/">hiringlab.indeed.com/de</a></li>
+                    <li><strong>Bitkom, Sep 2026</strong>: IT-Fachkräftemangel hat sich in den letzten drei Jahren halbiert, Bitkom e.V., 3 Sep 2026: 79,000 unfilled IT jobs, 149,000 in 2023. <a href="https://www.bitkom.org/Presse/Presseinformation/IT-Fachkraeftemangel-in-den-letzten-drei-Jahren-halbiert">bitkom.org</a></li>
+                    <li><strong>StepStone.de, 28 Sep 2026</strong>: keyword pages counted on the check date: <a href="https://www.stepstone.de/jobs/flutter">Flutter</a> 42, <a href="https://www.stepstone.de/jobs/swift-ios">Swift iOS</a> 174, <a href="https://www.stepstone.de/jobs/kotlin-android">Kotlin Android</a> 271. Keyword matches, not like-for-like roles; a snapshot, not a series.</li>
+                    <li><strong>itjobswatch UK, Sep 2026</strong>: UK permanent ads, six months to 28 Sep 2026, for comparison: Flutter 25, React Native 223, Swift 73, Kotlin 265. <a href="https://www.itjobswatch.co.uk/jobs/uk/flutter.do">itjobswatch.co.uk</a></li>
+                    <li><strong>Appfigures via Pragmatic Engineer, Jan 2025</strong>: Cross-platform mobile development, The Pragmatic Engineer, 14 Jan 2025: about 11% of apps released in 2024 used Flutter, 7% React Native. <a href="https://newsletter.pragmaticengineer.com/p/cross-platform-mobile-development">newsletter.pragmaticengineer.com</a></li>
+                    <li><strong>Flutter blog, May 2026; LG, Jun 2026</strong>: What's new in Flutter 3.44, 20 May 2026: Toyota RAV4, Canonical as Flutter desktop steward. <a href="https://flutter.dev/blog/whats-new-in-flutter-3-44">flutter.dev</a>. LG, Flutter for webOS TV is Now Available for Developers, 30 Jun 2026. <a href="https://webostv.developer.lge.com/news/flutter-for-webos-tv-is-now-available-for-developers">webostv.developer.lge.com</a></li>
+                    <li><strong>Flutter roadmap, Feb 2026</strong>: Flutter and Dart's 2026 roadmap, 24 Feb 2026: "non-Google contributors now outnumbering those of us employed by Google". <a href="https://flutter.dev/blog/flutter-darts-2026-roadmap">flutter.dev</a></li>
+                    <li><strong>Flutter 3.47, Aug 2026</strong>: What's new in Flutter 3.47, 12 Aug 2026; stable releases in the last twelve months: 3.38, 3.41, 3.44, 3.47. <a href="https://flutter.dev/blog/whats-new-in-flutter-3-47">flutter.dev</a></li>
+                    <li><strong>Google commitment timeline</strong>: TechCrunch, Google lays off staff from Flutter, Dart and Python teams, 29 Apr 2024. <a href="https://techcrunch.com/2024/05/01/google-lays-off-staff-from-flutter-dart-python-weeks-before-its-developer-conference/">techcrunch.com</a>. Dart blog, An update on Dart macros and data serialization, 29 Jan 2025. <a href="https://dart.dev/blog/an-update-on-dart-macros-data-serialization">dart.dev</a>. Flock fork: no activity in 2026, last commit 25 Nov 2025 (checked 28 Sep 2026). <a href="https://github.com/join-the-flock/flock">github.com</a></li>
+                    <li><strong>Liquid Glass status</strong>: Material and Cupertino decoupling are here, Flutter blog, 9 Sep 2026: "work is already underway on official implementations of Liquid Glass". <a href="https://flutter.dev/blog/decoupling-material-cupertino">flutter.dev</a>. No Liquid Glass entry in the <a href="https://pub.dev/packages/cupertino_ui/changelog">cupertino_ui changelog</a> through 1.1.1; tracking issue <a href="https://github.com/flutter/flutter/issues/170310">flutter/flutter#170310</a>. iOS 26 support: <a href="https://flutter.dev/blog/whats-new-in-flutter-3-38">What's new in Flutter 3.38</a>, Nov 2025.</li>
+                    <li><strong>MobileDev-Bench study, Mar 2026</strong>: MobileDev-Bench: A Benchmark for Issue Resolution in Mobile Application Development, arXiv 2603.24946: 407 issues (Android native 328, Flutter 63, React Native 16, no iOS); 3.23% to 4.23% resolved with automated retrieval, at most 5.69% when given the right files. Flutter tasks were 32.1% of solved tasks against a 15.5% share, indicative only. <a href="https://arxiv.org/abs/2603.24946">arxiv.org</a></li>
+                    <li><strong>METR study, Jul 2025</strong>: Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity, METR, 10 Jul 2025: 16 developers were 19% slower with AI tools and afterwards believed they were 20% faster. <a href="https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/">metr.org</a>. Follow-up, 24 Feb 2026: new estimates with intervals spanning zero. <a href="https://metr.org/blog/2026-02-24-uplift-update/">metr.org</a></li>
+                    <li><strong>Pay transparency, Bundestag Jul 2026</strong>: Directive (EU) 2023/970, national laws due 7 Jun 2026. Deutscher Bundestag, Umsetzung der EU-Entgelttransparenzrichtlinie, 16 Jul 2026: no German draft law yet. <a href="https://www.bundestag.de/presse/hib/kurzmeldungen-1195086">bundestag.de</a></li>
+                    <li><strong>EU AI Act</strong>: <a href="https://artificialintelligenceact.eu/article/4/">Article 4</a>, AI literacy, applies since 2 Feb 2025. Hiring tools are high-risk under <a href="https://artificialintelligenceact.eu/annex/3/">Annex III</a>; those obligations start 2 Dec 2027 under <a href="https://artificialintelligenceact.eu/article/113/">Article 113</a> as amended by the Digital Omnibus on AI, Regulation (EU) 2026/1744, in force 27 Jul 2026 (<a href="https://knowledge.dlapiper.com/dlapiperknowledge/globalemploymentlatestdevelopments/2026/The-Digital-AI-Omnibus-Proposed-deferral-of-high-risk-AI-obligations-under-the-AI-Act">DLA Piper summary</a>).</li>
+                    <li><strong>Accessibility Act</strong>: Directive (EU) 2019/882, applies from 28 Jun 2025; in Germany the Barrierefreiheitsstärkungsgesetz (BFSG), covering consumer e-commerce, banking and transport apps and websites; micro-enterprises exempt for services. <a href="https://www.gesetze-im-internet.de/bfsg/BJNR297010021.html">gesetze-im-internet.de</a></li>
+                    <li><strong>Google Play</strong>: App testing requirements for new personal developer accounts: a closed test with 12 testers opted in for 14 continuous days. <a href="https://support.google.com/googleplay/android-developer/answer/14151465">support.google.com</a></li>
+                </ol>
+                <p>Job-ad counts are snapshots from the stated date. Summaries of EU law are engineering notes, not legal advice. The facilitators are Google Developer Experts and do not speak for Google.</p>
+            </details>
         </div>
     </div>
 

@@ -1,0 +1,67 @@
+{
+  "source_file": "Berlin 2026 edition for next app devCon 2026 (flutterCon Berlin), sources listed on the page",
+  "extracted_at": "2026-09-28T00:00:00.000000",
+  "question": "Q2: The Good: Where Flutter Still Wins",
+  "sections": [
+    {
+      "model": "One Codebase, Small Team",
+      "prompt": "Raise your hand if you have shipped a production Flutter app with three people or fewer.",
+      "hint": "Appfigures via Pragmatic Engineer, Jan 2025: Flutter in about 11% of new app releases in 2024, React Native in 7%. Ask what a tiny team shipped.",
+      "no_hands": [
+        "What is the smallest team you have seen ship a real app, on any stack?",
+        "What would stop a two-person team from choosing Flutter today?",
+        "For hirers: does Flutter change how many people you need to hire?"
+      ],
+      "hands_up": [
+        "What did the small team ship that would have needed separate native teams?",
+        "Where did the one-codebase promise break for you?",
+        "How much of that leverage came from Flutter and how much from AI tools?"
+      ],
+      "follow_ups": [
+        "Would you build the same product the same way today?"
+      ]
+    },
+    {
+      "model": "Beyond the Phone",
+      "prompt": "Raise your hand if you have shipped Flutter to something other than a phone: web, desktop, car, TV, embedded.",
+      "hint": "Flutter blog, May 2026: Toyota's 2026 RAV4 runs Flutter; Canonical leads Flutter desktop. LG, Jun 2026: Flutter for webOS TV available. Ask for the least expected target.",
+      "no_hands": [
+        "Which non-phone target would you try first?",
+        "Do employers near you ever ask for Flutter web or desktop?",
+        "For the seniors: is going beyond the phone a real career lever or a niche?"
+      ],
+      "hands_up": [
+        "What did you ship beyond the phone?",
+        "Why Flutter there, rather than the platform's own toolkit?",
+        "What broke on that target that works fine on phones?",
+        "Did that work change which roles or clients came to you?"
+      ],
+      "follow_ups": [
+        "What would make Flutter web the obvious choice for you?"
+      ]
+    },
+    {
+      "model": "Community as the Moat",
+      "prompt": "Raise your hand if you have contributed to a Flutter package, to Flutter itself, or to a Flutter community.",
+      "hint": "Flutter roadmap, Feb 2026: non-Google contributors now outnumber Google employees on Flutter. Ask what contributing gave back: skills, contacts, work.",
+      "no_hands": [
+        "What has the community given you so far: packages, answers, meetups?",
+        "What stops you from contributing: time, confidence, or not knowing where to start?",
+        "For hirers: does open-source or community work count when you hire?"
+      ],
+      "hands_up": [
+        "What came back from contributing: skills, contacts, a job?",
+        "Where is the community thin: packages, docs, meetups, or mentoring?",
+        "What would you tell someone who wants to contribute for the first time?"
+      ],
+      "follow_ups": [
+        "Does a strong community offset a shrinking job market, or is that wishful thinking?",
+        "Which one contribution would help Flutter most right now?"
+      ]
+    }
+  ],
+  "wrap_up": [
+    "If a friend asked whether Flutter is still worth learning today, what is your honest one-sentence answer?",
+    "Where does Flutter pay off most as a career bet: product type, team size, or platform?"
+  ]
+}
