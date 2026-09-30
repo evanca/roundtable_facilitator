@@ -38,6 +38,10 @@
         .card .details { font-size: 17px; }
         .card .details small { font-size: 15px; }
         .card .sectionTitle { font-size: 16px; }
+        #roulette-result .roulette-result-title { font-size: 20px; }
+        #roulette-result .roulette-result-prompt { font-size: 22px; }
+        #roulette-result .roulette-result-hint { font-size: 15px; }
+        #roulette-result .roulette-details { font-size: 17px; }
         .sources { margin-top: 28px; font-size: 13px; color: #9fb6d9; }
         .sources summary { cursor: pointer; color: var(--accent); font-weight: 600; }
         .sources ol { margin: 10px 0 0 18px; line-height: 1.5; }
@@ -933,9 +937,9 @@
             resultDiv.innerHTML = `
                 <div style="font-size: 24px; margin-bottom: 15px;">🎯 ${selectedSegment.id}</div>
                 <div style="background: var(--node); border: 1px solid var(--border); border-radius: 8px; padding: 15px; text-align: left;">
-                    <div style="font-size: 20px; color: var(--accent); margin-bottom: 10px; font-weight: 600;">${section.title}</div>
-                    <div style="font-size: 22px; color: var(--ink); margin-bottom: 12px; font-weight: 500;">${section.prompt}</div>
-                    <div style="font-size: 15px; color: var(--line); margin-bottom: 15px; font-style: italic;">${section.hints}</div>
+                    <div class="roulette-result-title" style="color: var(--accent); margin-bottom: 10px; font-weight: 600;">${section.title}</div>
+                    <div class="roulette-result-prompt" style="color: var(--ink); margin-bottom: 12px; font-weight: 500;">${section.prompt}</div>
+                    <div class="roulette-result-hint" style="color: var(--line); margin-bottom: 15px; font-style: italic;">${section.hints}</div>
                     
                     <div style="margin-top: 15px;">
                         <div style="display: flex; gap: 12px; justify-content: center;">
@@ -949,7 +953,7 @@
                             </button>
                         </div>
                         
-                        <div id="${selectedSegment.id}No" class="roulette-details no-hands" style="display: none; background: #2a0e0e; border: 1px solid #5b2525; border-radius: 10px; padding: 10px 12px; margin: 8px 0 4px; font-size: 17px;">
+                        <div id="${selectedSegment.id}No" class="roulette-details no-hands" style="display: none; background: #2a0e0e; border: 1px solid #5b2525; border-radius: 10px; padding: 10px 12px; margin: 8px 0 4px;">
                             <h3 style="margin:0 0 4px; font-size:14px; color:#dbe7ff;">🙅 No Hands Questions</h3>
                             <ul style="margin:6px 0 0 18px;">
                                 ${section.no_hands.map(q => `<li style="margin-bottom: 4px;">${q}</li>`).join('')}
@@ -957,7 +961,7 @@
                             ${renderFollowUps(section.follow_ups)}
                         </div>
 
-                        <div id="${selectedSegment.id}Yes" class="roulette-details hands-up" style="display: none; background: #0e2a1d; border: 1px solid #255b40; border-radius: 10px; padding: 10px 12px; margin: 8px 0 4px; font-size: 17px;">
+                        <div id="${selectedSegment.id}Yes" class="roulette-details hands-up" style="display: none; background: #0e2a1d; border: 1px solid #255b40; border-radius: 10px; padding: 10px 12px; margin: 8px 0 4px;">
                             <h3 style="margin:0 0 4px; font-size:14px; color:#dbe7ff;">🙋 Hands Up Questions</h3>
                             <ul style="margin:6px 0 0 18px;">
                                 ${section.hands_up.map(q => `<li style="margin-bottom: 4px;">${q}</li>`).join('')}

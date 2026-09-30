@@ -27,6 +27,7 @@ class CopyVerificationTest {
         this.testExists(embeddedData[TOPIC_KEY], 'EU 2026 topic data');
         this.testTopicData(expectedData, embeddedData[TOPIC_KEY]);
         this.testQuestionTitles(expectedData);
+        this.testContentRules(expectedData);
         this.reportResults();
     }
 
@@ -92,6 +93,49 @@ class CopyVerificationTest {
         for (let i = 1; i <= 6; i++) {
             this.testString(expected[`q${i}`].question, actualTitles[i - 1], `Q${i} title`);
         }
+    }
+
+    // The rules the page is written to: sayable prompts, one-breath hints, one idea per question,
+    // a named source for every number, and nothing on screen that primes the eyes-closed count.
+    testContentRules(expected) {
+        const htmlContent = fs.readFileSync(HTML_FILE, 'utf8');
+        const wordCount = text => text.trim().split(/\s+/).length;
+        const sourcesMatch = htmlContent.match(/<details class="sources">([\s\S]*?)<\/details>/);
+        const sourceLeads = sourcesMatch
+            ? [...sourcesMatch[1].matchAll(/<li><strong>([^<]+)<\/strong>/g)].map(match => match[1].split(',')[0].trim().toLowerCase())
+            : [];
+        this.testEquals(sourceLeads.length > 0, true, 'Sources block has labelled entries');
+
+        for (let i = 1; i <= 6; i++) {
+            expected[`q${i}`].sections.forEach((section, index) => {
+                const context = `Q${i}S${index + 1}`;
+                const questions = [...section.no_hands, ...section.hands_up, ...section.follow_ups];
+                const hint = section.hint.toLowerCase();
+
+                this.testEquals(section.prompt.startsWith('Raise your hand if'), true, `${context} prompt starts with "Raise your hand if"`);
+                this.testEquals(wordCount(section.prompt) < 20, true, `${context} prompt under 20 words (${wordCount(section.prompt)})`);
+                this.testEquals(wordCount(section.hint) < 28, true, `${context} hint under 28 words (${wordCount(section.hint)})`);
+                this.testEquals(section.no_hands.length, 3, `${context} No Hands count`);
+                this.testEquals(section.hands_up.length >= 3 && section.hands_up.length <= 4, true, `${context} Hands Up count is 3 or 4 (${section.hands_up.length})`);
+                this.testEquals(section.follow_ups.length >= 1 && section.follow_ups.length <= 2, true, `${context} follow-up count is 1 or 2 (${section.follow_ups.length})`);
+                questions.forEach(question => {
+                    this.testEquals(wordCount(question) < 18, true, `${context} question under 18 words: "${question}"`);
+                });
+                this.testEquals(sourceLeads.some(lead => hint.includes(lead)), true, `${context} hint names a source from the Sources block`);
+                this.testEquals(hint.includes('eyes closed'), false, `${context} hint does not show the eyes-closed move`);
+            });
+        }
+
+        for (let i = 1; i <= 6; i++) {
+            const raw = fs.readFileSync(path.join(DATA_DIR, `q${i}.json`), 'utf8');
+            this.testEquals(/[\u2013\u2014]/.test(raw), false, `q${i}.json has no en or em dash`);
+        }
+        this.testEquals(/[\u2013\u2014]/.test(htmlContent), false, 'Berlin page has no en or em dash');
+
+        ['roulette-result-title', 'roulette-result-prompt', 'roulette-result-hint'].forEach(className => {
+            this.testEquals(htmlContent.includes(`class="${className}"`), true, `roulette template uses .${className}`);
+            this.testEquals(htmlContent.includes(`.${className} {`), true, `projector CSS sizes .${className}`);
+        });
     }
 
     testExists(value, context) {
