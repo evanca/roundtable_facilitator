@@ -43,7 +43,7 @@
     {
       "model": "Worried This Year",
       "prompt": "Raise your hand if this year has made you worry about your own career.",
-      "hint": "Stack Overflow 2025: 64% of developers say AI is no threat to their job, down from 68% a year earlier. Eyes closed; count hands for the closer.",
+      "hint": "Stack Overflow 2025: 64% of developers say AI is no threat to their job, down from 68% a year earlier. Ask what triggered it.",
       "no_hands": [
         "What gives you confidence: your skills, your network, your savings, or your employer?",
         "Is there anything you are quietly watching even though you are not worried?",
